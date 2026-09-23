@@ -1,0 +1,695 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Contact & Inquire | Ananda Crown - Sector 78 Mohali</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400;1,500;1,600&family=Montserrat:wght@300;400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="/one24.css" />
+    <style>
+      :root {
+        --bg-dark: #0e0703;
+        --bronze: #a27b58;
+        --white: #ffffff;
+        --muted: rgba(255, 255, 255, 0.45);
+        --border-line: rgba(255, 255, 255, 0.25);
+      }
+
+      * {
+        box-sizing: border-box;
+        
+        margin: 0;
+        padding: 0;
+      }
+
+      html, body {
+        width: 100%;
+        min-height: 100vh;
+        background-color: var(--bg-dark);
+        color: var(--white);
+        font-family: 'Montserrat', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+        overflow-x: hidden;
+      }
+
+      .contact-page-container {
+        position: relative;
+        width: 100vw;
+        min-height: 100vh;
+        background-color: var(--bg-dark);
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        padding: 40px 60px 48px;
+      }
+
+      /* Top Close Bar */
+      .contact-top-bar {
+        display: flex;
+        justify-content: flex-end;
+        align-items: center;
+        width: 100%;
+        margin-bottom: 20px;
+        z-index: 10;
+      }
+
+      .contact-close-btn {
+        color: var(--white);
+        text-decoration: none;
+        font-size: 13px;
+        font-weight: 500;
+        letter-spacing: 0.18em;
+        text-transform: uppercase;
+        cursor: pointer;
+        transition: color 0.3s ease, opacity 0.3s ease;
+        padding: 6px 0;
+      }
+
+      .contact-close-btn:hover {
+        color: var(--bronze);
+        opacity: 0.85;
+      }
+
+      /* Main 2-Column Layout */
+      .contact-main-grid {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 60px;
+        flex: 1;
+        align-items: stretch;
+      }
+
+      /* Left Column */
+      .contact-left-col {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        padding-bottom: 20px;
+      }
+
+      .contact-hero-title {
+        font-family: 'Tobias', 'Cormorant Garamond', Georgia, serif;
+        font-size: clamp(64px, 7.5vw, 115px);
+        line-height: 0.88;
+        font-weight: 300;
+        text-transform: uppercase;
+        color: var(--white);
+        letter-spacing: 0.01em;
+      }
+
+      .contact-info-block {
+        display: flex;
+        flex-direction: column;
+        gap: 32px;
+        margin-top: 60px;
+      }
+
+      .contact-section-label {
+        font-size: 11px;
+        letter-spacing: 0.16em;
+        text-transform: uppercase;
+        color: var(--bronze);
+        margin-bottom: 14px;
+        font-weight: 500;
+      }
+
+      .contact-address {
+        font-family: 'Tobias', 'Cormorant Garamond', Georgia, serif;
+        font-size: clamp(20px, 1.8vw, 25px);
+        line-height: 1.3;
+        font-weight: 300;
+        color: var(--white);
+        text-transform: uppercase;
+        letter-spacing: 0.02em;
+        text-decoration: none;
+        display: inline-block;
+        transition: color 0.3s ease;
+      }
+
+      .contact-address:hover {
+        color: var(--bronze);
+      }
+
+      .contact-phone-group {
+        display: flex;
+        flex-direction: column;
+        gap: 16px;
+      }
+
+      .contact-phone-item {
+        display: flex;
+        flex-direction: column;
+      }
+
+      .contact-phone-number {
+        font-family: 'Tobias', 'Cormorant Garamond', Georgia, serif;
+        font-size: clamp(20px, 1.8vw, 25px);
+        font-weight: 300;
+        line-height: 1.2;
+        color: var(--white);
+        text-decoration: none;
+        letter-spacing: 0.02em;
+        transition: color 0.3s ease;
+      }
+
+      .contact-phone-number:hover {
+        color: var(--bronze);
+      }
+
+      .contact-sub-label {
+        font-size: 9px;
+        letter-spacing: 0.14em;
+        text-transform: uppercase;
+        color: var(--muted);
+        margin-top: 4px;
+        font-weight: 400;
+      }
+
+      /* Right Column */
+      .contact-right-col {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        padding-left: 20px;
+      }
+
+      .contact-form-wrapper {
+        width: 100%;
+        max-width: 680px;
+      }
+
+      /* Register Interest Bar */
+      .interest-bar {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding-bottom: 12px;
+        border-bottom: 1px solid var(--border-line);
+        margin-bottom: 36px;
+      }
+
+      .interest-left {
+        display: flex;
+        align-items: center;
+        gap: 14px;
+      }
+
+      .interest-dot {
+        width: 6px;
+        height: 6px;
+        border-radius: 50%;
+        background-color: var(--white);
+      }
+
+      .interest-title {
+        font-size: 12px;
+        letter-spacing: 0.14em;
+        text-transform: uppercase;
+        color: var(--white);
+        font-weight: 500;
+      }
+
+      /* Toggle Switch Pill */
+      .toggle-pill {
+        width: 32px;
+        height: 18px;
+        border-radius: 20px;
+        background-color: rgba(255, 255, 255, 0.15);
+        border: 1px solid rgba(255, 255, 255, 0.6);
+        position: relative;
+        cursor: pointer;
+        transition: all 0.3s ease;
+      }
+
+      .toggle-pill.active {
+        background-color: #ffffff;
+        border-color: #ffffff;
+      }
+
+      .toggle-handle {
+        width: 12px;
+        height: 12px;
+        border-radius: 50%;
+        background-color: #ffffff;
+        position: absolute;
+        top: 2px;
+        left: 2px;
+        transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1), background-color 0.3s ease;
+      }
+
+      .toggle-pill.active .toggle-handle {
+        transform: translateX(14px);
+        background-color: var(--bg-dark);
+      }
+
+      .required-notice {
+        font-size: 10px;
+        letter-spacing: 0.12em;
+        text-transform: uppercase;
+        color: var(--muted);
+      }
+
+      /* Form Fields Grid */
+      .form-grid {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        column-gap: 36px;
+        row-gap: 32px;
+        margin-bottom: 28px;
+      }
+
+      .form-field-full {
+        grid-column: 1 / -1;
+      }
+
+      .form-field-item {
+        position: relative;
+        display: flex;
+        flex-direction: column;
+      }
+
+      .form-underline-input {
+        width: 100%;
+        background: transparent !important;
+        border: none !important;
+        border-bottom: 1px solid var(--border-line) !important;
+        border-radius: 0 !important;
+        outline: none !important;
+        box-shadow: none !important;
+        color: var(--white) !important;
+        font-family: 'Montserrat', sans-serif !important;
+        font-size: 11px !important;
+        letter-spacing: 0.14em !important;
+        text-transform: uppercase !important;
+        padding: 10px 0 !important;
+        transition: border-color 0.3s ease;
+      }
+
+      .form-underline-input::placeholder {
+        color: var(--muted) !important;
+        font-size: 11px !important;
+        letter-spacing: 0.14em !important;
+        text-transform: uppercase !important;
+      }
+
+      .form-underline-input:focus {
+        border-bottom-color: var(--white) !important;
+      }
+
+      textarea.form-underline-input {
+        resize: vertical;
+        min-height: 48px;
+      }
+
+      /* Autofill Chrome Dark Theme Fix */
+      input:-webkit-autofill,
+      input:-webkit-autofill:hover, 
+      input:-webkit-autofill:focus,
+      textarea:-webkit-autofill {
+        -webkit-text-fill-color: #ffffff !important;
+        -webkit-box-shadow: 0 0 0px 1000px #0e0703 inset !important;
+        transition: background-color 5000s ease-in-out 0s;
+      }
+
+      /* Privacy Checkbox */
+      .privacy-agreement {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+        margin-top: 24px;
+        cursor: pointer;
+        user-select: none;
+      }
+
+      .custom-radio-circle {
+        width: 15px;
+        height: 15px;
+        border-radius: 50%;
+        border: 1.5px solid rgba(255, 255, 255, 0.5);
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        flex-shrink: 0;
+        transition: border-color 0.3s ease;
+      }
+
+      .custom-radio-circle.checked {
+        border-color: var(--white);
+      }
+
+      .custom-radio-dot {
+        width: 7px;
+        height: 7px;
+        border-radius: 50%;
+        background-color: var(--white);
+        opacity: 0;
+        transform: scale(0.6);
+        transition: opacity 0.2s ease, transform 0.2s ease;
+      }
+
+      .custom-radio-circle.checked .custom-radio-dot {
+        opacity: 1;
+        transform: scale(1);
+      }
+
+      .privacy-label-text {
+        font-size: 10px;
+        letter-spacing: 0.1em;
+        text-transform: uppercase;
+        color: rgba(255, 255, 255, 0.7);
+        line-height: 1.4;
+      }
+
+      .privacy-label-text a {
+        color: rgba(255, 255, 255, 0.9);
+        text-decoration: underline;
+        transition: color 0.3s ease;
+      }
+
+      .privacy-label-text a:hover {
+        color: var(--white);
+      }
+
+      /* Giant Bottom-Right Submit Button */
+      .submit-button-container {
+        display: flex;
+        justify-content: flex-end;
+        align-items: flex-end;
+        width: 100%;
+        margin-top: 40px;
+      }
+
+      .giant-submit-btn {
+        font-family: 'Tobias', 'Cormorant Garamond', Georgia, serif;
+        font-size: clamp(75px, 8.5vw, 135px);
+        font-weight: 300;
+        line-height: 0.85;
+        color: var(--white);
+        background: transparent;
+        border: none;
+        cursor: pointer;
+        letter-spacing: 0.02em;
+        text-transform: uppercase;
+        text-align: right;
+        padding: 0;
+        margin: 0;
+        outline: none;
+        transition: color 0.4s ease, transform 0.3s ease;
+      }
+
+      .giant-submit-btn:hover {
+        color: var(--bronze);
+        transform: translateX(4px);
+      }
+
+      /* Success Feedback State */
+      .contact-success-box {
+        display: none;
+        flex-direction: column;
+        justify-content: center;
+        align-items: flex-start;
+        padding: 60px 0;
+      }
+
+      .contact-success-box.is-active {
+        display: flex;
+      }
+
+      .success-title {
+        font-family: 'Cormorant Garamond', Georgia, serif;
+        font-size: clamp(48px, 5.5vw, 88px);
+        line-height: 1;
+        text-transform: uppercase;
+        color: var(--white);
+        margin-top: 20px;
+      }
+
+      /* Responsive Breakpoints */
+      @media (max-width: 991px) {
+        .contact-page-container {
+          padding: 30px 28px 40px;
+        }
+
+        .contact-main-grid {
+          grid-template-columns: 1fr;
+          gap: 50px;
+        }
+
+        .contact-right-col {
+          padding-left: 0;
+        }
+
+        .form-grid {
+          grid-template-columns: 1fr;
+          gap: 24px;
+        }
+
+        .contact-hero-title {
+          font-size: clamp(54px, 12vw, 84px);
+        }
+
+        .giant-submit-btn {
+          font-size: clamp(64px, 14vw, 96px);
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="contact-page-container">
+      <!-- Top Close Link -->
+      <div class="contact-top-bar">
+        <a href="/" id="contact-close-link" class="contact-close-btn" aria-label="Close contact page">
+          CLOSE
+        </a>
+      </div>
+
+      <!-- Main Grid -->
+      <div class="contact-main-grid">
+        <!-- Left Column -->
+        <div class="contact-left-col">
+          <div class="contact-hero-heading-wrap">
+            <h1 class="contact-hero-title">
+              INQUIRY<br />NOW
+            </h1>
+          </div>
+
+          <div class="contact-info-block">
+            <!-- Where -->
+            <div class="contact-where-section">
+              <div class="contact-section-label">WHERE</div>
+              <a
+                href="https://maps.google.com/?q=Sector+78+Mohali+Punjab"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="contact-address"
+              >
+                SECTOR 78, SAS NAGAR,<br />
+                MOHALI, PUNJAB<br />
+                140308
+              </a>
+            </div>
+
+            <!-- Contacts -->
+            <div class="contact-numbers-section">
+              <div class="contact-section-label">CONTACTS</div>
+              <div class="contact-phone-group">
+                <div class="contact-phone-item">
+                  <a href="tel:+919779799705" class="contact-phone-number">+91 97797 99705</a>
+                  <span class="contact-sub-label">LOCAL CALL, FEES MAY APPLY</span>
+                </div>
+                <div class="contact-phone-item">
+                  <a href="tel:+919872400078" class="contact-phone-number">+91 98724 00078</a>
+                  <span class="contact-sub-label">LOCAL CALL, FEES MAY APPLY</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Right Column -->
+        <div class="contact-right-col">
+          <div class="contact-form-wrapper">
+            <form id="contact-inquiry-form" class="contact-form">
+              <!-- Top Register Interest & Toggle Switch -->
+              <div class="interest-bar">
+                <div class="interest-left">
+                  <span class="interest-dot"></span>
+                  <span class="interest-title" id="interest-label">REGISTER INTEREST</span>
+                  <div class="toggle-pill active" id="toggle-switch" role="button" tabindex="0" aria-label="Toggle Interest">
+                    <div class="toggle-handle"></div>
+                  </div>
+                </div>
+                <div class="required-notice">*REQUIRED FIELDS</div>
+              </div>
+
+              <!-- Input Fields Grid -->
+              <div class="form-grid">
+                <div class="form-field-item">
+                  <input
+                    type="text"
+                    id="firstName"
+                    name="firstName"
+                    class="form-underline-input"
+                    placeholder="FIRST NAME*"
+                    required
+                  />
+                </div>
+
+                <div class="form-field-item">
+                  <input
+                    type="text"
+                    id="lastName"
+                    name="lastName"
+                    class="form-underline-input"
+                    placeholder="LAST NAME*"
+                    required
+                  />
+                </div>
+
+                <div class="form-field-item">
+                  <input
+                    type="email"
+                    id="email"
+                    name="email"
+                    class="form-underline-input"
+                    placeholder="EMAIL*"
+                    required
+                  />
+                </div>
+
+                <div class="form-field-item">
+                  <input
+                    type="tel"
+                    id="phone"
+                    name="phone"
+                    class="form-underline-input"
+                    placeholder="PHONE NUMBER"
+                  />
+                </div>
+
+                <div class="form-field-item form-field-full">
+                  <textarea
+                    id="request"
+                    name="request"
+                    rows="1"
+                    class="form-underline-input"
+                    placeholder="REQUEST*"
+                    required
+                  ></textarea>
+                </div>
+              </div>
+
+              <!-- Privacy Policy Radio/Checkbox -->
+              <div class="privacy-agreement" id="privacy-row" tabindex="0">
+                <div class="custom-radio-circle" id="privacy-circle">
+                  <div class="custom-radio-dot"></div>
+                </div>
+                <input type="checkbox" id="privacy-input" name="privacy" required style="display: none;" />
+                <span class="privacy-label-text">
+                  I HAVE READ AND ACCEPT THE <a href="/privacy" target="_blank">PRIVACY POLICY</a>.
+                </span>
+              </div>
+            </form>
+
+            <!-- Success Box -->
+            <div id="contact-success-state" class="contact-success-box">
+              <div class="interest-bar" style="width: 100%;">
+                <div class="interest-left">
+                  <span class="interest-dot"></span>
+                  <span class="interest-title">WE RECEIVED YOUR MESSAGE</span>
+                </div>
+              </div>
+              <h2 class="success-title">THANK YOU</h2>
+              <p style="margin-top: 18px; color: var(--muted); font-size: 13px; letter-spacing: 0.08em; text-transform: uppercase;">
+                Our private concierge will contact you shortly.
+              </p>
+            </div>
+          </div>
+
+          <!-- Giant Bottom-Right Submit Button -->
+          <div class="submit-button-container" id="submit-btn-wrap">
+            <button type="submit" form="contact-inquiry-form" class="giant-submit-btn" id="submit-btn">
+              SUBMIT
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script>
+      (function() {
+        // Toggle Switch handler
+        const togglePill = document.getElementById('toggle-switch');
+        const interestLabel = document.getElementById('interest-label');
+        let isRegisterInterest = true;
+
+        if (togglePill) {
+          togglePill.addEventListener('click', function() {
+            isRegisterInterest = !isRegisterInterest;
+            togglePill.classList.toggle('active', isRegisterInterest);
+            if (interestLabel) {
+              interestLabel.textContent = isRegisterInterest ? 'REGISTER INTEREST' : 'SCHEDULE VISIT';
+            }
+          });
+        }
+
+        // Privacy Checkbox handler
+        const privacyRow = document.getElementById('privacy-row');
+        const privacyCircle = document.getElementById('privacy-circle');
+        const privacyInput = document.getElementById('privacy-input');
+
+        if (privacyRow && privacyCircle && privacyInput) {
+          privacyRow.addEventListener('click', function(e) {
+            if (e.target.tagName.toLowerCase() === 'a') return;
+            privacyInput.checked = !privacyInput.checked;
+            privacyCircle.classList.toggle('checked', privacyInput.checked);
+          });
+        }
+
+        // Close button: Go back if there is history, else go to /
+        const closeBtn = document.getElementById('contact-close-link');
+        if (closeBtn) {
+          closeBtn.addEventListener('click', function(e) {
+            e.preventDefault();
+            if (window.history.length > 1 && document.referrer.includes(window.location.host)) {
+              window.history.back();
+            } else {
+              window.location.href = '/';
+            }
+          });
+        }
+
+        // ESC key closes
+        document.addEventListener('keydown', function(e) {
+          if (e.key === 'Escape') {
+            if (closeBtn) closeBtn.click();
+          }
+        });
+
+        // Form submission
+        const form = document.getElementById('contact-inquiry-form');
+        const successBox = document.getElementById('contact-success-state');
+        const submitWrap = document.getElementById('submit-btn-wrap');
+
+        if (form) {
+          form.addEventListener('submit', function(e) {
+            e.preventDefault();
+            if (privacyInput && !privacyInput.checked) {
+              alert('Please accept the privacy policy to proceed.');
+              return;
+            }
+
+            form.style.display = 'none';
+            if (submitWrap) submitWrap.style.display = 'none';
+            if (successBox) successBox.classList.add('is-active');
+          });
+        }
+      })();
+    </script>
+  </body>
+</html>
