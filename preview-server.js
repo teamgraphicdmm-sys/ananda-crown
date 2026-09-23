@@ -55,8 +55,32 @@ http
       res.end("not found: " + urlPath);
       return;
     }
+    const { size } = fs.statSync(file);
+    const type = MIME[path.extname(file).toLowerCase()] || "application/octet-stream";
+    // Range requests (required for <video> seeking / canvas frame scrubbing)
+    const range = req.headers.range;
+    if (range) {
+      const m = /^bytes=(\d*)-(\d*)$/.exec(range);
+      const start = m && m[1] !== "" ? Number(m[1]) : 0;
+      const end = m && m[2] !== "" ? Number(m[2]) : size - 1;
+      if (Number.isNaN(start) || Number.isNaN(end) || start >= size || end >= size) {
+        res.writeHead(416, { "Content-Range": `bytes */${size}` });
+        res.end();
+        return;
+      }
+      res.writeHead(206, {
+        "Content-Type": type,
+        "Content-Length": end - start + 1,
+        "Content-Range": `bytes ${start}-${end}/${size}`,
+        "Accept-Ranges": "bytes",
+      });
+      fs.createReadStream(file, { start, end }).pipe(res);
+      return;
+    }
     res.writeHead(200, {
-      "Content-Type": MIME[path.extname(file).toLowerCase()] || "application/octet-stream",
+      "Content-Type": type,
+      "Content-Length": size,
+      "Accept-Ranges": "bytes",
     });
     fs.createReadStream(file).pipe(res);
   })
