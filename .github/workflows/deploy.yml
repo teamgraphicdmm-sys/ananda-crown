@@ -62,6 +62,12 @@ jobs:
           NEXT_PUBLIC_BASE_PATH: ${{ steps.base.outputs.value }}
         run: npm run build
 
+      - name: Publish clone design as site root
+        env:
+          NEXT_BASE_PATH: ${{ steps.base.outputs.value }}
+          NEXT_PUBLIC_BASE_PATH: ${{ steps.base.outputs.value }}
+        run: node export-clone.js
+
       - name: Add .nojekyll
         run: touch out/.nojekyll
 
