@@ -1,13 +1,14 @@
-// Local preview of the exact site GitHub Pages serves.
-// Usage: npm run preview  ->  http://localhost:8080/
-// Serves ./out (run `npm run build` first; then optionally node export-clone.js).
+// Local server for the clone site (same content GitHub Pages serves).
+// Usage:
+//   npm run dev      -> http://localhost:3000/ (serves ./public, no build needed)
+//   npm run preview  -> http://localhost:8080/ (serves ./out, exact CI artifact)
 // Zero dependencies (built-in http/fs only).
 
 const http = require("http");
 const fs = require("fs");
 const path = require("path");
 
-const ROOT = path.join(__dirname, "out");
+const ROOT = path.join(__dirname, process.argv[3] || "out");
 const PORT = Number(process.env.PORT || process.argv[2] || 8080);
 
 const MIME = {
@@ -40,6 +41,14 @@ http
     }
     if (fs.existsSync(file) && fs.statSync(file).isDirectory()) {
       file = path.join(file, "index.html");
+    }
+    if (!fs.existsSync(file) && !path.extname(file)) {
+      if (fs.existsSync(file + ".html")) file = file + ".html";
+    }
+    // Clone site entry points (legacy static HTML design)
+    if (!fs.existsSync(file) && file === path.join(ROOT, "index.html")) {
+      const clone = path.join(ROOT, "ananda_crown_clone.html");
+      if (fs.existsSync(clone)) file = clone;
     }
     if (!fs.existsSync(file)) {
       res.writeHead(404, { "Content-Type": "text/plain" });

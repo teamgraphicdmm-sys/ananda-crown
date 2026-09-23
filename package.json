@@ -3,9 +3,10 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "dev": "next dev",
+    "dev": "node preview-server.js 3000 public",
+    "dev:react": "next dev",
     "build": "next build",
-    "preview": "node preview-server.js",
+    "preview": "node preview-server.js 8080 out",
     "start": "next start",
     "lint": "eslint"
   },
