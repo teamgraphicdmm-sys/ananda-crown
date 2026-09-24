@@ -3873,7 +3873,7 @@ figcaption {
 }
 
 .nav-link-inquire {
-  flex-direction: row;
+  /* flex-direction: row;
   justify-content: flex-end;
   align-items: flex-start;
   padding-top: 1.875em;
@@ -3883,7 +3883,7 @@ figcaption {
   top: 0%;
   bottom: auto;
   left: auto;
-  right: 0%;
+  right: 0%; */
 }
 
 .vision-section {
@@ -6072,8 +6072,8 @@ figcaption {
   }
 
   .nav-link-inquire {
-    padding-top: 1.625em;
-    padding-right: 1em;
+    /* padding-top: 1.625em;
+    padding-right: 1em; */
   }
 
   .vision-section {

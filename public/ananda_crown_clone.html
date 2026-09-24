@@ -362,7 +362,7 @@
    TOP-LEFT LOGO: ZERO BACKGROUND COLOR, TRANSPARENT
    ========================================================================== */
       .ref-top-logo {
-        position: fixed !important;
+        /* position: fixed !important;
         top: 0px !important;
         left: clamp(40px, 5vw, 90px) !important;
         width: 72px !important;
@@ -376,7 +376,9 @@
         justify-content: center !important;
         z-index: 1001 !important;
         text-decoration: none !important;
-        transition: transform 0.3s ease !important;
+        transition: transform 0.3s ease !important; */
+            height: 80px;
+            width: 80px;
       }
       .ref-top-logo:hover {
         transform: scale(1.05) !important;
@@ -449,8 +451,8 @@
         content: "" !important;
         position: absolute !important;
         left: 2px !important;
-        top: 50% !important;
-        margin-top: -3px !important;
+        /* top: 50% !important; */
+        /* margin-top: -3px !important; */
         width: 6px !important;
         height: 6px !important;
         border-radius: 50% !important;
@@ -595,7 +597,7 @@
         content: "|" !important;
         color: rgba(48, 22, 14, 0.4) !important;
         font-size: 14px !important;
-        margin-right: 20px !important;
+        margin-right: 5px !important;
         font-weight: 300 !important;
         transition: color 0.35s ease !important;
       }
@@ -1463,12 +1465,17 @@
           will-change: transform !important;
         }
 
-        .amenity-mobile-pills {
+        .amenity-mobile-pills,
+        .nav-mobile-toggle,
+        .nav-mobile-drawer {
           display: none !important;
         }
       }
 
-      /* Responsive Rules for Mobile & Tablet (<992px) */
+      /* =========================================================
+         RESPONSIVE RULES FOR MOBILE & TABLET (< 992px)
+         Clean, elegant vertical layout for all sections
+         ========================================================= */
       @media screen and (max-width: 991px) {
         html, body {
           overflow-x: hidden !important;
@@ -1476,35 +1483,335 @@
           width: 100% !important;
         }
 
+        /* --- GLOBAL WRAPPER & TRACKS FOR VERTICAL FLOW --- */
+        .main-wrapper {
+          width: 100% !important;
+          max-width: 100vw !important;
+          overflow-x: hidden !important;
+        }
+
+        .section-height {
+          height: auto !important;
+          min-height: auto !important;
+        }
+
+        .sticky-element {
+          position: relative !important;
+          height: auto !important;
+          min-height: auto !important;
+          display: flex !important;
+          flex-direction: column !important;
+          overflow: visible !important;
+        }
+
+        .track {
+          height: auto !important;
+          min-height: auto !important;
+          width: 100% !important;
+          max-width: 100vw !important;
+          transform: none !important;
+          overflow: visible !important;
+        }
+
+        .track-flex {
+          display: flex !important;
+          flex-direction: column !important;
+          height: auto !important;
+          width: 100% !important;
+          max-width: 100vw !important;
+          transform: none !important;
+          margin-right: 0 !important;
+        }
+
+        .panel {
+          width: 100% !important;
+          min-width: 100% !important;
+          max-width: 100vw !important;
+          height: auto !important;
+          flex: none !important;
+          position: relative !important;
+          box-sizing: border-box !important;
+        }
+
+        /* --- NAVBAR & MOBILE TOGGLE --- */
+        .ref-top-logo {
+          left: 16px !important;
+          top: 10px !important;
+          width: 44px !important;
+          height: 44px !important;
+          z-index: 1002 !important;
+        }
+
+        .nav {
+          height: 60px !important;
+          display: flex !important;
+          align-items: center !important;
+          justify-content: flex-end !important;
+          padding: 0 14px 0 68px !important;
+          gap: 10px !important;
+          backdrop-filter: blur(14px) !important;
+          -webkit-backdrop-filter: blur(14px) !important;
+          background: rgba(18, 9, 2, 0.5) !important;
+          transition: background-color 0.35s ease, border-color 0.35s ease !important;
+          z-index: 1000 !important;
+        }
+
+        .nav.is-light-bg {
+          background: rgba(247, 242, 237, 0.92) !important;
+          border-bottom: 1px solid rgba(194, 161, 128, 0.25) !important;
+        }
+
+        .nav.is-dark-bg {
+          background: rgba(11, 20, 16, 0.88) !important;
+          border-bottom: 1px solid rgba(255, 255, 255, 0.08) !important;
+        }
+
+        .nav-links-component {
+          display: none !important;
+        }
+
+        .nav-link-inquire {
+          /* margin-left: auto !important;
+          padding: 0 !important;
+          flex-shrink: 0 !important; */
+        }
+
+        .nav-link.inquire {
+          padding: 6px 14px !important;
+          background: rgba(194, 161, 128, 0.18) !important;
+          border: 1px solid rgba(194, 161, 128, 0.4) !important;
+          border-radius: 20px !important;
+          transition: all 0.3s ease !important;
+        }
+
+        .nav-link.inquire:hover {
+          background: rgba(194, 161, 128, 0.3) !important;
+        }
+
+        .nav-link.inquire .untitled-400-13 {
+          font-size: 10.5px !important;
+          letter-spacing: 0.14em !important;
+          font-weight: 600 !important;
+          color: #c2a180 !important;
+        }
+
+        .nav-link-inquire::before {
+          display: none !important;
+        }
+
+        /* Hamburger Toggle Button */
+        .nav-mobile-toggle {
+          display: flex !important;
+          flex-direction: column !important;
+          justify-content: center !important;
+          align-items: center !important;
+          width: 38px !important;
+          height: 38px !important;
+          padding: 0 !important;
+          background: rgba(255, 255, 255, 0.06) !important;
+          border: 1px solid rgba(194, 161, 128, 0.3) !important;
+          border-radius: 8px !important;
+          cursor: pointer !important;
+          gap: 5px !important;
+          z-index: 1001 !important;
+          transition: all 0.3s ease !important;
+        }
+
+        .nav-mobile-toggle:hover {
+          background: rgba(194, 161, 128, 0.15) !important;
+          border-color: #c2a180 !important;
+        }
+
+        .nav-toggle-bar {
+          display: block !important;
+          width: 19px !important;
+          height: 2px !important;
+          background-color: #f2e8dc !important;
+          border-radius: 2px !important;
+          transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.25s ease, background-color 0.3s ease !important;
+          transform-origin: center !important;
+        }
+
+        .nav.is-light-bg .nav-toggle-bar {
+          background-color: #120902 !important;
+        }
+
+        .nav-mobile-toggle.is-open {
+          background: rgba(194, 161, 128, 0.2) !important;
+          border-color: #c2a180 !important;
+        }
+
+        .nav-mobile-toggle.is-open .nav-toggle-bar:nth-child(1) {
+          transform: translateY(7px) rotate(45deg) !important;
+          background-color: #c2a180 !important;
+        }
+
+        .nav-mobile-toggle.is-open .nav-toggle-bar:nth-child(2) {
+          opacity: 0 !important;
+          transform: scaleX(0) !important;
+        }
+
+        .nav-mobile-toggle.is-open .nav-toggle-bar:nth-child(3) {
+          transform: translateY(-7px) rotate(-45deg) !important;
+          background-color: #c2a180 !important;
+        }
+
+        /* Luxury Mobile Navigation Drawer */
+        .nav-mobile-drawer {
+          position: fixed !important;
+          top: 60px !important;
+          left: 0 !important;
+          right: 0 !important;
+          bottom: 0 !important;
+          width: 100vw !important;
+          height: calc(100vh - 60px) !important;
+          height: calc(100dvh - 60px) !important;
+          background: rgba(11, 20, 16, 0.97) !important;
+          backdrop-filter: blur(28px) !important;
+          -webkit-backdrop-filter: blur(28px) !important;
+          z-index: 9999 !important;
+          display: flex !important;
+          flex-direction: column !important;
+          opacity: 0 !important;
+          visibility: hidden !important;
+          pointer-events: none !important;
+          transform: translateY(-16px) !important;
+          transition: opacity 0.35s cubic-bezier(0.16, 1, 0.3, 1), transform 0.35s cubic-bezier(0.16, 1, 0.3, 1), visibility 0.35s !important;
+          overflow-y: auto !important;
+          -webkit-overflow-scrolling: touch !important;
+          border-top: 1px solid rgba(194, 161, 128, 0.2) !important;
+        }
+
+        .nav-mobile-drawer.is-open {
+          opacity: 1 !important;
+          visibility: visible !important;
+          pointer-events: auto !important;
+          transform: translateY(0) !important;
+        }
+
+        .nav-mobile-drawer-inner {
+          display: flex !important;
+          flex-direction: column !important;
+          justify-content: space-between !important;
+          min-height: 100% !important;
+          padding: 2.25rem 1.5rem 2rem 1.5rem !important;
+          box-sizing: border-box !important;
+        }
+
+        .nav-mobile-links {
+          display: flex !important;
+          flex-direction: column !important;
+          gap: 1.15rem !important;
+        }
+
+        .nav-mobile-link {
+          display: flex !important;
+          align-items: center !important;
+          gap: 16px !important;
+          text-decoration: none !important;
+          padding: 10px 0 !important;
+          border-bottom: 1px solid rgba(255, 255, 255, 0.06) !important;
+          transition: all 0.25s ease !important;
+        }
+
+        .nav-mobile-link-num {
+          font-family: 'Montserrat', sans-serif !important;
+          font-size: 11px !important;
+          letter-spacing: 0.16em !important;
+          color: #c2a180 !important;
+          font-weight: 600 !important;
+          opacity: 0.65 !important;
+        }
+
+        .nav-mobile-link-text {
+          font-family: 'Montserrat', sans-serif !important;
+          font-size: 15px !important;
+          letter-spacing: 0.18em !important;
+          font-weight: 500 !important;
+          color: #ffffff !important;
+          text-transform: uppercase !important;
+          transition: color 0.25s ease, transform 0.25s ease !important;
+        }
+
+        .nav-mobile-link:hover .nav-mobile-link-text,
+        .nav-mobile-link.active .nav-mobile-link-text {
+          color: #c2a180 !important;
+          transform: translateX(4px) !important;
+        }
+
+        .nav-mobile-link.active .nav-mobile-link-num {
+          opacity: 1 !important;
+        }
+
+        .nav-mobile-footer {
+          margin-top: 2rem !important;
+          padding-top: 1.5rem !important;
+          border-top: 1px solid rgba(194, 161, 128, 0.25) !important;
+          display: flex !important;
+          flex-direction: column !important;
+          gap: 1.25rem !important;
+        }
+
+        .nav-mobile-inquire-btn {
+          display: block !important;
+          width: 100% !important;
+          text-align: center !important;
+          padding: 13px 20px !important;
+          background: linear-gradient(135deg, #c2a180 0%, #a88460 100%) !important;
+          color: #120902 !important;
+          font-family: 'Montserrat', sans-serif !important;
+          font-size: 11.5px !important;
+          letter-spacing: 0.2em !important;
+          font-weight: 700 !important;
+          text-transform: uppercase !important;
+          text-decoration: none !important;
+          border: none !important;
+          border-radius: 30px !important;
+          cursor: pointer !important;
+          box-shadow: 0 4px 20px rgba(194, 161, 128, 0.3) !important;
+        }
+
+        .nav-mobile-contact {
+          display: flex !important;
+          flex-direction: column !important;
+          gap: 6px !important;
+          font-size: 12px !important;
+          color: rgba(255, 255, 255, 0.65) !important;
+        }
+
+        .nav-mobile-phone {
+          color: #f2e8dc !important;
+          text-decoration: none !important;
+        }
+
         /* --- HERO SECTION MOBILE RESPONSIVE (#home) --- */
         #home.hero-section.panel {
           width: 100% !important;
           min-width: 100% !important;
           max-width: 100vw !important;
-          height: 100vh !important;
-          min-height: 100vh !important;
-          min-height: 100dvh !important;
+          height: 230vh !important;
+          min-height: 230vh !important;
           flex: none !important;
           position: relative !important;
-          overflow: hidden !important;
-          display: flex !important;
-          flex-direction: column !important;
+          overflow: visible !important;
+          display: block !important;
         }
 
         #hero-sticky-stage {
-          position: relative !important;
-          top: auto !important;
-          left: auto !important;
+          position: -webkit-sticky !important;
+          position: sticky !important;
+          top: 0 !important;
+          left: 0 !important;
           width: 100% !important;
-          height: 100% !important;
-          min-height: 100vh !important;
-          min-height: 100dvh !important;
+          height: 100vh !important;
+          height: 100dvh !important;
           transform: none !important;
           overflow: hidden !important;
+          z-index: 2 !important;
         }
 
         .ref-hero-container {
-          padding: 85px 20px 24px 20px !important;
+          padding: 80px 20px 24px 20px !important;
           height: 100% !important;
           min-height: 100vh !important;
           min-height: 100dvh !important;
@@ -1563,7 +1870,291 @@
           display: none !important;
         }
 
-        /* --- LOCATION / AMENITIES SECTION MOBILE RESPONSIVE (#location) --- */
+        /* --- VISION / ABOUT US SECTION (#vision) --- */
+        .vision-section.about-us-section {
+          width: 100% !important;
+          min-width: 100% !important;
+          max-width: 100% !important;
+          height: auto !important;
+          min-height: auto !important;
+          padding: 5rem 1.5rem 3.5rem !important;
+          box-sizing: border-box !important;
+        }
+
+        .about-container {
+          flex-direction: column !important;
+          padding: 0 !important;
+          gap: 2rem !important;
+          height: auto !important;
+        }
+
+        .about-left-col {
+          max-width: 100% !important;
+          flex: none !important;
+        }
+
+        .about-main-title {
+          font-size: clamp(2.2rem, 7.5vw, 3.4rem) !important;
+          line-height: 1.12 !important;
+        }
+
+        .about-pillars-grid {
+          display: grid !important;
+          grid-template-columns: repeat(3, 1fr) !important;
+          gap: 12px !important;
+        }
+
+        @media screen and (max-width: 580px) {
+          .about-pillars-grid {
+            grid-template-columns: 1fr !important;
+            gap: 10px !important;
+          }
+        }
+
+        .about-right-col {
+          width: 100% !important;
+          height: 340px !important;
+          min-height: 280px !important;
+          flex: none !important;
+        }
+
+        .about-hero-img-wrap {
+          width: 100% !important;
+          height: 100% !important;
+          border-radius: 16px !important;
+          overflow: hidden !important;
+        }
+
+        .about-hero-img {
+          width: 100% !important;
+          height: 100% !important;
+          object-fit: cover !important;
+          transform: none !important;
+        }
+
+        /* --- RESIDENCES / INTERIORS SECTION (#apartments) --- */
+        .apartments-section {
+          width: 100% !important;
+          max-width: 100vw !important;
+          height: auto !important;
+          min-height: auto !important;
+          overflow: visible !important;
+          padding: 4.5rem 1.5rem 3.5rem !important;
+          display: block !important;
+          box-sizing: border-box !important;
+        }
+
+        .vertical-line-wrap {
+          display: none !important;
+        }
+
+        .apartments-component {
+          display: flex !important;
+          flex-direction: column !important;
+          width: 100% !important;
+          max-width: 100% !important;
+          height: auto !important;
+          padding: 0 !important;
+          gap: 2rem !important;
+        }
+
+        .apartments-info {
+          width: 100% !important;
+          height: auto !important;
+          margin: 0 !important;
+          padding: 0 !important;
+          display: flex !important;
+          flex-direction: column !important;
+        }
+
+        .ap-info-top {
+          display: grid !important;
+          grid-template-columns: repeat(2, 1fr) !important;
+          gap: 12px 18px !important;
+          margin-bottom: 1.5rem !important;
+          padding-bottom: 1.25rem !important;
+          border-bottom: 1px solid rgba(194, 161, 128, 0.22) !important;
+        }
+
+        @media screen and (max-width: 480px) {
+          .ap-info-top {
+            grid-template-columns: 1fr !important;
+            gap: 10px !important;
+          }
+        }
+
+        .ap-info-wrap {
+          display: flex !important;
+          justify-content: space-between !important;
+          align-items: baseline !important;
+          gap: 8px !important;
+        }
+
+        .apartments-titulo {
+          margin-top: 0.5rem !important;
+        }
+
+        .apartments-titulo .tobias-300-50 {
+          font-size: clamp(2.2rem, 7.5vw, 3.4rem) !important;
+          line-height: 1.1 !important;
+          margin-bottom: 8px !important;
+        }
+
+        .apartments-sub-titulo {
+          max-width: 100% !important;
+          margin-top: 0.5rem !important;
+          margin-bottom: 1.5rem !important;
+          padding-right: 0 !important;
+        }
+
+        .apartments-cta {
+          width: 100% !important;
+          margin-bottom: 1rem !important;
+        }
+
+        .ap-img-wrap {
+          width: 100% !important;
+          height: auto !important;
+          padding: 0 !important;
+          margin-bottom: 1.5rem !important;
+          display: flex !important;
+          flex-direction: column !important;
+          position: relative !important;
+        }
+
+        .ap-img-1,
+        .ap-img-4 {
+          width: 100% !important;
+          height: 52vw !important;
+          min-height: 240px !important;
+          max-height: 420px !important;
+          padding-top: 0 !important;
+          border-radius: 14px !important;
+          overflow: hidden !important;
+          position: relative !important;
+        }
+
+        .ap-img-center {
+          width: 100% !important;
+          height: auto !important;
+          margin: 0 !important;
+          display: flex !important;
+          flex-direction: column !important;
+          gap: 1.5rem !important;
+        }
+
+        .ap-img-50 {
+          width: 100% !important;
+          height: auto !important;
+        }
+
+        .ap-img-2,
+        .ap-img-5 {
+          width: 100% !important;
+          height: 52vw !important;
+          min-height: 240px !important;
+          max-height: 420px !important;
+          padding-top: 0 !important;
+          margin: 0 !important;
+          border-radius: 14px !important;
+          overflow: hidden !important;
+          position: relative !important;
+        }
+
+        .ap-img-a-1,
+        .ap-img-a-2,
+        .ap-img-a-3,
+        .ap-img-a-4 {
+          position: absolute !important;
+          inset: 0 !important;
+          width: 100% !important;
+          height: 100% !important;
+          object-fit: cover !important;
+        }
+
+        .ap-img-description {
+          display: block !important;
+          position: relative !important;
+          margin-bottom: 8px !important;
+          font-size: 11px !important;
+          letter-spacing: 0.14em !important;
+          text-transform: uppercase !important;
+          color: #c2a180 !important;
+          font-weight: 600 !important;
+        }
+
+        /* --- THE DESTINATION / MOHALI SECTION (#island) --- */
+        .island-section {
+          width: 100% !important;
+          max-width: 100vw !important;
+          height: auto !important;
+          min-height: 100vh !important;
+          position: relative !important;
+          overflow: hidden !important;
+          background-color: #0b1410 !important;
+          display: block !important;
+          box-sizing: border-box !important;
+        }
+
+        .island-component {
+          position: relative !important;
+          top: auto !important;
+          height: auto !important;
+          min-height: 100vh !important;
+          padding: 5rem 1.5rem 4rem !important;
+          display: flex !important;
+          flex-direction: column !important;
+          justify-content: space-between !important;
+          z-index: 2 !important;
+          box-sizing: border-box !important;
+        }
+
+        .island-background {
+          position: absolute !important;
+          inset: 0 !important;
+          width: 100% !important;
+          height: 100% !important;
+          z-index: 1 !important;
+          opacity: 0.45 !important;
+          padding: 0 !important;
+        }
+
+        .island-background-video {
+          position: absolute !important;
+          inset: 0 !important;
+          width: 100% !important;
+          height: 100% !important;
+          margin: 0 !important;
+          padding: 0 !important;
+        }
+
+        .island-background-video video {
+          width: 100% !important;
+          height: 100% !important;
+          object-fit: cover !important;
+        }
+
+        .island-sub-title .tobias-300-122 {
+          font-size: clamp(2rem, 7vw, 3.2rem) !important;
+          line-height: 1.12 !important;
+          color: #ffffff !important;
+        }
+
+        .island-sub-title-2 .tobias-300-122 {
+          font-size: clamp(1.6rem, 5.5vw, 2.4rem) !important;
+          line-height: 1.2 !important;
+          color: #c2a180 !important;
+          margin-bottom: 12px !important;
+        }
+
+        .island-text p.untitled-400-13 {
+          font-size: 13px !important;
+          line-height: 1.65 !important;
+          color: rgba(255, 255, 255, 0.85) !important;
+          max-width: 100% !important;
+        }
+
+        /* --- LOCATION / AMENITIES SECTION (#location) --- */
         .location-section {
           width: 100% !important;
           min-width: 100% !important;
@@ -1584,8 +2175,8 @@
           min-width: 100% !important;
           max-width: 100vw !important;
           height: auto !important;
-          min-height: 320px !important;
-          padding: 4.5rem 1.5rem 2.5rem 1.5rem !important;
+          min-height: 280px !important;
+          padding: 4.5rem 1.5rem 2rem 1.5rem !important;
           display: flex !important;
           align-items: center !important;
           justify-content: flex-start !important;
@@ -1638,8 +2229,8 @@
           min-width: calc(100% - 24px) !important;
           max-width: calc(100% - 24px) !important;
           height: 72vh !important;
-          min-height: 520px !important;
-          max-height: 680px !important;
+          min-height: 500px !important;
+          max-height: 660px !important;
           margin: 0 auto 3.5rem auto !important;
           border-radius: 20px !important;
           overflow: hidden !important;
@@ -1760,181 +2351,76 @@
           font-weight: 700 !important;
         }
 
-        .island-sub-title .tobias-300-122 {
-          font-size: clamp(1.8rem, 6vw, 2.8rem) !important;
+        /* --- AVAILABILITY / RESIDENCES SECTION (#availability) --- */
+        .availability-section {
+          width: 100% !important;
+          max-width: 100vw !important;
+          height: auto !important;
+          min-height: auto !important;
+          padding: 4.5rem 1.25rem 3.5rem !important;
+          display: block !important;
+          overflow: visible !important;
+          box-sizing: border-box !important;
         }
 
-        .island-sub-title-2 .tobias-300-122 {
-          font-size: clamp(1.5rem, 5vw, 2.2rem) !important;
+        .availability-anda,
+        .availability-scroll,
+        .scroll-track {
+          width: 100% !important;
+          height: auto !important;
+          transform: none !important;
+          position: relative !important;
         }
 
-        .island-text p.untitled-400-13 {
-          font-size: 13px !important;
-          line-height: 1.65 !important;
+        .availability-component {
+          padding: 0 !important;
+          width: 100% !important;
         }
 
-        /* --- Mobile & Tablet Navbar --- */
-        .ref-top-logo {
-          left: 14px !important;
-          top: 8px !important;
-          width: 48px !important;
-          height: 48px !important;
+        .availability-sub-title .tobias-300-98 {
+          font-size: clamp(2rem, 6.8vw, 3rem) !important;
+          line-height: 1.15 !important;
+          margin-bottom: 1.5rem !important;
         }
 
-        .nav {
-          height: 64px !important;
-          padding: 0 12px 0 68px !important;
-          backdrop-filter: blur(14px) !important;
-          -webkit-backdrop-filter: blur(14px) !important;
-          background: rgba(18, 9, 2, 0.35) !important;
-          transition: background-color 0.35s ease, border-color 0.35s ease !important;
-        }
-
-        .nav.is-light-bg {
-          background: rgba(247, 242, 237, 0.88) !important;
-          border-bottom: 1px solid rgba(194, 161, 128, 0.25) !important;
-        }
-
-        .nav.is-dark-bg {
-          background: rgba(16, 8, 4, 0.78) !important;
-          border-bottom: 1px solid rgba(255, 255, 255, 0.08) !important;
-        }
-
-        .nav-links-component {
+        .availability-cta-component {
           display: flex !important;
-          align-items: center !important;
-          justify-content: flex-start !important;
-          overflow-x: auto !important;
-          overflow-y: hidden !important;
-          -webkit-overflow-scrolling: touch !important;
-          scrollbar-width: none !important;
-          -ms-overflow-style: none !important;
-          gap: 10px !important;
-          margin: 0 !important;
-          padding: 4px 6px !important;
-          white-space: nowrap !important;
-          flex: 1 1 auto !important;
-          max-width: calc(100% - 76px) !important;
-        }
-
-        .nav-links-component::-webkit-scrollbar {
-          display: none !important;
-          width: 0 !important;
-          height: 0 !important;
-        }
-
-        .nav-link {
-          padding: 4px 6px 4px 14px !important;
-          flex-shrink: 0 !important;
-        }
-
-        .nav-link .untitled-400-13 {
-          font-size: 11px !important;
-          letter-spacing: 0.14em !important;
-        }
-
-        .nav-link-inquire {
-          flex-shrink: 0 !important;
-          margin-left: auto !important;
-          padding: 0 !important;
-        }
-
-        .nav-link-inquire::before {
-          margin-right: 6px !important;
-          font-size: 11px !important;
-        }
-
-        .nav-link.inquire .untitled-400-13 {
-          font-size: 11px !important;
-          letter-spacing: 0.14em !important;
-        }
-
-        /* About Us Mobile */
-        .vision-section.about-us-section {
-          width: 100% !important;
-          min-width: 100% !important;
-          max-width: 100% !important;
-          height: auto !important;
-          min-height: 100vh !important;
-          padding: 6.5rem 1.5rem 4rem !important;
-        }
-
-        .about-container {
           flex-direction: column !important;
-          padding: 0 !important;
-          gap: 2.5rem !important;
-          height: auto !important;
+          gap: 12px !important;
+          margin-bottom: 2rem !important;
         }
 
-        .about-left-col {
-          max-width: 100% !important;
-          flex: none !important;
+        .availability-cta-space {
+          margin: 0 !important;
         }
 
-        .about-main-title {
-          font-size: clamp(2.4rem, 8vw, 3.5rem) !important;
-        }
-
-        .about-pillars-grid {
-          grid-template-columns: repeat(3, 1fr) !important;
-          gap: 1rem !important;
-        }
-
-        .about-right-col {
+        .availability-table {
           width: 100% !important;
-          height: 55vh !important;
-          min-height: 320px !important;
-          flex: none !important;
+          overflow-x: auto !important;
+          -webkit-overflow-scrolling: touch !important;
+          display: block !important;
+          padding-bottom: 1.25rem !important;
         }
 
-        .about-hero-img-wrap {
-          height: 100% !important;
-        }
-
-        .about-hero-img {
-          width: 100% !important;
-          height: 120% !important;
-          transform: translate3d(0, -10%, 0);
+        .availability-table-head,
+        .availability-col-list,
+        .availability-col-list-wrap {
+          min-width: 720px !important;
         }
       }
 
-      /* Small Mobile Phones (<540px) */
+      /* Small Mobile Phones (< 540px) */
       @media screen and (max-width: 540px) {
         .ref-top-logo {
-          left: 10px !important;
-          top: 7px !important;
-          width: 40px !important;
-          height: 40px !important;
+          left: 12px !important;
+          top: 9px !important;
+          width: 38px !important;
+          height: 38px !important;
         }
 
         .nav {
           height: 56px !important;
-          padding: 0 8px 0 54px !important;
-        }
-
-        .nav-links-component {
-          gap: 8px !important;
-          padding: 2px 4px !important;
-          max-width: calc(100% - 66px) !important;
-        }
-
-        .nav-link {
-          padding: 3px 4px 3px 12px !important;
-        }
-
-        .nav-link .untitled-400-13 {
-          font-size: 10px !important;
-          letter-spacing: 0.11em !important;
-        }
-
-        .nav-link-inquire::before {
-          margin-right: 4px !important;
-          font-size: 10px !important;
-        }
-
-        .nav-link.inquire .untitled-400-13 {
-          font-size: 10px !important;
-          letter-spacing: 0.11em !important;
+          padding: 0 10px 0 54px !important;
         }
 
         .ref-hero-heading {
@@ -1950,7 +2436,7 @@
           min-width: calc(100% - 16px) !important;
           max-width: calc(100% - 16px) !important;
           height: 68vh !important;
-          min-height: 480px !important;
+          min-height: 460px !important;
           margin-bottom: 2.5rem !important;
         }
 
@@ -2850,13 +3336,14 @@ a,
           <div class="glass-block expand-cookie"></div>
         </div>
       </div>
-      <a href="#home" class="ref-top-logo" aria-label="Ananda Crown"
+
+      <nav class="nav">
+              <a href="#home" class="ref-top-logo" aria-label="Ananda Crown"
         ><img
           src="/images/tarnsaperent_logo.png"
           alt="Ananda Crown"
           class="ref-top-logo-img"
       /></a>
-      <nav class="nav">
         <div class="nav-links-component">
           <a href="#home" id="nav-home" class="nav-link home active w--current w-inline-block"
             ><div class="untitled-400-13">HOME</div>
@@ -2893,7 +3380,50 @@ a,
             <div class="nav-ball"></div
           ></a>
         </div>
+        <button type="button" class="nav-mobile-toggle" id="navMobileToggle" aria-label="Toggle navigation menu">
+          <span class="nav-toggle-bar"></span>
+          <span class="nav-toggle-bar"></span>
+          <span class="nav-toggle-bar"></span>
+        </button>
       </nav>
+      <!-- Mobile navigation drawer -->
+      <div class="nav-mobile-drawer" id="navMobileDrawer">
+        <div class="nav-mobile-drawer-inner">
+          <div class="nav-mobile-links">
+            <a href="#home" class="nav-mobile-link active" data-target="home">
+              <span class="nav-mobile-link-num">01</span>
+              <span class="nav-mobile-link-text">HOME</span>
+            </a>
+            <a href="#vision" class="nav-mobile-link" data-target="vision">
+              <span class="nav-mobile-link-num">02</span>
+              <span class="nav-mobile-link-text">VISION</span>
+            </a>
+            <a href="#apartments" class="nav-mobile-link" data-target="apartments">
+              <span class="nav-mobile-link-num">03</span>
+              <span class="nav-mobile-link-text">RESIDENCES</span>
+            </a>
+            <a href="#island" class="nav-mobile-link" data-target="island">
+              <span class="nav-mobile-link-num">04</span>
+              <span class="nav-mobile-link-text">THE DESTINATION</span>
+            </a>
+            <a href="#location" class="nav-mobile-link" data-target="location">
+              <span class="nav-mobile-link-num">05</span>
+              <span class="nav-mobile-link-text">AMENITIES</span>
+            </a>
+            <a href="#availability" class="nav-mobile-link" data-target="availability">
+              <span class="nav-mobile-link-num">06</span>
+              <span class="nav-mobile-link-text">AVAILABILITY</span>
+            </a>
+          </div>
+          <div class="nav-mobile-footer">
+            <a href="/contact" class="nav-mobile-inquire-btn">INQUIRE NOW</a>
+            <div class="nav-mobile-contact">
+              <a href="tel:+919779799705" class="nav-mobile-phone">📞 +91 97797 99705</a>
+              <span class="nav-mobile-addr">📍 Sector 78, Mohali</span>
+            </div>
+          </div>
+        </div>
+      </div>
       <div class="mouse-anda">
         <div class="mouse-wrap">
           <div class="mouse"></div>
@@ -5767,11 +6297,106 @@ a,
               navEl.classList.add('is-light-bg');
             }
           }
+
+          // Update active link in mobile drawer
+          const mobileLinks = document.querySelectorAll('.nav-mobile-link');
+          mobileLinks.forEach(function(l) {
+            const t = l.getAttribute('data-target') || (l.getAttribute('href') || '').replace('#', '');
+            if (t === currentSection) {
+              l.classList.add('active');
+            } else {
+              l.classList.remove('active');
+            }
+          });
         }
 
         window.addEventListener('scroll', updateNavbarBackgroundTheme, { passive: true });
         window.addEventListener('resize', updateNavbarBackgroundTheme, { passive: true });
         updateNavbarBackgroundTheme();
+
+        // Mobile Navigation Drawer Controller
+        function initMobileNavToggle() {
+          const toggleBtn = document.getElementById('navMobileToggle');
+          const drawer = document.getElementById('navMobileDrawer');
+          if (!toggleBtn || !drawer) return;
+
+          function openDrawer() {
+            toggleBtn.classList.add('is-open');
+            drawer.classList.add('is-open');
+            document.body.style.overflow = 'hidden';
+          }
+
+          function closeDrawer() {
+            toggleBtn.classList.remove('is-open');
+            drawer.classList.remove('is-open');
+            document.body.style.overflow = '';
+          }
+
+          toggleBtn.addEventListener('click', function(e) {
+            e.preventDefault();
+            e.stopPropagation();
+            if (drawer.classList.contains('is-open')) {
+              closeDrawer();
+            } else {
+              openDrawer();
+            }
+          });
+
+          // Close on clicking outside inner drawer content
+          drawer.addEventListener('click', function(e) {
+            if (e.target === drawer) {
+              closeDrawer();
+            }
+          });
+
+          // Mobile Nav Links: Smooth scroll to section and close drawer
+          const links = drawer.querySelectorAll('.nav-mobile-link');
+          links.forEach(function(link) {
+            link.addEventListener('click', function(e) {
+              const targetId = this.getAttribute('data-target') || (this.getAttribute('href') || '').replace('#', '');
+              closeDrawer();
+              if (targetId) {
+                const targetEl = document.getElementById(targetId);
+                if (targetEl) {
+                  e.preventDefault();
+                  targetEl.scrollIntoView({ behavior: 'smooth' });
+                }
+              }
+            });
+          });
+
+          // Mobile Inquire Button opens luxury inquire modal
+          const mobileInquireBtn = drawer.querySelector('.nav-mobile-inquire-btn');
+          if (mobileInquireBtn) {
+            mobileInquireBtn.addEventListener('click', function(e) {
+              e.preventDefault();
+              closeDrawer();
+              if (typeof window.openInquireModal === 'function') {
+                window.openInquireModal(true);
+              }
+            });
+          }
+
+          // Close on escape key
+          document.addEventListener('keydown', function(e) {
+            if (e.key === 'Escape' && drawer.classList.contains('is-open')) {
+              closeDrawer();
+            }
+          });
+
+          // Auto-close if resized to desktop (>= 992px)
+          window.addEventListener('resize', function() {
+            if (window.innerWidth >= 992 && drawer.classList.contains('is-open')) {
+              closeDrawer();
+            }
+          }, { passive: true });
+        }
+
+        if (document.readyState === 'loading') {
+          document.addEventListener('DOMContentLoaded', initMobileNavToggle);
+        } else {
+          initMobileNavToggle();
+        }
 
         // High-Performance Hero Video & Frame Sequence Scrubber
         function initHeroVideoScrubber() {
@@ -5871,22 +6496,55 @@ a,
 
             if (!isDesktop) {
               if (stageEl) stageEl.style.transform = 'none';
-              if (heroContainer) {
-                heroContainer.style.opacity = '1';
-                heroContainer.style.transform = 'none';
-                heroContainer.style.pointerEvents = 'auto';
+
+              // On mobile: scrub video frames and fade text smoothly based on vertical scroll inside #home
+              let rawProgress = 0;
+              const homeEl = document.getElementById('home');
+              if (homeEl) {
+                const homeRect = homeEl.getBoundingClientRect();
+                const maxScroll = homeEl.offsetHeight - window.innerHeight;
+                if (maxScroll > 0) {
+                  const scrollDist = Math.max(0, Math.min(maxScroll, -homeRect.top));
+                  rawProgress = scrollDist / maxScroll;
+                }
               }
+
+              const diff = rawProgress - currentProgress;
+              currentProgress += diff * easeFactor;
+              const p = currentProgress;
+
+              // Video frame scrub through all 169 frames
+              const videoP = Math.min(1, Math.max(0, p / 0.88));
+              const frameIdx = Math.max(0, Math.min(TOTAL_FRAMES - 1, Math.round(videoP * (TOTAL_FRAMES - 1))));
+
               if (canvas.width > 0 && canvas.height > 0 && ctx) {
-                const frameImg = frames[0];
+                const frameImg = frames[frameIdx];
                 if (frameImg && frameImg.complete && frameImg.naturalWidth > 0) {
-                  if (lastRenderedFrame !== 0) {
+                  if (frameIdx !== lastRenderedFrame) {
                     drawCoverMedia(ctx, frameImg, canvas.width, canvas.height);
-                    lastRenderedFrame = 0;
+                    lastRenderedFrame = frameIdx;
                   }
                 } else if (video && video.readyState >= 2) {
+                  const targetTime = frameIdx / 24;
+                  if (Math.abs(video.currentTime - targetTime) > 0.04) {
+                    video.currentTime = targetTime;
+                  }
                   drawCoverMedia(ctx, video, canvas.width, canvas.height);
                 }
               }
+
+              // Animate hero text fade and upward slide
+              if (heroContainer) {
+                const fadeEnd = 0.35;
+                const contentP = Math.max(0, Math.min(1, p / fadeEnd));
+                const opacity = 1 - contentP;
+                const translateY = -contentP * 35;
+
+                heroContainer.style.opacity = opacity.toFixed(3);
+                heroContainer.style.transform = 'translate3d(0, ' + translateY.toFixed(2) + 'px, 0)';
+                heroContainer.style.pointerEvents = opacity < 0.05 ? 'none' : 'auto';
+              }
+
               requestAnimationFrame(loop);
               return;
             }
