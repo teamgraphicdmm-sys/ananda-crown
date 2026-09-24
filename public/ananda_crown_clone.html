@@ -867,14 +867,14 @@
 
       /* Lead uppercase statement */
       .about-lead-statement {
-        font-family: 'Montserrat', sans-serif !important;
-        font-size: clamp(12.5px, 0.92vw, 14.5px) !important;
-        font-weight: 500 !important;
-        line-height: 1.75 !important;
-        letter-spacing: 0.06em !important;
-        text-transform: uppercase !important;
-        color: #3b2820 !important;
-        margin-bottom: 0.8rem !important;
+        /* font-family: 'Montserrat', sans-serif !important; */
+    font-size: clamp(12.5px, 0.92vw, 14.5px) !important;
+    font-weight: 400 !important;
+    line-height: 1.5 !important;
+    letter-spacing: 0.06em !important;
+    text-transform: uppercase !important;
+    color: #3b2820 !important;
+    margin-bottom: 0.8rem !important;
       }
 
       .about-highlight-gold {
@@ -901,6 +901,7 @@
         border-top: 1px solid rgba(194, 161, 128, 0.28) !important;
         padding-top: 1.2rem !important;
         margin-bottom: 1.4rem !important;
+        margin-top: 1.4rem !important;
       }
 
       .about-pillar-item {
@@ -953,7 +954,7 @@
 
       .about-est-text {
         font-family: 'Montserrat', sans-serif !important;
-        font-size: 10px !important;
+        font-size: 12px !important;
         font-weight: 600 !important;
         letter-spacing: 0.22em !important;
         color: #8c7b70 !important;
@@ -975,7 +976,7 @@
 
       .about-chess-frame {
 
-    height: clamp(100px, 18vw, 420px) !important;
+    height: clamp(100px, 22vw, 420px) !important;
     /* height: revert; */
     overflow: hidden !important;
     border-radius: 4px !important;
@@ -997,8 +998,7 @@
       }
 
       .about-values-text {
-        font-family: 'Montserrat', sans-serif !important;
-        font-size: 12.5px !important;
+        font-size: 13.5px !important;
         font-weight: 500 !important;
         letter-spacing: 0.24em !important;
         line-height: 1.65 !important;
@@ -1441,61 +1441,323 @@
         will-change: transform !important;
       }
 
-      /* Responsive Rules for Mobile (<992px) */
+      /* Desktop & Laptop layout (>= 992px) - Strict Preservation */
+      @media screen and (min-width: 992px) {
+        #home.hero-section.panel {
+          width: 250vw !important;
+          min-width: 250vw !important;
+          max-width: 250vw !important;
+          flex: none !important;
+          position: relative !important;
+          height: 100% !important;
+          overflow: hidden !important;
+        }
+
+        #hero-sticky-stage {
+          position: absolute !important;
+          top: 0 !important;
+          left: 0 !important;
+          width: 100vw !important;
+          height: 100vh !important;
+          overflow: hidden !important;
+          will-change: transform !important;
+        }
+
+        .amenity-mobile-pills {
+          display: none !important;
+        }
+      }
+
+      /* Responsive Rules for Mobile & Tablet (<992px) */
       @media screen and (max-width: 991px) {
-        .location-section {
+        html, body {
+          overflow-x: hidden !important;
+          max-width: 100vw !important;
+          width: 100% !important;
+        }
+
+        /* --- HERO SECTION MOBILE RESPONSIVE (#home) --- */
+        #home.hero-section.panel {
           width: 100% !important;
           min-width: 100% !important;
-          max-width: 100% !important;
-          height: auto !important;
+          max-width: 100vw !important;
+          height: 100vh !important;
+          min-height: 100vh !important;
+          min-height: 100dvh !important;
+          flex: none !important;
+          position: relative !important;
+          overflow: hidden !important;
+          display: flex !important;
           flex-direction: column !important;
         }
 
+        #hero-sticky-stage {
+          position: relative !important;
+          top: auto !important;
+          left: auto !important;
+          width: 100% !important;
+          height: 100% !important;
+          min-height: 100vh !important;
+          min-height: 100dvh !important;
+          transform: none !important;
+          overflow: hidden !important;
+        }
+
+        .ref-hero-container {
+          padding: 85px 20px 24px 20px !important;
+          height: 100% !important;
+          min-height: 100vh !important;
+          min-height: 100dvh !important;
+        }
+
+        .ref-hero-text-block {
+          max-width: 100% !important;
+          margin-top: auto !important;
+          margin-bottom: auto !important;
+        }
+
+        .ref-hero-eyebrow {
+          margin-bottom: 14px !important;
+          gap: 10px !important;
+        }
+
+        .ref-hero-eyebrow-line {
+          width: 24px !important;
+        }
+
+        .ref-hero-heading {
+          font-size: clamp(34px, 9.5vw, 48px) !important;
+          line-height: 1.08 !important;
+          margin-bottom: 12px !important;
+        }
+
+        .ref-hero-location {
+          font-size: 11px !important;
+          letter-spacing: 0.16em !important;
+          margin-bottom: 16px !important;
+        }
+
+        .ref-hero-divider {
+          margin-bottom: 20px !important;
+        }
+
+        .ref-hero-cta {
+          padding: 10px 18px 10px 20px !important;
+        }
+
+        .ref-hero-cta-label {
+          font-size: 10.5px !important;
+        }
+
+        .ref-hero-bottom {
+          padding-top: 14px !important;
+          flex-wrap: wrap !important;
+          gap: 12px !important;
+        }
+
+        .ref-bottom-contact-item {
+          font-size: 11px !important;
+        }
+
+        .ref-hero-bottom-right {
+          display: none !important;
+        }
+
+        /* --- LOCATION / AMENITIES SECTION MOBILE RESPONSIVE (#location) --- */
+        .location-section {
+          width: 100% !important;
+          min-width: 100% !important;
+          max-width: 100vw !important;
+          height: auto !important;
+          min-height: auto !important;
+          flex-direction: column !important;
+          position: relative !important;
+          overflow: visible !important;
+          background-color: #0b1410 !important;
+          display: flex !important;
+          padding: 0 !important;
+        }
+
+        /* Amenities Title Panel */
         .amenities-title-panel {
           width: 100% !important;
           min-width: 100% !important;
-          max-width: 100% !important;
-          height: 75vh !important;
-          min-height: 480px !important;
+          max-width: 100vw !important;
+          height: auto !important;
+          min-height: 320px !important;
+          padding: 4.5rem 1.5rem 2.5rem 1.5rem !important;
+          display: flex !important;
+          align-items: center !important;
+          justify-content: flex-start !important;
+          position: relative !important;
+          overflow: hidden !important;
+          box-sizing: border-box !important;
         }
 
         .amenities-title-content {
-          padding-left: 24px !important;
-          padding-right: 24px !important;
-          max-width: 90vw !important;
+          position: relative !important;
+          z-index: 5 !important;
+          padding: 0 !important;
+          max-width: 100% !important;
+          opacity: 1 !important;
+          transform: none !important;
         }
 
         .amenities-title-heading {
-          font-size: clamp(3.5rem, 14vw, 5.5rem) !important;
+          font-size: clamp(2.8rem, 10vw, 4.2rem) !important;
+          line-height: 1.05 !important;
+          margin-bottom: 12px !important;
+        }
+
+        .amenities-title-sub {
+          font-size: 11px !important;
+          letter-spacing: 0.16em !important;
+          line-height: 1.5 !important;
+          color: #c2a180 !important;
         }
 
         .amenities-title-botanical-wrap {
-          width: 90vw !important;
-          opacity: 0.65 !important;
+          width: 85vw !important;
+          max-width: 440px !important;
+          opacity: 0.45 !important;
+          position: absolute !important;
+          right: -5vw !important;
+          top: 10% !important;
+          pointer-events: none !important;
         }
 
+        .amenities-title-ambient-glow {
+          width: 80vw !important;
+          height: 50vh !important;
+          opacity: 0.4 !important;
+        }
+
+        /* Amenities Showcase Panel */
         .location-info.amenities-showcase-panel {
-          width: 100% !important;
-          min-width: 100% !important;
-          max-width: 100% !important;
-          height: 350vh !important;
+          width: calc(100% - 24px) !important;
+          min-width: calc(100% - 24px) !important;
+          max-width: calc(100% - 24px) !important;
+          height: 72vh !important;
+          min-height: 520px !important;
+          max-height: 680px !important;
+          margin: 0 auto 3.5rem auto !important;
+          border-radius: 20px !important;
+          overflow: hidden !important;
           position: relative !important;
+          box-shadow: 0 16px 40px rgba(0, 0, 0, 0.6) !important;
         }
 
         .amenities-showcase-stage {
-          position: sticky !important;
-          top: 0 !important;
+          position: absolute !important;
+          inset: 0 !important;
           width: 100% !important;
-          height: 100vh !important;
+          height: 100% !important;
+          transform: none !important;
+          overflow: hidden !important;
+        }
+
+        .amenities-images-container {
+          position: absolute !important;
+          inset: 0 !important;
+          width: 100% !important;
+          height: 100% !important;
+          transform: none !important;
+        }
+
+        .amenity-image-layer {
+          position: absolute !important;
+          inset: 0 !important;
+          width: 100% !important;
+          height: 100% !important;
+          opacity: 0;
+          transition: opacity 0.5s ease;
+        }
+
+        .amenity-image-layer.active {
+          opacity: 1 !important;
+          z-index: 2 !important;
+        }
+
+        .amenity-full-img {
+          width: 100% !important;
+          height: 100% !important;
+          object-fit: cover !important;
+          object-position: center !important;
         }
 
         .amenity-showcase-card {
-          right: 18px !important;
-          left: 18px !important;
-          bottom: 28px !important;
+          position: absolute !important;
+          left: 14px !important;
+          right: 14px !important;
+          bottom: 14px !important;
           width: auto !important;
-          min-height: 20em !important;
-          padding: 1.8em 1.5em !important;
+          min-height: auto !important;
+          padding: 1.15rem 1.25rem 1.2rem !important;
+          border-radius: 16px !important;
+          backdrop-filter: blur(18px) !important;
+          -webkit-backdrop-filter: blur(18px) !important;
+          background: rgba(18, 9, 2, 0.78) !important;
+          border: 1px solid rgba(194, 161, 128, 0.28) !important;
+          box-shadow: 0 10px 30px rgba(0, 0, 0, 0.55) !important;
+          transform: none !important;
+          opacity: 1 !important;
+          z-index: 10 !important;
+        }
+
+        .amenity-card-num {
+          font-size: 2.8rem !important;
+          margin: 0 0 6px 0 !important;
+          line-height: 1 !important;
+        }
+
+        .amenity-card-title {
+          font-size: 22px !important;
+          margin: 0 0 4px 0 !important;
+          line-height: 1.2 !important;
+        }
+
+        .amenity-card-sub {
+          font-size: 11px !important;
+          letter-spacing: 0.12em !important;
+          margin: 0 0 10px 0 !important;
+        }
+
+        .amenity-content-line-container {
+          height: 2px !important;
+          margin-top: 10px !important;
+          margin-bottom: 4px !important;
+        }
+
+        .amenity-mobile-pills {
+          display: flex !important;
+          gap: 8px !important;
+          margin-top: 12px !important;
+        }
+
+        .amenity-mobile-pill {
+          flex: 1 !important;
+          height: 32px !important;
+          background: rgba(255, 255, 255, 0.08) !important;
+          border: 1px solid rgba(194, 161, 128, 0.25) !important;
+          border-radius: 20px !important;
+          color: rgba(255, 255, 255, 0.65) !important;
+          font-family: 'Montserrat', sans-serif !important;
+          font-size: 11px !important;
+          font-weight: 600 !important;
+          cursor: pointer !important;
+          transition: all 0.3s ease !important;
+          display: flex !important;
+          align-items: center !important;
+          justify-content: center !important;
+          padding: 0 !important;
+          touch-action: manipulation !important;
+        }
+
+        .amenity-mobile-pill.active {
+          background: #c2a180 !important;
+          color: #120902 !important;
+          border-color: #c2a180 !important;
+          font-weight: 700 !important;
         }
 
         .island-sub-title .tobias-300-122 {
@@ -1675,6 +1937,37 @@
           letter-spacing: 0.11em !important;
         }
 
+        .ref-hero-heading {
+          font-size: clamp(30px, 9vw, 40px) !important;
+        }
+
+        .ref-hero-container {
+          padding: 75px 16px 20px 16px !important;
+        }
+
+        .location-info.amenities-showcase-panel {
+          width: calc(100% - 16px) !important;
+          min-width: calc(100% - 16px) !important;
+          max-width: calc(100% - 16px) !important;
+          height: 68vh !important;
+          min-height: 480px !important;
+          margin-bottom: 2.5rem !important;
+        }
+
+        .amenity-showcase-card {
+          left: 10px !important;
+          right: 10px !important;
+          bottom: 10px !important;
+          padding: 1rem 1rem !important;
+        }
+
+        .amenity-card-num {
+          font-size: 2.4rem !important;
+        }
+
+        .amenity-card-title {
+          font-size: 19px !important;
+        }
       }
 
       .ref-bottom-icon {
@@ -2626,8 +2919,8 @@ a,
           <div class="sticky-element">
             <div id="panels" class="track">
               <div id="panels-container" class="track-flex">
-                <div id="home" class="hero-section panel" style="width: 250vw !important; min-width: 250vw !important; max-width: 250vw !important; flex: none !important; position: relative !important; height: 100% !important; overflow: hidden !important;">
-                  <div id="hero-sticky-stage" style="position: absolute; top: 0; left: 0; width: 100vw; height: 100vh; overflow: hidden; will-change: transform;">
+                <div id="home" class="hero-section panel">
+                  <div id="hero-sticky-stage">
                     <div class="page-padding">
                       <div class="hero-component">
                       <div class="ref-hero-container">
@@ -2757,12 +3050,15 @@ a,
                       </div>
 
                       <!-- Lead Uppercase Statement -->
-                      <div class="about-lead-statement">
+                      <div class="about-lead-statement"  anim="1" split="words">
                         OUR VISION FOR LUXURY LIVING ON <span class="about-highlight-gold">ANANDA CROWN</span> IS TO CREATE A ONE-OF-A-KIND DEVELOPMENT THAT COMBINES CONTEMPORARY DESIGN WITH THE NATURAL BEAUTY OF <span class="about-highlight-gold">THE CITY.</span>
                       </div>
 
                       <!-- Sub-lead Descriptive Paragraph -->
-                      <div class="about-body-desc">
+                      <div class="untitled-400-13-big"
+                       anim="1"
+                       split="words"
+                      >
                         Rooted in timeless elegance and built for modern lifestyles, Ananda Crown brings together refined architecture, premium amenities and a vibrant community — creating a place where every day feels extraordinary.
                       </div>
 
@@ -3220,7 +3516,7 @@ a,
                     </div>
                     <div class="amenities-title-content">
                       <h2 class="amenities-title-heading tobias-300-50">Amenities</h2>
-                      <p class="amenities-title-sub untitled-400-13-big">COLLECTION OF CURATED LUXURY EXPERIENCES</p>
+                      <p class="amenities-title-sub untitled-400-13-big"  anim="1" split="words">COLLECTION OF CURATED LUXURY EXPERIENCES</p>
                     </div>
                   </div>
 
@@ -3283,6 +3579,14 @@ a,
                         <!-- Content line that fills to full while scrolling -->
                         <div class="amenity-content-line-container">
                           <div class="amenity-content-line-fill" id="amenityContentLine"></div>
+                        </div>
+
+                        <!-- Mobile navigation pills (hidden on desktop >=992px) -->
+                        <div class="amenity-mobile-pills" id="amenityMobilePills">
+                          <button type="button" class="amenity-mobile-pill active" data-index="0" aria-label="Amenity 1">01</button>
+                          <button type="button" class="amenity-mobile-pill" data-index="1" aria-label="Amenity 2">02</button>
+                          <button type="button" class="amenity-mobile-pill" data-index="2" aria-label="Amenity 3">03</button>
+                          <button type="button" class="amenity-mobile-pill" data-index="3" aria-label="Amenity 4">04</button>
                         </div>
                       </div>
 
@@ -4963,6 +5267,17 @@ a,
             }, 120);
           }
 
+          // Sync mobile pill buttons
+          var mPills = document.querySelectorAll('.amenity-mobile-pill');
+          if (mPills && mPills.length) {
+            mPills.forEach(function (pill, pIdx) {
+              if (pIdx === idx) {
+                pill.classList.add('active');
+              } else {
+                pill.classList.remove('active');
+              }
+            });
+          }
         }
 
         function showAmenity(idx) {
@@ -5100,104 +5415,78 @@ a,
                 showcaseCard.style.opacity = '1';
               }
             }
+            // Desktop smooth progress easing for natural fluidity
+            var diff = rawProgress - smoothProgress;
+            smoothProgress += diff * 0.16;
+
+            if (!isDirectSwitching) {
+              // 4 amenities -> 4 equal segments across [0, 1]
+              var segment = Math.max(0, Math.min(3.999, smoothProgress * 4));
+              var activeIdx = Math.floor(segment);
+              var subProgress = segment - activeIdx; // 0.0 to 1.0 within active amenity
+
+              // Update content line filling to full
+              if (contentLine) {
+                contentLine.style.width = (subProgress * 100).toFixed(1) + '%';
+              }
+
+              // Active image zoom effect
+              var zoomScale = 1.0 + subProgress * 0.11; // scales from 1.0 to 1.11
+
+              if (imageLayers && imageLayers.length) {
+                for (var i = 0; i < imageLayers.length; i++) {
+                  var layer = imageLayers[i];
+                  var img = fullImages[i];
+
+                  if (i === activeIdx) {
+                    // Active image is fully visible and zooms smoothly
+                    layer.classList.add('active');
+                    layer.style.opacity = '1';
+                    layer.style.zIndex = '3';
+                    if (img) {
+                      img.style.transform = 'scale(' + zoomScale.toFixed(4) + ')';
+                    }
+                  } else if (i === activeIdx + 1 && subProgress > 0.8) {
+                    // Parallax preview of next incoming item near boundary
+                    var incomingFade = (subProgress - 0.8) / 0.2;
+                    layer.classList.remove('active');
+                    layer.style.opacity = incomingFade.toFixed(3);
+                    layer.style.zIndex = '4';
+                    if (img) {
+                      var incomingScale = 1.0 + incomingFade * 0.02;
+                      img.style.transform = 'scale(' + incomingScale.toFixed(4) + ')';
+                    }
+                  } else {
+                    layer.classList.remove('active');
+                    layer.style.opacity = '0';
+                    layer.style.zIndex = '1';
+                    if (img) {
+                      img.style.transform = 'scale(1.0)';
+                    }
+                  }
+                }
+              }
+
+              // Update card text if active index changed
+              if (activeIdx !== displayedIdx) {
+                updateCardContent(activeIdx);
+              }
+            }
           } else {
-            // Mobile vertical sticky calculation
-            var mobileRect = showcasePanel.getBoundingClientRect();
-            var maxShiftY = showcasePanel.offsetHeight - window.innerHeight;
-            var winH = window.innerHeight;
-
-            if (maxShiftY > 0) {
-              var currentShiftY = Math.max(0, Math.min(maxShiftY, -mobileRect.top));
-              rawProgress = currentShiftY / maxShiftY;
+            // Mobile Mode: Ensure elements are correctly positioned, unshifted and visible
+            if (stickyStage) stickyStage.style.transform = 'none';
+            if (imagesContainer) imagesContainer.style.transform = 'none';
+            if (showcaseCard) {
+              showcaseCard.style.transform = 'none';
+              showcaseCard.style.opacity = '1';
             }
-
-            // Mobile vertical parallax transition between title and showcase
-            if (mobileRect.top < winH && mobileRect.top > -winH) {
-              var mobileTransP = Math.max(0, Math.min(1, (winH - mobileRect.top) / winH));
-              if (mobileTransP < 1) {
-                if (titleContent) {
-                  var mTitleY = mobileTransP * 55;
-                  titleContent.style.transform = 'translate3d(0, ' + mTitleY.toFixed(1) + 'px, 0)';
-                  titleContent.style.opacity = (1 - mobileTransP * 0.75).toFixed(3);
-                }
-                if (botanicalSvg) {
-                  var mBotY = mobileTransP * -40;
-                  botanicalSvg.style.transform = 'translate3d(0, ' + mBotY.toFixed(1) + 'px, 0) scale(' + (1.0 + mobileTransP * 0.06).toFixed(3) + ')';
-                }
-                if (imagesContainer) {
-                  var mImgY = (1 - mobileTransP) * -60;
-                  imagesContainer.style.transform = 'translate3d(0, ' + mImgY.toFixed(1) + 'px, 0)';
-                }
-                if (showcaseCard) {
-                  var mCardY = (1 - mobileTransP) * 45;
-                  showcaseCard.style.transform = 'translate3d(0, ' + mCardY.toFixed(1) + 'px, 0)';
-                  showcaseCard.style.opacity = Math.max(0.1, mobileTransP).toFixed(3);
-                }
-              } else {
-                if (imagesContainer) imagesContainer.style.transform = 'translate3d(0, 0, 0)';
-                if (showcaseCard) {
-                  showcaseCard.style.transform = 'translate3d(0, 0, 0)';
-                  showcaseCard.style.opacity = '1';
-                }
-              }
+            if (titleContent) {
+              titleContent.style.transform = 'none';
+              titleContent.style.opacity = '1';
             }
-          }
-
-          // Smooth progress easing for natural fluidity
-          var diff = rawProgress - smoothProgress;
-          smoothProgress += diff * 0.16;
-
-          if (!isDirectSwitching) {
-            // 4 amenities -> 4 equal segments across [0, 1]
-            var segment = Math.max(0, Math.min(3.999, smoothProgress * 4));
-            var activeIdx = Math.floor(segment);
-            var subProgress = segment - activeIdx; // 0.0 to 1.0 within active amenity
-
-            // Update content line filling to full
-            if (contentLine) {
-              contentLine.style.width = (subProgress * 100).toFixed(1) + '%';
-            }
-
-            // Active image zoom effect
-            var zoomScale = 1.0 + subProgress * 0.11; // scales from 1.0 to 1.11
-
-            if (imageLayers && imageLayers.length) {
-              for (var i = 0; i < imageLayers.length; i++) {
-                var layer = imageLayers[i];
-                var img = fullImages[i];
-
-                if (i === activeIdx) {
-                  // Active image is fully visible and zooms smoothly
-                  layer.classList.add('active');
-                  layer.style.opacity = '1';
-                  layer.style.zIndex = '3';
-                  if (img) {
-                    img.style.transform = 'scale(' + zoomScale.toFixed(4) + ')';
-                  }
-                } else if (i === activeIdx + 1 && subProgress > 0.8) {
-                  // Parallax preview of next incoming item near boundary
-                  var incomingFade = (subProgress - 0.8) / 0.2;
-                  layer.classList.remove('active');
-                  layer.style.opacity = incomingFade.toFixed(3);
-                  layer.style.zIndex = '4';
-                  if (img) {
-                    var incomingScale = 1.0 + incomingFade * 0.02;
-                    img.style.transform = 'scale(' + incomingScale.toFixed(4) + ')';
-                  }
-                } else {
-                  layer.classList.remove('active');
-                  layer.style.opacity = '0';
-                  layer.style.zIndex = '1';
-                  if (img) {
-                    img.style.transform = 'scale(1.0)';
-                  }
-                }
-              }
-            }
-
-            // Update card text if active index changed
-            if (activeIdx !== displayedIdx) {
-              updateCardContent(activeIdx);
+            if (botanicalSvg) {
+              botanicalSvg.style.transform = 'none';
+              botanicalSvg.style.opacity = '0.45';
             }
           }
 
@@ -5207,6 +5496,59 @@ a,
         function initControls() {
           cacheElements();
           requestAnimationFrame(loop);
+
+          // Setup Mobile Pills, Touch Swipe & Auto-Cycle
+          var pills = document.querySelectorAll('.amenity-mobile-pill');
+          pills.forEach(function (pill) {
+            pill.addEventListener('click', function (e) {
+              e.preventDefault();
+              var targetIdx = parseInt(this.getAttribute('data-index'), 10);
+              if (!isNaN(targetIdx)) {
+                showAmenity(targetIdx);
+              }
+            });
+          });
+
+          // Touch swipe support on mobile showcase
+          var touchStartX = 0;
+          var touchEndX = 0;
+          var showcaseEl = document.getElementById('amenitiesShowcase');
+          if (showcaseEl) {
+            showcaseEl.addEventListener('touchstart', function (e) {
+              if (e.changedTouches && e.changedTouches[0]) {
+                touchStartX = e.changedTouches[0].screenX;
+              }
+            }, { passive: true });
+
+            showcaseEl.addEventListener('touchend', function (e) {
+              if (e.changedTouches && e.changedTouches[0]) {
+                touchEndX = e.changedTouches[0].screenX;
+                var diffX = touchEndX - touchStartX;
+                if (Math.abs(diffX) > 40) {
+                  if (diffX < 0) {
+                    var nextIdx = (displayedIdx + 1) % AMENITIES.length;
+                    showAmenity(nextIdx);
+                  } else {
+                    var prevIdx = (displayedIdx - 1 + AMENITIES.length) % AMENITIES.length;
+                    showAmenity(prevIdx);
+                  }
+                }
+              }
+            }, { passive: true });
+          }
+
+          // Auto-cycle on mobile when showcase is visible
+          setInterval(function () {
+            if (window.innerWidth < 992 && !isDirectSwitching) {
+              if (showcaseEl) {
+                var rect = showcaseEl.getBoundingClientRect();
+                if (rect.top < window.innerHeight && rect.bottom > 0) {
+                  var nextIdx = (displayedIdx + 1) % AMENITIES.length;
+                  showAmenity(nextIdx);
+                }
+              }
+            }
+          }, 4500);
         }
 
         if (document.readyState === 'loading') {
@@ -5523,8 +5865,31 @@ a,
           const easeFactor = 0.18;
 
           function loop() {
-            const trackEl = document.querySelector('.track');
+            const isDesktop = window.innerWidth >= 992;
             const stageEl = document.getElementById('hero-sticky-stage');
+            const trackEl = document.querySelector('.track');
+
+            if (!isDesktop) {
+              if (stageEl) stageEl.style.transform = 'none';
+              if (heroContainer) {
+                heroContainer.style.opacity = '1';
+                heroContainer.style.transform = 'none';
+                heroContainer.style.pointerEvents = 'auto';
+              }
+              if (canvas.width > 0 && canvas.height > 0 && ctx) {
+                const frameImg = frames[0];
+                if (frameImg && frameImg.complete && frameImg.naturalWidth > 0) {
+                  if (lastRenderedFrame !== 0) {
+                    drawCoverMedia(ctx, frameImg, canvas.width, canvas.height);
+                    lastRenderedFrame = 0;
+                  }
+                } else if (video && video.readyState >= 2) {
+                  drawCoverMedia(ctx, video, canvas.width, canvas.height);
+                }
+              }
+              requestAnimationFrame(loop);
+              return;
+            }
 
             let trackShiftX = 0;
             if (trackEl) {
