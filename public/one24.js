@@ -124,8 +124,11 @@ tlLoad.to(counter, {
 
 // Depois da animação Scroll
 setTimeout(() => {
+  if ($(".transition").is(":visible")) {
+    endLoaderAnimation();
+  }
   $("body").removeClass("no-scroll-transition");
-}, 3000);
+}, 4500);
 
 // On Click
 let transitionTrigger = $(".transition-trigger");
@@ -345,7 +348,22 @@ const NAV_SECTIONS = [
   { id: "availability", navId: "nav-availability" }
 ];
 
+const DARK_SECTIONS = ["home", "island", "location"];
+
 let currentActiveSectionId = null;
+
+function updateNavTheme(sectionId) {
+  const navEl = document.querySelector(".nav");
+  if (!navEl) return;
+  const isDark = DARK_SECTIONS.indexOf(sectionId) !== -1;
+  if (isDark) {
+    navEl.classList.add("is-dark-bg");
+    navEl.classList.remove("is-light-bg");
+  } else {
+    navEl.classList.remove("is-dark-bg");
+    navEl.classList.add("is-light-bg");
+  }
+}
 
 function setActiveNav(sectionId) {
   if (!sectionId || sectionId === currentActiveSectionId) return;
@@ -359,20 +377,24 @@ function setActiveNav(sectionId) {
         // Force DOM reflow to re-trigger dot spring animation cleanly
         void link.offsetWidth;
         link.classList.add("active");
+        // On mobile/tablet, smooth-scroll the active link into view inside .nav-links-component
+        if (window.innerWidth <= 991) {
+          const container = document.querySelector(".nav-links-component");
+          if (container && container.scrollWidth > container.clientWidth) {
+            const linkLeft = link.offsetLeft - container.offsetLeft;
+            container.scrollTo({
+              left: linkLeft - container.clientWidth / 2 + link.clientWidth / 2,
+              behavior: "smooth"
+            });
+          }
+        }
       } else {
         link.classList.remove("active", "w--current");
       }
     }
   });
 
-  const navEl = document.querySelector(".nav");
-  if (navEl) {
-    if (sectionId === "island") {
-      navEl.classList.add("is-dark-bg");
-    } else {
-      navEl.classList.remove("is-dark-bg");
-    }
-  }
+  updateNavTheme(sectionId);
 }
 
 function triggerNavClickAnimation(linkEl) {
@@ -645,42 +667,34 @@ horizontalM.add("(min-width: 991px)", () => {
       { backgroundColor: "#120902", duration: 0.3, ease: "none" },
       0,
     );
-  // Nav Color 2
+  // Nav Color for Island (dark)
   gsap
     .timeline({
       scrollTrigger: {
         trigger: ".island-section",
         containerAnimation: tlMain,
         start: "left 50%",
-        end: "right left",
-        toggleActions: "play none none reverse",
-        //markers: true
+        end: "right 50%",
+        onEnter: function () { updateNavTheme("island"); },
+        onEnterBack: function () { updateNavTheme("island"); },
+        onLeave: function () { updateNavTheme("location"); },
+        onLeaveBack: function () { updateNavTheme("apartments"); },
       },
-    })
-    .to(".nav", { color: "white", duration: 0.3, ease: "none" })
-    .to(
-      ".nav-ball",
-      { backgroundColor: "white", duration: 0.3, ease: "none" },
-      0,
-    );
-  // Nav Color 3
+    });
+  // Nav Color for Location (dark)
   gsap
     .timeline({
       scrollTrigger: {
         trigger: ".location-section",
         containerAnimation: tlMain,
         start: "left 50%",
-        end: "right left",
-        toggleActions: "play none none reverse",
-        //markers: true
+        end: "right 50%",
+        onEnter: function () { updateNavTheme("location"); },
+        onEnterBack: function () { updateNavTheme("location"); },
+        onLeave: function () { updateNavTheme("availability"); },
+        onLeaveBack: function () { updateNavTheme("island"); },
       },
-    })
-    .to(".nav", { color: "#120902", duration: 0.3, ease: "none" })
-    .to(
-      ".nav-ball",
-      { backgroundColor: "#120902", duration: 0.3, ease: "none" },
-      0,
-    );
+    });
   // NAV BALL HOME -------
   let navHome = $("#nav-home").find(".nav-ball");
   gsap
@@ -1262,6 +1276,22 @@ horizontalM.add("(min-width: 991px)", () => {
       },
     })
     .fromTo(".hero-img-background", { x: "0%" }, { x: "30%" });
+
+  // ABOUT US (Vision) Parallax
+  gsap
+    .timeline({
+      scrollTrigger: {
+        trigger: ".vision-section",
+        containerAnimation: tlMain,
+        start: "left right",
+        end: "right left",
+        scrub: true,
+      },
+    })
+    .fromTo(".about-hero-img", { x: "-12%" }, { x: "12%", ease: "none" })
+    .fromTo(".about-chess-img", { scale: 1 }, { scale: 1.15, ease: "none" }, 0)
+    .fromTo(".about-left-col", { x: "25px" }, { x: "-25px", ease: "none" }, 0);
+
   // ISLAND Image
   gsap
     .timeline({
@@ -1429,30 +1459,32 @@ horizontalM.add("(max-width: 991px)", () => {
       },
     })
     .to(".nav", { color: "#120902", duration: 0.3, ease: "none" });
-  // Nav Color 2
+  // Mobile Nav Color for Island (dark)
   gsap
     .timeline({
       scrollTrigger: {
         trigger: ".island-section",
-        start: "top top",
-        end: "bottom bottom",
-        toggleActions: "play none none reverse",
-        //markers: true
+        start: "top 70px",
+        end: "bottom 70px",
+        onEnter: function () { updateNavTheme("island"); },
+        onEnterBack: function () { updateNavTheme("island"); },
+        onLeave: function () { updateNavTheme("location"); },
+        onLeaveBack: function () { updateNavTheme("apartments"); },
       },
-    })
-    .to(".nav", { color: "white", duration: 0.3, ease: "none" });
-  // Nav Color 3
+    });
+  // Mobile Nav Color for Location (dark)
   gsap
     .timeline({
       scrollTrigger: {
         trigger: ".location-section",
-        start: "top top",
-        end: "bottom bottom",
-        toggleActions: "play none none reverse",
-        //markers: true
+        start: "top 70px",
+        end: "bottom 70px",
+        onEnter: function () { updateNavTheme("location"); },
+        onEnterBack: function () { updateNavTheme("location"); },
+        onLeave: function () { updateNavTheme("availability"); },
+        onLeaveBack: function () { updateNavTheme("island"); },
       },
-    })
-    .to(".nav", { color: "#120902", duration: 0.3, ease: "none" });
+    });
   // Mobile smooth anchor scroll
   document.querySelectorAll(".nav-links-component .nav-link").forEach((element) => {
     element.addEventListener("click", function (e) {
@@ -1468,6 +1500,19 @@ horizontalM.add("(max-width: 991px)", () => {
       }
     });
   });
+
+
+  // Mobile About Us vertical parallax
+  gsap
+    .timeline({
+      scrollTrigger: {
+        trigger: ".vision-section",
+        start: "top bottom",
+        end: "bottom top",
+        scrub: true,
+      },
+    })
+    .fromTo(".about-hero-img", { y: "-10%" }, { y: "10%", ease: "none" });
 
   // END MOBILE GSAP
   // TEXT ANIMATION -----------

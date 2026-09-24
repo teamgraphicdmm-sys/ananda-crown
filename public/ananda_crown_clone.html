@@ -1,7 +1,6 @@
 <!doctype html>
-<!-- This site was created in Webflow. https://webflow.com --><!-- Last Published: Wed Apr 03 2024 13:01:03 GMT+0000 (Coordinated Universal Time) -->
+<!-- Ananda Crown -->
 <html
-  data-wf-domain="one24.webflow.io"
   data-wf-page="6401e4efa043695c1e1b5ee1"
   data-wf-site="63d3a5c57af34837d7bbb1a0"
   lang="en"
@@ -15,11 +14,6 @@
       rel="stylesheet"
     />
     <meta charset="utf-8" />
-    <link
-      href="https://assets-global.website-files.com"
-      rel="preconnect"
-      crossorigin="anonymous"
-    />
     <title>Ananda Crown | Sector 78 Mohali - Ultra Luxury Residences</title>
     <meta
       content="COMFORT AND ELEGANCE IN SECTOR 78 MOHALI - Carefully thought out and tailored with great flexibility, adapting itself to the needs and lifestyle of the clients."
@@ -31,7 +25,7 @@
       property="og:description"
     />
     <meta
-      content="https://cdn.prod.website-files.com/63d3a5c57af34837d7bbb1a0/63d3f9ba4c4c44c7c6346fb6_OpenGraph.webp"
+      content="/images/hero-building-sunset.webp"
       property="og:image"
     />
     <meta content="Ananda Crown | Sector 78 Mohali" name="twitter:title" />
@@ -40,7 +34,7 @@
       name="twitter:description"
     />
     <meta
-      content="https://cdn.prod.website-files.com/63d3a5c57af34837d7bbb1a0/63d3f9ba4c4c44c7c6346fb6_OpenGraph.webp"
+      content="/images/hero-building-sunset.webp"
       name="twitter:image"
     />
     <meta property="og:type" content="website" />
@@ -443,11 +437,11 @@
         font-weight: 600 !important;
         letter-spacing: 0.2em !important;
         text-transform: uppercase !important;
-        color: var(--brand-secondary) !important;
-        transition: color 0.3s ease, letter-spacing 0.3s ease !important;
+        color: rgba(18, 9, 2, 0.55) !important;
+        transition: color 0.35s ease, letter-spacing 0.3s ease !important;
       }
       .nav-link:hover .untitled-400-13 {
-        color: #9e6443 !important;
+        color: rgba(18, 9, 2, 0.9) !important;
       }
 
       /* Active Dot placed BEFORE the nav item */
@@ -460,10 +454,10 @@
         width: 6px !important;
         height: 6px !important;
         border-radius: 50% !important;
-        background-color: #9e6443 !important;
+        background-color: #573024 !important;
         opacity: 0 !important;
         transform: scale(0) !important;
-        transition: transform 0.4s cubic-bezier(0.34, 1.56, 0.64, 1), opacity 0.3s ease, background-color 0.3s ease !important;
+        transition: transform 0.4s cubic-bezier(0.34, 1.56, 0.64, 1), opacity 0.3s ease, background-color 0.35s ease, box-shadow 0.35s ease !important;
         pointer-events: none !important;
       }
 
@@ -472,11 +466,13 @@
         opacity: 1 !important;
         transform: scale(1) !important;
         animation: navDotSpring 0.45s cubic-bezier(0.34, 1.56, 0.64, 1) forwards !important;
+        background-color: #573024 !important;
+        box-shadow: 0 0 8px rgba(87, 48, 36, 0.6) !important;
       }
 
       .nav-link.active .untitled-400-13 {
-        color: #9e6443 !important;
-        font-weight: 600 !important;
+        color: #573024 !important;
+        font-weight: 700 !important;
       }
 
       /* Click animation on nav item and dot */
@@ -521,33 +517,47 @@
       @keyframes navDotPulseRing {
         0% {
           transform: scale(0.8);
-          box-shadow: 0 0 0 0 rgba(158, 100, 67, 0.9);
+          box-shadow: 0 0 0 0 rgba(87, 48, 36, 0.9);
         }
         50% {
           transform: scale(1.6);
-          box-shadow: 0 0 0 9px rgba(158, 100, 67, 0);
+          box-shadow: 0 0 0 9px rgba(87, 48, 36, 0);
         }
         100% {
           transform: scale(1);
-          box-shadow: 0 0 0 0 rgba(158, 100, 67, 0);
+          box-shadow: 0 0 0 0 rgba(87, 48, 36, 0);
         }
       }
 
-      /* Dark theme adaptations when over dark panels like #island */
+      /* Dark theme adaptations when over dark panels like #home, #island and #location */
       .nav.is-dark-bg .nav-link .untitled-400-13,
       .nav[style*="color: white"] .nav-link .untitled-400-13,
       .nav[style*="rgb(255, 255, 255)"] .nav-link .untitled-400-13 {
         color: rgba(255, 255, 255, 0.65) !important;
       }
+      .nav.is-dark-bg .nav-link:hover .untitled-400-13,
+      .nav[style*="color: white"] .nav-link:hover .untitled-400-13,
+      .nav[style*="rgb(255, 255, 255)"] .nav-link:hover .untitled-400-13 {
+        color: rgba(255, 255, 255, 0.9) !important;
+      }
+      /* ONLY active nav item is pure WHITE on dark background */
       .nav.is-dark-bg .nav-link.active .untitled-400-13,
       .nav[style*="color: white"] .nav-link.active .untitled-400-13,
       .nav[style*="rgb(255, 255, 255)"] .nav-link.active .untitled-400-13 {
         color: #ffffff !important;
+        font-weight: 700 !important;
+        text-shadow: 0 0 10px rgba(255, 255, 255, 0.5) !important;
       }
       .nav.is-dark-bg .nav-link::before,
       .nav[style*="color: white"] .nav-link::before,
       .nav[style*="rgb(255, 255, 255)"] .nav-link::before {
         background-color: #ffffff !important;
+      }
+      .nav.is-dark-bg .nav-link.active::before,
+      .nav[style*="color: white"] .nav-link.active::before,
+      .nav[style*="rgb(255, 255, 255)"] .nav-link.active::before {
+        background-color: #ffffff !important;
+        box-shadow: 0 0 8px rgba(255, 255, 255, 0.8) !important;
       }
       .nav.is-dark-bg .nav-link.nav-clicked::before,
       .nav[style*="color: white"] .nav-link.nav-clicked::before,
@@ -557,11 +567,16 @@
       .nav.is-dark-bg .nav-link-inquire::before,
       .nav[style*="color: white"] .nav-link-inquire::before,
       .nav[style*="rgb(255, 255, 255)"] .nav-link-inquire::before {
-        color: rgba(255, 255, 255, 0.65) !important;
+        color: rgba(255, 255, 255, 0.45) !important;
       }
       .nav.is-dark-bg .nav-link.inquire .untitled-400-13,
       .nav[style*="color: white"] .nav-link.inquire .untitled-400-13,
       .nav[style*="rgb(255, 255, 255)"] .nav-link.inquire .untitled-400-13 {
+        color: rgba(255, 255, 255, 0.8) !important;
+      }
+      .nav.is-dark-bg .nav-link.inquire:hover .untitled-400-13,
+      .nav[style*="color: white"] .nav-link.inquire:hover .untitled-400-13,
+      .nav[style*="rgb(255, 255, 255)"] .nav-link.inquire:hover .untitled-400-13 {
         color: #ffffff !important;
       }
 
@@ -578,18 +593,23 @@
       }
       .nav-link-inquire::before {
         content: "|" !important;
-        color: #573024 !important;
+        color: rgba(48, 22, 14, 0.4) !important;
         font-size: 14px !important;
         margin-right: 20px !important;
         font-weight: 300 !important;
+        transition: color 0.35s ease !important;
       }
       .nav-link.inquire .untitled-400-13 {
         font-family: "Montserrat", sans-serif !important;
         font-size: 12px !important;
-        font-weight: 500 !important;
+        font-weight: 600 !important;
         letter-spacing: 0.22em !important;
         text-transform: uppercase !important;
-        color: #221814 !important;
+        color: #30160e !important;
+        transition: color 0.35s ease !important;
+      }
+      .nav-link.inquire:hover .untitled-400-13 {
+        color: #573024 !important;
       }
 
       /* ==========================================================================
@@ -779,82 +799,637 @@
         text-shadow: 0 1px 6px rgba(0, 0, 0, 0.5) !important;
         transition: color 0.3s ease !important;
       }
-      .ref-bottom-contact-item:hover {
-        color: #c2a180 !important;
-      }
-
       /* =========================================================
-         AMENITIES & SHOWCASE IMAGE (Combined in #location panel)
-         Amenities Info: fixed 45.625em (~45rem), Big Image: 100vw
+         ABOUT US SECTION (#vision) - EDITORIAL LUXURY DESIGN
+         Reference: ChatGPT Image Sep 24, 2026, 01_42_12 PM (1).png
+         Two-column layout, serif typography, 3 pillars, inset chess photo,
+         and grand lobby hero image with scroll parallax
          ========================================================= */
-      .location-section {
-        justify-content: flex-start !important;
-        width: 250vw !important;
-        min-width: 250vw !important;
-        max-width: 250vw !important;
-        height: 100% !important;
+      .vision-section.about-us-section {
+        width: 100vw !important;
+        min-width: 100vw !important;
+        max-width: 100vw !important;
+        height: 100vh !important;
         flex: none !important;
+        background-color: #faf7f2 !important;
+        color: #1c100b !important;
+        padding: 0 !important;
         position: relative !important;
         overflow: hidden !important;
-        background-color: var(--floral-white-background) !important;
+        display: flex !important;
+        align-items: center !important;
+        justify-content: center !important;
+        z-index: 2 !important;
       }
 
-      .location-trigger {
-        width: 200vw !important;
+      .about-container {
+        display: flex !important;
+        flex-direction: row !important;
+        align-items: stretch !important;
+        justify-content: space-between !important;
+        width: 100% !important;
         height: 100% !important;
+        padding: 5.5vh 3.5vw 4.5vh 4.5vw;
+            padding-top: 7.25em;
+      padding-bottom: 3.125em;
+        gap: 3.5vw !important;
+        box-sizing: border-box !important;
+      }
+
+      /* --- LEFT COLUMN: CONTENT --- */
+      .about-left-col {
+        flex: 1 1 50% !important;
+        max-width: 48vw !important;
+        /* display: flex !important; */
+        flex-direction: column !important;
+        justify-content: space-between !important;
+        height: 100% !important;
+        z-index: 2 !important;
+        will-change: transform !important;
+      }
+
+      /* Title */
+      .about-title-wrap {
+        margin-bottom: 0.8rem !important;
+      }
+
+      .about-main-title {
+        font-family: 'Tobias', 'Cormorant Garamond', Georgia, serif !important;
+        font-size: clamp(2.8rem, 3.8vw, 3.12rem) !important;
+        font-weight: 300 !important;
+        line-height: 0.95 !important;
+        letter-spacing: 0.02em !important;
+        text-transform: uppercase !important;
+        color: #1e130c !important;
+        margin: 0 !important;
+      }
+
+      /* Lead uppercase statement */
+      .about-lead-statement {
+        font-family: 'Montserrat', sans-serif !important;
+        font-size: clamp(12.5px, 0.92vw, 14.5px) !important;
+        font-weight: 500 !important;
+        line-height: 1.75 !important;
+        letter-spacing: 0.06em !important;
+        text-transform: uppercase !important;
+        color: #3b2820 !important;
+        margin-bottom: 0.8rem !important;
+      }
+
+      .about-highlight-gold {
+        color: #b58852 !important;
+        font-weight: 600 !important;
+      }
+
+      /* Sub-lead descriptive paragraph */
+      .about-body-desc {
+        font-family: 'Montserrat', sans-serif !important;
+        font-size: clamp(12px, 0.85vw, 13.5px) !important;
+        font-weight: 400 !important;
+        line-height: 1.75 !important;
+        color: #726259 !important;
+        max-width: 42em !important;
+        margin-bottom: 1.2rem !important;
+      }
+
+      /* Three Pillars (01, 02, 03) */
+      .about-pillars-grid {
+        display: grid !important;
+        grid-template-columns: repeat(3, 1fr) !important;
+        gap: 1.2vw !important;
+        border-top: 1px solid rgba(194, 161, 128, 0.28) !important;
+        padding-top: 1.2rem !important;
+        margin-bottom: 1.4rem !important;
+      }
+
+      .about-pillar-item {
+        position: relative !important;
+        padding-right: 1rem !important;
+      }
+
+      .about-pillar-item:not(:last-child)::after {
+        content: '';
+        position: absolute;
+        right: 0;
+        top: 10%;
+        bottom: 10%;
+        width: 1px;
+        background-color: rgba(194, 161, 128, 0.35);
+      }
+
+      .about-pillar-num {
+    font-family: 'Tobias', 'Cormorant Garamond', Georgia, serif !important;
+    font-size: clamp(4.2rem, 3.8vw, 5.2rem) !important;
+    font-weight: 300 !important;
+    line-height: 1 !important;
+    color: #c2a180 !important;
+    margin-bottom: 0.4rem !important;
+      }
+
+      .about-pillar-label {
+        font-family: 'Montserrat', sans-serif !important;
+        font-size: clamp(9px, 0.68vw, 12.5px) !important;
+        font-weight: 600 !important;
+        letter-spacing: 0.16em !important;
+        text-transform: uppercase !important;
+        color: #3b2820 !important;
+        line-height: 1.4 !important;
+      }
+
+      /* Bottom feature: EST. 2026, Inset Chess Image, and Timeless Values */
+      .about-bottom-feature {
+        display: flex !important;
+        flex-direction: column !important;
+        gap: 0.8rem !important;
+      }
+
+      .about-est-wrap {
+        display: flex !important;
+        align-items: center !important;
+        gap: 12px !important;
+        width: 100% !important;
+      }
+
+      .about-est-text {
+        font-family: 'Montserrat', sans-serif !important;
+        font-size: 10px !important;
+        font-weight: 600 !important;
+        letter-spacing: 0.22em !important;
+        color: #8c7b70 !important;
+        text-transform: uppercase !important;
+        white-space: nowrap !important;
+      }
+
+      .about-est-line {
+        height: 1px !important;
+        width: 70px !important;
+        background-color: rgba(194, 161, 128, 0.45) !important;
+      }
+
+      .about-inset-row {
+        display: flex !important;
+        align-items: center !important;
+        gap: 1.6rem !important;
+      }
+
+      .about-chess-frame {
+
+    height: clamp(90px, 18vw, 420px) !important;
+    /* height: revert; */
+    overflow: hidden !important;
+    border-radius: 4px !important;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15) !important;
+    position: relative !important;
+      }
+
+      .about-chess-img {
+        width: 100% !important;
+        height: 100% !important;
+        object-fit: cover !important;
+        display: block !important;
+        will-change: transform !important;
+        transition: transform 0.5s ease !important;
+      }
+
+      .about-chess-frame:hover .about-chess-img {
+        transform: scale(1.08) !important;
+      }
+
+      .about-values-text {
+        font-family: 'Montserrat', sans-serif !important;
+        font-size: 12.5px !important;
+        font-weight: 500 !important;
+        letter-spacing: 0.24em !important;
+        line-height: 1.65 !important;
+        color: #8c7b70 !important;
+        text-transform: uppercase !important;
+        border-left: 1px solid rgba(194, 161, 128, 0.45) !important;
+        padding-left: 1.2rem !important;
+      }
+
+      /* --- RIGHT COLUMN: LARGE HERO IMAGE WITH PARALLAX --- */
+      .about-right-col {
+        flex: 1 1 50% !important;
+        height: 100% !important;
+        display: flex !important;
+        align-items: center !important;
+        justify-content: center !important;
+        position: relative !important;
+      }
+
+      .about-hero-img-wrap {
+        width: 100% !important;
+        height: 100% !important;
+        position: relative !important;
+        overflow: hidden !important;
+        border-radius: 6px !important;
+        /* box-shadow: 0 25px 60px rgba(28, 16, 11, 0.18), 0 0 0 1px rgba(194, 161, 128, 0.25) !important; */
+      }
+
+      .about-hero-img {
+        width: 125% !important;
+        height: 100% !important;
+        object-fit: cover !important;
+        object-position: center center !important;
+        display: block !important;
+        will-change: transform !important;
+        transform: translate3d(-10%, 0, 0);
+      }
+
+      .about-hero-glass-reflection {
         position: absolute !important;
-        top: 0;
-        left: 0;
+        inset: 0 !important;
+        background: linear-gradient(125deg, rgba(255, 255, 255, 0.12) 0%, transparent 40%, rgba(0, 0, 0, 0.15) 100%) !important;
         pointer-events: none !important;
       }
 
-      .location-sticky {
-        width: auto !important;
-        min-width: 0 !important;
-        max-width: none !important;
-        height: 100% !important;
-        display: flex !important;
-        justify-content: flex-start !important;
-        align-items: stretch !important;
-        position: relative !important;
-        overflow: visible !important;
-      }
-
-      .location-info {
-        width: 45.625em !important;
-        min-width: 45.625em !important;
-        max-width: 45.625em !important;
-        flex: none !important;
-        height: 100% !important;
-        display: flex !important;
-        justify-content: center !important;
-        align-items: center !important;
-        position: relative !important;
-      }
-
-      .location-big-img-wrap {
-        width: 100vw !important;
-        min-width: 100vw !important;
-        height: 100vh !important;
+      /* =========================================================
+         THE DESTINATION (.island-section) - AMBIENT GLOSS & CLEAN VIDEO
+         Ambient glossy backdrop with crystal-clear video and high z-index typography
+         ========================================================= */
+      .island-section {
         position: relative !important;
         overflow: hidden !important;
-        flex: none !important;
+        background: #100804 !important;
       }
 
-      .location-big-img {
-        z-index: 2 !important;
-        object-fit: cover !important;
-        width: 100% !important;
-        min-width: 100% !important;
+      /* Ambient glossy sheen across .island-section */
+      .island-section::before {
+        content: '';
+        position: absolute;
+        inset: 0;
+        /* background: radial-gradient(ellipse at 50% 20%, rgba(223, 170, 94, 0.16) 0%, rgba(158, 100, 67, 0.08) 50%, transparent 80%),
+                    linear-gradient(180deg, rgba(255, 255, 255, 0.04) 0%, transparent 35%, rgba(0, 0, 0, 0.45) 100%); */
+        background: radial-gradient(ellipse at 50% 20%, rgb(223 170 94 / 16%) 0%, rgb(158 100 67 / 10%) 50%, transparent 80%), linear-gradient(180deg, rgba(255, 255, 255, 0.04) 0%, transparent 35%, #30160e 100%);
+        z-index: 1;
+        pointer-events: none;
+      }
+
+      /* Background video stage - 100% clear & fully functioning */
+      .island-background {
+        z-index: 0 !important;
+      }
+
+      .island-background-video {
+        filter: none !important;
+        /* box-shadow: 0 20px 60px rgba(0, 0, 0, 0.7) !important; */
+      }
+
+      .island-background-video video {
+        filter: none !important;
+        opacity: 1 !important;
+        visibility: visible !important;
+      }
+
+      /* All Island Content has high z-index and is crystal clear without card boxes */
+      .island-component {
+        position: relative !important;
+        z-index: 10 !important;
+        pointer-events: auto !important;
+      }
+
+      .island-cima,
+      .island-baixo {
+        position: relative !important;
+        z-index: 10 !important;
+        background: transparent !important;
+        border: none !important;
+        border-radius: 0 !important;
+        box-shadow: none !important;
+        padding: 0 !important;
+        max-width: 100% !important;
+      }
+
+      .island-cima::before,
+      .island-baixo::before {
+        display: none !important;
+      }
+
+      .island-title,
+      .island-sub-title,
+      .island-sub-title-2,
+      .island-text {
+        position: relative !important;
+        z-index: 10 !important;
+      }
+
+      /* Clear, Highly-Legible Content Typography */
+      .island-title h2.untitled-400-13 {
+        font-family: 'Montserrat', sans-serif !important;
+        font-size: 13px !important;
+        font-weight: 600 !important;
+        letter-spacing: 0.3em !important;
+        text-transform: uppercase !important;
+        color: #dfaa5e !important;
+        text-shadow: 0 2px 10px rgba(0, 0, 0, 0.9) !important;
+        margin: 0 !important;
+      }
+
+      .island-sub-title .tobias-300-122 {
+        font-family: 'Tobias', 'Cormorant Garamond', Georgia, serif !important;
+        color: #ffffff !important;
+        text-shadow: 0 3px 20px rgba(0, 0, 0, 0.95), 0 1px 3px rgba(0, 0, 0, 0.9) !important;
+        letter-spacing: -0.015em !important;
+      }
+
+      .island-sub-title-2 .tobias-300-122 {
+        font-family: 'Tobias', 'Cormorant Garamond', Georgia, serif !important;
+        color: #ffffff !important;
+        text-shadow: 0 3px 20px rgba(0, 0, 0, 0.95), 0 1px 3px rgba(0, 0, 0, 0.9) !important;
+        letter-spacing: -0.01em !important;
+      }
+
+      .island-text p.untitled-400-13 {
+        font-family: 'Montserrat', sans-serif !important;
+        color: #f7ede3 !important;
+        text-shadow: 0 2px 10px rgba(0, 0, 0, 0.95) !important;
+      }
+
+      /* =========================================================
+         AMENITIES SECTION - 100VW TITLE & SHOWCASE PARALLAX
+         Reference 1: amenties_title.png (Full 100vw editorial title)
+         Reference 2: Screenshot 2026-09-24 121736.png (Full-size showcase,
+                      floating dark card, progress line, pill button, zoom parallax)
+         ========================================================= */
+      .location-section {
+        justify-content: flex-start !important;
+        width: 400vw !important;
+        min-width: 400vw !important;
+        max-width: 400vw !important;
         height: 100% !important;
+        flex: none !important;
+        position: relative !important;
+        overflow: hidden !important;
+        background-color: #0b1410 !important;
+        display: flex !important;
+        flex-direction: row !important;
+      }
+
+      /* 1. AMENITIES TITLE PANEL (100vw, matching amenties_title.png) */
+      .amenities-title-panel {
+        width: 100vw !important;
+        min-width: 100vw !important;
+        max-width: 100vw !important;
+        height: 100% !important;
+        flex: none !important;
+        position: relative !important;
+        overflow: hidden !important;
+        display: flex !important;
+        align-items: center !important;
+        justify-content: flex-start !important;
+        background: radial-gradient(circle at 75% 42%, #30160e 0%, #221814 55%, #120902 100%) !important;
+        box-sizing: border-box !important;
+        z-index: 2 !important;
+      }
+
+      .amenities-title-ambient-glow {
+        position: absolute;
+        top: 15%;
+        right: 18%;
+        width: 45vw;
+        height: 60vh;
+        background: radial-gradient(ellipse at center, rgba(158, 100, 67, 0.32) 0%, rgba(87, 48, 36, 0.14) 50%, transparent 75%);
+        filter: blur(40px);
+        pointer-events: none;
+        z-index: 1;
+        will-change: transform;
+      }
+
+      .amenities-title-botanical-wrap {
+        position: absolute;
+        right: 0;
+        top: 0;
+        bottom: 0;
+        width: 65vw;
+        height: 100%;
+        pointer-events: none;
+        z-index: 2;
+        overflow: hidden;
+      }
+
+      .amenities-title-botanical-svg {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        object-position: right center;
+        opacity: 0.94;
+        filter: drop-shadow(0 12px 30px rgba(0, 0, 0, 0.45));
+        transform-origin: bottom right;
+        will-change: transform, opacity;
+      }
+
+      .amenities-title-content {
+        position: relative;
+        z-index: 5;
+        padding-left: clamp(2.5rem, 8vw, 10rem);
+        padding-right: 2rem;
+        max-width: 48vw;
+        will-change: transform, opacity;
+      }
+
+      .amenities-title-heading {
+        font-family: 'Cormorant Garamond', 'Tobias', Georgia, serif !important;
+        /* font-size: clamp(4.2rem, 8.5vw, 9.6rem) !important;
+        font-weight: 300 !important;
+        line-height: 0.92 !important; */
+        letter-spacing: -0.025em !important;
+        color: #f7f4ef !important;
+        margin: 0 0 24px 0 !important;
+        /* text-transform: none !important; */
+        text-shadow: 0 4px 24px rgba(0, 0, 0, 0.5);
+      }
+
+      .amenities-title-sub {
+        /* font-family: 'Montserrat', sans-serif !important;
+        font-size: clamp(10px, 0.85vw, 13px) !important;
+        font-weight: 600 !important;
+        letter-spacing: 0.28em !important;
+        text-transform: uppercase !important; */
+        color: #c2a180 !important;
+        /* margin: 0 !important;
+        display: flex !important;
+        align-items: center !important;
+        gap: 14px !important; */
+      }
+
+      /* .amenities-title-sub::before {
+        content: '';
+        display: inline-block;
+        width: 32px;
+        height: 1px;
+        background: #c2a180;
+        opacity: 0.75;
+      } */
+
+      /* 2. AMENITIES SHOWCASE PANEL (300vw container, 100vw sticky stage matching Screenshot) */
+      .location-info.amenities-showcase-panel {
+        width: 300vw !important;
+        min-width: 300vw !important;
+        max-width: 300vw !important;
+        height: 100% !important;
+        flex: none !important;
+        position: relative !important;
+        overflow: hidden !important;
+        background-color: #120902 !important;
+        padding: 0 !important;
+        margin: 0 !important;
+        display: block !important;
+        z-index: 3 !important;
+      }
+
+      .location-info.amenities-showcase-panel::before {
+        content: '';
+        position: absolute;
+        left: 0;
+        top: 0;
+        bottom: 0;
+        width: 140px;
+        /* background: linear-gradient(to right, rgba(18, 9, 2, 0.92) 0%, rgba(18, 9, 2, 0.45) 50%, transparent 100%); */
+        z-index: 12;
+        pointer-events: none;
+      }
+
+      .amenities-showcase-stage {
         position: absolute !important;
         top: 0 !important;
         left: 0 !important;
+        width: 100vw !important;
+        height: 100vh !important;
+        overflow: hidden !important;
         will-change: transform !important;
-        filter: brightness(0.55) !important;
       }
 
-      /* Availability section cleanly connected without overlay */
+      /* Image Layers & Zoom (No overlay) */
+      .amenities-images-container {
+        position: absolute;
+        inset: 0;
+        width: 100%;
+        height: 100%;
+        overflow: hidden;
+        will-change: transform !important;
+      }
+
+      .amenity-image-layer {
+        position: absolute !important;
+        inset: 0 !important;
+        width: 100% !important;
+        height: 100% !important;
+        overflow: hidden !important;
+        opacity: 0;
+        z-index: 1;
+        transition: opacity 0.65s cubic-bezier(0.25, 1, 0.5, 1) !important;
+        pointer-events: none;
+      }
+
+      .amenity-image-layer.active {
+        opacity: 1 !important;
+        z-index: 3 !important;
+        pointer-events: auto !important;
+      }
+
+      .amenity-image-layer.prev {
+        opacity: 0 !important;
+        z-index: 2 !important;
+      }
+
+      .amenity-full-img {
+        width: 100% !important;
+        height: 100% !important;
+        object-fit: cover !important;
+        object-position: center !important;
+        display: block !important;
+        will-change: transform !important;
+        transform: scale(1.0);
+        transform-origin: center center !important;
+      }
+
+      /* 3. SHOWCASE CARD (Large editorial card matching current height & width with big numeral) */
+      .amenity-showcase-card {
+        position: absolute !important;
+        right: clamp(28px, 4.5vw, 64px) !important;
+        bottom: clamp(28px, 4.5vh, 60px) !important;
+        z-index: 15 !important;
+        width: 22.5em !important;
+        max-width: 90vw !important;
+        backdrop-filter: blur(20px) !important;
+        -webkit-backdrop-filter: blur(20px) !important;
+        /* border: 1px solid rgba(194, 161, 128, 0.28) !important; */
+        border-radius: 4px !important;
+        padding: 2.2em 2em !important;
+        box-shadow: 0 30px 70px rgba(0, 0, 0, 0.65), 0 0 0 1px rgba(194, 161, 128, 0.12) inset !important;
+        box-sizing: border-box !important;
+        display: flex !important;
+        flex-direction: column !important;
+        justify-content: space-between !important;
+        transition: box-shadow 0.4s ease !important;
+        will-change: transform, opacity !important;
+      }
+
+      .amenity-showcase-card:hover {
+        box-shadow: 0 34px 80px rgba(0, 0, 0, 0.75), 0 0 0 1px rgba(194, 161, 128, 0.3) inset !important;
+      }
+
+      .amenity-card-top {
+        display: flex !important;
+        flex-direction: column !important;
+      }
+
+      /* Huge Editorial Serif Numeral */
+      .amenity-card-num {
+        font-family: "Tobias", "Cormorant Garamond", Georgia, serif !important;
+        font-size: clamp(4.5rem, 5.5vw, 6.2rem) !important;
+        font-weight: 300 !important;
+        line-height: 0.85 !important;
+        color: #e0d1b6 !important;
+        letter-spacing: -0.04em !important;
+        margin: 0 0 18px 0 !important;
+        user-select: none !important;
+      }
+
+      .amenity-card-title {
+          font-family: 'Cormorant Garamond', 'Tobias', Georgia, serif !important;
+        font-size: clamp(28px, 2.2vw, 36px) !important;
+        font-weight: 400 !important;
+        color: #f7f4ef !important;
+        line-height: 1.15 !important;
+        margin: 0 0 8px 0 !important;
+        /* text-transform: none !important; */
+        transition: opacity 0.35s ease, transform 0.35s ease !important;
+      }
+
+      .amenity-card-sub {
+        font-family: 'Montserrat', sans-serif !important;
+        font-size: 12px !important;
+        font-weight: 600 !important;
+        color: #c2a180 !important;
+        letter-spacing: 0.14em !important;
+        text-transform: uppercase !important;
+        margin: 0 0 24px 0 !important;
+        transition: opacity 0.35s ease, transform 0.35s ease !important;
+      }
+
+      /* Content line that fills to full while scrolling */
+      .amenity-content-line-container {
+        width: 100% !important;
+        height: 2px !important;
+        background: rgba(194, 161, 128, 0.25) !important;
+        position: relative !important;
+        margin-top: auto !important;
+        overflow: hidden !important;
+      }
+
+      .amenity-content-line-fill {
+        position: absolute !important;
+        top: 0 !important;
+        left: 0 !important;
+        height: 100% !important;
+        width: 0% !important;
+        background: #c2a180 !important;
+        box-shadow: 0 0 10px rgba(194, 161, 128, 0.7) !important;
+        will-change: width !important;
+      }
+
+      /* Clean Availability Connection */
       .availability-section {
         position: relative !important;
         z-index: 10 !important;
@@ -865,6 +1440,7 @@
         will-change: transform !important;
       }
 
+      /* Responsive Rules for Mobile (<992px) */
       @media screen and (max-width: 991px) {
         .location-section {
           width: 100% !important;
@@ -873,225 +1449,231 @@
           height: auto !important;
           flex-direction: column !important;
         }
-        .location-trigger {
-          width: 100% !important;
-        }
-        .location-sticky {
+
+        .amenities-title-panel {
           width: 100% !important;
           min-width: 100% !important;
           max-width: 100% !important;
-          position: relative !important;
-          flex-direction: column !important;
+          height: 75vh !important;
+          min-height: 480px !important;
         }
-        .location-info {
+
+        .amenities-title-content {
+          padding-left: 24px !important;
+          padding-right: 24px !important;
+          max-width: 90vw !important;
+        }
+
+        .amenities-title-heading {
+          font-size: clamp(3.5rem, 14vw, 5.5rem) !important;
+        }
+
+        .amenities-title-botanical-wrap {
+          width: 90vw !important;
+          opacity: 0.65 !important;
+        }
+
+        .location-info.amenities-showcase-panel {
+          width: 100% !important;
+          min-width: 100% !important;
+          max-width: 100% !important;
+          height: 350vh !important;
+          position: relative !important;
+        }
+
+        .amenities-showcase-stage {
+          position: sticky !important;
+          top: 0 !important;
+          width: 100% !important;
+          height: 100vh !important;
+        }
+
+        .amenity-showcase-card {
+          right: 18px !important;
+          left: 18px !important;
+          bottom: 28px !important;
+          width: auto !important;
+          min-height: 20em !important;
+          padding: 1.8em 1.5em !important;
+        }
+
+        .island-sub-title .tobias-300-122 {
+          font-size: clamp(1.8rem, 6vw, 2.8rem) !important;
+        }
+
+        .island-sub-title-2 .tobias-300-122 {
+          font-size: clamp(1.5rem, 5vw, 2.2rem) !important;
+        }
+
+        .island-text p.untitled-400-13 {
+          font-size: 13px !important;
+          line-height: 1.65 !important;
+        }
+
+        /* --- Mobile & Tablet Navbar --- */
+        .ref-top-logo {
+          left: 14px !important;
+          top: 8px !important;
+          width: 48px !important;
+          height: 48px !important;
+        }
+
+        .nav {
+          height: 64px !important;
+          padding: 0 12px 0 68px !important;
+          backdrop-filter: blur(14px) !important;
+          -webkit-backdrop-filter: blur(14px) !important;
+          background: rgba(18, 9, 2, 0.35) !important;
+          transition: background-color 0.35s ease, border-color 0.35s ease !important;
+        }
+
+        .nav.is-light-bg {
+          background: rgba(247, 242, 237, 0.88) !important;
+          border-bottom: 1px solid rgba(194, 161, 128, 0.25) !important;
+        }
+
+        .nav.is-dark-bg {
+          background: rgba(16, 8, 4, 0.78) !important;
+          border-bottom: 1px solid rgba(255, 255, 255, 0.08) !important;
+        }
+
+        .nav-links-component {
+          display: flex !important;
+          align-items: center !important;
+          justify-content: flex-start !important;
+          overflow-x: auto !important;
+          overflow-y: hidden !important;
+          -webkit-overflow-scrolling: touch !important;
+          scrollbar-width: none !important;
+          -ms-overflow-style: none !important;
+          gap: 10px !important;
+          margin: 0 !important;
+          padding: 4px 6px !important;
+          white-space: nowrap !important;
+          flex: 1 1 auto !important;
+          max-width: calc(100% - 76px) !important;
+        }
+
+        .nav-links-component::-webkit-scrollbar {
+          display: none !important;
+          width: 0 !important;
+          height: 0 !important;
+        }
+
+        .nav-link {
+          padding: 4px 6px 4px 14px !important;
+          flex-shrink: 0 !important;
+        }
+
+        .nav-link .untitled-400-13 {
+          font-size: 11px !important;
+          letter-spacing: 0.14em !important;
+        }
+
+        .nav-link-inquire {
+          flex-shrink: 0 !important;
+          margin-left: auto !important;
+          padding: 0 !important;
+        }
+
+        .nav-link-inquire::before {
+          margin-right: 6px !important;
+          font-size: 11px !important;
+        }
+
+        .nav-link.inquire .untitled-400-13 {
+          font-size: 11px !important;
+          letter-spacing: 0.14em !important;
+        }
+
+        /* About Us Mobile */
+        .vision-section.about-us-section {
           width: 100% !important;
           min-width: 100% !important;
           max-width: 100% !important;
           height: auto !important;
-          padding: 80px 20px !important;
+          min-height: 100vh !important;
+          padding: 6.5rem 1.5rem 4rem !important;
         }
-        .location-big-img-wrap {
+
+        .about-container {
+          flex-direction: column !important;
+          padding: 0 !important;
+          gap: 2.5rem !important;
+          height: auto !important;
+        }
+
+        .about-left-col {
+          max-width: 100% !important;
+          flex: none !important;
+        }
+
+        .about-main-title {
+          font-size: clamp(2.4rem, 8vw, 3.5rem) !important;
+        }
+
+        .about-pillars-grid {
+          grid-template-columns: repeat(3, 1fr) !important;
+          gap: 1rem !important;
+        }
+
+        .about-right-col {
           width: 100% !important;
-          min-width: 100% !important;
-          height: 60vh !important;
+          height: 55vh !important;
+          min-height: 320px !important;
+          flex: none !important;
+        }
+
+        .about-hero-img-wrap {
+          height: 100% !important;
+        }
+
+        .about-hero-img {
+          width: 100% !important;
+          height: 120% !important;
+          transform: translate3d(0, -10%, 0);
         }
       }
 
-      /* =========================================================
-         AMENITIES SECTION - REFERENCE CARD DESIGN (6dac6fdc-...)
-         - Deep pine green container (#162d24)
-         - Inset luxury photo with rounded corners
-         - Huge editorial serif numeral (#e0d1b6) at bottom left
-         - Crisp uppercase tracked title/sub at bottom right (#b5aa94)
-         - Identical dimensions & styling across all 5 cards
-         ========================================================= */
-      .location-info-wrap.relative {
-        width: 21.5em !important;
-        height: 38.5em !important;
-      }
+      /* Small Mobile Phones (<540px) */
+      @media screen and (max-width: 540px) {
+        .ref-top-logo {
+          left: 10px !important;
+          top: 7px !important;
+          width: 40px !important;
+          height: 40px !important;
+        }
 
-      .location-info-anim {
-        width: 21.5em !important;
-        height: 29.5em !important;
-        position: relative !important;
-        perspective: 510px !important;
-      }
+        .nav {
+          height: 56px !important;
+          padding: 0 8px 0 54px !important;
+        }
 
-      /* Consistent card container matching reference image */
-      .location-info-wrap.n1,
-      .location-info-wrap.n2,
-      .location-info-wrap.n3,
-      .location-info-wrap.n4,
-      .location-info-wrap.n5 {
-        width: 21.5em !important;
-        max-width: 90vw !important;
-        height: 29.5em !important;
-        min-height: 29.5em !important;
-        padding: 1.15em 1.15em 1.4em 1.15em !important;
-        box-sizing: border-box !important;
-        display: flex !important;
-        flex-direction: column !important;
-        justify-content: flex-start !important;
-        align-items: stretch !important;
-        background-color: var(--brand-secondary) !important;
-        border-radius: 4px !important;
-        border: 1px solid rgba(181, 170, 148, 0.22) !important;
-        position: absolute !important;
-        top: 0 !important;
-        left: 0 !important;
-        margin: 0 !important;
-        overflow: hidden !important;
-        transition: opacity 0.6s ease, transform 0.6s ease !important;
-      }
+        .nav-links-component {
+          gap: 8px !important;
+          padding: 2px 4px !important;
+          max-width: calc(100% - 66px) !important;
+        }
 
-      .location-info-wrap.n1 {
-        z-index: 5 !important;
-        opacity: 1;
-        pointer-events: auto;
-      }
+        .nav-link {
+          padding: 3px 4px 3px 12px !important;
+        }
 
-      .location-info-wrap.n2 {
-        z-index: 4 !important;
-        opacity: 0;
-        pointer-events: none;
-      }
+        .nav-link .untitled-400-13 {
+          font-size: 10px !important;
+          letter-spacing: 0.11em !important;
+        }
 
-      .location-info-wrap.n3 {
-        z-index: 3 !important;
-        opacity: 0;
-        pointer-events: none;
-      }
+        .nav-link-inquire::before {
+          margin-right: 4px !important;
+          font-size: 10px !important;
+        }
 
-      .location-info-wrap.n4 {
-        z-index: 2 !important;
-        opacity: 0;
-        pointer-events: none;
-      }
+        .nav-link.inquire .untitled-400-13 {
+          font-size: 10px !important;
+          letter-spacing: 0.11em !important;
+        }
 
-      .location-info-wrap.n5 {
-        z-index: 1 !important;
-        opacity: 0;
-        pointer-events: none;
-      }
-
-      /* Image Wrap & Photo (Inset matching reference) */
-      .amenity-card-img-wrap {
-        width: 100% !important;
-        height: 18em !important;
-        border-radius: 4px !important;
-        overflow: hidden !important;
-        position: relative !important;
-        background: #0d1a15 !important;
-        flex-shrink: 0 !important;
-      }
-
-      .amenity-card-img {
-        width: 100% !important;
-        height: 100% !important;
-        object-fit: cover !important;
-        display: block !important;
-        border-radius: 4px !important;
-        transition: transform 0.8s cubic-bezier(0.25, 1, 0.5, 1) !important;
-      }
-
-      .location-info-wrap:hover .amenity-card-img {
-        transform: scale(1.04) !important;
-      }
-
-      /* Bottom Content Bar */
-      .amenity-card-bottom {
-        width: 100% !important;
-        flex: 1 !important;
-        display: flex !important;
-        justify-content: space-between !important;
-        align-items: flex-end !important;
-        padding: 1.2em 0.25em 0.2em 0.25em !important;
-        box-sizing: border-box !important;
-      }
-
-      /* Big Left Numeral (Reference Image Style) */
-      .amenity-card-num {
-        font-family: "Tobias", "Cormorant Garamond", Georgia, serif !important;
-        font-size: 5rem !important;
-        font-weight: 300 !important;
-        line-height: 0.82 !important;
-        color: #e0d1b6 !important;
-        letter-spacing: -0.04em !important;
-        margin: 0 !important;
-        user-select: none !important;
-      }
-
-      /* Right Information (Reference Image Style) */
-      .amenity-card-info {
-        text-align: right !important;
-        display: flex !important;
-        flex-direction: column !important;
-        align-items: flex-end !important;
-        justify-content: flex-end !important;
-        padding-bottom: 4px !important;
-      }
-
-      .amenity-card-title {
-        font-family: "Montserrat", sans-serif !important;
-        font-size: 11px !important;
-        font-weight: 600 !important;
-        letter-spacing: 0.15em !important;
-        line-height: 1.4 !important;
-        text-transform: uppercase !important;
-        color: #c2a180 !important;
-        margin: 0 0 3px 0 !important;
-      }
-
-      .amenity-card-sub {
-        font-family: "Montserrat", sans-serif !important;
-        font-size: 10px !important;
-        font-weight: 500 !important;
-        letter-spacing: 0.12em !important;
-        line-height: 1.3 !important;
-        text-transform: uppercase !important;
-        color: #a29f89 !important;
-        margin: 0 !important;
-      }
-
-      /* Subtitle uppercase tracking */
-      .location-sub-title .untitled-400-13 {
-        letter-spacing: 0.25em !important;
-        color: #000000 !important;
-        font-weight: 600 !important;
-        font-size:2.5rem !important;
-      }
-
-      /* Amenities Navigation Dots */
-      .amenities-nav-dots {
-        display: flex !important;
-        justify-content: center !important;
-        align-items: center !important;
-        gap: 8px !important;
-        margin-top: 14px !important;
-        z-index: 20 !important;
-        position: relative !important;
-      }
-
-      .amenity-dot-btn {
-        background: rgb(255 255 255 / 60%) !important;
-        border: 1px solid #573024 !important;
-        color: #573024 !important;
-        font-family: "Montserrat", sans-serif !important;
-        font-size: 11px !important;
-        font-weight: 600 !important;
-        padding: 10px 12px !important;
-        border-radius: 50% !important;
-        cursor: pointer !important;
-        transition: all 0.3s ease !important;
-        outline: none !important;
-      }
-
-      .amenity-dot-btn:hover,
-      .amenity-dot-btn.active {
-    background: #573024 !important;
-        color: #ffffff !important;
-        border-color: #c2a180 !important;
-        box-shadow: 0 0 10px rgba(194, 161, 128, 0.5) !important;
       }
 
       .ref-bottom-icon {
@@ -2164,89 +2746,77 @@ a,
                     <div class="hero-img-gradient" style="z-index: 2 !important;"></div>
                   </div>
                 </div>
-                <section id="vision" class="vision-section panel">
-<style>
-.ac-about{position:relative;display:grid;grid-template-columns:1.02fr .98fr;gap:clamp(2rem,5vw,4.5rem);align-items:center;width:100%;max-width:1240px;margin:0 auto;padding:clamp(.5rem,2vw,2rem) 0 clamp(2.5rem,4vw,4rem)}
-.ac-media{position:relative;min-height:clamp(340px,40vw,540px)}
-.ac-shape{position:absolute;opacity:0;transition:opacity .9s ease}
-.ac-about.in-view .ac-shape{opacity:1}
-.ac-s-back{left:-4%;bottom:-6%;width:62%;height:70%;background:#221814;transition-delay:.15s}
-.ac-about.in-view .ac-s-back{transition-delay:.15s}
-.ac-s-top{right:2%;top:-8%;width:54%;height:32%;background:#9e6443;transition-delay:.3s}
-.ac-s-low{left:24%;bottom:-12%;width:32%;height:18%;background:#c2a180;transition-delay:.45s}
-.ac-frame{position:absolute;inset:5% 6% 9% 7%;overflow:hidden;opacity:0;transform:translateY(-72px);transition:transform 1.15s cubic-bezier(.16,1,.3,1),opacity .9s ease}
-.ac-about.in-view .ac-frame{transform:translateY(0);opacity:1}
-.ac-frame img{width:100%;height:100%;object-fit:cover;display:block}
-.ac-copy{position:relative}
-.ac-rise{opacity:0;transform:translateY(26px);transition:opacity .8s ease,transform .9s cubic-bezier(.16,1,.3,1)}
-.ac-about.in-view .ac-rise{opacity:1;transform:translateY(0)}
-.ac-about.in-view .ac-rise:nth-child(1){transition-delay:.1s}
-.ac-about.in-view .ac-rise:nth-child(2){transition-delay:.22s}
-.ac-about.in-view .ac-rise:nth-child(3){transition-delay:.34s}
-.ac-about.in-view .ac-rise:nth-child(4){transition-delay:.44s}
-.ac-about.in-view .ac-rise:nth-child(5){transition-delay:.54s}
-.ac-eyebrow{font-family:'Montserrat',sans-serif;font-size:11px;font-weight:600;letter-spacing:.3em;text-transform:uppercase;color:#9e6443;margin:0 0 18px}
-.ac-title{font-family:'Cormorant Garamond',Georgia,serif;font-weight:500;font-size:clamp(2.1rem,3.6vw,3.4rem);line-height:1.12;letter-spacing:0;color:#221814;margin:0 0 20px;text-transform:none}
-.ac-body{font-family:'Montserrat',sans-serif;font-weight:400;font-size:15px;line-height:1.8;color:#4a4038;margin:0 0 22px;max-width:34em}
-.ac-strong{font-family:'Montserrat',sans-serif;font-weight:600;font-size:15px;letter-spacing:.02em;color:#221814;margin:0 0 26px}
-.ac-cta{display:inline-block;font-family:'Montserrat',sans-serif;font-size:12px;font-weight:600;letter-spacing:.18em;text-transform:uppercase;color:#f7f2ed;background:#9e6443;border-radius:999px;padding:15px 32px;text-decoration:none;transition:background .3s ease,transform .3s ease}
-.ac-cta:hover{background:#221814;transform:translateY(-2px)}
-@media (max-width:900px){
-.ac-about{grid-template-columns:1fr;gap:2.5rem}
-.ac-media{min-height:min(78vw,380px)}
-.ac-s-back{left:-3%;height:66%}
-.ac-s-top{top:-6%;height:30%}
-}
-</style>
-<div class="ac-about" id="acAbout">
-<div class="ac-media" data-ac-speed="46">
-<div class="ac-shape ac-s-back"></div>
-<div class="ac-shape ac-s-top"></div>
-<div class="ac-shape ac-s-low"></div>
-<figure class="ac-frame" style="margin:0">
-<img src="/images/hero-building-sunset.webp" alt="Ananda Crown luxury residences at sunset, Sector 78 Mohali" loading="eager" decoding="async" />
-</figure>
-</div>
-<div class="ac-copy" data-ac-speed="14">
-<p class="ac-eyebrow ac-rise">About us</p>
-<h2 class="ac-title ac-rise">A new crown rising over Mohali</h2>
-<p class="ac-body ac-rise">Crafted by Ananda Group in Sector 78, SAS Nagar, Ananda Crown brings palatial 3, 4 and 5 BHK sky residences with 11.5 ft ceilings, a 600 ft boulevard frontage and private skydecks — minutes from the airport, PCA Stadium and the Tricity&apos;s finest schools and hospitals.</p>
-<p class="ac-strong ac-rise">Come, experience royal living.</p>
-<a class="ac-cta ac-rise" href="/contact">Schedule a private visit</a>
-</div>
-</div>
-<script>
-(function(){
-var s=document.getElementById('acAbout');
-if(!s){return;}
-if(!('IntersectionObserver' in window)){s.classList.add('in-view');return;}
-var io=new IntersectionObserver(function(entries){
-entries.forEach(function(x){if(x.isIntersecting){s.classList.add('in-view');io.disconnect();}});
-},{threshold:.22});
-io.observe(s);
-if(window.matchMedia&&window.matchMedia('(prefers-reduced-motion: reduce)').matches){return;}
-var items=s.querySelectorAll('[data-ac-speed]');
-var ticking=false;
-function update(){
-ticking=false;
-var r=s.getBoundingClientRect();
-var vh=window.innerHeight||1;
-var p=(r.top+r.height/2-vh/2)/vh;
-for(var i=0;i<items.length;i++){
-var sp=parseFloat(items[i].getAttribute('data-ac-speed'))||0;
-items[i].style.transform='translate3d(0,'+(-p*sp).toFixed(1)+'px,0)';
-}
-}
-function onScroll(){if(!ticking){ticking=true;requestAnimationFrame(update);}}
-window.addEventListener('scroll',onScroll,{passive:true});
-window.addEventListener('resize',onScroll);
-update();
-})();
-</script>
-<div class="horizontal-line-wrap mb-block">
-<div class="horizontal-line grey"></div>
-</div>
-</section>
+                <section id="vision" class="vision-section panel about-us-section">
+                  <div class="about-container">
+                    <!-- LEFT COLUMN: CONTENT -->
+                    <div class="about-left-col">
+                      <!-- Title (matching previous title size) -->
+                      <div class="about-title-wrap">
+                        <h2 class="about-main-title tobias-300-50">ABOUT US</h2>
+                      </div>
+
+                      <!-- Lead Uppercase Statement -->
+                      <div class="about-lead-statement">
+                        OUR VISION FOR LUXURY LIVING ON <span class="about-highlight-gold">ANANDA CROWN</span> IS TO CREATE A ONE-OF-A-KIND DEVELOPMENT THAT COMBINES CONTEMPORARY DESIGN WITH THE NATURAL BEAUTY OF <span class="about-highlight-gold">THE CITY.</span>
+                      </div>
+
+                      <!-- Sub-lead Descriptive Paragraph -->
+                      <div class="about-body-desc">
+                        Rooted in timeless elegance and built for modern lifestyles, Ananda Crown brings together refined architecture, premium amenities and a vibrant community — creating a place where every day feels extraordinary.
+                      </div>
+
+                      <!-- Three Pillars Grid (01, 02, 03) -->
+                      <div class="about-pillars-grid">
+                        <div class="about-pillar-item">
+                          <div class="about-pillar-num">01</div>
+                          <div class="about-pillar-label">DISTINCTIVE<br />ARCHITECTURE</div>
+                        </div>
+                        <div class="about-pillar-item">
+                          <div class="about-pillar-num">02</div>
+                          <div class="about-pillar-label">CRAFTED<br />LIVING</div>
+                        </div>
+                        <div class="about-pillar-item">
+                          <div class="about-pillar-num">03</div>
+                          <div class="about-pillar-label">CONNECTED<br />LOCATION</div>
+                        </div>
+                      </div>
+
+                      <!-- Bottom Feature: EST. 2026, Inset Chess Image, and Timeless Values Text -->
+                      <div class="about-bottom-feature">
+                        <div class="about-est-wrap">
+                          <span class="about-est-text">EST. 2026</span>
+                          <span class="about-est-line"></span>
+                        </div>
+                        <div class="about-inset-row">
+                          <div class="about-chess-frame">
+                            <img
+                              src="/images/golden-chess.webp"
+                              alt="Ananda Crown Timeless Living"
+                              class="about-chess-img"
+                              loading="lazy"
+                            />
+                          </div>
+                          <div class="about-values-text">
+                            TIMELESS<br />VALUES.<br />MODERN<br />LIVING.
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+
+                    <!-- RIGHT COLUMN: Grand Lobby Hero Image with Parallax -->
+                    <div class="about-right-col">
+                      <div class="about-hero-img-wrap">
+                        <img
+                          src="/images/about-us-hero.png"
+                          alt="Ananda Crown Grand Luxury Living"
+                          class="about-hero-img"
+                          loading="lazy"
+                        />
+                        <div class="about-hero-glass-reflection"></div>
+                      </div>
+                    </div>
+                  </div>
+                </section>
                 <section id="apartments" class="apartments-section panel">
                   <div class="vertical-line-wrap">
                     <div class="vertical-line"></div>
@@ -2321,7 +2891,7 @@ update();
                                 <div class="seta-cta-wrap">
                                   <div class="seta-cta-anda-1">
                                     <img
-                                      src="https://cdn.prod.website-files.com/63d3a5c57af34837d7bbb1a0/64061c1e2a3bfa6e8bc74d9c_seta-cta.svg"
+                                      src="/images/seta-cta.svg"
                                       loading="lazy"
                                       alt=""
                                       class="seta-cta"
@@ -2329,7 +2899,7 @@ update();
                                   </div>
                                   <div class="seta-cta-anda-2">
                                     <img
-                                      src="https://cdn.prod.website-files.com/63d3a5c57af34837d7bbb1a0/64061c1e2a3bfa6e8bc74d9c_seta-cta.svg"
+                                      src="/images/seta-cta.svg"
                                       loading="lazy"
                                       alt=""
                                       class="seta-cta"
@@ -2449,9 +3019,9 @@ update();
                 <div id="island" class="island-section panel">
                   <div class="island-component">
                     <div class="island-cima">
-                      <div class="island-title">
+                      <!-- <div class="island-title">
                         <h2 class="untitled-400-13">the destination</h2>
-                      </div>
+                      </div> -->
                       <div class="island-sub-title">
                         <div
                           anim="1"
@@ -2487,9 +3057,6 @@ update();
                     </div>
                     <div class="island-background">
                       <div
-                        data-poster-url="https://cdn.prod.website-files.com/63d3a5c57af34837d7bbb1a0/6407644d418722e08e114c7e_ilha-madeira-poster-00001.jpg"
-                        data-video-urls="https://cdn.prod.website-files.com/63d3a5c57af34837d7bbb1a0/6407644d418722e08e114c7e_ilha-madeira-transcode.mp4
-                        ,videos/magnific_animate_nVXtg8hYQD.mp4"
                         data-autoplay="true"
                         data-loop="true"
                         data-wf-ignore="true"
@@ -2499,9 +3066,6 @@ update();
                           id="6988ffef-990c-7d4a-a94f-500697e81823-video"
                           autoplay=""
                           loop=""
-                          style="
-                            background-image: url(&quot;https://cdn.prod.website-files.com/63d3a5c57af34837d7bbb1a0/6407644d418722e08e114c7e_ilha-madeira-poster-00001.jpg&quot;);
-                          "
                           muted=""
                           playsinline=""
                           data-wf-ignore="true"
@@ -2521,192 +3085,206 @@ update();
                   </div>
                 </div>
                 <div id="location" class="location-section panel">
-                  <div class="location-trigger"></div>
-                  <div class="location-sticky">
-                    <div class="location-width"></div>
-                    <div class="location-marquee">
-                      <div
-                        data-w-id="a69e3c76-4a04-0ceb-2f87-e329ebd28016"
-                        class="location-anda"
-                      >
-                        <div class="location-track">
-                          <div class="location-marquee-repete">
-                            <div class="location-ball"></div>
-                            <div class="location-marquee-text">
-                              <div class="tobias-300-50 mb-40">
-                                curated luxury amenities
-                              </div>
-                            </div>
-                          </div>
-                          <div class="location-marquee-repete">
-                            <div class="location-ball"></div>
-                            <div class="location-marquee-text">
-                              <div class="tobias-300-50 mb-40">
-                                curated luxury amenities
-                              </div>
-                            </div>
-                          </div>
-                          <div class="location-marquee-repete">
-                            <div class="location-ball"></div>
-                            <div class="location-marquee-text">
-                              <div class="tobias-300-50 mb-40">
-                                curated luxury amenities
-                              </div>
-                            </div>
-                          </div>
-                          <div class="location-marquee-repete">
-                            <div class="location-ball"></div>
-                            <div class="location-marquee-text">
-                              <div class="tobias-300-50 mb-40">
-                                curated luxury amenities
-                              </div>
-                            </div>
-                          </div>
+                  <!-- 1. AMENITIES TITLE PANEL (100vw, matching amenties_title.png reference) -->
+                  <div class="amenities-title-panel" id="amenitiesTitle">
+                    <div class="amenities-title-ambient-glow"></div>
+                    <div class="amenities-title-botanical-wrap">
+                      <svg class="amenities-title-botanical-svg" viewBox="0 0 1000 750" preserveAspectRatio="xMidYMid slice" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <defs>
+                          <linearGradient id="branchGrad" x1="1" y1="1" x2="0.2" y2="0.1">
+                            <stop offset="0%" stop-color="#30160e" />
+                            <stop offset="35%" stop-color="#573024" />
+                            <stop offset="70%" stop-color="#9e6443" />
+                            <stop offset="100%" stop-color="#c2a180" />
+                          </linearGradient>
+                          <linearGradient id="petalGrad1" x1="0" y1="0" x2="1" y2="1">
+                            <stop offset="0%" stop-color="#ffffff" stop-opacity="0.96" />
+                            <stop offset="70%" stop-color="#fdf6ee" stop-opacity="0.92" />
+                            <stop offset="100%" stop-color="#eddac2" stop-opacity="0.82" />
+                          </linearGradient>
+                          <linearGradient id="petalGrad2" x1="1" y1="0" x2="0" y2="1">
+                            <stop offset="0%" stop-color="#ffffff" stop-opacity="0.98" />
+                            <stop offset="60%" stop-color="#fcf4e8" stop-opacity="0.9" />
+                            <stop offset="100%" stop-color="#e3cbaf" stop-opacity="0.8" />
+                          </linearGradient>
+                          <radialGradient id="flowerCenter" cx="50%" cy="50%" r="50%">
+                            <stop offset="0%" stop-color="#dfaa5e" />
+                            <stop offset="60%" stop-color="#c28b41" />
+                            <stop offset="100%" stop-color="#694b29" />
+                          </radialGradient>
+                          <filter id="softGlow" x="-20%" y="-20%" width="140%" height="140%">
+                            <feGaussianBlur stdDeviation="3" result="blur" />
+                            <feComposite in="SourceGraphic" in2="blur" operator="over" />
+                          </filter>
+                        </defs>
+                        <!-- Main Stem & Branches matching reference -->
+                        <g filter="url(#softGlow)">
+                          <path d="M 850 780 Q 720 560 620 440 T 450 250 Q 370 140 270 80" stroke="url(#branchGrad)" stroke-width="7" stroke-linecap="round" />
+                          <path d="M 640 470 Q 530 400 420 370 Q 310 340 220 300" stroke="url(#branchGrad)" stroke-width="4.5" stroke-linecap="round" />
+                          <path d="M 520 330 Q 480 240 370 190" stroke="url(#branchGrad)" stroke-width="3.2" stroke-linecap="round" />
+                          <path d="M 440 240 Q 380 170 300 120" stroke="url(#branchGrad)" stroke-width="2.5" stroke-linecap="round" />
+                          <path d="M 700 540 Q 770 450 860 380 Q 930 320 990 280" stroke="url(#branchGrad)" stroke-width="4.5" stroke-linecap="round" />
+                          <path d="M 770 440 Q 830 360 910 300" stroke="url(#branchGrad)" stroke-width="2.6" stroke-linecap="round" />
+                          <path d="M 480 385 Q 430 440 360 480" stroke="url(#branchGrad)" stroke-width="2.8" stroke-linecap="round" />
+                          <path d="M 330 350 Q 280 400 210 420" stroke="url(#branchGrad)" stroke-width="2" stroke-linecap="round" />
+                        </g>
+                        <!-- Delicate White & Champagne Blossoms -->
+                        <!-- Blossom 1 -->
+                        <g transform="translate(268, 78) scale(1.15)">
+                          <ellipse cx="-7" cy="-7" rx="8" ry="6" transform="rotate(-30)" fill="url(#petalGrad1)" />
+                          <ellipse cx="7" cy="-7" rx="8" ry="6" transform="rotate(30)" fill="url(#petalGrad2)" />
+                          <ellipse cx="9" cy="5" rx="8" ry="6" transform="rotate(80)" fill="url(#petalGrad1)" />
+                          <ellipse cx="-2" cy="10" rx="8" ry="6" transform="rotate(130)" fill="url(#petalGrad2)" />
+                          <ellipse cx="-9" cy="3" rx="8" ry="6" transform="rotate(-80)" fill="url(#petalGrad1)" />
+                          <circle cx="0" cy="0" r="3.5" fill="url(#flowerCenter)" />
+                        </g>
+                        <!-- Blossom 2 -->
+                        <g transform="translate(366, 186) scale(1.3)">
+                          <ellipse cx="-8" cy="-8" rx="9" ry="7" transform="rotate(-25)" fill="url(#petalGrad1)" />
+                          <ellipse cx="8" cy="-8" rx="9" ry="7" transform="rotate(35)" fill="url(#petalGrad2)" />
+                          <ellipse cx="10" cy="5" rx="9" ry="7" transform="rotate(85)" fill="url(#petalGrad1)" />
+                          <ellipse cx="-2" cy="11" rx="9" ry="7" transform="rotate(135)" fill="url(#petalGrad2)" />
+                          <ellipse cx="-10" cy="4" rx="9" ry="7" transform="rotate(-75)" fill="url(#petalGrad1)" />
+                          <circle cx="0" cy="0" r="4" fill="url(#flowerCenter)" />
+                        </g>
+                        <!-- Blossom 3 -->
+                        <g transform="translate(448, 246) scale(1.05)">
+                          <ellipse cx="-7" cy="-6" rx="7.5" ry="5.5" transform="rotate(-35)" fill="url(#petalGrad2)" />
+                          <ellipse cx="7" cy="-6" rx="7.5" ry="5.5" transform="rotate(25)" fill="url(#petalGrad1)" />
+                          <ellipse cx="8" cy="4" rx="7.5" ry="5.5" transform="rotate(75)" fill="url(#petalGrad2)" />
+                          <ellipse cx="-1" cy="9" rx="7.5" ry="5.5" transform="rotate(125)" fill="url(#petalGrad1)" />
+                          <ellipse cx="-8" cy="2" rx="7.5" ry="5.5" transform="rotate(-85)" fill="url(#petalGrad2)" />
+                          <circle cx="0" cy="0" r="3" fill="url(#flowerCenter)" />
+                        </g>
+                        <!-- Blossom 4 -->
+                        <g transform="translate(296, 116) scale(0.95)">
+                          <ellipse cx="-6" cy="-6" rx="6.5" ry="5" transform="rotate(-20)" fill="url(#petalGrad1)" />
+                          <ellipse cx="6" cy="-6" rx="6.5" ry="5" transform="rotate(40)" fill="url(#petalGrad2)" />
+                          <ellipse cx="7" cy="4" rx="6.5" ry="5" transform="rotate(90)" fill="url(#petalGrad1)" />
+                          <ellipse cx="-2" cy="8" rx="6.5" ry="5" transform="rotate(140)" fill="url(#petalGrad2)" />
+                          <ellipse cx="-7" cy="3" rx="6.5" ry="5" transform="rotate(-70)" fill="url(#petalGrad1)" />
+                          <circle cx="0" cy="0" r="2.8" fill="url(#flowerCenter)" />
+                        </g>
+                        <!-- Blossom 5 -->
+                        <g transform="translate(416, 368) scale(1.4)">
+                          <ellipse cx="-9" cy="-8" rx="10" ry="7.5" transform="rotate(-30)" fill="url(#petalGrad1)" />
+                          <ellipse cx="9" cy="-8" rx="10" ry="7.5" transform="rotate(30)" fill="url(#petalGrad2)" />
+                          <ellipse cx="11" cy="5" rx="10" ry="7.5" transform="rotate(80)" fill="url(#petalGrad1)" />
+                          <ellipse cx="-2" cy="12" rx="10" ry="7.5" transform="rotate(130)" fill="url(#petalGrad2)" />
+                          <ellipse cx="-11" cy="4" rx="10" ry="7.5" transform="rotate(-80)" fill="url(#petalGrad1)" />
+                          <circle cx="0" cy="0" r="4.2" fill="url(#flowerCenter)" />
+                        </g>
+                        <!-- Blossom 6 -->
+                        <g transform="translate(218, 298) scale(1.1)">
+                          <ellipse cx="-7" cy="-7" rx="8" ry="6" transform="rotate(-28)" fill="url(#petalGrad2)" />
+                          <ellipse cx="7" cy="-7" rx="8" ry="6" transform="rotate(32)" fill="url(#petalGrad1)" />
+                          <ellipse cx="9" cy="5" rx="8" ry="6" transform="rotate(82)" fill="url(#petalGrad2)" />
+                          <ellipse cx="-2" cy="10" rx="8" ry="6" transform="rotate(132)" fill="url(#petalGrad1)" />
+                          <ellipse cx="-9" cy="3" rx="8" ry="6" transform="rotate(-78)" fill="url(#petalGrad2)" />
+                          <circle cx="0" cy="0" r="3.4" fill="url(#flowerCenter)" />
+                        </g>
+                        <!-- Blossom 7 -->
+                        <g transform="translate(618, 436) scale(1.35)">
+                          <ellipse cx="-8" cy="-8" rx="9.5" ry="7" transform="rotate(-35)" fill="url(#petalGrad1)" />
+                          <ellipse cx="8" cy="-8" rx="9.5" ry="7" transform="rotate(25)" fill="url(#petalGrad2)" />
+                          <ellipse cx="10" cy="5" rx="9.5" ry="7" transform="rotate(75)" fill="url(#petalGrad1)" />
+                          <ellipse cx="-1" cy="11" rx="9.5" ry="7" transform="rotate(125)" fill="url(#petalGrad2)" />
+                          <ellipse cx="-10" cy="3" rx="9.5" ry="7" transform="rotate(-85)" fill="url(#petalGrad1)" />
+                          <circle cx="0" cy="0" r="4" fill="url(#flowerCenter)" />
+                        </g>
+                        <!-- Blossom 8 -->
+                        <g transform="translate(858, 376) scale(1.25)">
+                          <ellipse cx="-8" cy="-7" rx="8.5" ry="6.5" transform="rotate(-20)" fill="url(#petalGrad2)" />
+                          <ellipse cx="8" cy="-7" rx="8.5" ry="6.5" transform="rotate(40)" fill="url(#petalGrad1)" />
+                          <ellipse cx="9" cy="5" rx="8.5" ry="6.5" transform="rotate(90)" fill="url(#petalGrad2)" />
+                          <ellipse cx="-2" cy="10" rx="8.5" ry="6.5" transform="rotate(140)" fill="url(#petalGrad1)" />
+                          <ellipse cx="-9" cy="3" rx="8.5" ry="6.5" transform="rotate(-70)" fill="url(#petalGrad2)" />
+                          <circle cx="0" cy="0" r="3.6" fill="url(#flowerCenter)" />
+                        </g>
+                        <!-- Blossom 9 -->
+                        <g transform="translate(908, 298) scale(1.05)">
+                          <ellipse cx="-7" cy="-6" rx="7" ry="5.5" transform="rotate(-32)" fill="url(#petalGrad1)" />
+                          <ellipse cx="7" cy="-6" rx="7" ry="5.5" transform="rotate(28)" fill="url(#petalGrad2)" />
+                          <ellipse cx="8" cy="4" rx="7.5" ry="5.5" transform="rotate(78)" fill="url(#petalGrad1)" />
+                          <ellipse cx="-1" cy="9" rx="7" ry="5.5" transform="rotate(128)" fill="url(#petalGrad2)" />
+                          <ellipse cx="-8" cy="2" rx="7" ry="5.5" transform="rotate(-82)" fill="url(#petalGrad1)" />
+                          <circle cx="0" cy="0" r="3" fill="url(#flowerCenter)" />
+                        </g>
+                        <!-- Blossom Buds -->
+                        <circle cx="358" cy="480" r="4.5" fill="#f8ece0" />
+                        <circle cx="206" cy="420" r="4" fill="#f8ece0" />
+                        <circle cx="986" cy="278" r="4.5" fill="#f8ece0" />
+                        <circle cx="316" cy="348" r="5" fill="#fcf3e8" />
+                      </svg>
+                    </div>
+                    <div class="amenities-title-content">
+                      <h2 class="amenities-title-heading tobias-300-50">Amenities</h2>
+                      <p class="amenities-title-sub untitled-400-13-big">COLLECTION OF CURATED LUXURY EXPERIENCES</p>
+                    </div>
+                  </div>
+
+                  <!-- 2. AMENITIES SHOWCASE PANEL (matching Screenshot 2026-09-24 121736.png reference) -->
+                  <div class="location-info amenities-showcase-panel" id="amenitiesShowcase">
+                    <!-- Pinned / Sticky Stage (100vw x 100vh) -->
+                    <div class="amenities-showcase-stage" id="amenitiesStickyStage">
+
+                      <!-- Full Size Images with Zoom & Parallax Layers -->
+                      <div class="amenities-images-container">
+                        <!-- Item 01: Sky-Top Infinity -->
+                        <div class="amenity-image-layer active" data-index="0">
+                          <img
+                            src="/images/amenities/sky-top-pool.webp"
+                            alt="Sky-Top Infinity Pool &amp; Deck"
+                            class="amenity-full-img"
+                            loading="eager"
+                          />
+                        </div>
+
+                        <!-- Item 02: Grand Clubhouse -->
+                        <div class="amenity-image-layer" data-index="1">
+                          <img
+                            src="/images/amenities/cmmunity-center.webp"
+                            alt="Grand Community Center &amp; Clubhouse"
+                            class="amenity-full-img"
+                            loading="lazy"
+                          />
+                        </div>
+
+                        <!-- Item 03: Wellness Pavilion -->
+                        <div class="amenity-image-layer" data-index="2">
+                          <img
+                            src="/images/amenities/spa.webp"
+                            alt="Ayurvedic Wellness Spa &amp; Hydrotherapy"
+                            class="amenity-full-img"
+                            loading="lazy"
+                          />
+                        </div>
+
+                        <!-- Item 04: Fine Dining -->
+                        <div class="amenity-image-layer" data-index="3">
+                          <img
+                            src="/images/amenities/restaurent.webp"
+                            alt="Fine Dining Restaurant &amp; Sky Bistro"
+                            class="amenity-full-img"
+                            loading="lazy"
+                          />
                         </div>
                       </div>
-                    </div>
-                    <div class="location-update">
-                      <div class="vertical-line-wrap mb-none">
-                        <div class="vertical-line"></div>
-                      </div>
-                      <div class="horizontal-line-wrap mb-block">
-                        <div class="horizontal-line grey"></div>
-                      </div>
-                      <div class="location-update-line"></div>
-                    </div>
-                    <div class="location-info">
-                      <div class="location-info-component">
-                        <div class="location-info-wrap relative">
-                          <div class="location-sub-title">
-                            <div class="untitled-400-13">AMENITIES</div>
-                          </div>
-                          <div class="location-info-anim">
-                            <div class="location-info-wrap n1">
-                              <div class="amenity-card-img-wrap">
-                                <img
-                                  src="/images/amenities/sky-top-pool.webp"
-                                  loading="lazy"
-                                  alt="Sky-Top Infinity Pool &amp; Deck"
-                                  class="amenity-card-img"
-                                />
-                              </div>
-                              <div class="amenity-card-bottom">
-                                <div class="amenity-card-num">01</div>
-                                <div class="amenity-card-info">
-                                  <div class="amenity-card-title">Sky-Top Infinity</div>
-                                  <div class="amenity-card-sub">Rooftop Pool &amp; Deck</div>
-                                </div>
-                              </div>
-                            </div>
-                            <div class="location-info-wrap n2">
-                              <div class="amenity-card-img-wrap">
-                                <img
-                                  src="/images/amenities/cmmunity-center.webp"
-                                  loading="lazy"
-                                  alt="Grand Community Center &amp; Clubhouse"
-                                  class="amenity-card-img"
-                                />
-                              </div>
-                              <div class="amenity-card-bottom">
-                                <div class="amenity-card-num">02</div>
-                                <div class="amenity-card-info">
-                                  <div class="amenity-card-title">Grand Clubhouse</div>
-                                  <div class="amenity-card-sub">Community Center &amp; Banquet</div>
-                                </div>
-                              </div>
-                            </div>
-                            <div class="location-info-wrap n3">
-                              <div class="amenity-card-img-wrap">
-                                <img
-                                  src="/images/amenities/spa.webp"
-                                  loading="lazy"
-                                  alt="Ayurvedic Wellness Spa &amp; Hydrotherapy"
-                                  class="amenity-card-img"
-                                />
-                              </div>
-                              <div class="amenity-card-bottom">
-                                <div class="amenity-card-num">03</div>
-                                <div class="amenity-card-info">
-                                  <div class="amenity-card-title">Wellness Pavilion</div>
-                                  <div class="amenity-card-sub">Ayurvedic Spa &amp; Hydrotherapy</div>
-                                </div>
-                              </div>
-                            </div>
-                            <div class="location-info-wrap n4">
-                              <div class="amenity-card-img-wrap">
-                                <img
-                                  src="/images/amenities/restaurent.webp"
-                                  loading="lazy"
-                                  alt="Fine Dining Restaurant &amp; Sky Bistro"
-                                  class="amenity-card-img"
-                                />
-                              </div>
-                              <div class="amenity-card-bottom">
-                                <div class="amenity-card-num">04</div>
-                                <div class="amenity-card-info">
-                                  <div class="amenity-card-title">Fine Dining</div>
-                                  <div class="amenity-card-sub">Restaurant &amp; Sky Bistro</div>
-                                </div>
-                              </div>
-                            </div>
-                          </div>
-                          <div class="amenities-nav-dots">
-                            <button type="button" class="amenity-dot-btn active" data-index="1" aria-label="Sky-Top Infinity Pool">01</button>
-                            <button type="button" class="amenity-dot-btn" data-index="2" aria-label="Grand Community Center">02</button>
-                            <button type="button" class="amenity-dot-btn" data-index="3" aria-label="Ayurvedic Wellness Spa">03</button>
-                            <button type="button" class="amenity-dot-btn" data-index="4" aria-label="Fine Dining Restaurant">04</button>
-                          </div>
+
+                      <!-- Floating Showcase Card (Bottom-Right, matching Screenshot reference) -->
+                      <div class="amenity-showcase-card" id="amenityCard">
+                        <div class="amenity-card-top">
+                          <div class="amenity-card-num" id="amenityCardIdx">01</div>
+                          <h3 class="amenity-card-title" id="amenityCardTitle">Sky-Top Infinity</h3>
+                          <div class="amenity-card-sub" id="amenityCardSub">Rooftop Pool &amp; Deck</div>
+                        </div>
+
+                        <!-- Content line that fills to full while scrolling -->
+                        <div class="amenity-content-line-container">
+                          <div class="amenity-content-line-fill" id="amenityContentLine"></div>
                         </div>
                       </div>
-                      <div class="location-cta mb-none">
-                        <div class="location-cta-wrap">
-                          <a
-                            href="#"
-                            class="cta-link inquire w-inline-block"
-                            ><div
-                              data-w-id="e458047e-b02a-b003-344d-013e414fafd4"
-                              class="cta"
-                            >
-                              <div class="untitled-400-13">contact us</div>
-                              <div class="cta-ball">
-                                <div class="seta-cta-wrap">
-                                  <div class="seta-cta-anda-1">
-                                    <img
-                                      src="https://cdn.prod.website-files.com/63d3a5c57af34837d7bbb1a0/64061c1e2a3bfa6e8bc74d9c_seta-cta.svg"
-                                      loading="lazy"
-                                      alt=""
-                                      class="seta-cta"
-                                    />
-                                  </div>
-                                  <div class="seta-cta-anda-2">
-                                    <img
-                                      src="https://cdn.prod.website-files.com/63d3a5c57af34837d7bbb1a0/64061c1e2a3bfa6e8bc74d9c_seta-cta.svg"
-                                      loading="lazy"
-                                      alt=""
-                                      class="seta-cta"
-                                    />
-                                  </div>
-                                </div>
-                              </div>
-                              <div
-                                data-w-id="5a2429a5-eb5f-a67f-523e-f06da6ab7913"
-                                class="cta-hover-sticky"
-                              ></div></div
-                          ></a>
-                        </div>
-                      </div>
-                    </div>
-                    <div class="location-big-img-wrap">
-                      <div class="img-background"></div>
-                      <img
-                        src="/images/crown-bg.webp"
-                        loading="lazy"
-                        sizes="100vw"
-                        srcset="/images/crown-bg.webp 1200w"
-                        alt="EDIFICIO ANANDA CROWN"
-                        class="location-big-img"
-                      />
-                      <p class="location-big-img-quote">Experience Elevated Living</p>
+
                     </div>
                   </div>
                 </div>
@@ -2734,8 +3312,7 @@ update();
                             </div>
                             <div class="availability-cta-component">
                               <a
-                                href="https://assets.website-files.com/63d3a5c57af34837d7bbb1a0/641c3cf78742cca56900b63c_ANANDA CROWN_catalogo_compressed.pdf"
-                                target="_blank"
+                                href="/contact"
                                 class="download-brochure-link w-inline-block"
                                 ><div
                                   data-w-id="e458047e-b02a-b003-344d-013e414fafd4"
@@ -2748,7 +3325,7 @@ update();
                                     <div class="seta-cta-wrap">
                                       <div class="seta-cta-anda-1">
                                         <img
-                                          src="https://cdn.prod.website-files.com/63d3a5c57af34837d7bbb1a0/64061c1e2a3bfa6e8bc74d9c_seta-cta.svg"
+                                          src="/images/seta-cta.svg"
                                           loading="lazy"
                                           alt=""
                                           class="seta-cta"
@@ -2756,7 +3333,7 @@ update();
                                       </div>
                                       <div class="seta-cta-anda-2">
                                         <img
-                                          src="https://cdn.prod.website-files.com/63d3a5c57af34837d7bbb1a0/64061c1e2a3bfa6e8bc74d9c_seta-cta.svg"
+                                          src="/images/seta-cta.svg"
                                           loading="lazy"
                                           alt=""
                                           class="seta-cta"
@@ -2785,7 +3362,7 @@ update();
                                         <div class="seta-cta-wrap">
                                           <div class="seta-cta-anda-1">
                                             <img
-                                              src="https://cdn.prod.website-files.com/63d3a5c57af34837d7bbb1a0/64061c1e2a3bfa6e8bc74d9c_seta-cta.svg"
+                                              src="/images/seta-cta.svg"
                                               loading="lazy"
                                               alt=""
                                               class="seta-cta"
@@ -2793,7 +3370,7 @@ update();
                                           </div>
                                           <div class="seta-cta-anda-2">
                                             <img
-                                              src="https://cdn.prod.website-files.com/63d3a5c57af34837d7bbb1a0/64061c1e2a3bfa6e8bc74d9c_seta-cta.svg"
+                                              src="/images/seta-cta.svg"
                                               loading="lazy"
                                               alt=""
                                               class="seta-cta"
@@ -5431,7 +6008,9 @@ update();
                     id="email-form"
                     name="email-form"
                     data-name="Email Form"
-                    method="get"
+                    action="#"
+                    method="post"
+                    onsubmit="event.preventDefault();"
                     data-wt-fv-form="1"
                     class="form"
                     data-wf-page-id="6401e4efa043695c1e1b5ee1"
@@ -5720,20 +6299,12 @@ update();
         <div class="availability-button grey"></div>
       </div>
     </div>
-    <script
-      src="https://d3e54v103j8qbb.cloudfront.net/js/jquery-3.5.1.min.dc5e7f18c8.js?site=63d3a5c57af34837d7bbb1a0"
-      type="text/javascript"
-      integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0="
-      crossorigin="anonymous"
-    ></script>
-    <script
-      src="https://assets-global.website-files.com/63d3a5c57af34837d7bbb1a0/js/webflow.7341b0d66.js"
-      type="text/javascript"
-    ></script>
+    <script src="/js/jquery-3.5.1.min.js" type="text/javascript"></script>
+    <script src="/js/webflow.js" type="text/javascript"></script>
     <!-- Colocar aqui todas as bibliotecas usadas -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.4/gsap.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.4/ScrollTrigger.min.js"></script>
-    <script src="https://cdn.prod.website-files.com/63d3a5c57af34837d7bbb1a0/63d3ab88fb9a0285ad5a59c0_SplitText.min.txt"></script>
+    <script src="/js/SplitText.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.4/Flip.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.4/ScrollToPlugin.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.10.4/CustomEase.min.js"></script>
@@ -5779,15 +6350,6 @@ update();
       src="https://cdn.jsdelivr.net/npm/@finsweet/cookie-consent@1/fs-cc.js"
       fs-cc-mode="opt-in"
     ></script>
-    <!-- Global site tag (gtag.js) - Google Analytics -->
-    <!--
-<script type="fs-cc" fs-cc"analytics" async src="https://www.googletagmanager.com/gtag/js?id=G-NKYFDNSE8S"></script>
-<script type="fs-cc" fs-cc"analytics">
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-  gtag('config', 'G-NKYFDNSE8S');
-</script> --><!-- Librarias -->
     <script src="https://tools.refokus.com/form-validator/bundle.v1.0.0.js"></script>
 
     <!-- SCRIPT -->
@@ -5797,138 +6359,338 @@ update();
     <script src="/one24.js"></script>
     <script>
       (function () {
-        var currentAmenityIndex = 0;
-        var cards = [];
-        var dots = [];
+        var AMENITIES = [
+          {
+            index: '01',
+            total: '04',
+            title: 'Sky-Top Infinity',
+            sub: 'Rooftop Pool & Deck',
+            btn: 'EXPLORE AMENITIES'
+          },
+          {
+            index: '02',
+            total: '04',
+            title: 'Grand Clubhouse',
+            sub: 'Community Center & Banquet',
+            btn: 'EXPLORE AMENITIES'
+          },
+          {
+            index: '03',
+            total: '04',
+            title: 'Wellness Pavilion',
+            sub: 'Ayurvedic Spa & Hydrotherapy',
+            btn: 'EXPLORE AMENITIES'
+          },
+          {
+            index: '04',
+            total: '04',
+            title: 'Fine Dining',
+            sub: 'Restaurant & Sky Bistro',
+            btn: 'EXPLORE AMENITIES'
+          }
+        ];
 
-        function getElements() {
-          if (!cards || !cards.length) {
-            cards = [
-              document.querySelector('.location-info-wrap.n1'),
-              document.querySelector('.location-info-wrap.n2'),
-              document.querySelector('.location-info-wrap.n3'),
-              document.querySelector('.location-info-wrap.n4')
-            ].filter(Boolean);
-          }
-          if (!dots || !dots.length) {
-            dots = Array.from(document.querySelectorAll('.amenity-dot-btn'));
-          }
+        var displayedIdx = 0;
+        var smoothProgress = 0;
+        var showcasePanel, stickyStage, imageLayers, fullImages;
+        var cardIdx, cardTitle, cardSub, contentLine, pillTabs, botanicalSvg, titlePanel;
+        var titleContent, titleGlow, showcaseCard, imagesContainer;
+        var isDirectSwitching = false;
+        var directSwitchTimeout = null;
+
+        function cacheElements() {
+          showcasePanel = document.getElementById('amenitiesShowcase');
+          stickyStage = document.getElementById('amenitiesStickyStage');
+          imageLayers = Array.from(document.querySelectorAll('.amenity-image-layer'));
+          fullImages = Array.from(document.querySelectorAll('.amenity-full-img'));
+          cardIdx = document.getElementById('amenityCardIdx');
+          cardTitle = document.getElementById('amenityCardTitle');
+          cardSub = document.getElementById('amenityCardSub');
+          contentLine = document.getElementById('amenityContentLine');
+          pillTabs = Array.from(document.querySelectorAll('.amenity-pill-tab'));
+          botanicalSvg = document.querySelector('.amenities-title-botanical-svg');
+          titlePanel = document.getElementById('amenitiesTitle');
+          titleContent = document.querySelector('.amenities-title-content');
+          titleGlow = document.querySelector('.amenities-title-ambient-glow');
+          showcaseCard = document.querySelector('.amenity-showcase-card');
+          imagesContainer = document.querySelector('.amenities-images-container');
         }
 
-        function showAmenity(index) {
-          getElements();
-          if (!cards || !cards.length) return;
-          if (index < 0 || index >= cards.length) return;
-          if (index === currentAmenityIndex && parseFloat(window.getComputedStyle(cards[index]).opacity) >= 0.95) return;
+        function updateCardContent(idx) {
+          if (idx < 0 || idx >= AMENITIES.length) return;
+          displayedIdx = idx;
+          var item = AMENITIES[idx];
 
-          var prevIndex = currentAmenityIndex;
-          currentAmenityIndex = index;
+          if (cardIdx) cardIdx.textContent = item.index;
 
-          if (dots && dots.length) {
-            dots.forEach(function (dot, i) {
-              if (i === index) {
-                dot.classList.add('active');
+          if (cardTitle && cardSub) {
+            cardTitle.style.transition = 'opacity 0.22s ease, transform 0.22s ease';
+            cardSub.style.transition = 'opacity 0.22s ease, transform 0.22s ease';
+            cardTitle.style.opacity = '0';
+            cardTitle.style.transform = 'translateY(6px)';
+            cardSub.style.opacity = '0';
+            cardSub.style.transform = 'translateY(6px)';
+
+            setTimeout(function () {
+              cardTitle.textContent = item.title;
+              cardSub.textContent = item.sub;
+              cardTitle.style.opacity = '1';
+              cardTitle.style.transform = 'translateY(0)';
+              cardSub.style.opacity = '1';
+              cardSub.style.transform = 'translateY(0)';
+            }, 120);
+          }
+
+        }
+
+        function showAmenity(idx) {
+          if (idx < 0 || idx >= AMENITIES.length) return;
+          isDirectSwitching = true;
+          clearTimeout(directSwitchTimeout);
+
+          updateCardContent(idx);
+
+          // Update image layers with smooth crossfade & zoom reset
+          if (imageLayers && imageLayers.length) {
+            imageLayers.forEach(function (layer, i) {
+              var img = fullImages[i];
+              if (i === idx) {
+                layer.classList.add('active');
+                layer.style.opacity = '1';
+                layer.style.zIndex = '3';
+                if (img) img.style.transform = 'scale(1.05)';
               } else {
-                dot.classList.remove('active');
+                layer.classList.remove('active');
+                layer.style.opacity = '0';
+                layer.style.zIndex = '1';
+                if (img) img.style.transform = 'scale(1.0)';
               }
             });
           }
 
-          var incomingCard = cards[index];
-          var outgoingCard = cards[prevIndex];
-
-          // Hide all other non-involved cards immediately
-          cards.forEach(function (card, i) {
-            if (i !== index && i !== prevIndex) {
-              if (window.gsap) gsap.killTweensOf(card);
-              card.style.opacity = '0';
-              card.style.zIndex = '1';
-              card.style.pointerEvents = 'none';
-            }
-          });
-
-          if (window.gsap) {
-            // Keep outgoing card underneath at zIndex 2 so light background NEVER flashes
-            if (outgoingCard && outgoingCard !== incomingCard) {
-              gsap.killTweensOf(outgoingCard);
-              gsap.set(outgoingCard, { zIndex: 2, pointerEvents: 'none' });
-            }
-
-            // Put incoming card on top at zIndex 4 and fade in smoothly
-            gsap.killTweensOf(incomingCard);
-            gsap.set(incomingCard, { zIndex: 4, pointerEvents: 'auto' });
-            gsap.to(incomingCard, {
-              opacity: 1,
-              duration: 0.55,
-              ease: 'power2.out',
-              overwrite: true,
-              onComplete: function () {
-                if (outgoingCard && outgoingCard !== incomingCard) {
-                  outgoingCard.style.opacity = '0';
-                  outgoingCard.style.zIndex = '1';
-                }
-                incomingCard.style.zIndex = '3';
-              }
-            });
-
-            // Outgoing card smoothly fades out with gentle delay once incoming is already covering it
-            if (outgoingCard && outgoingCard !== incomingCard) {
-              gsap.to(outgoingCard, {
-                opacity: 0,
-                duration: 0.45,
-                delay: 0.12,
-                ease: 'power2.in',
-                overwrite: 'auto'
-              });
-            }
-          } else {
-            if (outgoingCard && outgoingCard !== incomingCard) {
-              outgoingCard.style.opacity = '0';
-              outgoingCard.style.zIndex = '1';
-              outgoingCard.style.pointerEvents = 'none';
-            }
-            incomingCard.style.opacity = '1';
-            incomingCard.style.zIndex = '3';
-            incomingCard.style.pointerEvents = 'auto';
+          if (contentLine) {
+            contentLine.style.width = '100%';
           }
+
+          directSwitchTimeout = setTimeout(function () {
+            isDirectSwitching = false;
+          }, 800);
         }
 
         window.showAmenity = showAmenity;
 
-        function initAmenitiesControls() {
-          getElements();
-          if (cards && cards.length) {
-            cards.forEach(function (card, i) {
-              if (i === 0) {
-                card.style.opacity = '1';
-                card.style.zIndex = '3';
-                card.style.pointerEvents = 'auto';
-              } else {
-                card.style.opacity = '0';
-                card.style.zIndex = '1';
-                card.style.pointerEvents = 'none';
-              }
-            });
+        function loop() {
+          if (!showcasePanel || !stickyStage) {
+            cacheElements();
+            if (!showcasePanel || !stickyStage) {
+              requestAnimationFrame(loop);
+              return;
+            }
           }
 
-          if (dots && dots.length) {
-            dots.forEach(function (dot, idx) {
-              dot.addEventListener('click', function (e) {
-                e.preventDefault();
-                e.stopPropagation();
-                showAmenity(idx);
-                if (typeof window.setAmenityScrollIndex === 'function') {
-                  window.setAmenityScrollIndex(idx + 1);
+          var isDesktop = window.innerWidth >= 992;
+          var rawProgress = 0;
+
+          if (isDesktop) {
+            var showcaseRect = showcasePanel.getBoundingClientRect();
+            var maxShift = showcasePanel.offsetWidth - window.innerWidth;
+            var winW = window.innerWidth;
+
+            if (maxShift > 0) {
+              var currentShift = Math.max(0, Math.min(maxShift, -showcaseRect.left));
+              stickyStage.style.transform = 'translate3d(' + currentShift.toFixed(1) + 'px, 0, 0)';
+              rawProgress = currentShift / maxShift;
+            }
+
+            // Parallax transition between amenitiesTitle and amenitiesShowcase
+            var titleRect = titlePanel ? titlePanel.getBoundingClientRect() : null;
+
+            if (titleRect && titleRect.right > -100 && titleRect.left < winW + 100) {
+              // Phase A: Entrance of amenitiesTitle (when titleRect.left is between winW and 0)
+              if (titleRect.left > 0) {
+                var enterP = Math.max(0, Math.min(1, (winW - titleRect.left) / winW));
+                if (titleContent) {
+                  var enterShiftX = (1 - enterP) * -50;
+                  titleContent.style.transform = 'translate3d(' + enterShiftX.toFixed(1) + 'px, 0, 0)';
+                  titleContent.style.opacity = Math.min(1, enterP * 1.5).toFixed(3);
                 }
-              });
-            });
+                if (botanicalSvg) {
+                  var enterBotX = (1 - enterP) * 70;
+                  botanicalSvg.style.transform = 'translate3d(' + enterBotX.toFixed(1) + 'px, 0, 0) scale(1.0)';
+                  botanicalSvg.style.opacity = '0.94';
+                }
+                if (titleGlow) {
+                  var enterGlowX = (1 - enterP) * -35;
+                  titleGlow.style.transform = 'translate3d(' + enterGlowX.toFixed(1) + 'px, 0, 0)';
+                }
+              }
+              // Phase B: Transition from amenitiesTitle into amenitiesShowcase (showcaseRect.left from winW down to 0)
+              else {
+                var transP = Math.max(0, Math.min(1, (winW - showcaseRect.left) / winW));
+
+                // Title typography lags behind track with parallax inertia (+32% width) and fades gracefully
+                if (titleContent) {
+                  var titleLagX = transP * (winW * 0.32);
+                  var titleOpacity = Math.max(0, 1 - Math.pow(transP, 1.3) * 0.95);
+                  titleContent.style.transform = 'translate3d(' + titleLagX.toFixed(1) + 'px, 0, 0)';
+                  titleContent.style.opacity = titleOpacity.toFixed(3);
+                }
+
+                // Botanical branch drifts forward at foreground speed (-140px, +45px Y) and zooms gently
+                if (botanicalSvg) {
+                  var botShiftX = transP * -140;
+                  var botShiftY = transP * 45;
+                  var botScale = 1.0 + transP * 0.12;
+                  var botOpacity = Math.max(0.1, 0.94 - transP * 0.5);
+                  botanicalSvg.style.transform = 'translate3d(' + botShiftX.toFixed(1) + 'px, ' + botShiftY.toFixed(1) + 'px, 0) scale(' + botScale.toFixed(3) + ')';
+                  botanicalSvg.style.opacity = botOpacity.toFixed(3);
+                }
+
+                // Ambient glow subtle parallax drift
+                if (titleGlow) {
+                  var glowShiftX = transP * (winW * 0.18);
+                  titleGlow.style.transform = 'translate3d(' + glowShiftX.toFixed(1) + 'px, 0, 0)';
+                }
+              }
+            }
+
+            // Incoming showcase stage & card parallax during transition (when showcaseRect.left is between winW and 0)
+            if (showcaseRect.left > 0 && showcaseRect.left < winW) {
+              var incomingP = Math.max(0, Math.min(1, (winW - showcaseRect.left) / winW));
+              // Image container has counter-parallax window reveal effect
+              if (imagesContainer) {
+                var imgCounterX = (1 - incomingP) * -160;
+                imagesContainer.style.transform = 'translate3d(' + imgCounterX.toFixed(1) + 'px, 0, 0)';
+              }
+              // Showcase card floats in with luxury inertia and fades in
+              if (showcaseCard) {
+                var cardShiftX = (1 - incomingP) * 120;
+                var cardOpacity = Math.max(0, (incomingP - 0.25) / 0.75);
+                showcaseCard.style.transform = 'translate3d(' + cardShiftX.toFixed(1) + 'px, 0, 0)';
+                showcaseCard.style.opacity = cardOpacity.toFixed(3);
+              }
+            } else if (showcaseRect.left <= 0) {
+              if (imagesContainer) {
+                imagesContainer.style.transform = 'translate3d(0, 0, 0)';
+              }
+              if (showcaseCard) {
+                showcaseCard.style.transform = 'translate3d(0, 0, 0)';
+                showcaseCard.style.opacity = '1';
+              }
+            }
+          } else {
+            // Mobile vertical sticky calculation
+            var mobileRect = showcasePanel.getBoundingClientRect();
+            var maxShiftY = showcasePanel.offsetHeight - window.innerHeight;
+            var winH = window.innerHeight;
+
+            if (maxShiftY > 0) {
+              var currentShiftY = Math.max(0, Math.min(maxShiftY, -mobileRect.top));
+              rawProgress = currentShiftY / maxShiftY;
+            }
+
+            // Mobile vertical parallax transition between title and showcase
+            if (mobileRect.top < winH && mobileRect.top > -winH) {
+              var mobileTransP = Math.max(0, Math.min(1, (winH - mobileRect.top) / winH));
+              if (mobileTransP < 1) {
+                if (titleContent) {
+                  var mTitleY = mobileTransP * 55;
+                  titleContent.style.transform = 'translate3d(0, ' + mTitleY.toFixed(1) + 'px, 0)';
+                  titleContent.style.opacity = (1 - mobileTransP * 0.75).toFixed(3);
+                }
+                if (botanicalSvg) {
+                  var mBotY = mobileTransP * -40;
+                  botanicalSvg.style.transform = 'translate3d(0, ' + mBotY.toFixed(1) + 'px, 0) scale(' + (1.0 + mobileTransP * 0.06).toFixed(3) + ')';
+                }
+                if (imagesContainer) {
+                  var mImgY = (1 - mobileTransP) * -60;
+                  imagesContainer.style.transform = 'translate3d(0, ' + mImgY.toFixed(1) + 'px, 0)';
+                }
+                if (showcaseCard) {
+                  var mCardY = (1 - mobileTransP) * 45;
+                  showcaseCard.style.transform = 'translate3d(0, ' + mCardY.toFixed(1) + 'px, 0)';
+                  showcaseCard.style.opacity = Math.max(0.1, mobileTransP).toFixed(3);
+                }
+              } else {
+                if (imagesContainer) imagesContainer.style.transform = 'translate3d(0, 0, 0)';
+                if (showcaseCard) {
+                  showcaseCard.style.transform = 'translate3d(0, 0, 0)';
+                  showcaseCard.style.opacity = '1';
+                }
+              }
+            }
           }
+
+          // Smooth progress easing for natural fluidity
+          var diff = rawProgress - smoothProgress;
+          smoothProgress += diff * 0.16;
+
+          if (!isDirectSwitching) {
+            // 4 amenities -> 4 equal segments across [0, 1]
+            var segment = Math.max(0, Math.min(3.999, smoothProgress * 4));
+            var activeIdx = Math.floor(segment);
+            var subProgress = segment - activeIdx; // 0.0 to 1.0 within active amenity
+
+            // Update content line filling to full
+            if (contentLine) {
+              contentLine.style.width = (subProgress * 100).toFixed(1) + '%';
+            }
+
+            // Active image zoom effect
+            var zoomScale = 1.0 + subProgress * 0.11; // scales from 1.0 to 1.11
+
+            if (imageLayers && imageLayers.length) {
+              for (var i = 0; i < imageLayers.length; i++) {
+                var layer = imageLayers[i];
+                var img = fullImages[i];
+
+                if (i === activeIdx) {
+                  // Active image is fully visible and zooms smoothly
+                  layer.classList.add('active');
+                  layer.style.opacity = '1';
+                  layer.style.zIndex = '3';
+                  if (img) {
+                    img.style.transform = 'scale(' + zoomScale.toFixed(4) + ')';
+                  }
+                } else if (i === activeIdx + 1 && subProgress > 0.8) {
+                  // Parallax preview of next incoming item near boundary
+                  var incomingFade = (subProgress - 0.8) / 0.2;
+                  layer.classList.remove('active');
+                  layer.style.opacity = incomingFade.toFixed(3);
+                  layer.style.zIndex = '4';
+                  if (img) {
+                    var incomingScale = 1.0 + incomingFade * 0.02;
+                    img.style.transform = 'scale(' + incomingScale.toFixed(4) + ')';
+                  }
+                } else {
+                  layer.classList.remove('active');
+                  layer.style.opacity = '0';
+                  layer.style.zIndex = '1';
+                  if (img) {
+                    img.style.transform = 'scale(1.0)';
+                  }
+                }
+              }
+            }
+
+            // Update card text if active index changed
+            if (activeIdx !== displayedIdx) {
+              updateCardContent(activeIdx);
+            }
+          }
+
+          requestAnimationFrame(loop);
+        }
+
+        function initControls() {
+          cacheElements();
+          requestAnimationFrame(loop);
         }
 
         if (document.readyState === 'loading') {
-          document.addEventListener('DOMContentLoaded', initAmenitiesControls);
+          document.addEventListener('DOMContentLoaded', initControls);
         } else {
-          initAmenitiesControls();
+          initControls();
         }
       })();
     </script>
@@ -6100,23 +6862,86 @@ update();
     </script>
     <script>
       (function() {
+        // Real-time Navbar Theme Detection (Light vs Dark background adaptation)
+        const DARK_SECTIONS = ['home', 'island', 'location'];
+        const navEl = document.querySelector('.nav');
+
+        function updateNavbarBackgroundTheme() {
+          if (!navEl) return;
+          const isDesktop = window.innerWidth > 991;
+          const checkX = isDesktop ? window.innerWidth * 0.5 : window.innerWidth * 0.5;
+          const checkY = 40;
+
+          let currentSection = 'home';
+          const sections = ['home', 'vision', 'apartments', 'island', 'location', 'availability'];
+          for (let i = 0; i < sections.length; i++) {
+            const el = document.getElementById(sections[i]);
+            if (!el) continue;
+            const rect = el.getBoundingClientRect();
+            if (isDesktop) {
+              if (rect.left <= checkX && rect.right > checkX) {
+                currentSection = sections[i];
+                break;
+              }
+            } else {
+              if (rect.top <= checkY && rect.bottom > checkY) {
+                currentSection = sections[i];
+                break;
+              }
+            }
+          }
+
+          const isDark = DARK_SECTIONS.indexOf(currentSection) !== -1;
+          if (isDark) {
+            if (!navEl.classList.contains('is-dark-bg')) {
+              navEl.classList.add('is-dark-bg');
+              navEl.classList.remove('is-light-bg');
+            }
+          } else {
+            if (navEl.classList.contains('is-dark-bg') || !navEl.classList.contains('is-light-bg')) {
+              navEl.classList.remove('is-dark-bg');
+              navEl.classList.add('is-light-bg');
+            }
+          }
+        }
+
+        window.addEventListener('scroll', updateNavbarBackgroundTheme, { passive: true });
+        window.addEventListener('resize', updateNavbarBackgroundTheme, { passive: true });
+        updateNavbarBackgroundTheme();
+
+        // High-Performance Hero Video & Frame Sequence Scrubber
         function initHeroVideoScrubber() {
           const video = document.getElementById('hero-scrub-video');
           const canvas = document.getElementById('hero-video-canvas');
           const heroContainer = document.querySelector('.ref-hero-container');
-          if (!video || !canvas) return;
+          if (!canvas) return;
 
           const ctx = canvas.getContext('2d');
-          let targetProgress = 0;
+          const TOTAL_FRAMES = 169;
+          const frames = [];
+          let loadedFramesCount = 0;
           let currentProgress = 0;
-          let currentVideoTime = 0;
-          let pendingSeekTime = null;
-          let isSeeking = false;
+          let lastRenderedFrame = -1;
+
+          // Preload enhanced high-quality frames for 60fps instant scrub
+          for (let i = 1; i <= TOTAL_FRAMES; i++) {
+            const img = new Image();
+            const pad = String(i).padStart(4, '0');
+            img.src = '/videos/hero-frames/frame_' + pad + '.jpg';
+            img.onload = function() {
+              loadedFramesCount++;
+              if (lastRenderedFrame === -1 && currentProgress === 0) {
+                drawCoverMedia(ctx, img, canvas.width, canvas.height);
+                lastRenderedFrame = 0;
+              }
+            };
+            frames.push(img);
+          }
 
           function drawCoverMedia(ctx, media, canvasWidth, canvasHeight) {
             const mediaWidth = media.videoWidth || media.naturalWidth || canvasWidth;
             const mediaHeight = media.videoHeight || media.naturalHeight || canvasHeight;
-            if (!mediaWidth || !mediaHeight) return;
+            if (!mediaWidth || !mediaHeight || canvasWidth <= 0 || canvasHeight <= 0) return;
 
             const mediaRatio = mediaWidth / mediaHeight;
             const canvasRatio = canvasWidth / canvasHeight;
@@ -6133,14 +6958,15 @@ update();
               offsetX = (canvasWidth - drawWidth) / 2;
             }
 
-            // Direct cover drawing without clearRect to eliminate micro-frame flash
             ctx.drawImage(media, offsetX, offsetY, drawWidth, drawHeight);
           }
 
           function resizeCanvas() {
             canvas.width = window.innerWidth;
             canvas.height = window.innerHeight;
-            if (video.readyState >= 2 && ctx) {
+            if (lastRenderedFrame >= 0 && frames[lastRenderedFrame] && frames[lastRenderedFrame].complete) {
+              drawCoverMedia(ctx, frames[lastRenderedFrame], canvas.width, canvas.height);
+            } else if (video && video.readyState >= 2) {
               drawCoverMedia(ctx, video, canvas.width, canvas.height);
             }
           }
@@ -6148,57 +6974,31 @@ update();
           window.addEventListener('resize', resizeCanvas, { passive: true });
           resizeCanvas();
 
-          video.muted = true;
-          video.playsInline = true;
-          video.pause();
+          if (video) {
+            video.muted = true;
+            video.playsInline = true;
+            video.pause();
 
-          function seekToTarget(targetTime) {
-            if (isSeeking || video.seeking) {
-              pendingSeekTime = targetTime;
-              return;
-            }
-            if (Math.abs(video.currentTime - targetTime) > 0.005) {
-              isSeeking = true;
-              try {
-                if ('fastSeek' in video) {
-                  video.fastSeek(targetTime);
-                } else {
-                  video.currentTime = targetTime;
-                }
-              } catch(e) {
-                video.currentTime = targetTime;
+            video.addEventListener('seeked', function() {
+              if (lastRenderedFrame === -1 && canvas.width > 0 && canvas.height > 0 && ctx && video.readyState >= 2) {
+                drawCoverMedia(ctx, video, canvas.width, canvas.height);
               }
-            }
-          }
+            });
 
-          function handleSeeked() {
-            isSeeking = false;
-            if (canvas.width > 0 && canvas.height > 0 && ctx && video.readyState >= 2) {
+            video.addEventListener('loadeddata', function() {
+              if (lastRenderedFrame === -1 && canvas.width > 0 && canvas.height > 0 && ctx) {
+                drawCoverMedia(ctx, video, canvas.width, canvas.height);
+              }
+            });
+
+            if (video.readyState >= 2) {
               drawCoverMedia(ctx, video, canvas.width, canvas.height);
-            }
-            if (pendingSeekTime !== null) {
-              const nextTime = pendingSeekTime;
-              pendingSeekTime = null;
-              seekToTarget(nextTime);
+            } else {
+              video.load();
             }
           }
 
-          function handleLoadedData() {
-            if (canvas.width > 0 && canvas.height > 0 && ctx) {
-              drawCoverMedia(ctx, video, canvas.width, canvas.height);
-            }
-          }
-
-          video.addEventListener('seeked', handleSeeked);
-          video.addEventListener('loadeddata', handleLoadedData);
-
-          if (video.readyState >= 2) {
-            handleLoadedData();
-          } else {
-            video.load();
-          }
-
-          const easeFactor = 0.12;
+          const easeFactor = 0.18;
 
           function loop() {
             const trackEl = document.querySelector('.track');
@@ -6223,18 +7023,22 @@ update();
             currentProgress += diff * easeFactor;
             const p = currentProgress;
 
-            if (video && video.duration && !isNaN(video.duration) && video.duration > 0) {
-              // Video reaches 100% completion within hold distance
-              const videoP = Math.min(1, p / 0.85);
-              const targetTime = videoP * (video.duration - 0.05);
-              const timeDiff = targetTime - currentVideoTime;
-              currentVideoTime += timeDiff * 0.15;
+            // Video sequence progresses through all 169 frames
+            const videoP = Math.min(1, Math.max(0, p / 0.88));
+            const frameIdx = Math.max(0, Math.min(TOTAL_FRAMES - 1, Math.round(videoP * (TOTAL_FRAMES - 1))));
 
-              const safeTime = Math.max(0, Math.min(video.duration - 0.05, currentVideoTime));
-              seekToTarget(safeTime);
-
-              if (canvas.width > 0 && canvas.height > 0 && ctx && video.readyState >= 2) {
-                drawCoverMedia(ctx, video, canvas.width, canvas.height);
+            if (canvas.width > 0 && canvas.height > 0 && ctx) {
+              const frameImg = frames[frameIdx];
+              if (frameImg && frameImg.complete && frameImg.naturalWidth > 0) {
+                if (frameIdx !== lastRenderedFrame) {
+                  drawCoverMedia(ctx, frameImg, canvas.width, canvas.height);
+                  lastRenderedFrame = frameIdx;
+                }
+              } else if (video && video.readyState >= 2) {
+                const targetTime = frameIdx / 24;
+                if (Math.abs(video.currentTime - targetTime) > 0.04) {
+                  video.currentTime = targetTime;
+                }
               }
             }
 
@@ -6261,6 +7065,25 @@ update();
         } else {
           initHeroVideoScrubber();
         }
+
+        // Ensure Island Section background video reliably plays
+        function ensureIslandVideoPlays() {
+          const v = document.querySelector('.island-background-video video');
+          if (v) {
+            v.muted = true;
+            v.playsInline = true;
+            v.loop = true;
+            const playPromise = v.play();
+            if (playPromise !== undefined) {
+              playPromise.catch(function() {
+                // If autoplay prevented, start on first scroll or touch
+                window.addEventListener('scroll', function() { v.play().catch(function(){}); }, { once: true, passive: true });
+                window.addEventListener('touchstart', function() { v.play().catch(function(){}); }, { once: true, passive: true });
+              });
+            }
+          }
+        }
+        ensureIslandVideoPlays();
       })();
     </script>
 </body>

@@ -51,6 +51,12 @@ http
       if (fs.existsSync(clone)) file = clone;
     }
     if (!fs.existsSync(file)) {
+      const notFoundPage = path.join(ROOT, "404.html");
+      if (fs.existsSync(notFoundPage)) {
+        res.writeHead(404, { "Content-Type": "text/html; charset=utf-8" });
+        fs.createReadStream(notFoundPage).pipe(res);
+        return;
+      }
       res.writeHead(404, { "Content-Type": "text/plain" });
       res.end("not found: " + urlPath);
       return;
