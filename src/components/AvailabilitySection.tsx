@@ -159,10 +159,10 @@ export default function AvailabilitySection({
           <table className="w-full text-left border-collapse min-w-[900px]">
             <thead>
               <tr className="border-b border-[#C5A880]/20 text-[10px] tracking-[0.25em] uppercase text-[#C5A880] bg-[#160D08]/80">
-                <th className="py-4 px-6">Fraction</th>
-                <th className="py-4 px-6">Bedrooms</th>
+                <th className="py-4 px-6">Residence</th>
+                <th className="py-4 px-6">Typology</th>
                 <th className="py-4 px-6">Floor</th>
-                <th className="py-4 px-6">Side / View</th>
+                <th className="py-4 px-6">View / Orientation</th>
                 <th className="py-4 px-6">Parking</th>
                 <th className="py-4 px-6">
                   Area ({unitUnitSystem === "sqft" ? "Sq.Ft" : "M²"})

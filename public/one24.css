@@ -4628,10 +4628,11 @@ figcaption {
 
 .footer-exclusive {
   margin-right: 5.25em;
+  text-align: center;
 }
 
 .footer-bemine {
-  width: 5.9375em;
+  /* width: 5.9375em; */
   height: 2.0625em;
   margin-top: 1px;
   margin-left: -.1875em;
