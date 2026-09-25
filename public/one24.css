@@ -3995,13 +3995,15 @@ figcaption {
 
 .apartments-info {
   flex-direction: column;
-  justify-content: space-between;
+  justify-content: flex-start;
   align-items: stretch;
-  width: 20.1875em;
-  height: 100%;
-  margin-right: 1.25em;
-  padding-top: 7.25em;
-  padding-bottom: 3.125em;
+    /* width: 21.5em;
+    min-width: 320px;
+    max-width: 360px;
+    height: auto;
+    margin-right: 2em;
+    padding-top: 5.5em;
+    padding-bottom: 2em; */
   display: flex;
 }
 
@@ -4622,7 +4624,7 @@ figcaption {
 }
 
 .footer-visite {
-  max-width: 13.0625em;
+  max-width: 15.0625em;
   margin-right: 8.125em;
 }
 
@@ -7252,4 +7254,25 @@ figcaption {
   font-weight: 300;
   font-style: normal;
   font-display: swap;
+}
+
+.num_title{
+      display: flex;
+    align-items: center;
+    gap: 5%;
+}
+
+
+.about-left-col-content{    display: flex;
+    flex-direction: column;
+    gap: 5%;
+}
+.num_title_text{
+    font-family: Untitled sans, sans-serif;
+    font-size: .9125em;
+    font-weight: 400;
+    line-height: 1.23077;
+    display: block;
+    position: relative;
+        color: #413f3fcc;
 }
