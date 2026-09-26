@@ -40,7 +40,7 @@
     <meta content="Webflow" name="generator" />
     <link href="/one24.css" rel="stylesheet" type="text/css" />
     <style>
-      @media (min-width: 992px) {
+      @media (min-width: 1025px) {
         html.w-mod-js:not(.w-mod-ix)
           [data-w-id="7fb9b671-cea2-61c8-1f36-8c4c088a28c1"] {
           opacity: 0.3;
@@ -100,7 +100,7 @@
           opacity: 0;
         }
       }
-      @media (max-width: 991px) and (min-width: 768px) {
+      @media (max-width: 1024px) and (min-width: 768px) {
         html.w-mod-js:not(.w-mod-ix)
           [data-w-id="a69e3c76-4a04-0ceb-2f87-e329ebd28016"] {
           -webkit-transform: translate3d(0%, nullem, 0) scale3d(1, 1, 1)
@@ -398,19 +398,42 @@
         right: 0 !important;
         height: 80px !important;
         background: transparent !important;
-        padding: 0 clamp(40px, 5vw, 90px) !important;
+        padding: 0 clamp(30px, 4vw, 90px) !important;
         display: flex !important;
         align-items: center !important;
         justify-content: space-between !important;
         z-index: 1000 !important;
       }
 
+      .ref-top-logo {
+        height: 80px;
+        width: 80px;
+        display: flex !important;
+        align-items: center !important;
+        justify-content: flex-start !important;
+        flex-shrink: 0 !important;
+        z-index: 1002 !important;
+      }
+
       .nav-links-component {
+        position: absolute !important;
+        left: 50% !important;
+        transform: translateX(-50%) !important;
         display: flex !important;
         align-items: center !important;
         justify-content: center !important;
-        gap: clamp(14px, 1.5vw, 24px) !important;
-        margin: 0 auto !important;
+        gap: clamp(10px, 1.35vw, 24px) !important;
+        margin: 0 !important;
+        z-index: 1001 !important;
+      }
+
+      .inquire_toggle {
+        display: flex !important;
+        align-items: center !important;
+        justify-content: flex-end !important;
+        margin-left: auto !important;
+        flex-shrink: 0 !important;
+        z-index: 1002 !important;
       }
 
       /* Remove active underline */
@@ -827,6 +850,7 @@
         align-items: center !important;
         justify-content: center !important;
         z-index: 2 !important;
+        
       }
 
       .about-container {
@@ -847,51 +871,42 @@
       .about-left-col {
         flex: 1 1 50% !important;
         max-width: 48vw !important;
-        /* display: flex !important; */
         flex-direction: column !important;
         justify-content: space-between !important;
         height: 100% !important;
         z-index: 2 !important;
         will-change: transform !important;
         overflow: hidden;
-        display: flex;
+        display: flex !important;
       }
 
       /* Title */
       .about-title-wrap {
-        margin-bottom: 0.8rem !important;
+        margin-bottom: 0.75rem !important;
       }
 
       .about-main-title {
-        font-family: "Tobias", "Cormorant Garamond", Georgia, serif !important;
-        font-size: clamp(2.8rem, 3.8vw, 3.12rem) !important;
+        font-family: "Tobias", serif, sans-serif !important;
+        font-size: 3.125rem !important;
         font-weight: 300 !important;
-        line-height: 0.95 !important;
-        letter-spacing: 0.02em !important;
+        line-height: 0.96 !important;
+        letter-spacing: -0.01em !important;
         text-transform: uppercase !important;
-        color: #1e130c !important;
+        color: #271a11 !important;
         margin: 0 !important;
       }
 
       /* Lead uppercase statement */
       .about-lead-statement {
-        /* font-family: 'Montserrat', sans-serif !important; */
-        /* font-size: clamp(12.5px, 0.92vw, 14.5px) !important;
-        font-weight: 400 !important;
-        line-height: 1.5 !important;
-        letter-spacing: 0.06em !important;
-        text-transform: uppercase !important;
-        color: #3b2820 !important; */
-        margin-bottom: 0.8rem !important;
-
+        margin-bottom: 0.75rem !important;
         z-index: 5;
-        font-family: Untitled sans, sans-serif;
+        font-family: "Untitled sans", Montserrat, sans-serif !important;
         font-size: 1rem;
         font-weight: 400;
-        line-height: 1.23077;
+        line-height: 1.38;
         display: block;
         position: relative;
-        color: #413f3fcc;
+        color: #7d7571;
       }
 
       .about-highlight-gold {
@@ -900,14 +915,14 @@
       }
 
       /* Sub-lead descriptive paragraph */
+      .about-left-col .untitled-400-13-big,
       .about-body-desc {
-        font-family: "Montserrat", sans-serif !important;
-        font-size: clamp(12px, 0.85vw, 13.5px) !important;
+        font-family: "Untitled sans", Montserrat, sans-serif !important;
+        font-size: 0.8125rem !important;
         font-weight: 400 !important;
-        line-height: 1.75 !important;
-        color: #726259 !important;
-        max-width: 42em !important;
-        margin-bottom: 1.2rem !important;
+        line-height: 1.6 !important;
+        color: #7d7571 !important;
+        margin-bottom: 1.25rem !important;
       }
 
       /* Three Pillars (01, 02, 03) */
@@ -915,10 +930,10 @@
         display: grid !important;
         grid-template-columns: repeat(3, 1fr) !important;
         gap: 1.2vw !important;
-        border-top: 1px solid rgba(194, 161, 128, 0.28) !important;
-        padding-top: 1.2rem !important;
-        margin-bottom: 1.4rem !important;
-        margin-top: 1.4rem !important;
+        border-top: 1px solid rgba(0, 0, 0, 0.11) !important;
+        padding-top: 1.1rem !important;
+        margin-top: 1.25rem !important;
+        margin-bottom: 1.25rem !important;
       }
 
       .about-pillar-item {
@@ -933,33 +948,43 @@
         top: 10%;
         bottom: 10%;
         width: 1px;
-        background-color: rgba(194, 161, 128, 0.35);
+        background-color: rgba(0, 0, 0, 0.11) !important;
       }
 
       .about-pillar-num {
-        font-family: "Tobias", "Cormorant Garamond", Georgia, serif !important;
-        font-size: clamp(3.2rem, 2.8vw, 4.2rem) !important;
+        font-family: "Tobias", serif, sans-serif !important;
+        font-size: 4.2rem !important;
         font-weight: 300 !important;
         line-height: 1 !important;
         color: #c2a180 !important;
         margin-bottom: 0.4rem !important;
+        display: none;
       }
 
       .about-pillar-label {
-           font-family: "Untitled sans", Montserrat, sans-serif !important;
-          font-size: clamp(12px, 0.68vw, 14.5px) !important;
-          font-weight: 600 !important;
-          letter-spacing: 0.16em !important;
-          text-transform: uppercase !important;
-          color: #3b2820 !important;
-          line-height: 1.4 !important;
+        font-family: "Untitled sans", Montserrat, sans-serif !important;
+        font-size: 0.8125rem !important;
+        font-weight: 600 !important;
+        letter-spacing: 0.12em !important;
+        text-transform: uppercase !important;
+        color: #c2a180 !important;
+        line-height: 1.3 !important;
+        margin-bottom: 0.35rem !important;
+      }
+
+      .about-left-col .num_title_text {
+        font-family: "Untitled sans", Montserrat, sans-serif !important;
+        font-size: 0.72rem !important;
+        font-weight: 400 !important;
+        line-height: 1.35 !important;
+        color: #7d7571 !important;
       }
 
       /* Bottom feature: EST. 2026, Inset Chess Image, and Timeless Values */
       .about-bottom-feature {
         display: flex !important;
         flex-direction: column !important;
-        gap: 0.8rem !important;
+        gap: 0.65rem !important;
       }
 
       .about-est-wrap {
@@ -970,11 +995,11 @@
       }
 
       .about-est-text {
-        font-family: "Montserrat", sans-serif !important;
-        font-size: 12px !important;
-        font-weight: 600 !important;
-        letter-spacing: 0.22em !important;
-        color: #8c7b70 !important;
+        font-family: "Untitled sans", Montserrat, sans-serif !important;
+        font-size: 0.75rem !important;
+        font-weight: 500 !important;
+        letter-spacing: 0.14em !important;
+        color: #7d7571 !important;
         text-transform: uppercase !important;
         white-space: nowrap !important;
       }
@@ -982,7 +1007,7 @@
       .about-est-line {
         height: 1px !important;
         width: 70px !important;
-        background-color: rgba(194, 161, 128, 0.45) !important;
+        background-color: rgba(0, 0, 0, 0.11) !important;
       }
 
       .about-inset-row {
@@ -992,12 +1017,13 @@
       }
 
       .about-chess-frame {
-            height: clamp(100px, 20vw, 230px) !important;
-        /* height: revert; */
+        height: clamp(80px, 20vw, 150px) !important;
+        aspect-ratio: 16 / 10 !important;
         overflow: hidden !important;
         border-radius: 4px !important;
-        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15) !important;
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.12) !important;
         position: relative !important;
+        flex-shrink: 0 !important;
       }
 
       .about-chess-img {
@@ -1014,13 +1040,14 @@
       }
 
       .about-values-text {
-        font-size: 13.5px !important;
-        /* font-weight: 500 !important; */
-        letter-spacing: 0.24em !important;
-        line-height: 1.65 !important;
-        color: #8c7b70 !important;
+        font-family: "Untitled sans", Montserrat, sans-serif !important;
+        font-size: 0.72rem !important;
+        font-weight: 400 !important;
+        letter-spacing: 0.06em !important;
+        line-height: 1.5 !important;
+        color: #7d7571 !important;
         text-transform: uppercase !important;
-        border-left: 1px solid rgba(194, 161, 128, 0.45) !important;
+        border-left: 1px solid rgba(0, 0, 0, 0.11) !important;
         padding-left: 1.2rem !important;
       }
 
@@ -1198,7 +1225,7 @@
         flex: none !important;
         position: relative !important;
         overflow: hidden !important;
-        background-color: #0b1410 !important;
+        background-color: #120902 !important;
         display: flex !important;
         flex-direction: row !important;
       }
@@ -1397,7 +1424,7 @@
         right: clamp(28px, 4.5vw, 64px) !important;
         bottom: clamp(28px, 4.5vh, 60px) !important;
         z-index: 15 !important;
-        width:25% !important;
+        width: 25% !important;
         max-width: 90vw !important;
         backdrop-filter: blur(20px) !important;
         -webkit-backdrop-filter: blur(20px) !important;
@@ -1440,7 +1467,7 @@
 
       .amenity-card-title {
         font-family: "Cormorant Garamond", "Tobias", Georgia, serif !important;
-           font-size: clamp(25px, 2vw, 30px) !important;
+        font-size: clamp(25px, 2vw, 30px) !important;
         font-weight: 400 !important;
         color: #f7f4ef !important;
         line-height: 1.15 !important;
@@ -1502,21 +1529,21 @@
       }
 
       .additional-amenities-content-wrap {
-    width: 40% !important;
-    min-width: 40% !important;
-    max-width: 40% !important;
-    height: 100% !important;
-    box-sizing: border-box !important;
-    display: flex !important;
-    flex-direction: column !important;
-    justify-content: flex-start;
-    padding: 3.5rem 3.5rem 3.5rem 5rem;
-    padding-top: 7.25em;
-    padding-bottom: 3.125em;
-    position: relative !important;
-    background-color: #f7f4ef !important;
-    overflow: hidden !important;
-    will-change: transform !important;
+        width: 40% !important;
+        min-width: 40% !important;
+        max-width: 40% !important;
+        height: 100% !important;
+        box-sizing: border-box !important;
+        display: flex !important;
+        flex-direction: column !important;
+        justify-content: flex-start;
+        padding: 3.5rem 3.5rem 3.5rem 5rem;
+        padding-top: 7.25em;
+        padding-bottom: 3.125em;
+        position: relative !important;
+        background-color: #f7f4ef !important;
+        overflow: hidden !important;
+        will-change: transform !important;
       }
 
       /* Subtle Botanical Leaf Shadow on Content Left */
@@ -1528,8 +1555,9 @@
         height: 100%;
         pointer-events: none;
         opacity: 0.14;
-        background: radial-gradient(ellipse at 10% 25%, #2a2016 0%, transparent 68%),
-                    radial-gradient(ellipse at 5% 55%, #2a2016 0%, transparent 60%);
+        background:
+          radial-gradient(ellipse at 10% 25%, #2a2016 0%, transparent 68%),
+          radial-gradient(ellipse at 5% 55%, #2a2016 0%, transparent 60%);
         mix-blend-mode: multiply;
         z-index: 1;
       }
@@ -1548,14 +1576,14 @@
       }
 
       .add-amen-title {
-          font-family: "Tobias", serif, sans-serif !important;
-          font-size: 2.75rem !important;
-          line-height: 0.96 !important;
-          font-weight: 300 !important;
-          text-transform: uppercase !important;
-          color: #271a11 !important;
-          letter-spacing: -0.01em !important;
-          margin: 0 !important;
+        font-family: "Tobias", serif, sans-serif !important;
+        font-size: 2.75rem !important;
+        line-height: 0.96 !important;
+        font-weight: 300 !important;
+        text-transform: uppercase !important;
+        color: #271a11 !important;
+        letter-spacing: -0.01em !important;
+        margin: 0 !important;
       }
 
       .add-amen-grid {
@@ -1588,14 +1616,16 @@
       }
 
       .add-amen-item {
-    z-index: 5;
-    font-family: Untitled sans, sans-serif;
-    font-size: 1rem;
-    font-weight: 400;
-    line-height: 1.23077;
-    display: block;
-    position: relative;
-    color: #413f3fcc;
+        z-index: 5;
+        font-family:
+          Untitled sans,
+          sans-serif;
+        font-size: 1rem;
+        font-weight: 400;
+        line-height: 1.23077;
+        display: block;
+        position: relative;
+        color: #413f3fcc;
       }
 
       .add-amen-item-dash {
@@ -1674,27 +1704,24 @@
         will-change: transform !important;
       }
 
-      /* APARTMENTS INFO PANEL (Matching Reference Screenshot) */
+      /* APARTMENTS INFO PANEL */
       .apartments-info {
-          display: flex !important;
-          flex-direction: column !important;
-          align-items: stretch !important;
-          /* width: 15% !important; */
-          min-width: 320px !important;
-          max-width: 500px !important;
-          height: auto !important;
-          margin-right: 4.25em;
-          padding-top: 7.25em;
-          padding-bottom: 3.125em;
-          box-sizing: border-box !important;
-          justify-content: space-between;
-
-
-
+        display: flex !important;
+        flex-direction: column !important;
+        align-items: stretch !important;
+        min-width: 320px !important;
+        max-width: 500px !important;
+        height: 100% !important;
+        margin-right: 4.25em;
+        padding-top: 7.25em;
+        padding-bottom: 3.125em;
+        box-sizing: border-box !important;
+        justify-content: space-between !important;
+        overflow: hidden;
       }
 
       .apartments-titulo {
-        margin: 0 0 1.35rem 0 !important;
+        margin: 0 0 1rem 0 !important;
       }
 
       .apartments-main-title {
@@ -1709,16 +1736,17 @@
       }
 
       .apartments-sub-titulo {
-        margin: 0 0 2.25rem 0 !important;
+        margin: 0 0 1.6rem 0 !important;
         padding: 0 !important;
         max-width: 100% !important;
       }
 
+      .apartments-sub-titulo .untitled-400-13-big,
       .apartments-desc-text {
         font-family: "Untitled sans", Montserrat, sans-serif !important;
-        font-size: 11.5px !important;
+        font-size: 11px !important;
         font-weight: 400 !important;
-        line-height: 1.55 !important;
+        line-height: 1.38 !important;
         letter-spacing: 0.07em !important;
         text-transform: uppercase !important;
         color: #7d7571 !important;
@@ -1737,7 +1765,7 @@
       .ap-section-group {
         width: 100% !important;
         margin-top: 0 !important;
-        margin-bottom: 2.25rem !important;
+        margin-bottom: 1.6rem !important;
       }
 
       .ap-section-group.ap-highlights-group {
@@ -1748,13 +1776,13 @@
         display: flex !important;
         align-items: center !important;
         gap: 14px !important;
-        margin-bottom: 0.65rem !important;
+        margin-bottom: 0.55rem !important;
         width: 100% !important;
       }
 
       .ap-group-title {
         font-family: "Untitled sans", Montserrat, sans-serif !important;
-        font-size: 14px !important;
+        font-size: 13.5px !important;
         font-weight: 500 !important;
         letter-spacing: 0.16em !important;
         text-transform: uppercase !important;
@@ -1778,7 +1806,7 @@
         display: flex !important;
         justify-content: space-between !important;
         align-items: center !important;
-        padding: 9.5px 0 !important;
+        padding: 8px 0 !important;
         border-bottom: 1px solid rgba(0, 0, 0, 0.08) !important;
       }
 
@@ -1807,7 +1835,7 @@
       .ap-highlights-grid {
         display: flex !important;
         align-items: stretch !important;
-        margin-top: 1rem !important;
+        margin-top: 0.75rem !important;
         width: 100% !important;
       }
 
@@ -1815,15 +1843,15 @@
         flex: 1 !important;
         display: flex !important;
         flex-direction: column !important;
-        gap: 22px !important;
+        gap: 16px !important;
       }
 
       .ap-highlights-col:first-child {
-        padding-right: 18px !important;
+        padding-right: 14px !important;
       }
 
       .ap-highlights-col:last-child {
-        padding-left: 18px !important;
+        padding-left: 14px !important;
       }
 
       .ap-highlights-v-divider {
@@ -1835,35 +1863,35 @@
       .ap-highlight-card {
         display: flex !important;
         flex-direction: column !important;
-        gap: 4px !important;
+        gap: 3px !important;
       }
 
       .ap-highlight-name {
-    font-family: "Untitled sans", Montserrat, sans-serif !important;
-    font-size: clamp(12px, 0.68vw, 14.5px) !important;
-    font-weight: 600 !important;
-    letter-spacing: 0.16em !important;
-    text-transform: uppercase !important;
-    color: #3b2820 !important;
-    line-height: 1.4 !important;
+        font-family: "Untitled sans", Montserrat, sans-serif !important;
+        font-size: 13px !important;
+        font-weight: 600 !important;
+        letter-spacing: 0.16em !important;
+        text-transform: uppercase !important;
+        color: #c2a180 !important;
+        line-height: 1.28 !important;
       }
 
-      .ap-highlight-desc {
+      .ap-highlight-desc,
+      .apartments-info .num_title_text {
         font-family: "Untitled sans", Montserrat, sans-serif !important;
         font-size: 11.5px !important;
         font-weight: 400 !important;
-        line-height: 1.38 !important;
-        text-transform: none !important;
+        line-height: 1.28 !important;
         color: #7d7571 !important;
       }
 
       .apartments-cta {
-        margin-top: 2rem !important;
+        margin-top: 1.4rem !important;
         width: 100% !important;
       }
 
-      /* Desktop & Laptop layout (>= 992px) - Strict Preservation */
-      @media screen and (min-width: 992px) {
+      /* Desktop & Large Laptop layout (> 1024px) - Strict Preservation */
+      @media screen and (min-width: 1025px) {
         #home.hero-section.panel {
           width: 250vw !important;
           min-width: 250vw !important;
@@ -1892,22 +1920,37 @@
       }
 
       /* =========================================================
-         RESPONSIVE RULES FOR MOBILE & TABLET (< 992px)
+         RESPONSIVE RULES FOR ALL MOBILE & TABLET (<= 1024px & Touch Devices)
          Clean, elegant vertical layout for all sections
          ========================================================= */
-      @media screen and (max-width: 991px) {
-        html,
-        body {
-          overflow-x: hidden !important;
+      @media screen and (max-width: 1024px),
+             screen and (max-width: 1200px) and (hover: none) and (pointer: coarse),
+             screen and (max-width: 1200px) and (pointer: coarse) {
+        html {
+          overflow-x: clip !important;
+          overflow-y: visible !important;
           max-width: 100vw !important;
           width: 100% !important;
         }
 
+        body {
+          overflow-x: clip !important;
+          overflow-y: visible !important;
+          max-width: 100vw !important;
+          width: 100% !important;
+          background-color: var(--floral-white-background) !important;
+        }
+
+        .add-amen-botanical-shadow{
+          display: none;
+        }
         /* --- GLOBAL WRAPPER & TRACKS FOR VERTICAL FLOW --- */
+        .page-wrapper,
         .main-wrapper {
           width: 100% !important;
           max-width: 100vw !important;
-          overflow-x: hidden !important;
+          overflow: visible !important;
+          overflow-x: clip !important;
         }
 
         .section-height {
@@ -1976,6 +2019,7 @@
             background-color 0.35s ease,
             border-color 0.35s ease !important;
           z-index: 1000 !important;
+              justify-content: space-between !important;
         }
 
         .nav.is-light-bg {
@@ -1984,7 +2028,7 @@
         }
 
         .nav.is-dark-bg {
-          background: rgba(11, 20, 16, 0.88) !important;
+          background: rgba(18, 9, 2, 0.88) !important;
           border-bottom: 1px solid rgba(255, 255, 255, 0.08) !important;
         }
 
@@ -1998,12 +2042,17 @@
           flex-shrink: 0 !important; */
         }
 
+        .inquire_toggle {
+          display: flex !important;
+          align-items: center !important;
+          gap: 12px !important;
+        }
         .nav-link.inquire {
-          padding: 6px 14px !important;
-          background: rgba(194, 161, 128, 0.18) !important;
-          border: 1px solid rgba(194, 161, 128, 0.4) !important;
-          border-radius: 20px !important;
-          transition: all 0.3s ease !important;
+        padding: 17px !important;
+        background: rgba(194, 161, 128, 0.18) !important;
+        border: 1px solid rgba(194, 161, 128, 0.4) !important;
+        border-radius: 0px !important;
+        transition: all 0.3s ease !important;
         }
 
         .nav-link.inquire:hover {
@@ -2023,25 +2072,25 @@
 
         /* Hamburger Toggle Button */
         .nav-mobile-toggle {
-          display: flex !important;
-          flex-direction: column !important;
-          justify-content: center !important;
-          align-items: center !important;
-          width: 38px !important;
-          height: 38px !important;
-          padding: 0 !important;
-          background: rgba(255, 255, 255, 0.06) !important;
-          border: 1px solid rgba(194, 161, 128, 0.3) !important;
-          border-radius: 8px !important;
-          cursor: pointer !important;
-          gap: 5px !important;
-          z-index: 1001 !important;
-          transition: all 0.3s ease !important;
+        display: flex !important;
+        flex-direction: column !important;
+        justify-content: center !important;
+        align-items: center !important;
+        width: 38px !important;
+        height: 38px !important;
+        padding: 0 !important;
+        background: rgba(255, 255, 255, 0.06) !important;
+        border: 1px solid rgba(194, 161, 128, 0.3) !important;
+        border-radius: 2px !important;
+        cursor: pointer !important;
+        gap: 5px !important;
+        z-index: 1001 !important;
+        transition: all 0.3s ease !important;
         }
 
         .nav-mobile-toggle:hover {
-          background: rgba(194, 161, 128, 0.15) !important;
-          border-color: #c2a180 !important;
+        background: rgba(194, 161, 128, 0.15) !important;
+        border-color: #c2a18000 !important;
         }
 
         .nav-toggle-bar {
@@ -2091,7 +2140,7 @@
           width: 100vw !important;
           height: calc(100vh - 60px) !important;
           height: calc(100dvh - 60px) !important;
-          background: rgba(11, 20, 16, 0.97) !important;
+          background: rgba(18, 9, 2, 0.97) !important;
           backdrop-filter: blur(28px) !important;
           -webkit-backdrop-filter: blur(28px) !important;
           z-index: 9999 !important;
@@ -2229,6 +2278,7 @@
           position: relative !important;
           overflow: visible !important;
           display: block !important;
+          background-color: #120902 !important;
         }
 
         #hero-sticky-stage {
@@ -2242,6 +2292,7 @@
           transform: none !important;
           overflow: hidden !important;
           z-index: 2 !important;
+          background-color: #120902 !important;
         }
 
         .ref-hero-container {
@@ -2249,12 +2300,36 @@
           height: 100% !important;
           min-height: 100vh !important;
           min-height: 100dvh !important;
+          position: relative !important;
+        }
+
+        .ref-hero-container::before {
+          content: "" !important;
+          position: absolute !important;
+          inset: 0 !important;
+        background: linear-gradient(180deg, #57302400 0%, rgb(247 244 239 / 50%) 35%, rgb(194 161 128 / 3%) 60%, rgba(247, 244, 239, 0.12) 80%, transparent 100%) !important;
+          pointer-events: none !important;
+          z-index: 1 !important;
         }
 
         .ref-hero-text-block {
           max-width: 100% !important;
           margin-top: auto !important;
           margin-bottom: auto !important;
+          position: relative !important;
+          z-index: 2 !important;
+          background: transparent !important;
+          border: none !important;
+          box-shadow: none !important;
+          border-radius: 0 !important;
+          padding: 0 !important;
+          backdrop-filter: none !important;
+          -webkit-backdrop-filter: none !important;
+        }
+
+        .ref-hero-bottom {
+          position: relative !important;
+          z-index: 2 !important;
         }
 
         .ref-hero-eyebrow {
@@ -2283,7 +2358,7 @@
         }
 
         .ref-hero-cta {
-          padding: 10px 18px 10px 20px !important;
+          /* padding: 10px 18px 10px 20px !important; */
         }
 
         .ref-hero-cta-label {
@@ -2311,8 +2386,10 @@
           max-width: 100% !important;
           height: auto !important;
           min-height: auto !important;
-          padding: 5rem 1.5rem 3.5rem !important;
+          overflow: visible !important;
+          padding: 3.5rem 1.5rem 3.5rem !important;
           box-sizing: border-box !important;
+              justify-content: space-between;
         }
 
         .about-container {
@@ -2323,13 +2400,16 @@
         }
 
         .about-left-col {
+          width: 100% !important;
           max-width: 100% !important;
           flex: none !important;
+          height: auto !important;
+          overflow: visible !important;
         }
 
         .about-main-title {
-          font-size: clamp(2.2rem, 7.5vw, 3.4rem) !important;
-          line-height: 1.12 !important;
+          font-size: clamp(2.2rem, 7.5vw, 3rem) !important;
+          line-height: 1.05 !important;
         }
 
         .about-pillars-grid {
@@ -2338,11 +2418,21 @@
           gap: 12px !important;
         }
 
-        @media screen and (max-width: 580px) {
+        @media screen and (max-width: 540px) {
           .about-pillars-grid {
-            grid-template-columns: 1fr !important;
-            gap: 10px !important;
+            grid-template-columns: 1fr 1fr !important;
+            gap: 20px !important;
           }
+          .about-inset-row{
+            gap:0 !important;
+          }
+          .about-values-text {
+            border:none !important;
+          }
+        }
+
+        .about-chess-frame {
+          height: 120px !important;
         }
 
         .about-right-col {
@@ -2355,7 +2445,6 @@
         .about-hero-img-wrap {
           width: 100% !important;
           height: 100% !important;
-          border-radius: 16px !important;
           overflow: hidden !important;
         }
 
@@ -2364,6 +2453,7 @@
           height: 100% !important;
           object-fit: cover !important;
           transform: none !important;
+          border-radius: 5px !important;
         }
 
         /* --- RESIDENCES / INTERIORS SECTION (#apartments) --- */
@@ -2373,7 +2463,7 @@
           height: auto !important;
           min-height: auto !important;
           overflow: visible !important;
-          padding: 4.5rem 1.5rem 3.5rem !important;
+          padding: 3.5rem 1.5rem 3.5rem !important;
           display: block !important;
           box-sizing: border-box !important;
         }
@@ -2389,7 +2479,7 @@
           max-width: 100% !important;
           height: auto !important;
           padding: 0 !important;
-          gap: 2rem !important;
+          gap:0rem !important;
         }
 
         .apartments-info {
@@ -2409,7 +2499,7 @@
 
         .apartments-main-title {
           font-size: clamp(2.2rem, 7.5vw, 3rem) !important;
-          line-height: 1.0 !important;
+          line-height: 1 !important;
           margin-bottom: 0 !important;
         }
 
@@ -2443,7 +2533,7 @@
           min-height: 240px !important;
           max-height: 420px !important;
           padding-top: 0 !important;
-          border-radius: 14px !important;
+          border-radius: 5px !important;
           overflow: hidden !important;
           position: relative !important;
         }
@@ -2470,7 +2560,7 @@
           max-height: 420px !important;
           padding-top: 0 !important;
           margin: 0 !important;
-          border-radius: 14px !important;
+          border-radius: 5px !important;
           overflow: hidden !important;
           position: relative !important;
         }
@@ -2490,68 +2580,109 @@
           display: block !important;
           position: relative !important;
           margin-bottom: 8px !important;
-          font-size: 11px !important;
+          font-size: 22px !important;
           letter-spacing: 0.14em !important;
           text-transform: uppercase !important;
           color: #c2a180 !important;
-          font-weight: 600 !important;
+          font-weight: 700 !important;
         }
+          [data-w-id="9220f8e5-6b50-26ed-4c11-097c7b82ac90"] {
+              width: 100%;
+              text-align: right;
+          }
+
+          [data-w-id="0531396c-cab0-e7ad-82dc-25ddb9b5efa5"] {
+              width: 100%;
+          }
 
         /* --- THE DESTINATION / MOHALI SECTION (#island) --- */
         .island-section {
           width: 100% !important;
           max-width: 100vw !important;
           height: auto !important;
-          min-height: 100vh !important;
+          /* min-height: 100vh !important; */
           position: relative !important;
           overflow: hidden !important;
-          background-color: #0b1410 !important;
-          display: block !important;
+          background-color: #100804 !important;
+          display: flex !important;
+          align-items: center !important;
+          justify-content: center !important;
           box-sizing: border-box !important;
+          padding: clamp(3.5rem, 6vh, 5.5rem) clamp(1.25rem, 4vw, 2.5rem) !important;
+        }
+
+        .island-section::before {
+          content: "" !important;
+          position: absolute !important;
+          inset: 0 !important;
+          background:
+            radial-gradient(
+              ellipse at 50% 20%,
+              rgb(223 170 94 / 16%) 0%,
+              rgb(158 100 67 / 10%) 50%,
+              transparent 80%
+            ),
+            linear-gradient(
+              180deg,
+              rgba(255, 255, 255, 0.04) 0%,
+              transparent 35%,
+              #30160e 100%
+            ) !important;
+          z-index: 1 !important;
+          pointer-events: none !important;
+          display: block !important;
         }
 
         .island-component {
           position: relative !important;
           top: auto !important;
+          width: 100% !important;
+          max-width: 820px !important;
           height: auto !important;
-          min-height: 100vh !important;
-          padding: 5rem 1.5rem 4rem !important;
+          min-height: auto !important;
+          margin: 0 auto !important;
+          padding: 0 !important;
           display: flex !important;
           flex-direction: column !important;
-          justify-content: space-between !important;
+          align-items: center !important;
+          justify-content: center !important;
+          gap: clamp(1.5rem, 3vh, 2.25rem) !important;
           z-index: 2 !important;
           box-sizing: border-box !important;
         }
 
-        .island-background {
-          position: absolute !important;
-          inset: 0 !important;
+        .island-cima {
+          order: 1 !important;
           width: 100% !important;
-          height: 100% !important;
-          z-index: 1 !important;
-          opacity: 0.45 !important;
-          padding: 0 !important;
-        }
-
-        .island-background-video {
-          position: absolute !important;
-          inset: 0 !important;
-          width: 100% !important;
-          height: 100% !important;
+          display: flex !important;
+          flex-direction: column !important;
+          align-items: center !important;
+          justify-content: center !important;
+          text-align: center !important;
           margin: 0 !important;
           padding: 0 !important;
+          z-index: 3 !important;
+          position: relative !important;
         }
 
-        .island-background-video video {
+        .island-sub-title {
+          margin: 0 !important;
+          padding: 0 !important;
+          text-align: center !important;
           width: 100% !important;
-          height: 100% !important;
-          object-fit: cover !important;
         }
 
         .island-sub-title .tobias-300-122 {
-          font-size: clamp(2rem, 7vw, 3.2rem) !important;
-          line-height: 1.12 !important;
+          font-family: "Tobias", "Cormorant Garamond", Georgia, serif !important;
+          font-size: clamp(2rem, 5.5vw, 3.4rem) !important;
+          line-height: 1.15 !important;
           color: #ffffff !important;
+          text-align: center !important;
+          text-transform: uppercase !important;
+          letter-spacing: 0.04em !important;
+          margin: 0 auto !important;
+          padding: 0 !important;
+          text-shadow: 0 3px 20px rgba(0, 0, 0, 0.95), 0 1px 3px rgba(0, 0, 0, 0.9) !important;
         }
 
         .island-sub-title-2 .tobias-300-122 {
@@ -2561,11 +2692,88 @@
           margin-bottom: 12px !important;
         }
 
+        .island-background {
+          order: 2 !important;
+          position: relative !important;
+          inset: auto !important;
+          top: auto !important;
+          bottom: auto !important;
+          left: auto !important;
+          right: auto !important;
+          width: 100% !important;
+          max-width: 720px !important;
+          height: auto !important;
+          display: flex !important;
+          justify-content: center !important;
+          align-items: center !important;
+          margin: 0 auto !important;
+          padding: 0 !important;
+          opacity: 1 !important;
+          z-index: 2 !important;
+        }
+
+        .island-background-video {
+          position: relative !important;
+          inset: auto !important;
+          top: auto !important;
+          left: auto !important;
+          width: 100% !important;
+          aspect-ratio: 16 / 9 !important;
+          max-height: clamp(210px, 34vh, 380px) !important;
+          border-radius: 12px !important;
+          overflow: hidden !important;
+          box-shadow: 0 16px 40px rgba(0, 0, 0, 0.6) !important;
+          border: 1px solid rgba(194, 161, 128, 0.25) !important;
+          margin: 0 !important;
+          padding: 0 !important;
+          opacity: 1 !important;
+        }
+
+        .island-background-video video {
+          width: 100% !important;
+          height: 100% !important;
+          object-fit: cover !important;
+          display: block !important;
+          border-radius: 12px !important;
+          opacity: 1 !important;
+          filter: none !important;
+        }
+
+        .island-baixo {
+          order: 3 !important;
+          width: 100% !important;
+          max-width: 660px !important;
+          display: flex !important;
+          flex-direction: column !important;
+          align-items: center !important;
+          justify-content: center !important;
+          text-align: center !important;
+          margin: 0 auto !important;
+          padding: 0 !important;
+          z-index: 3 !important;
+          position: relative !important;
+        }
+
+        .island-text {
+          width: 100% !important;
+          max-width: 620px !important;
+          margin: 0 auto !important;
+          padding: 0 !important;
+          text-align: center !important;
+          position: relative !important;
+        }
+
         .island-text p.untitled-400-13 {
-          font-size: 13px !important;
+          font-family: "Montserrat", sans-serif !important;
+          font-size: clamp(11.5px, 1.7vw, 13px) !important;
           line-height: 1.65 !important;
-          color: rgba(255, 255, 255, 0.85) !important;
-          max-width: 100% !important;
+          color: #f7ede3 !important;
+          text-align: center !important;
+          text-transform: uppercase !important;
+          letter-spacing: 0.04em !important;
+          margin: 0 auto !important;
+          padding: 0 !important;
+          text-shadow: 0 2px 10px rgba(0, 0, 0, 0.95) !important;
         }
 
         /* --- LOCATION / AMENITIES SECTION (#location) --- */
@@ -2578,7 +2786,8 @@
           flex-direction: column !important;
           position: relative !important;
           overflow: visible !important;
-          background-color: #0b1410 !important;
+          /* background-color: #0b1410 !important; */
+              background: radial-gradient(circle at 75% 42%, #30160e 0%, #221814 55%, #120902 100%) !important;
           display: flex !important;
           padding: 0 !important;
         }
@@ -2646,7 +2855,7 @@
           min-height: 500px !important;
           max-height: 660px !important;
           margin: 0 auto 3.5rem auto !important;
-          border-radius: 20px !important;
+          border-radius: 5px !important;
           overflow: hidden !important;
           position: relative !important;
           box-shadow: 0 16px 40px rgba(0, 0, 0, 0.6) !important;
@@ -2698,7 +2907,7 @@
           width: auto !important;
           min-height: auto !important;
           padding: 1.15rem 1.25rem 1.2rem !important;
-          border-radius: 16px !important;
+          border-radius: 5px !important;
           backdrop-filter: blur(18px) !important;
           -webkit-backdrop-filter: blur(18px) !important;
           background: rgba(18, 9, 2, 0.78) !important;
@@ -2734,7 +2943,7 @@
         }
 
         .amenity-mobile-pills {
-          display: flex !important;
+          display: none !important;
           gap: 8px !important;
           margin-top: 12px !important;
         }
@@ -2777,7 +2986,7 @@
           position: relative !important;
           overflow: visible !important;
           background-color: #f7f4ef !important;
-          margin-bottom: 3.5rem !important;
+          margin-bottom: 0 !important;
         }
 
         .additional-amenities-content-wrap {
@@ -2785,7 +2994,7 @@
           min-width: 100% !important;
           max-width: 100% !important;
           height: auto !important;
-          padding: 4.5rem 1.5rem 2.5rem 1.5rem !important;
+          padding: 3.5rem 1.5rem 2.5rem 1.5rem !important;
         }
 
         .add-amen-title {
@@ -2813,13 +3022,13 @@
         }
 
         .additional-amenities-image-wrap {
-          width: calc(100% - 24px) !important;
-          min-width: calc(100% - 24px) !important;
-          max-width: calc(100% - 24px) !important;
+          width: calc(100% - 0px) !important;
+          min-width: calc(100% - 0px) !important;
+          max-width: calc(100% - 0px) !important;
           height: 52vw !important;
           min-height: 250px !important;
           max-height: 420px !important;
-          border-radius: 16px !important;
+          border-radius: 5px !important;
           overflow: hidden !important;
           margin: 0 auto 2.5rem auto !important;
           position: relative !important;
@@ -2835,30 +3044,68 @@
           transform: none !important;
         }
 
-        /* --- AVAILABILITY / RESIDENCES SECTION (#availability) --- */
+        /* --- AVAILABILITY / RESIDENCES SECTION (#availability) & INQUIRE / FOOTER --- */
         .availability-section {
+          width: 100% !important;
+          min-width: 100% !important;
+          max-width: 100vw !important;
+          height: auto !important;
+          min-height: auto !important;
+          display: block !important;
+          overflow: visible !important;
+          padding: 0 !important;
+          margin: 0 !important;
+          box-sizing: border-box !important;
+        }
+
+        .availability-scroll-absolute {
+          display: none !important;
+          width: 0 !important;
+          height: 0 !important;
+        }
+
+        .availability-anda {
           width: 100% !important;
           max-width: 100vw !important;
           height: auto !important;
           min-height: auto !important;
-          padding: 4.5rem 1.25rem 3.5rem !important;
-          display: block !important;
+          display: flex !important;
+          flex-direction: column !important;
           overflow: visible !important;
-          box-sizing: border-box !important;
-        }
-
-        .availability-anda,
-        .availability-scroll,
-        .scroll-track {
-          width: 100% !important;
-          height: auto !important;
           transform: none !important;
           position: relative !important;
         }
 
-        .availability-component {
-          padding: 0 !important;
+        .availability-scroll {
           width: 100% !important;
+          max-width: 100vw !important;
+          height: auto !important;
+          min-height: auto !important;
+          display: flex !important;
+          flex-direction: column !important;
+          overflow: visible !important;
+          transform: none !important;
+          position: relative !important;
+        }
+
+        .scroll-track,
+        .scroll-track-margin {
+          width: 100% !important;
+          max-width: 100vw !important;
+          height: auto !important;
+          min-height: auto !important;
+          display: block !important;
+          overflow: visible !important;
+          transform: none !important;
+          position: relative !important;
+          margin-bottom: 0 !important;
+        }
+
+        .availability-component {
+          width: 100% !important;
+          max-width: 100% !important;
+          padding: 3.5rem 1.5rem 3.5rem 1.5rem !important;
+          box-sizing: border-box !important;
         }
 
         .availability-sub-title .tobias-300-98 {
@@ -2869,13 +3116,14 @@
 
         .availability-cta-component {
           display: flex !important;
-          flex-direction: column !important;
+          /* flex-direction: column !important; */
           gap: 12px !important;
           margin-bottom: 2rem !important;
         }
 
         .availability-cta-space {
           margin: 0 !important;
+          width:100%;
         }
 
         .availability-table {
@@ -2889,7 +3137,490 @@
         .availability-table-head,
         .availability-col-list,
         .availability-col-list-wrap {
-          min-width: 720px !important;
+          min-width: 250px !important;
+        }
+        .availability-table-head
+        {
+              justify-content: space-around !important;
+        }
+        /* INQUIRE TODAY & FOOTER CONTAINER */
+        .inquire-section {
+          width: 100% !important;
+          min-width: 100% !important;
+          max-width: 100vw !important;
+          height: auto !important;
+          min-height: auto !important;
+          display: block !important;
+          position: relative !important;
+          overflow: visible !important;
+          transform: none !important;
+          background-color: #0b1410 !important;
+          margin-top: 1rem !important;
+          z-index: 5 !important;
+        }
+
+        .inquire-component {
+          width: 100% !important;
+          max-width: 1000px !important;
+          margin: 0 auto !important;
+          padding: 4.5rem 1.5rem 3rem 1.5rem !important;
+          box-sizing: border-box !important;
+          position: relative !important;
+          z-index: 5 !important;
+        }
+
+        .inquire-top {
+          display: flex !important;
+          flex-direction: column !important;
+          align-items: center !important;
+          text-align: center !important;
+          position: relative !important;
+          z-index: 5 !important;
+        }
+
+        .inquire-title .tobias-300-122 {
+          font-size: clamp(2.4rem, 6vw, 3.6rem) !important;
+          line-height: 1.1 !important;
+          text-align: center !important;
+          margin-bottom: 1.25rem !important;
+          color: #c2a180 !important;
+        }
+
+        .inquire-cta-wrap {
+          margin: 1.5rem auto !important;
+          display: flex !important;
+          justify-content: center !important;
+          position: relative !important;
+          z-index: 5 !important;
+        }
+
+        .inquire-text {
+          max-width: 600px !important;
+          margin: 1rem auto 2.5rem auto !important;
+          text-align: center !important;
+          position: relative !important;
+          z-index: 5 !important;
+        }
+
+        .inquire-text .untitled-400-20 {
+          font-size: clamp(14px, 2.2vw, 17px) !important;
+          line-height: 1.6 !important;
+          color: rgba(255, 255, 255, 0.82) !important;
+        }
+
+        .inquire-background-img.mobile {
+          display: block !important;
+          position: absolute !important;
+          inset: 0 !important;
+          width: 100% !important;
+          height: 100% !important;
+          object-fit: cover !important;
+          opacity: 0.28 !important;
+          pointer-events: none !important;
+          z-index: 0 !important;
+          transform: none !important;
+        }
+
+        .inquire-background-img.pc {
+          display: none !important;
+        }
+
+        .inquire-gradient {
+          position: absolute !important;
+          inset: 0 !important;
+          width: 100% !important;
+          height: 100% !important;
+          background: linear-gradient(180deg, #0b1410 0%, rgba(11, 20, 16, 0.75) 40%, #0b1410 100%) !important;
+          pointer-events: none !important;
+          z-index: 1 !important;
+        }
+
+        /* FOOTER VISIBILITY & ESSENTIALS */
+        .footer {
+          width: 100% !important;
+          max-width: 1000px !important;
+          margin: 2rem auto 0 auto !important;
+          display: flex !important;
+          visibility: visible !important;
+          opacity: 1 !important;
+          position: relative !important;
+          z-index: 10 !important;
+          box-sizing: border-box !important;
+          padding-top: 2rem !important;
+          border-top: 1px solid rgba(255, 255, 255, 0.12) !important;
+        }
+
+        .footer-left,
+        .footer-right {
+          display: flex !important;
+          visibility: visible !important;
+          opacity: 1 !important;
+        }
+
+        .footer-visite {
+          visibility: visible !important;
+          opacity: 1 !important;
+        }
+
+        .footer-rights {
+          display: flex !important;
+          visibility: visible !important;
+          opacity: 1 !important;
+        }
+      }
+
+      /* =========================================================
+         TABLET RESPONSIVE RULES (768px - 1024px, & Touch Tablets)
+         Refined luxury magazine layout for iPad & Android tablets
+         ========================================================= */
+      @media screen and (min-width: 768px) and (max-width: 1024px),
+             screen and (min-width: 768px) and (max-width: 1200px) and (pointer: coarse) {
+        /* Navigation */
+        .nav {
+          height: 64px !important;
+          padding: 0 10px 0 10px !important;
+        }
+
+        .ref-top-logo {
+          left: 28px !important;
+          top: 10px !important;
+          width: 44px !important;
+          height: 44px !important;
+        }
+
+        .nav-mobile-drawer-inner {
+          max-width: 540px !important;
+          margin: 0 auto !important;
+          padding: 2.75rem 2.5rem 2.25rem 2.5rem !important;
+        }
+
+        .nav-mobile-link-text {
+          font-size: 16.5px !important;
+        }
+
+        /* Hero (#home) */
+        .ref-hero-container {
+          padding: 96px 3.5rem 36px 3.5rem !important;
+        }
+
+        .ref-hero-text-block {
+          max-width: 620px !important;
+          padding: 0 !important;
+        }
+
+        .ref-hero-heading {
+          font-size: clamp(42px, 6.2vw, 54px) !important;
+          line-height: 1.06 !important;
+        }
+
+        .ref-hero-location {
+          font-size: 12px !important;
+          letter-spacing: 0.18em !important;
+        }
+
+        .ref-hero-bottom {
+          padding-top: 18px !important;
+          gap: 20px !important;
+        }
+
+        /* Vision / About Us (#vision) */
+        .vision-section.about-us-section {
+          padding: 3.5rem 3.5rem 4.5rem 3.5rem !important;
+        }
+
+        .about-container {
+          gap: 3rem !important;
+          max-width: 860px !important;
+          margin: 0 auto !important;
+        }
+
+        .about-main-title {
+          font-size: clamp(2.6rem, 5vw, 3.2rem) !important;
+          line-height: 1 !important;
+        }
+
+        .about-lead-statement {
+          font-size: 1.05rem !important;
+          line-height: 1.45 !important;
+        }
+
+        .about-body-desc {
+          font-size: 0.88rem !important;
+          line-height: 1.65 !important;
+        }
+
+        .about-pillars-grid {
+          display: grid !important;
+          grid-template-columns: repeat(3, 1fr) !important;
+          gap: 18px !important;
+          margin: 1.5rem 0 !important;
+          padding-top: 1.25rem !important;
+        }
+
+        .about-chess-frame {
+          height: 150px !important;
+          aspect-ratio: 16 / 10 !important;
+        }
+
+        .about-values-text {
+          font-size: 0.78rem !important;
+          line-height: 1.55 !important;
+        }
+
+        .about-right-col {
+          width: 100% !important;
+          height: 460px !important;
+          min-height: 380px !important;
+        }
+
+        .about-hero-img-wrap {
+          border-radius: 5px !important;
+        }
+
+
+        /* Residences / Apartments (#apartments) */
+        .apartments-section {
+          padding: 3.5rem 3.5rem 4.5rem 3.5rem !important;
+        }
+
+        .apartments-component {
+          gap: 0rem !important;
+          max-width: 860px !important;
+          margin: 0 auto !important;
+        }
+
+        .ap-img-description._2, .ap-img-description._3 {
+              margin-left: 0;
+          }
+        .apartments-main-title {
+          font-size: clamp(2.4rem, 4.8vw, 3rem) !important;
+          line-height: 1 !important;
+        }
+
+        .apartments-sub-titulo {
+          margin-bottom: 2rem !important;
+        }
+
+        .ap-img-1,
+        .ap-img-4 {
+          width: 100% !important;
+          height: 44vw !important;
+          min-height: 300px !important;
+          max-height: 440px !important;
+          border-radius: 5px !important;
+        }
+
+        .ap-img-center {
+          flex-direction: row !important;
+          gap: 20px !important;
+          width: 100% !important;
+        }
+
+        .ap-img-50 {
+          flex: 1 1 50% !important;
+          width: 50% !important;
+        }
+
+        .ap-img-2,
+        .ap-img-5 {
+          width: 100% !important;
+          height: 30vw !important;
+          min-height: 240px !important;
+          max-height: 320px !important;
+          border-radius: 5px !important;
+        }
+
+        /* Destination / Mohali (#island) */
+        .island-section {
+          padding: 5rem 3rem 4.5rem 3rem !important;
+        }
+
+        .island-component {
+          padding: 0 !important;
+          max-width: 820px !important;
+          margin: 0 auto !important;
+          gap: 2.2rem !important;
+        }
+
+        .island-background {
+          max-width: 760px !important;
+        }
+
+        .island-background-video {
+          max-height: 420px !important;
+        }
+
+        .island-sub-title .tobias-300-122 {
+          font-size: clamp(2.4rem, 4.8vw, 3.4rem) !important;
+        }
+
+        .island-sub-title-2 .tobias-300-122 {
+          font-size: clamp(1.8rem, 4vw, 2.6rem) !important;
+        }
+
+        .island-text p.untitled-400-13 {
+          font-size: 13.5px !important;
+          max-width: 680px !important;
+          line-height: 1.7 !important;
+        }
+
+        /* Amenities Showcase (#location) */
+        .amenities-title-panel {
+          padding: 5.5rem 3.5rem 2.5rem 3.5rem !important;
+          max-width: 860px !important;
+          margin: 0 auto !important;
+        }
+
+        .amenities-title-heading {
+          font-size: clamp(3.2rem, 7vw, 4.4rem) !important;
+        }
+
+        .location-info.amenities-showcase-panel {
+          width: calc(100% - 7rem) !important;
+          max-width: 860px !important;
+          height: clamp(520px, 58vh, 640px) !important;
+          min-height: 520px !important;
+          margin: 0 auto 3.5rem auto !important;
+          border-radius: 5px !important;
+        }
+
+        .amenity-showcase-card {
+          left: 24px !important;
+          right: 24px !important;
+          bottom: 24px !important;
+          max-width: 520px !important;
+          padding: 1.4rem 1.6rem !important;
+          border-radius: 5px !important;
+        }
+
+        .amenity-mobile-pills {
+          gap: 12px !important;
+          margin-top: 14px !important;
+        }
+
+        .amenity-mobile-pill {
+          height: 36px !important;
+          font-size: 11.5px !important;
+        }
+
+        /* Additional Amenities */
+        .additional-amenities-panel {
+          margin-bottom: 0rem !important;
+        }
+
+        .additional-amenities-content-wrap {
+          padding: 3rem 3.5rem 2.5rem 3.5rem !important;
+          max-width: 860px !important;
+          margin: 0 auto !important;
+        }
+
+        .add-amen-title {
+          font-size: clamp(2.6rem, 5vw, 3.2rem) !important;
+          margin: 18px 0 !important;
+        }
+
+        .add-amen-grid {
+          flex-direction: row !important;
+          gap: 32px !important;
+          margin: 28px 0 !important;
+        }
+
+        .add-amen-col:first-child {
+          padding-right: 28px !important;
+        }
+
+        .add-amen-col:last-child {
+          padding-left: 28px !important;
+        }
+
+        .add-amen-item {
+          font-size: 15px !important;
+          line-height: 1.4 !important;
+        }
+
+        .additional-amenities-image-wrap {
+        width: calc(100% - 7rem) !important;
+        max-width: 860px !important;
+        height: 38vw !important;
+        min-height: 320px !important;
+        max-height: 440px !important;
+        margin: 0 auto 0rem auto !important;
+        border-radius: 0px !important;
+        }
+
+        /* Availability (#availability) */
+        .availability-section {
+          padding: 0 !important;
+          max-width: 100vw !important;
+          margin: 0 !important;
+        }
+
+        .availability-component {
+          padding: 3.5rem 3.5rem 4rem 3.5rem !important;
+          max-width: 900px !important;
+          margin: 0 auto !important;
+        }
+
+        .availability-sub-title .tobias-300-98 {
+          font-size: clamp(2.4rem, 5vw, 3.2rem) !important;
+        }
+
+        .availability-cta-component {
+          flex-direction: row !important;
+          align-items: center !important;
+          gap: 20px !important;
+        }
+
+        .availability-table {
+          border-radius: 12px !important;
+        }
+
+        /* Inquire & Footer (Tablet Magazine Layout) */
+        .inquire-section {
+          width: 100% !important;
+          max-width: 100vw !important;
+          margin-top: 2rem !important;
+        }
+
+        .inquire-component {
+          padding: 5rem 3.5rem 3rem 3.5rem !important;
+          max-width: 900px !important;
+          margin: 0 auto !important;
+        }
+
+        .footer {
+          flex-direction: row !important;
+          justify-content: space-between !important;
+          align-items: flex-start !important;
+          padding-top: 2.5rem !important;
+          gap: 2rem !important;
+          border-top: 1px solid rgba(255, 255, 255, 0.15) !important;
+        }
+
+        .footer-left {
+          flex-direction: row !important;
+          justify-content: flex-start !important;
+          align-items: flex-start !important;
+          gap: 3rem !important;
+          flex-wrap: wrap !important;
+        }
+
+        .footer-right {
+          flex-direction: row !important;
+          justify-content: flex-end !important;
+          align-items: flex-start !important;
+          gap: 1.5rem !important;
+        }
+
+        .footer-visite {
+          text-align: left !important;
+          margin-right: 0 !important;
+          margin-bottom: 0 !important;
+        }
+
+        .footer-exclusive {
+          text-align: right !important;
+          margin-right: 0 !important;
         }
       }
 
@@ -2902,9 +3633,30 @@
           height: 38px !important;
         }
 
+        .floorplan-modal-container {
+                        border-radius: 5px !important;
+
+        }
+        .floorplan-modal-header {
+            padding: 12px 12px !important;
+        }
+        .floorplan-modal-title h3 {
+            font-size: 13px!important;
+
+        }
+              
+
+      .floorplan-download-btn {
+            padding: 9px 20px !important;
+          border-radius: 5px !important;
+                  line-height: normal;
+      }
+      .floorplan-close-btn {
+        border-radius: 0px !important;
+      }
         .nav {
           height: 56px !important;
-          padding: 0 10px 0 54px !important;
+          padding: 0 10px 0 10px !important;
         }
 
         .ref-hero-heading {
@@ -2915,6 +3667,12 @@
           padding: 75px 16px 20px 16px !important;
         }
 
+            .availability-table{
+              min-width: 100% !important;
+            }
+                .availability-table-head{
+                    min-width: 250px !important;
+                }
         .location-info.amenities-showcase-panel {
           width: calc(100% - 16px) !important;
           min-width: calc(100% - 16px) !important;
@@ -2924,6 +3682,17 @@
           margin-bottom: 2.5rem !important;
         }
 
+        .ap-img-description._2, .ap-img-description._3 {
+    /* margin-left: 2.6875em; */
+            font-size: 15px !important;
+            margin: 0 !important;
+        }
+            .add-amen-item {
+                      font-size: 1rem !important;
+            }
+            .ap-img-center {
+              flex-direction: row !important;
+            }
         .amenity-showcase-card {
           left: 10px !important;
           right: 10px !important;
@@ -3313,7 +4082,7 @@
         position: relative;
         background: #1c110b;
         border: 1px solid rgba(194, 161, 128, 0.35);
-        border-radius: 16px;
+        border-radius:5px;
         max-width: 1040px;
         width: 100%;
         max-height: 92vh;
@@ -3366,7 +4135,7 @@
         color: #ffffff !important;
         background: #9e6443;
         padding: 9px 20px;
-        border-radius: 100px;
+        border-radius: 5px;
         text-decoration: none !important;
         transition: all 0.3s ease;
       }
@@ -3624,7 +4393,7 @@ a,
             display: none !important;
           }
 
-          @media screen and (max-width: 991px) {
+          @media screen and (max-width: 1024px) {
             .hide,
             .hide-tablet {
               display: none !important;
@@ -3660,16 +4429,16 @@ a,
           }
 
           /* Min-width PC*/
-          @media only screen and (max-width: 1440px) and (min-width: 992px) {
+          @media only screen and (max-width: 1440px) and (min-width: 1025px) {
             body {
               font-size: 1.0256410256410258vw;
             }
           }
 
           /* Min Max Width - Tablets */
-          @media only screen and (max-width: 991px) and (min-width: 768px) {
+          @media only screen and (max-width: 1024px) and (min-width: 768px) {
             body {
-              font-size: 3vw;
+              font-size: 14px;
             }
           }
 
@@ -3867,22 +4636,24 @@ a,
             <div class="nav-ball"></div
           ></a>
         </div>
-        <div class="nav-link-inquire">
-          <a href="/contact" class="nav-link inquire w-inline-block"
-            ><div class="untitled-400-13">INQUIRE</div>
-            <div class="nav-ball"></div
-          ></a>
+        <div class="inquire_toggle">
+          <div class="nav-link-inquire">
+            <a href="/contact" class="nav-link inquire w-inline-block"
+              ><div class="untitled-400-13">INQUIRE</div>
+              <div class="nav-ball"></div
+            ></a>
+          </div>
+          <button
+            type="button"
+            class="nav-mobile-toggle"
+            id="navMobileToggle"
+            aria-label="Toggle navigation menu"
+          >
+            <span class="nav-toggle-bar"></span>
+            <span class="nav-toggle-bar"></span>
+            <span class="nav-toggle-bar"></span>
+          </button>
         </div>
-        <button
-          type="button"
-          class="nav-mobile-toggle"
-          id="navMobileToggle"
-          aria-label="Toggle navigation menu"
-        >
-          <span class="nav-toggle-bar"></span>
-          <span class="nav-toggle-bar"></span>
-          <span class="nav-toggle-bar"></span>
-        </button>
       </nav>
       <!-- Mobile navigation drawer -->
       <div class="nav-mobile-drawer" id="navMobileDrawer">
@@ -4017,7 +4788,7 @@ a,
 
                           <div class="ref-hero-bottom">
                             <div class="ref-hero-bottom-left">
-                              <a
+                              <!-- <a
                                 href="tel:+919779799705"
                                 class="ref-bottom-contact-item"
                               >
@@ -4025,7 +4796,7 @@ a,
                                   class="fa-solid fa-phone ref-bottom-icon"
                                 ></i>
                                 <span>+91 97797 99705</span>
-                              </a>
+                              </a> -->
 
                               <span class="ref-bottom-sep">|</span>
 
@@ -4112,76 +4883,89 @@ a,
                     <!-- LEFT COLUMN: CONTENT -->
                     <div class="about-left-col">
                       <div class="about-left-col-content">
-                                              <!-- Title (matching previous title size) -->
-                      <div class="about-title-wrap">
-                        <h2 class="about-main-title tobias-300-50">ABOUT US</h2>
-                      </div>
+                        <!-- Title (matching previous title size) -->
+                        <div class="about-title-wrap">
+                          <h2 class="about-main-title tobias-300-50">
+                            ABOUT US
+                          </h2>
+                        </div>
 
-                      <!-- Lead Uppercase Statement -->
-                      <div class="about-lead-statement" anim="1" split="words">
-                        <span class="about-highlight-gold"> Ananda Crown</span>
-                        is built on a simple belief, that
-                        <span class="about-highlight-gold">ultra-luxury</span>
-                        living should feel considered, not crowded.
-                      </div>
+                        <!-- Lead Uppercase Statement -->
+                        <div
+                          class="about-lead-statement"
+                          anim="1"
+                          split="words"
+                        >
+                          <span class="about-highlight-gold">
+                            Ananda Crown</span
+                          >
+                          is built on a simple belief, that
+                          <span class="about-highlight-gold">ultra-luxury</span>
+                          living should feel considered, not crowded.
+                        </div>
 
-                      <!-- Sub-lead Descriptive Paragraph -->
-                      <div class="untitled-400-13-big" anim="1" split="words">
-                        Four standalone towers, connected only at the base and
-                        the crown, rise above Sector 78 with a design language
-                        that prioritises light, space, and privacy over density.
-                        This is the group's first project outside Bathinda, and
-                        its most ambitious yet, led by an IIT Delhi and IIM
-                        Ahmedabad founding team, and a Delhi-based design and
-                        consultant roster.
-                      </div>
+                        <!-- Sub-lead Descriptive Paragraph -->
+                        <div class="untitled-400-13-big" anim="1" split="words">
+                          Four standalone towers, connected only at the base and
+                          the crown, rise above Sector 78 with a design language
+                          that prioritises light, space, and privacy over
+                          density. This is the group's first project outside
+                          Bathinda, and its most ambitious yet, led by an IIT
+                          Delhi and IIM Ahmedabad founding team, and a
+                          Delhi-based design and consultant roster.
+                        </div>
 
-                      <!-- Three Pillars Grid (01, 02, 03) -->
-                      <div class="about-pillars-grid">
-                        <div class="about-pillar-item">
-                          <div class="num_title">
-                            <div class="about-pillar-num">01</div>
-                            <div class="about-pillar-label">
-                              Distinctive <br> Architecture
+                        <!-- Three Pillars Grid (01, 02, 03) -->
+                        <div class="about-pillars-grid">
+                          <div class="about-pillar-item">
+                            <div class="num_title">
+                              <div class="about-pillar-num">01</div>
+                              <div class="about-pillar-label">
+                                Distinctive <br />
+                                Architecture
+                              </div>
                             </div>
+                            <p class="num_title_text">
+                              Four standalone towers, connected only at the base
+                              and the top, a design most high-rises don't
+                              attempt.
+                            </p>
                           </div>
-                          <p class="num_title_text">
-                            Four standalone towers, connected only at the base
-                            and the top, a design most high-rises don't attempt.
-                          </p>
-                        </div>
-                        <div class="about-pillar-item">
-                          <div class="num_title">
-                            <div class="about-pillar-num">02</div>
-                            <div class="about-pillar-label">Crafted <br>Living</div>
-                          </div>
-                          <p class="num_title_text">
-                            Corner residences, wrap-around balconies, and
-                            interiors built for space, not just size.
-                          </p>
-                        </div>
-                        <div class="about-pillar-item">
-                          <div class="num_title">
-                            <div class="about-pillar-num">03</div>
-                            <div class="about-pillar-label">
-                              CONNECTED <br> LOCATION
+                          <div class="about-pillar-item">
+                            <div class="num_title">
+                              <div class="about-pillar-num">02</div>
+                              <div class="about-pillar-label">
+                                Crafted <br />Living
+                              </div>
                             </div>
+                            <p class="num_title_text">
+                              Corner residences, wrap-around balconies, and
+                              interiors built for space, not just size.
+                            </p>
                           </div>
+                          <div class="about-pillar-item">
+                            <div class="num_title">
+                              <div class="about-pillar-num">03</div>
+                              <div class="about-pillar-label">
+                                CONNECTED <br />
+                                LOCATION
+                              </div>
+                            </div>
 
-                          <p class="num_title_text">
-                            Minutes from the airport, the stadium, and the
-                            city's key business and healthcare hubs.
-                          </p>
+                            <p class="num_title_text">
+                              Minutes from the airport, the stadium, and the
+                              city's key business and healthcare hubs.
+                            </p>
+                          </div>
                         </div>
-                      </div>
                       </div>
 
                       <!-- Bottom Feature: EST. 2026, Inset Chess Image, and Timeless Values Text -->
                       <div class="about-bottom-feature">
-                        <div class="about-est-wrap">
+                        <!-- <div class="about-est-wrap">
                           <span class="about-est-text">EST. 2026</span>
                           <span class="about-est-line"></span>
-                        </div>
+                        </div> -->
                         <div class="about-inset-row">
                           <div class="about-chess-frame">
                             <img
@@ -4192,7 +4976,20 @@ a,
                             />
                           </div>
                           <div class="about-values-text">
-                            <span class="about-highlight-gold">Location:</span> Sector 78, Mohali<br /><span class="about-highlight-gold">Typologies:</span> 3, 3+1, 4, 4+1 & 5 BHK<br /><span class="about-highlight-gold">Elevation:</span> 28 Storeys, 4 Towers<br /><span class="about-highlight-gold">RERA:</span> PBRERA-SAS81-PR1421-082026
+                            <span class="about-highlight-gold">Location:</span>
+                            Sector 78, Mohali<br /><span
+                              class="about-highlight-gold"
+                              >Typologies:</span
+                            >
+                            3, 3+1, 4, 4+1 & 5 BHK<br /><span
+                              class="about-highlight-gold"
+                              >Elevation:</span
+                            >
+                            28 Storeys, 4 Towers<br /><span
+                              class="about-highlight-gold"
+                              >RERA:</span
+                            >
+                            PBRERA-SAS81-PR1421-082026
                           </div>
                         </div>
                       </div>
@@ -4219,71 +5016,96 @@ a,
                   <div class="apartments-component">
                     <div class="apartments-info">
                       <div>
-                          <div class="apartments-titulo">
-                            <h2 class="tobias-300-50 apartments-main-title">
-                              SPACE, BUILT<br />FOR MORE
-                            </h2>
+                        <div class="apartments-titulo">
+                          <h2 class="tobias-300-50 apartments-main-title">
+                            SPACE, BUILT<br />FOR MORE
+                          </h2>
+                        </div>
+                        <div class="apartments-sub-titulo">
+                          <div
+                            class="untitled-400-13-big split-words"
+                            anim="1"
+                            split="words"
+                          >
+                            EVERY RESIDENCE AT
+                            <span class="about-highlight-gold">ANANDA</span>
+                            <span class="about-highlight-gold">CROWN</span> IS A
+                            CORNER UNIT, WITH 11.5 FT FLOOR TO FLOOR HEIGHTS,
+                            AMONG THE HIGHEST IN THE TRICITY MARKET.
                           </div>
-                          <div class="apartments-sub-titulo">
-                            <div class="untitled-400-13-big split-words" anim="1" split="words">
-                              EVERY RESIDENCE AT <span class="about-highlight-gold">ANANDA</span> <span class="about-highlight-gold">CROWN</span> IS A CORNER UNIT, WITH 11.5 FT FLOOR TO FLOOR HEIGHTS, AMONG THE HIGHEST IN THE TRICITY MARKET.
-                            </div>
-                          </div>
+                        </div>
 
-                          <div class="ap-section-group">
-                            <div class="ap-group-header">
-                              <div class="ap-group-title">RESIDENCES</div>
-                              <div class="ap-group-line"></div>
+                        <div class="ap-section-group">
+                          <div class="ap-group-header">
+                            <div class="ap-group-title">RESIDENCES</div>
+                            <div class="ap-group-line"></div>
+                          </div>
+                          <div class="ap-specs-table">
+                            <div class="ap-spec-row">
+                              <div class="ap-spec-type">3 BHK</div>
+                              <div class="ap-spec-size">2,425 SQ. FT.</div>
                             </div>
-                            <div class="ap-specs-table">
-                              <div class="ap-spec-row">
-                                <div class="ap-spec-type">3 BHK</div>
-                                <div class="ap-spec-size">2,425 SQ. FT.</div>
-                              </div>
-                              <div class="ap-spec-row">
-                                <div class="ap-spec-type">3+1 BHK</div>
-                                <div class="ap-spec-size">3,050 SQ. FT.</div>
-                              </div>
-                              <div class="ap-spec-row">
-                                <div class="ap-spec-type">4 / 4+1 BHK</div>
-                                <div class="ap-spec-size">3,750 SQ. FT.</div>
-                              </div>
-                              <div class="ap-spec-row">
-                                <div class="ap-spec-type">5 BHK</div>
-                                <div class="ap-spec-size">UP TO 4,100 SQ. FT.</div>
+                            <div class="ap-spec-row">
+                              <div class="ap-spec-type">3+1 BHK</div>
+                              <div class="ap-spec-size">3,050 SQ. FT.</div>
+                            </div>
+                            <div class="ap-spec-row">
+                              <div class="ap-spec-type">4 / 4+1 BHK</div>
+                              <div class="ap-spec-size">3,750 SQ. FT.</div>
+                            </div>
+                            <div class="ap-spec-row">
+                              <div class="ap-spec-type">5 BHK</div>
+                              <div class="ap-spec-size">
+                                UP TO 4,100 SQ. FT.
                               </div>
                             </div>
                           </div>
+                        </div>
 
-                          <div class="ap-section-group ap-highlights-group">
-                            <div class="ap-group-header">
-                              <div class="ap-group-title">DESIGN HIGHLIGHTS</div>
-                              <div class="ap-group-line"></div>
-                            </div>
-                            <div class="ap-highlights-grid">
-                              <div class="ap-highlights-col">
-                                <div class="ap-highlight-card">
-                                  <div class="ap-highlight-name">CORNER UNITS</div>
-                                  <div class="num_title_text">More light &amp; air<br />from more than one side</div>
+                        <div class="ap-section-group ap-highlights-group">
+                          <div class="ap-group-header">
+                            <div class="ap-group-title">DESIGN HIGHLIGHTS</div>
+                            <div class="ap-group-line"></div>
+                          </div>
+                          <div class="ap-highlights-grid">
+                            <div class="ap-highlights-col">
+                              <div class="ap-highlight-card">
+                                <div class="ap-highlight-name">
+                                  CORNER UNITS
                                 </div>
-                                <div class="ap-highlight-card">
-                                  <div class="ap-highlight-name">11.5 FT</div>
-                                  <div class="num_title_text">Floor-to-floor height</div>
+                                <div class="num_title_text">
+                                  More light &amp; air<br />from more than one
+                                  side
                                 </div>
                               </div>
-                              <div class="ap-highlights-v-divider"></div>
-                              <div class="ap-highlights-col">
-                                <div class="ap-highlight-card">
-                                  <div class="ap-highlight-name">WRAP-AROUND BALCONIES</div>
-                                  <div class="num_title_text">Designed for openness<br />and views</div>
+                              <div class="ap-highlight-card">
+                                <div class="ap-highlight-name">11.5 FT</div>
+                                <div class="num_title_text">
+                                  Floor-to-floor height
                                 </div>
-                                <div class="ap-highlight-card">
-                                  <div class="ap-highlight-name">2.5 CAR PARKING</div>
-                                  <div class="num_title_text">Per residence, below ground</div>
+                              </div>
+                            </div>
+                            <div class="ap-highlights-v-divider"></div>
+                            <div class="ap-highlights-col">
+                              <div class="ap-highlight-card">
+                                <div class="ap-highlight-name">
+                                  WRAP-AROUND BALCONIES
+                                </div>
+                                <div class="num_title_text">
+                                  Designed for openness<br />and views
+                                </div>
+                              </div>
+                              <div class="ap-highlight-card">
+                                <div class="ap-highlight-name">
+                                  2.5 CAR PARKING
+                                </div>
+                                <div class="num_title_text">
+                                  Per residence, below ground
                                 </div>
                               </div>
                             </div>
                           </div>
+                        </div>
                       </div>
                       <div class="apartments-cta">
                         <a
@@ -4439,7 +5261,7 @@ a,
                           split="words"
                           class="tobias-300-122 mb-40"
                         >
-                          Life at <br>Ananda Crown
+                          Life at <br />Ananda Crown
                         </div>
                       </div>
                     </div>
@@ -4455,7 +5277,17 @@ a,
                       </div> -->
                       <div class="island-text">
                         <p class="untitled-400-13">
-                          Ananda Crown was designed around a single idea, that a home should give you space, not just shelter you. The ground level here has no vehicles at all, every car is parked below, so the space between the towers stays open, landscaped, and genuinely usable. Positioned in Sector 78, residents stay close to Chandigarh International Airport, IT City/Aerocity, the I.S. Bindra PCA Cricket Stadium, ISB Mohali and IISER, VR Punjab Mall, Elante Mall, and Fortis and other multi-speciality hospitals, near everything that matters, without being in the middle of it.
+                          Ananda Crown was designed around a single idea, that a
+                          home should give you space, not just shelter you. The
+                          ground level here has no vehicles at all, every car is
+                          parked below, so the space between the towers stays
+                          open, landscaped, and genuinely usable. Positioned in
+                          Sector 78, residents stay close to Chandigarh
+                          International Airport, IT City/Aerocity, the I.S.
+                          Bindra PCA Cricket Stadium, ISB Mohali and IISER, VR
+                          Punjab Mall, Elante Mall, and Fortis and other
+                          multi-speciality hospitals, near everything that
+                          matters, without being in the middle of it.
                         </p>
                       </div>
                     </div>
@@ -5158,10 +5990,11 @@ a,
                             01
                           </div>
                           <h3 class="amenity-card-title" id="amenityCardTitle">
-                          Rooftop Infinity Pool
+                            Rooftop Infinity Pool
                           </h3>
                           <div class="amenity-card-sub" id="amenityCardSub">
-                           A rooftop pool and lounge above it all, part of Ananda Crown's Sky Island experience.
+                            A rooftop pool and lounge above it all, part of
+                            Ananda Crown's Sky Island experience.
                           </div>
                         </div>
 
@@ -5216,119 +6049,130 @@ a,
                   </div>
 
                   <!-- 3. ADDITIONAL AMENITIES PANEL (Matching Screenshot 2026-09-25 174332.png) -->
-                  <div class="additional-amenities-panel" id="additionalAmenities">
+                  <div
+                    class="additional-amenities-panel"
+                    id="additionalAmenities"
+                  >
                     <!-- 40% Width Content Column -->
-                    <div class="additional-amenities-content-wrap" id="additionalAmenitiesContent">
+                    <div
+                      class="additional-amenities-content-wrap"
+                      id="additionalAmenitiesContent"
+                    >
                       <div class="add-amen-botanical-shadow"></div>
-                      <div>
-                      <div class="add-amen-content-inner">
-                        <!-- <div class="add-amen-gold-line"></div> -->
-                        <h2 class="add-amen-title">Additional<br />Amenities</h2>
-                        <!-- <div class="add-amen-gold-line"></div> -->
+                      <div class="add-amen-content-inner-outer">
+                        <div class="add-amen-content-inner">
+                          <!-- <div class="add-amen-gold-line"></div> -->
+                          <h2 class="add-amen-title">
+                            Additional<br />Amenities
+                          </h2>
+                          <!-- <div class="add-amen-gold-line"></div> -->
 
-                        <div class="add-amen-grid">
-                          <!-- Left Column (5 items) -->
-                          <div class="add-amen-col">
-                            <div class="add-amen-item">
-                              Bowling alley, theatre, and<br />3D virtual arena
+                          <div class="add-amen-grid">
+                            <!-- Left Column (5 items) -->
+                            <div class="add-amen-col">
+                              <div class="add-amen-item">
+                                Bowling alley, theatre, and<br />3D virtual
+                                arena
+                              </div>
+                              <div class="add-amen-item-dash"></div>
+
+                              <div class="add-amen-item">
+                                Business centre and<br />co-working lounge
+                              </div>
+                              <div class="add-amen-item-dash"></div>
+
+                              <div class="add-amen-item">
+                                Exhibition gallery and library
+                              </div>
+                              <div class="add-amen-item-dash"></div>
+
+                              <div class="add-amen-item">
+                                Multi-sports unit and<br />indoor games room
+                              </div>
+                              <div class="add-amen-item-dash"></div>
+                                                            <div class="add-amen-item">
+                                EV charging stations, 24x7 power<br />back-up,
+                                and advanced fire safety systems
+                              </div>
+
                             </div>
-                            <div class="add-amen-item-dash"></div>
 
-                            <div class="add-amen-item">
-                              Business centre and<br />co-working lounge
-                            </div>
-                            <div class="add-amen-item-dash"></div>
+                            <div class="add-amen-v-divider"></div>
 
-                            <div class="add-amen-item">
-                              Exhibition gallery and library
-                            </div>
-                            <div class="add-amen-item-dash"></div>
+                            <!-- Right Column (5 items) -->
+                            <div class="add-amen-col">
+                              <div class="add-amen-item">
+                                Multi-disciplinary rooms<br />for dance, music,
+                                and more
+                              </div>
+                              <div class="add-amen-item-dash"></div>
 
-                            <div class="add-amen-item">
-                              Multi-sports unit and<br />indoor games room
-                            </div>
-                            <div class="add-amen-item-dash"></div>
+                              <div class="add-amen-item">
+                                Banquet area and two kitty halls
+                              </div>
+                              <div class="add-amen-item-dash"></div>
 
-                            <div class="add-amen-item">
-                              Trampoline park and daycare unit
-                            </div>
-                          </div>
+                              <div class="add-amen-item">
+                                Guest bedroom for visiting family
+                              </div>
+                              <div class="add-amen-item-dash"></div>
 
-                          <div class="add-amen-v-divider"></div>
+                              <div class="add-amen-item">Sports lounge</div>
+                              <div class="add-amen-item-dash"></div>
 
-                          <!-- Right Column (5 items) -->
-                          <div class="add-amen-col">
-                            <div class="add-amen-item">
-                              Multi-disciplinary rooms<br />for dance, music, and more
-                            </div>
-                            <div class="add-amen-item-dash"></div>
 
-                            <div class="add-amen-item">
-                              Banquet area and two kitty halls
-                            </div>
-                            <div class="add-amen-item-dash"></div>
-
-                            <div class="add-amen-item">
-                              Guest bedroom for visiting family
-                            </div>
-                            <div class="add-amen-item-dash"></div>
-
-                            <div class="add-amen-item">
-                              Sports lounge
-                            </div>
-                            <div class="add-amen-item-dash"></div>
-
-                            <div class="add-amen-item">
-                              EV charging stations, 24x7 power<br />back-up, and advanced fire safety<br />systems
+                              <div class="add-amen-item">
+                                Trampoline park and daycare unit
+                              </div>
                             </div>
                           </div>
                         </div>
-</div>
                         <!-- <div class="add-amen-gold-line"></div> -->
-                                 <div class="apartments-cta">
-                        <a
-                          href="#availability"
-                          class="cta-link c w-inline-block"
-                          ><div
-                            data-w-id="e458047e-b02a-b003-344d-013e414fafd4"
-                            class="cta"
-                          >
-                            <div class="untitled-400-13">
-                              View Available Apartments
-                            </div>
-                            <div class="cta-ball">
-                              <div class="seta-cta-wrap">
-                                <div class="seta-cta-anda-1">
-                                  <img
-                                    src="/images/seta-cta.svg"
-                                    loading="lazy"
-                                    alt=""
-                                    class="seta-cta"
-                                  />
-                                </div>
-                                <div class="seta-cta-anda-2">
-                                  <img
-                                    src="/images/seta-cta.svg"
-                                    loading="lazy"
-                                    alt=""
-                                    class="seta-cta"
-                                  />
+                        <div class="apartments-cta">
+                          <a
+                            href="#availability"
+                            class="cta-link c w-inline-block"
+                            ><div
+                              data-w-id="e458047e-b02a-b003-344d-013e414fafd4"
+                              class="cta"
+                            >
+                              <div class="untitled-400-13">
+                                View Available Apartments
+                              </div>
+                              <div class="cta-ball">
+                                <div class="seta-cta-wrap">
+                                  <div class="seta-cta-anda-1">
+                                    <img
+                                      src="/images/seta-cta.svg"
+                                      loading="lazy"
+                                      alt=""
+                                      class="seta-cta"
+                                    />
+                                  </div>
+                                  <div class="seta-cta-anda-2">
+                                    <img
+                                      src="/images/seta-cta.svg"
+                                      loading="lazy"
+                                      alt=""
+                                      class="seta-cta"
+                                    />
+                                  </div>
                                 </div>
                               </div>
-                            </div>
-                            <div
-                              data-w-id="5a2429a5-eb5f-a67f-523e-f06da6ab7913"
-                              class="cta-hover-sticky"
-                            ></div></div
-                        ></a>
+                              <div
+                                data-w-id="5a2429a5-eb5f-a67f-523e-f06da6ab7913"
+                                class="cta-hover-sticky"
+                              ></div></div
+                          ></a>
+                        </div>
                       </div>
-                      </div>
-
-
                     </div>
 
                     <!-- 60% Width Image Column with Parallax Effect -->
-                    <div class="additional-amenities-image-wrap" id="additionalAmenitiesImageWrap">
+                    <div
+                      class="additional-amenities-image-wrap"
+                      id="additionalAmenitiesImageWrap"
+                    >
                       <img
                         src="/images/amenity-clubhouse.jpg"
                         alt="Ananda Crown Additional Luxury Amenities"
@@ -5337,7 +6181,9 @@ a,
                         loading="lazy"
                       />
                       <div class="additional-amenities-image-overlay"></div>
-                      <div class="additional-amenities-image-badge">Clubhouse &amp; Leisure</div>
+                      <!-- <div class="additional-amenities-image-badge">
+                        Clubhouse &amp; Leisure
+                      </div> -->
                     </div>
                   </div>
                 </div>
@@ -7217,7 +8063,8 @@ a,
                                         href="https://rera.punjab.gov.in"
                                         target="_blank"
                                         class="untitled-400-13"
-                                        > RERA No: PBRERA-SAS81-PR1421-082026<br
+                                      >
+                                        RERA No: PBRERA-SAS81-PR1421-082026<br
                                       /></a>
                                       <div class="nav-ball"></div>
                                     </div>
@@ -7247,7 +8094,8 @@ a,
                                         href="#"
                                         target="_blank"
                                         class="untitled-400-13"
-                                        >Ananda Crown, by Banson Projects (Ananda Group).</a
+                                        >Ananda Crown, by Banson Projects
+                                        (Ananda Group).</a
                                       >
                                       <div class="nav-ball"></div>
                                     </div>
@@ -7746,6 +8594,17 @@ a,
     <!-- SCRIPT -->
     <script></script>
 
+    <!-- Desktop vs Tablet/Mobile Scroll Mode Detection -->
+    <script>
+      function isDesktopScrollMode() {
+        var isTouchTablet =
+          ("ontouchstart" in window || navigator.maxTouchPoints > 0) &&
+          window.innerWidth <= 1200;
+        return window.innerWidth > 1024 && !isTouchTablet;
+      }
+      window.isDesktopScrollMode = isDesktopScrollMode;
+    </script>
+
     <!-- JAVASCRIP CODE - PARA EDITAR FAZER DOWNLOAD DO DOCUMENTO NO WEBFLOW, EDITAR E CARREGAR NOVAMENTE -->
     <script src="/one24.js"></script>
     <script>
@@ -7906,7 +8765,7 @@ a,
             }
           }
 
-          var isDesktop = window.innerWidth >= 992;
+          var isDesktop = isDesktopScrollMode();
           var rawProgress = 0;
 
           if (isDesktop) {
@@ -8099,7 +8958,9 @@ a,
 
             // Additional Amenities: Parallax between 40% Content and 60% Image
             var addAmenPanel = document.getElementById("additionalAmenities");
-            var addAmenContent = document.getElementById("additionalAmenitiesContent");
+            var addAmenContent = document.getElementById(
+              "additionalAmenitiesContent",
+            );
             var addAmenImg = document.getElementById("additionalAmenitiesImg");
 
             if (addAmenPanel) {
@@ -8114,7 +8975,11 @@ a,
                   var imgShiftX = (p - 0.5) * -110;
                   var imgScale = 1.05 + Math.sin(p * Math.PI) * 0.05;
                   addAmenImg.style.transform =
-                    "translate3d(" + imgShiftX.toFixed(1) + "px, 0, 0) scale(" + imgScale.toFixed(3) + ")";
+                    "translate3d(" +
+                    imgShiftX.toFixed(1) +
+                    "px, 0, 0) scale(" +
+                    imgScale.toFixed(3) +
+                    ")";
                 }
 
                 // 40% Content subtle luxury parallax inertia relative to image
@@ -8141,7 +9006,9 @@ a,
               botanicalSvg.style.transform = "none";
               botanicalSvg.style.opacity = "0.45";
             }
-            var mAddAmenContent = document.getElementById("additionalAmenitiesContent");
+            var mAddAmenContent = document.getElementById(
+              "additionalAmenitiesContent",
+            );
             var mAddAmenImg = document.getElementById("additionalAmenitiesImg");
             if (mAddAmenContent) mAddAmenContent.style.transform = "none";
             if (mAddAmenImg) mAddAmenImg.style.transform = "none";
@@ -8152,6 +9019,7 @@ a,
 
         function initControls() {
           cacheElements();
+          showAmenity(0);
           requestAnimationFrame(loop);
 
           // Setup Mobile Pills, Touch Swipe & Auto-Cycle
@@ -8206,7 +9074,7 @@ a,
 
           // Auto-cycle on mobile when showcase is visible
           setInterval(function () {
-            if (window.innerWidth < 992 && !isDirectSwitching) {
+            if (!isDesktopScrollMode() && !isDirectSwitching) {
               if (showcaseEl) {
                 var rect = showcaseEl.getBoundingClientRect();
                 if (rect.top < window.innerHeight && rect.bottom > 0) {
@@ -8449,11 +9317,12 @@ a,
 
         function updateNavbarBackgroundTheme() {
           if (!navEl) return;
-          const isDesktop = window.innerWidth > 991;
-          const checkX = isDesktop
-            ? window.innerWidth * 0.5
-            : window.innerWidth * 0.5;
-          const checkY = 40;
+          const isDesktop =
+            typeof isDesktopScrollMode === "function"
+              ? isDesktopScrollMode()
+              : window.innerWidth > 1024;
+          const checkX = window.innerWidth * 0.5;
+          const checkY = isDesktop ? 40 : 80;
 
           let currentSection = "home";
           const sections = [
@@ -8566,7 +9435,13 @@ a,
                 const targetEl = document.getElementById(targetId);
                 if (targetEl) {
                   e.preventDefault();
-                  targetEl.scrollIntoView({ behavior: "smooth" });
+                  const headerOffset = 64;
+                  const elementPosition = targetEl.getBoundingClientRect().top;
+                  const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
+                  window.scrollTo({
+                    top: offsetPosition,
+                    behavior: "smooth"
+                  });
                 }
               }
             });
@@ -8598,7 +9473,9 @@ a,
             "resize",
             function () {
               if (
-                window.innerWidth >= 992 &&
+                (typeof isDesktopScrollMode === "function"
+                  ? isDesktopScrollMode()
+                  : window.innerWidth > 1024) &&
                 drawer.classList.contains("is-open")
               ) {
                 closeDrawer();
@@ -8734,14 +9611,20 @@ a,
           const easeFactor = 0.18;
 
           function loop() {
-            const isDesktop = window.innerWidth >= 992;
+            const isDesktop =
+              typeof isDesktopScrollMode === "function"
+                ? isDesktopScrollMode()
+                : window.innerWidth > 1024;
             const stageEl = document.getElementById("hero-sticky-stage");
             const trackEl = document.querySelector(".track");
+            const panelsContainer = document.getElementById("panels-container");
 
             if (!isDesktop) {
               if (stageEl) stageEl.style.transform = "none";
+              if (trackEl) trackEl.style.transform = "none";
+              if (panelsContainer) panelsContainer.style.transform = "none";
 
-              // On mobile: scrub video frames and fade text smoothly based on vertical scroll inside #home
+              // On mobile & tablet: scrub video frames and fade text smoothly based on vertical scroll inside #home
               let rawProgress = 0;
               const homeEl = document.getElementById("home");
               if (homeEl) {

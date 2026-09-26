@@ -82,26 +82,26 @@ export default function ContactPage() {
               <div className="space-y-4">
                 <div>
                   <a
-                    href="tel:+919779799705"
+                    href="tel:+911234512345"
                     className="font-serif text-xl sm:text-2xl text-white hover:text-[#A27B58] transition-colors block leading-tight"
                   >
-                    +91 97797 99705
+                    +91 12345 12345
                   </a>
-                  <span className="text-[9px] tracking-[0.14em] uppercase text-white/45 block mt-1">
+                  {/* <span className="text-[9px] tracking-[0.14em] uppercase text-white/45 block mt-1">
                     LOCAL CALL, FEES MAY APPLY
-                  </span>
+                  </span> */}
                 </div>
 
                 <div>
                   <a
-                    href="tel:+919872400078"
+                    href="tel:+911234512345"
                     className="font-serif text-xl sm:text-2xl text-white hover:text-[#A27B58] transition-colors block leading-tight"
                   >
-                    +91 98724 00078
+                    +91 12345 12345
                   </a>
-                  <span className="text-[9px] tracking-[0.14em] uppercase text-white/45 block mt-1">
+                  {/* <span className="text-[9px] tracking-[0.14em] uppercase text-white/45 block mt-1">
                     LOCAL CALL, FEES MAY APPLY
-                  </span>
+                  </span> */}
                 </div>
               </div>
             </div>

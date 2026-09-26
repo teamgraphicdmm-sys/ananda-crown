@@ -5784,6 +5784,11 @@ figcaption {
   display: flex;
 }
 
+@media screen and (max-width: 1350px) {
+  .add-amen-item{
+        font-size: 0.8rem !important;
+  }
+}
 @media screen and (max-width: 991px) {
   .padding-xlarge {
     padding: 3rem;
@@ -6155,7 +6160,7 @@ figcaption {
   }
 
   .cta {
-    justify-content: space-between;
+    /* justify-content: space-between; */
   }
 
   .ap-img-1 {
@@ -6456,8 +6461,9 @@ figcaption {
     text-align: center;
     flex-direction: column;
     align-items: center;
-    margin-top: 1.6em;
+    margin-top: 0;
     display: flex;
+    gap: 3rem;
   }
 
   .footer-exclusive {
@@ -6476,7 +6482,7 @@ figcaption {
     top: 0%;
     bottom: auto;
     left: 0%;
-    right: 0%;
+    right: 5%;
   }
 
   .inquire-open-component {
@@ -7268,11 +7274,22 @@ figcaption {
     gap: 5%;
 }
 .num_title_text{
-    font-family: Untitled sans, sans-serif;
+    font-family: "Untitled sans", Montserrat, sans-serif;
     font-size: .9125em;
     font-weight: 400;
-    line-height: 1.23077;
+    line-height: 1.38;
     display: block;
     position: relative;
-        color: #413f3fcc;
+    color: #7d7571;
+}
+
+.add-amen-content-inner-outer{
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.additional-amenities-content-wrap  .apartments-cta {
+  margin-top: 0!important;
 }
