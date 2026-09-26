@@ -13,7 +13,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400;1,500;1,600&family=Montserrat:wght@300;400;500;600;700&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600;700&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400;1,500;1,600&family=Montserrat:wght@300;400;500;600;700&display=swap"
       rel="stylesheet"
     />
     <meta charset="utf-8" />
@@ -1704,6 +1704,63 @@
         will-change: transform !important;
       }
 
+      /* Luxury Interior Image Overlay matching Reference Design (ChatGPT Image Sep 26, 2026, 05_52_04 PM.png) */
+      .ap-img-1,
+      .ap-img-2,
+      .ap-img-5,
+      .ap-img-4 {
+        position: relative !important;
+        overflow: hidden !important;
+      }
+
+      .ap-interior-overlay {
+        position: absolute !important;
+        top: 0 !important;
+        left: 0 !important;
+        right: 0 !important;
+        padding: 2.2rem 2.4rem 3.8rem 2.4rem !important;
+        background: linear-gradient(
+          180deg,
+          rgba(10, 6, 3, 0.68) 0%,
+          rgba(10, 6, 3, 0.28) 46%,
+          rgba(0, 0, 0, 0) 100%
+        ) !important;
+        display: flex !important;
+        flex-direction: column !important;
+        align-items: flex-start !important;
+        justify-content: flex-start !important;
+        text-align: left !important;
+        z-index: 10 !important;
+        pointer-events: none !important;
+        box-sizing: border-box !important;
+      }
+
+      .ap-interior-line {
+        width: 95px !important;
+        height: 1.5px !important;
+        background-color: rgba(255, 255, 255, 0.92) !important;
+        margin: 0 0 13px 0 !important;
+        box-shadow: 0 1px 4px rgba(0, 0, 0, 0.45) !important;
+        display: none;
+      }
+
+      .ap-interior-title {
+        font-family: "Cinzel", "Tobias", "Cormorant Garamond", "Playfair Display", Georgia, serif !important;
+        font-size: clamp(1.2rem, 1.7vw, 1.85rem) !important;
+        font-weight: 500 !important;
+        letter-spacing: 0.16em !important;
+        line-height: 1.15 !important;
+        text-transform: uppercase !important;
+        color: #ffffff !important;
+        margin: 0 !important;
+        padding: 0 !important;
+        text-shadow: 0 2px 10px rgba(0, 0, 0, 0.6), 0 1px 3px rgba(0, 0, 0, 0.8) !important;
+      }
+
+      .ap-img-description {
+        display: none !important;
+      }
+
       /* APARTMENTS INFO PANEL */
       .apartments-info {
         display: flex !important;
@@ -2079,8 +2136,8 @@
         width: 38px !important;
         height: 38px !important;
         padding: 0 !important;
-        background: rgba(255, 255, 255, 0.06) !important;
-        border: 1px solid rgba(194, 161, 128, 0.3) !important;
+        background: rgb(255 255 255 / 0%) !important;
+        border: none;
         border-radius: 2px !important;
         cursor: pointer !important;
         gap: 5px !important;
@@ -2130,141 +2187,264 @@
           background-color: #c2a180 !important;
         }
 
-        /* Luxury Mobile Navigation Drawer */
+        /* Luxury Mobile Navigation Drawer matching reference design */
+        html.body-scroll-locked,
+        body.body-scroll-locked {
+          overflow: hidden !important;
+          touch-action: none !important;
+          -webkit-overflow-scrolling: auto !important;
+          height: 100% !important;
+        }
+
         .nav-mobile-drawer {
           position: fixed !important;
-          top: 60px !important;
+          top: 0 !important;
           left: 0 !important;
-          right: 0 !important;
+          right: auto !important;
           bottom: 0 !important;
           width: 100vw !important;
-          height: calc(100vh - 60px) !important;
-          height: calc(100dvh - 60px) !important;
-          background: rgba(18, 9, 2, 0.97) !important;
-          backdrop-filter: blur(28px) !important;
-          -webkit-backdrop-filter: blur(28px) !important;
-          z-index: 9999 !important;
+          max-width: 100% !important;
+          height: 100vh !important;
+          height: 100dvh !important;
+          background-color: #f7f4ef !important;
+          background: #f7f4ef url('/images/pattern-bg.png') repeat !important;
+          background-size: 260px !important;
+          z-index: 99999 !important;
           display: flex !important;
           flex-direction: column !important;
-          opacity: 0 !important;
+          opacity: 1 !important;
           visibility: hidden !important;
           pointer-events: none !important;
-          transform: translateY(-16px) !important;
-          transition:
-            opacity 0.35s cubic-bezier(0.16, 1, 0.3, 1),
-            transform 0.35s cubic-bezier(0.16, 1, 0.3, 1),
-            visibility 0.35s !important;
+          transform: translateX(-100%) !important;
+          transition: transform 0.42s cubic-bezier(0.16, 1, 0.3, 1), visibility 0.42s !important;
           overflow-y: auto !important;
           -webkit-overflow-scrolling: touch !important;
-          border-top: 1px solid rgba(194, 161, 128, 0.2) !important;
+          box-shadow: 10px 0 40px rgba(0, 0, 0, 0.25) !important;
         }
 
         .nav-mobile-drawer.is-open {
-          opacity: 1 !important;
           visibility: visible !important;
           pointer-events: auto !important;
-          transform: translateY(0) !important;
+          transform: translateX(0) !important;
         }
 
         .nav-mobile-drawer-inner {
           display: flex !important;
           flex-direction: column !important;
-          justify-content: space-between !important;
+          justify-content: flex-start;
           min-height: 100% !important;
-          padding: 2.25rem 1.5rem 2rem 1.5rem !important;
+          padding: 1.5rem 1.6rem 2rem 1.6rem !important;
           box-sizing: border-box !important;
+          position: relative !important;
+          z-index: 2 !important;
         }
 
+        /* Top Header Bar in Drawer */
+        .nav-mobile-header {
+          display: flex !important;
+          align-items: center !important;
+          justify-content: space-between !important;
+          padding-bottom: 1.75rem !important;
+          width: 100% !important;
+        }
+
+        .nav-mobile-logo-link {
+          display: inline-flex !important;
+          align-items: center !important;
+          text-decoration: none !important;
+        }
+
+        .nav-mobile-logo-img {
+          height: 48px !important;
+          width: auto !important;
+          object-fit: contain !important;
+          filter: drop-shadow(0 2px 6px rgba(0, 0, 0, 0.08)) !important;
+        }
+
+        .nav-mobile-close-btn {
+          background: transparent !important;
+          border: none !important;
+          outline: none !important;
+          cursor: pointer !important;
+          padding: 8px !important;
+          margin-right: -8px !important;
+          color: #221814 !important;
+          display: flex !important;
+          align-items: center !important;
+          justify-content: center !important;
+          transition: transform 0.2s ease, color 0.2s ease !important;
+        }
+
+        .nav-mobile-close-btn:hover {
+          color: #a88460 !important;
+          transform: scale(1.1) !important;
+        }
+
+        /* Navigation Links List */
         .nav-mobile-links {
           display: flex !important;
           flex-direction: column !important;
-          gap: 1.15rem !important;
+          width: 100% !important;
+          margin-top: 0.5rem !important;
         }
 
         .nav-mobile-link {
           display: flex !important;
           align-items: center !important;
-          gap: 16px !important;
           text-decoration: none !important;
-          padding: 10px 0 !important;
-          border-bottom: 1px solid rgba(255, 255, 255, 0.06) !important;
-          transition: all 0.25s ease !important;
+          padding: 1.15rem 0 !important;
+          border-bottom: 1px solid rgba(194, 161, 128, 0.28) !important;
+          transition: background-color 0.2s ease, transform 0.2s ease !important;
+        }
+
+        .nav-mobile-link:first-child {
+          border-top: 1px solid rgba(194, 161, 128, 0.28) !important;
         }
 
         .nav-mobile-link-num {
-          font-family: "Montserrat", sans-serif !important;
-          font-size: 11px !important;
-          letter-spacing: 0.16em !important;
-          color: #c2a180 !important;
-          font-weight: 600 !important;
-          opacity: 0.65 !important;
+          font-family: "Cinzel", "Montserrat", serif !important;
+          font-size: 13px !important;
+          font-weight: 500 !important;
+          color: #a88460 !important;
+          letter-spacing: 0.12em !important;
+          min-width: 32px !important;
         }
 
         .nav-mobile-link-text {
-          font-family: "Montserrat", sans-serif !important;
-          font-size: 15px !important;
+          flex: 1 !important;
+          font-family: "Cinzel", "Montserrat", sans-serif !important;
+          font-size: 14.5px !important;
+          font-weight: 600 !important;
           letter-spacing: 0.18em !important;
-          font-weight: 500 !important;
-          color: #ffffff !important;
+          color: #221814 !important;
           text-transform: uppercase !important;
-          transition:
-            color 0.25s ease,
-            transform 0.25s ease !important;
+          padding-left: 6px !important;
+          transition: color 0.2s ease !important;
+        }
+
+        .nav-mobile-link-arrow {
+          font-size: 16px !important;
+          color: #a88460 !important;
+          opacity: 0.8 !important;
+          transition: transform 0.2s ease, opacity 0.2s ease !important;
         }
 
         .nav-mobile-link:hover .nav-mobile-link-text,
         .nav-mobile-link.active .nav-mobile-link-text {
-          color: #c2a180 !important;
+          color: #94693b !important;
+        }
+
+        .nav-mobile-link:hover .nav-mobile-link-arrow,
+        .nav-mobile-link.active .nav-mobile-link-arrow {
           transform: translateX(4px) !important;
-        }
-
-        .nav-mobile-link.active .nav-mobile-link-num {
           opacity: 1 !important;
+          color: #94693b !important;
         }
 
+        /* Drawer Footer & Contact */
         .nav-mobile-footer {
           margin-top: 2rem !important;
-          padding-top: 1.5rem !important;
-          border-top: 1px solid rgba(194, 161, 128, 0.25) !important;
           display: flex !important;
           flex-direction: column !important;
-          gap: 1.25rem !important;
+          gap: 1.35rem !important;
+          position: relative !important;
+          z-index: 5 !important;
         }
 
-        .nav-mobile-inquire-btn {
-          display: block !important;
+        .nav-mobile-inquire-pill {
+          display: flex !important;
+          align-items: center !important;
+          justify-content: space-between !important;
           width: 100% !important;
-          text-align: center !important;
-          padding: 13px 20px !important;
-          background: linear-gradient(
-            135deg,
-            #c2a180 0%,
-            #a88460 100%
-          ) !important;
-          color: #120902 !important;
-          font-family: "Montserrat", sans-serif !important;
-          font-size: 11.5px !important;
-          letter-spacing: 0.2em !important;
-          font-weight: 700 !important;
+          max-width: 290px !important;
+          padding: 13px 22px !important;
+          background: #ebe3d9 !important;
+          border:none;
+          border-radius: 999px !important;
+          color: #221814 !important;
+          font-family: "Cinzel", "Montserrat", sans-serif !important;
+          font-size: 12.5px !important;
+          font-weight: 600 !important;
+          letter-spacing: 0.16em !important;
           text-transform: uppercase !important;
-          text-decoration: none !important;
-          border: none !important;
-          border-radius: 30px !important;
           cursor: pointer !important;
-          box-shadow: 0 4px 20px rgba(194, 161, 128, 0.3) !important;
+          transition: all 0.25s ease !important;
+          box-shadow: 0 4px 14px rgba(0, 0, 0, 0.04) !important;
+          box-sizing: border-box !important;
+        }
+
+        .nav-mobile-inquire-pill:hover {
+          background: #dfd4c5 !important;
+          border-color: #a88460 !important;
+        }
+
+        .nav-mobile-inquire-pill .nav-pill-arrow {
+          font-size: 15px !important;
+          color: #221814 !important;
+          transition: transform 0.2s ease !important;
+        }
+
+        .nav-mobile-inquire-pill:hover .nav-pill-arrow {
+          transform: translateX(3px) !important;
         }
 
         .nav-mobile-contact {
           display: flex !important;
           flex-direction: column !important;
-          gap: 6px !important;
-          font-size: 12px !important;
-          color: rgba(255, 255, 255, 0.65) !important;
+          gap: 0.65rem !important;
+          font-family: "Montserrat", sans-serif !important;
+          font-size: 11.5px !important;
+          font-weight: 500 !important;
+          letter-spacing: 0.14em !important;
+          color: #554a43 !important;
         }
 
         .nav-mobile-phone {
-          color: #f2e8dc !important;
+          display: inline-flex !important;
+          align-items: center !important;
+          gap: 8px !important;
+          color: #221814 !important;
           text-decoration: none !important;
+          transition: color 0.2s ease !important;
+        }
+
+        .nav-mobile-phone:hover {
+          color: #94693b !important;
+        }
+
+        .nav-mobile-addr {
+          display: inline-flex !important;
+          align-items: center !important;
+          gap: 8px !important;
+          color: #554a43 !important;
+        }
+
+        .nav-contact-icon {
+          color: #a88460 !important;
+          flex-shrink: 0 !important;
+        }
+
+        /* Subtle Architectural Watermark at Bottom-Right */
+        .nav-mobile-watermark {
+          position: absolute !important;
+          right: 0 !important;
+          bottom: 0 !important;
+          width: 170px !important;
+          height: 190px !important;
+          pointer-events: none !important;
+          overflow: hidden !important;
+          opacity: 0.14 !important;
+          z-index: 1 !important;
+          display: flex !important;
+          align-items: flex-end !important;
+          justify-content: flex-end !important;
+        }
+
+        .nav-watermark-img {
+          width: 160px !important;
+          height: auto !important;
+          object-fit: contain !important;
+          filter: grayscale(100%) sepia(80%) hue-rotate(350deg) saturate(200%) !important;
         }
 
         /* --- HERO SECTION MOBILE RESPONSIVE (#home) --- */
@@ -2577,23 +2757,29 @@
         }
 
         .ap-img-description {
-          display: block !important;
-          position: relative !important;
-          margin-bottom: 8px !important;
-          font-size: 22px !important;
-          letter-spacing: 0.14em !important;
-          text-transform: uppercase !important;
-          color: #c2a180 !important;
-          font-weight: 700 !important;
+          display: none !important;
         }
-          [data-w-id="9220f8e5-6b50-26ed-4c11-097c7b82ac90"] {
-              width: 100%;
-              text-align: right;
-          }
 
-          [data-w-id="0531396c-cab0-e7ad-82dc-25ddb9b5efa5"] {
-              width: 100%;
-          }
+        .ap-interior-overlay {
+          padding: 1.2rem 1.25rem 2.4rem 1.25rem !important;
+          background: linear-gradient(
+            180deg,
+            rgba(10, 6, 3, 0.72) 0%,
+            rgba(10, 6, 3, 0.3) 48%,
+            rgba(0, 0, 0, 0) 100%
+          ) !important;
+        }
+
+        .ap-interior-line {
+          width: 65px !important;
+          height: 1.5px !important;
+          margin: 0 0 9px 0 !important;
+        }
+
+        .ap-interior-title {
+          font-size: clamp(0.95rem, 3.6vw, 1.25rem) !important;
+          letter-spacing: 0.14em !important;
+        }
 
         /* --- THE DESTINATION / MOHALI SECTION (#island) --- */
         .island-section {
@@ -4638,7 +4824,7 @@ a,
         </div>
         <div class="inquire_toggle">
           <div class="nav-link-inquire">
-            <a href="/contact" class="nav-link inquire w-inline-block"
+            <a href="javascript:void(0)" class="nav-link inquire w-inline-block"
               ><div class="untitled-400-13">INQUIRE</div>
               <div class="nav-ball"></div
             ></a>
@@ -4655,17 +4841,51 @@ a,
           </button>
         </div>
       </nav>
-      <!-- Mobile navigation drawer -->
-      <div class="nav-mobile-drawer" id="navMobileDrawer">
+      <!-- Mobile navigation drawer matching reference image -->
+      <div class="nav-mobile-drawer" id="navMobileDrawer" aria-hidden="true">
         <div class="nav-mobile-drawer-inner">
+          <!-- Top Header Bar matching reference image -->
+          <div class="nav-mobile-header">
+            <a href="#home" class="nav-mobile-logo-link" aria-label="Ananda Crown">
+              <img
+                src="/images/tarnsaperent_logo.png"
+                alt="Ananda Crown"
+                class="nav-mobile-logo-img"
+              />
+            </a>
+            <button
+              type="button"
+              class="nav-mobile-close-btn"
+              id="navMobileCloseBtn"
+              aria-label="Close navigation menu"
+            >
+              <svg
+                width="22"
+                height="22"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="1.2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              >
+                <line x1="18" y1="6" x2="6" y2="18"></line>
+                <line x1="6" y1="6" x2="18" y2="18"></line>
+              </svg>
+            </button>
+          </div>
+
+          <!-- Numbered Navigation Links -->
           <div class="nav-mobile-links">
             <a href="#home" class="nav-mobile-link active" data-target="home">
               <span class="nav-mobile-link-num">01</span>
               <span class="nav-mobile-link-text">HOME</span>
+              <span class="nav-mobile-link-arrow">→</span>
             </a>
             <a href="#vision" class="nav-mobile-link" data-target="vision">
               <span class="nav-mobile-link-num">02</span>
               <span class="nav-mobile-link-text">VISION</span>
+              <span class="nav-mobile-link-arrow">→</span>
             </a>
             <a
               href="#apartments"
@@ -4674,14 +4894,17 @@ a,
             >
               <span class="nav-mobile-link-num">03</span>
               <span class="nav-mobile-link-text">RESIDENCES</span>
+              <span class="nav-mobile-link-arrow">→</span>
             </a>
             <a href="#island" class="nav-mobile-link" data-target="island">
               <span class="nav-mobile-link-num">04</span>
               <span class="nav-mobile-link-text">THE DESTINATION</span>
+              <span class="nav-mobile-link-arrow">→</span>
             </a>
             <a href="#location" class="nav-mobile-link" data-target="location">
               <span class="nav-mobile-link-num">05</span>
               <span class="nav-mobile-link-text">AMENITIES</span>
+              <span class="nav-mobile-link-arrow">→</span>
             </a>
             <a
               href="#availability"
@@ -4690,16 +4913,60 @@ a,
             >
               <span class="nav-mobile-link-num">06</span>
               <span class="nav-mobile-link-text">AVAILABILITY</span>
+              <span class="nav-mobile-link-arrow">→</span>
             </a>
           </div>
+
+          <!-- Bottom Actions & Contact Details -->
           <div class="nav-mobile-footer">
-            <a href="/contact" class="nav-mobile-inquire-btn">INQUIRE NOW</a>
+            <button
+              type="button"
+              class="nav-mobile-inquire-pill"
+              id="navMobileInquirePill"
+            >
+              <span>INQUIRE NOW</span>
+              <span class="nav-pill-arrow">→</span>
+            </button>
             <div class="nav-mobile-contact">
-              <a href="tel:+919779799705" class="nav-mobile-phone"
-                >📞 +91 97797 99705</a
-              >
-              <span class="nav-mobile-addr">📍 Sector 78, Mohali</span>
+              <a href="tel:+919779799705" class="nav-mobile-phone">
+                <svg
+                  class="nav-contact-icon"
+                  width="13"
+                  height="13"
+                  viewBox="0 0 24 24"
+                  fill="currentColor"
+                >
+                  <path
+                    d="M6.62 10.79a15.05 15.05 0 006.59 6.59l2.2-2.2a1 1 0 011.02-.24c1.12.37 2.33.57 3.57.57a1 1 0 011 1V20a1 1 0 01-1 1A17 17 0 013 4a1 1 0 011-1h3.5a1 1 0 011 1c0 1.25.2 2.45.57 3.57a1 1 0 01-.25 1.02l-2.2 2.2z"
+                  />
+                </svg>
+                <span>+91 97797 99705</span>
+              </a>
+              <div class="nav-mobile-addr">
+                <svg
+                  class="nav-contact-icon"
+                  width="13"
+                  height="13"
+                  viewBox="0 0 24 24"
+                  fill="currentColor"
+                >
+                  <path
+                    d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"
+                  />
+                </svg>
+                <span>SECTOR 78, MOHALI</span>
+              </div>
             </div>
+          </div>
+
+          <!-- Bottom-Right Watermark illustration -->
+          <div class="nav-mobile-watermark" aria-hidden="true">
+            <div class="nav-watermark-line"></div>
+            <img
+              src="/images/tarnsaperent_logo.png"
+              alt=""
+              class="nav-watermark-img"
+            />
           </div>
         </div>
       </div>
@@ -4832,7 +5099,7 @@ a,
                     </div>
                     <!-- Static fallback background image -->
                     <img
-                      src="/images/hero-building-sunset.webp"
+                      src="/videos/hero-frames\frame_0169.jpg"
                       alt="Ananda Crown Sector 78 Mohali"
                       class="hero-image-background animate-hero-zoom"
                       style="z-index: 0 !important"
@@ -5157,6 +5424,10 @@ a,
                         class="ap-img-1"
                       >
                         <div img-castanho="1" class="img-background"></div>
+                        <div class="ap-interior-overlay">
+                          <div class="ap-interior-line"></div>
+                          <div class="ap-interior-title">MASTER BEDROOM SUITE</div>
+                        </div>
                         <img
                           class="ap-img-a-1"
                           src="/images/interior/bedroom.webp"
@@ -5191,6 +5462,10 @@ a,
                             class="ap-img-2"
                           >
                             <div img-castanho="1" class="img-background"></div>
+                            <div class="ap-interior-overlay">
+                              <div class="ap-interior-line"></div>
+                              <div class="ap-interior-title">GRAND LIVING HALL</div>
+                            </div>
                             <img
                               class="ap-img-a-2"
                               src="/images/interior/hall.webp"
@@ -5209,6 +5484,10 @@ a,
                             class="ap-img-5"
                           >
                             <div img-castanho="1" class="img-background"></div>
+                            <div class="ap-interior-overlay">
+                              <div class="ap-interior-line"></div>
+                              <div class="ap-interior-title">GOURMET MODULAR KITCHEN</div>
+                            </div>
                             <img
                               class="ap-img-a-3"
                               src="/images/interior/kitchen.webp"
@@ -5235,6 +5514,10 @@ a,
                         class="ap-img-4"
                       >
                         <div img-castanho="1" class="img-background"></div>
+                        <div class="ap-interior-overlay">
+                          <div class="ap-interior-line"></div>
+                          <div class="ap-interior-title">PANORAMIC SKY BALCONY</div>
+                        </div>
                         <img
                           class="ap-img-a-4"
                           src="/images/interior/balcony.webp"
@@ -8175,13 +8458,14 @@ a,
         <div class="inquire-open close">
           <div class="inquire-wrap close">
             <div class="inquire-open-close">
-              <a
+              <button
+                type="button"
                 id="close-inquire"
-                href="/"
                 class="nav-link inquire-close w-inline-block"
                 aria-label="Close"
+                style="background: transparent; border: none; cursor: pointer; padding: 0; outline: none;"
                 ><div class="untitled-400-13">CLOSE</div>
-              </a>
+              </button>
             </div>
             <div class="inquire-open-component">
               <div class="inquire-open-left">
@@ -9183,13 +9467,27 @@ a,
       })();
     </script>
     <script>
+      // Global scroll lock helpers for modals and navigation drawers
+      window.lockBodyScroll = function () {
+        document.documentElement.classList.add("body-scroll-locked");
+        document.body.classList.add("body-scroll-locked");
+      };
+
+      window.unlockBodyScroll = function () {
+        const drawer = document.getElementById("navMobileDrawer");
+        const inquireWrap = document.querySelector(".inquire-wrap");
+        const isDrawerOpen = drawer && drawer.classList.contains("is-open");
+        const isInquireOpen = inquireWrap && !inquireWrap.classList.contains("close");
+        if (!isDrawerOpen && !isInquireOpen) {
+          document.documentElement.classList.remove("body-scroll-locked");
+          document.body.classList.remove("body-scroll-locked");
+        }
+      };
+
       (function () {
         function initInquireController() {
           const inquireOpen = document.querySelector(".inquire-open");
           const inquireWrap = document.querySelector(".inquire-wrap");
-          const closeBtn =
-            document.getElementById("close-inquire") ||
-            document.querySelector(".inquire-close");
           const togglePill = document.getElementById("inquire-modal-toggle");
           const interestLabel = document.getElementById(
             "inquire-modal-interest-label",
@@ -9215,6 +9513,7 @@ a,
             inquireOpen.classList.remove("close");
             inquireWrap.classList.remove("close");
             document.body.classList.add("no-scroll-transition");
+            window.lockBodyScroll();
 
             // Force opacity on text chars
             const textChars = document.querySelectorAll(
@@ -9224,8 +9523,10 @@ a,
               el.style.opacity = "1";
             });
 
-            if (updateUrl && window.location.pathname !== "/contact") {
-              history.pushState({ modal: "inquire" }, "", "/contact");
+            if (updateUrl && !window.location.hash.includes("inquire")) {
+              try {
+                history.replaceState({ modal: "inquire" }, "", window.location.pathname + window.location.search + "#inquire");
+              } catch (err) {}
             }
           }
 
@@ -9233,16 +9534,15 @@ a,
             if (!inquireOpen || !inquireWrap) return;
             inquireWrap.classList.add("close");
             document.body.classList.remove("no-scroll-transition");
+            window.unlockBodyScroll();
             setTimeout(function () {
               inquireOpen.classList.add("close");
-            }, 500);
+            }, 450);
 
-            if (
-              updateUrl &&
-              (window.location.pathname === "/contact" ||
-                window.location.hash.includes("inquire"))
-            ) {
-              history.pushState(null, "", "/");
+            if (updateUrl && window.location.hash.includes("inquire")) {
+              try {
+                history.replaceState(null, "", window.location.pathname + window.location.search);
+              } catch (err) {}
             }
           }
 
@@ -9256,16 +9556,22 @@ a,
           inquireTriggers.forEach(function (trigger) {
             trigger.addEventListener("click", function (e) {
               e.preventDefault();
+              e.stopPropagation();
               openInquire(true);
             });
           });
 
-          if (closeBtn) {
-            closeBtn.addEventListener("click", function (e) {
+          // Attach to all close triggers
+          const closeButtons = document.querySelectorAll(
+            "#close-inquire, .inquire-close, [inquire='close']",
+          );
+          closeButtons.forEach(function (btn) {
+            btn.addEventListener("click", function (e) {
               e.preventDefault();
+              e.stopPropagation();
               closeInquire(true);
             });
-          }
+          });
 
           document.addEventListener("keydown", function (e) {
             if (
@@ -9279,8 +9585,8 @@ a,
 
           window.addEventListener("popstate", function () {
             if (
-              window.location.pathname === "/contact" ||
-              window.location.hash === "#inquire"
+              window.location.hash === "#inquire" ||
+              window.location.hash === "#contact"
             ) {
               openInquire(false);
             } else if (
@@ -9392,36 +9698,59 @@ a,
         function initMobileNavToggle() {
           const toggleBtn = document.getElementById("navMobileToggle");
           const drawer = document.getElementById("navMobileDrawer");
-          if (!toggleBtn || !drawer) return;
+          const closeBtn = document.getElementById("navMobileCloseBtn");
+          const inquirePill =
+            document.getElementById("navMobileInquirePill") ||
+            (drawer ? drawer.querySelector(".nav-mobile-inquire-pill") : null);
+
+          if (!drawer) return;
 
           function openDrawer() {
-            toggleBtn.classList.add("is-open");
+            if (toggleBtn) toggleBtn.classList.add("is-open");
             drawer.classList.add("is-open");
-            document.body.style.overflow = "hidden";
+            drawer.setAttribute("aria-hidden", "false");
+            window.lockBodyScroll();
           }
 
           function closeDrawer() {
-            toggleBtn.classList.remove("is-open");
+            if (toggleBtn) toggleBtn.classList.remove("is-open");
             drawer.classList.remove("is-open");
-            document.body.style.overflow = "";
+            drawer.setAttribute("aria-hidden", "true");
+            window.unlockBodyScroll();
           }
 
-          toggleBtn.addEventListener("click", function (e) {
-            e.preventDefault();
-            e.stopPropagation();
-            if (drawer.classList.contains("is-open")) {
-              closeDrawer();
-            } else {
-              openDrawer();
-            }
-          });
+          if (toggleBtn) {
+            toggleBtn.addEventListener("click", function (e) {
+              e.preventDefault();
+              e.stopPropagation();
+              if (drawer.classList.contains("is-open")) {
+                closeDrawer();
+              } else {
+                openDrawer();
+              }
+            });
+          }
 
-          // Close on clicking outside inner drawer content
-          drawer.addEventListener("click", function (e) {
-            if (e.target === drawer) {
+          if (closeBtn) {
+            closeBtn.addEventListener("click", function (e) {
+              e.preventDefault();
+              e.stopPropagation();
               closeDrawer();
-            }
-          });
+            });
+          }
+
+          if (inquirePill) {
+            inquirePill.addEventListener("click", function (e) {
+              e.preventDefault();
+              e.stopPropagation();
+              closeDrawer();
+              setTimeout(function () {
+                if (typeof window.openInquireModal === "function") {
+                  window.openInquireModal(true);
+                }
+              }, 250);
+            });
+          }
 
           // Mobile Nav Links: Smooth scroll to section and close drawer
           const links = drawer.querySelectorAll(".nav-mobile-link");
@@ -9437,29 +9766,16 @@ a,
                   e.preventDefault();
                   const headerOffset = 64;
                   const elementPosition = targetEl.getBoundingClientRect().top;
-                  const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
+                  const offsetPosition =
+                    elementPosition + window.pageYOffset - headerOffset;
                   window.scrollTo({
                     top: offsetPosition,
-                    behavior: "smooth"
+                    behavior: "smooth",
                   });
                 }
               }
             });
           });
-
-          // Mobile Inquire Button opens luxury inquire modal
-          const mobileInquireBtn = drawer.querySelector(
-            ".nav-mobile-inquire-btn",
-          );
-          if (mobileInquireBtn) {
-            mobileInquireBtn.addEventListener("click", function (e) {
-              e.preventDefault();
-              closeDrawer();
-              if (typeof window.openInquireModal === "function") {
-                window.openInquireModal(true);
-              }
-            });
-          }
 
           // Close on escape key
           document.addEventListener("keydown", function (e) {
@@ -9468,7 +9784,7 @@ a,
             }
           });
 
-          // Auto-close if resized to desktop (>= 992px)
+          // Auto-close if resized to desktop (>= 1024px)
           window.addEventListener(
             "resize",
             function () {

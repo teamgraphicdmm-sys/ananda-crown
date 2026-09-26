@@ -1399,7 +1399,12 @@ function textInquire() {
 }
 $(".nav-link.inquire, .cta-link.inquire, .inquire-cta-wrap").on(
   "click",
-  function () {
+  function (e) {
+    if (e) {
+      e.preventDefault();
+      e.stopPropagation();
+    }
+    if (typeof window.lockBodyScroll === "function") window.lockBodyScroll();
     $(".inquire-open").removeClass("close");
     $("body").addClass("no-scroll-transition");
     setTimeout(() => {
@@ -1410,13 +1415,18 @@ $(".nav-link.inquire, .cta-link.inquire, .inquire-cta-wrap").on(
     }, 100);
   },
 );
-$(".nav-link.inquire-close").on("click", function () {
+$(".nav-link.inquire-close, #close-inquire, [inquire=close]").on("click", function (e) {
+  if (e) {
+    e.preventDefault();
+    e.stopPropagation();
+  }
+  if (typeof window.unlockBodyScroll === "function") window.unlockBodyScroll();
   $(".inquire-wrap").addClass("close");
   $("body").removeClass("no-scroll-transition");
   setTimeout(() => {
     $("[inquire=text]").find(".chars").css("opacity", "0");
     $(".inquire-open").addClass("close");
-  }, 1000);
+  }, 500);
 });
 // END Inquire Open
 
