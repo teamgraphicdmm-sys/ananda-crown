@@ -6653,7 +6653,7 @@ figcaption {
   }
 
   .inquire-wrap {
-    padding: 1.5625em 1em 2.25em;
+    padding:20px !important;
     transition-duration: 1s;
     overflow: scroll;
   }

@@ -39,6 +39,7 @@
     <meta content="width=device-width, initial-scale=1" name="viewport" />
     <meta content="Webflow" name="generator" />
     <link href="/one24.css" rel="stylesheet" type="text/css" />
+    <link href="/css/clone-awwwards.css" rel="stylesheet" type="text/css" />
     <style>
       @media (min-width: 1025px) {
         html.w-mod-js:not(.w-mod-ix)
@@ -874,10 +875,17 @@
         flex-direction: column !important;
         justify-content: space-between !important;
         height: 100% !important;
+        min-height: 0 !important;
         z-index: 2 !important;
         will-change: transform !important;
-        overflow: hidden;
+        overflow: visible !important;
         display: flex !important;
+      }
+
+      .about-left-col-content {
+        display: flex !important;
+        flex-direction: column !important;
+        flex-shrink: 0 !important;
       }
 
       /* Title */
@@ -898,7 +906,7 @@
 
       /* Lead uppercase statement */
       .about-lead-statement {
-        margin-bottom: 0.75rem !important;
+        /* margin-bottom: 0.75rem !important; */
         z-index: 5;
         font-family: "Untitled sans", Montserrat, sans-serif !important;
         font-size: 1rem;
@@ -918,7 +926,7 @@
       .about-left-col .untitled-400-13-big,
       .about-body-desc {
         font-family: "Untitled sans", Montserrat, sans-serif !important;
-        font-size: 0.8125rem !important;
+        font-size: 1rem !important;
         font-weight: 400 !important;
         line-height: 1.6 !important;
         color: #7d7571 !important;
@@ -929,36 +937,61 @@
       .about-pillars-grid {
         display: grid !important;
         grid-template-columns: repeat(3, 1fr) !important;
-        gap: 1.2vw !important;
-        border-top: 1px solid rgba(0, 0, 0, 0.11) !important;
-        padding-top: 1.1rem !important;
-        margin-top: 1.25rem !important;
-        margin-bottom: 1.25rem !important;
+        gap: 1.5vw !important;
+        border-top: none !important;
+        border-bottom: 1px solid rgba(0, 0, 0, 0.09) !important;
+        padding-top: 0 !important;
+        padding-bottom: 1.85rem !important;
+        margin-top: 1.75rem !important;
+        margin-bottom: 1.85rem !important;
       }
 
       .about-pillar-item {
         position: relative !important;
-        padding-right: 1rem !important;
+        padding-right: 1.2vw !important;
+        display: flex !important;
+        flex-direction: column !important;
       }
 
       .about-pillar-item:not(:last-child)::after {
-        content: "";
-        position: absolute;
-        right: 0;
-        top: 10%;
-        bottom: 10%;
-        width: 1px;
-        background-color: rgba(0, 0, 0, 0.11) !important;
+        content: "" !important;
+        position: absolute !important;
+        right: 0 !important;
+        top: 4px !important;
+        bottom: 4px !important;
+        width: 1px !important;
+        background-color: rgba(0, 0, 0, 0.09) !important;
+      }
+
+      .about-pillar-header {
+        display: flex !important;
+        align-items: center !important;
+        gap: 0.85rem !important;
+        margin-bottom: 0.85rem !important;
+      }
+
+      .about-pillar-icon-badge {
+        width: 44px !important;
+        height: 44px !important;
+        border-radius: 50% !important;
+        border: 1px solid rgba(194, 161, 128, 0.55) !important;
+        background: transparent !important;
+        display: inline-flex !important;
+        align-items: center !important;
+        justify-content: center !important;
+        flex-shrink: 0 !important;
+        color: #c2a180 !important;
+        font-size: 1.05rem !important;
+        transition: transform 0.35s ease, border-color 0.35s ease !important;
+      }
+
+      .about-pillar-item:hover .about-pillar-icon-badge {
+        transform: scale(1.08) !important;
+        border-color: #a88460 !important;
       }
 
       .about-pillar-num {
-        font-family: "Tobias", serif, sans-serif !important;
-        font-size: 4.2rem !important;
-        font-weight: 300 !important;
-        line-height: 1 !important;
-        color: #c2a180 !important;
-        margin-bottom: 0.4rem !important;
-        display: none;
+        display: none !important;
       }
 
       .about-pillar-label {
@@ -967,60 +1000,38 @@
         font-weight: 600 !important;
         letter-spacing: 0.12em !important;
         text-transform: uppercase !important;
-        color: #c2a180 !important;
+           color: #c2a180 !important;
         line-height: 1.3 !important;
-        margin-bottom: 0.35rem !important;
+        margin-bottom: 0 !important;
       }
 
       .about-left-col .num_title_text {
         font-family: "Untitled sans", Montserrat, sans-serif !important;
         font-size: 0.72rem !important;
         font-weight: 400 !important;
-        line-height: 1.35 !important;
+        line-height: 1.45 !important;
         color: #7d7571 !important;
       }
 
-      /* Bottom feature: EST. 2026, Inset Chess Image, and Timeless Values */
+      /* Bottom feature: Inset Chess Image and Specs Table */
       .about-bottom-feature {
         display: flex !important;
         flex-direction: column !important;
-        gap: 0.65rem !important;
-      }
-
-      .about-est-wrap {
-        display: flex !important;
-        align-items: center !important;
-        gap: 12px !important;
         width: 100% !important;
-      }
-
-      .about-est-text {
-        font-family: "Untitled sans", Montserrat, sans-serif !important;
-        font-size: 0.75rem !important;
-        font-weight: 500 !important;
-        letter-spacing: 0.14em !important;
-        color: #7d7571 !important;
-        text-transform: uppercase !important;
-        white-space: nowrap !important;
-      }
-
-      .about-est-line {
-        height: 1px !important;
-        width: 70px !important;
-        background-color: rgba(0, 0, 0, 0.11) !important;
       }
 
       .about-inset-row {
         display: flex !important;
         align-items: center !important;
-        gap: 1.6rem !important;
+        gap: 2.2rem !important;
+        width: 100% !important;
       }
 
       .about-chess-frame {
-        height: clamp(80px, 20vw, 150px) !important;
+        height: clamp(100px, 11vw, 155px) !important;
         aspect-ratio: 16 / 10 !important;
         overflow: hidden !important;
-        border-radius: 4px !important;
+        border-radius: 5px !important;
         box-shadow: 0 10px 30px rgba(0, 0, 0, 0.12) !important;
         position: relative !important;
         flex-shrink: 0 !important;
@@ -1033,22 +1044,245 @@
         display: block !important;
         will-change: transform !important;
         transition: transform 0.5s ease !important;
+        border-radius: 5px !important;
       }
 
       .about-chess-frame:hover .about-chess-img {
         transform: scale(1.08) !important;
       }
 
-      .about-values-text {
+      .about-specs-grid {
+        display: flex !important;
+        flex-direction: column !important;
+        justify-content: center !important;
+        gap: 0.95rem !important;
+        flex: 1 !important;
+      }
+
+      .about-spec-row {
+        display: grid !important;
+        grid-template-columns: 110px 1fr !important;
+        align-items: baseline !important;
+        column-gap: 1.25rem !important;
+        min-width: 0 !important;
+      }
+
+      .about-spec-label {
+        font-family: "Untitled sans", Montserrat, sans-serif !important;
+        font-size: 0.72rem !important;
+        font-weight: 600 !important;
+        letter-spacing: 0.12em !important;
+        color: #c2a180 !important;
+        text-transform: uppercase !important;
+      }
+
+      .about-spec-value {
         font-family: "Untitled sans", Montserrat, sans-serif !important;
         font-size: 0.72rem !important;
         font-weight: 400 !important;
-        letter-spacing: 0.06em !important;
-        line-height: 1.5 !important;
+        letter-spacing: 0.08em !important;
         color: #7d7571 !important;
         text-transform: uppercase !important;
-        border-left: 1px solid rgba(0, 0, 0, 0.11) !important;
-        padding-left: 1.2rem !important;
+      }
+
+      .about-values-text {
+        display: none !important;
+      }
+
+      /* =========================================================
+         LAPTOP & COMPACT DESKTOP (<= 1440px or height <= 880px)
+         Prevents about-left-col elements from collapsing/overflowing
+         ========================================================= */
+      @media screen and (min-width: 1025px) and (max-width: 1440px),
+             screen and (min-width: 1025px) and (max-height: 880px) {
+        .about-container {
+          padding-top: clamp(4.25rem, 7vh, 5.5rem) !important;
+          padding-bottom: clamp(1.25rem, 2.5vh, 2rem) !important;
+          padding-left: 3.5vw !important;
+          padding-right: 3vw !important;
+          gap: 2.5vw !important;
+        }
+
+        .about-left-col {
+          flex: 1 1 52% !important;
+          max-width: 52vw !important;
+          justify-content: space-between !important;
+          min-height: 0 !important;
+          overflow: visible !important;
+        }
+
+        .about-right-col {
+          flex: 1 1 48% !important;
+        }
+
+        .about-title-wrap {
+          margin-bottom: clamp(0.35rem, 0.7vh, 0.6rem) !important;
+        }
+
+        .about-main-title {
+          font-size: clamp(2.2rem, 3.2vw, 2.85rem) !important;
+          line-height: 1 !important;
+        }
+
+        .about-lead-statement {
+          font-size: clamp(0.85rem, 0.95vw, 0.95rem) !important;
+          line-height: 1.35 !important;
+          margin-bottom: clamp(0.45rem, 0.8vh, 0.75rem) !important;
+        }
+
+        .about-left-col .untitled-400-13-big,
+        .about-body-desc {
+          font-size: clamp(0.78rem, 0.85vw, 0.88rem) !important;
+          line-height: 1.5 !important;
+          margin-bottom: clamp(0.75rem, 1.4vh, 1.25rem) !important;
+        }
+
+        .about-pillars-grid {
+          margin-top: clamp(0.6rem, 1.2vh, 1.25rem) !important;
+          margin-bottom: clamp(0.75rem, 1.3vh, 1.25rem) !important;
+          padding-bottom: clamp(0.75rem, 1.3vh, 1.25rem) !important;
+          gap: clamp(0.6rem, 1vw, 1.2vw) !important;
+        }
+
+        .about-pillar-item {
+          padding-right: clamp(0.5rem, 0.8vw, 1rem) !important;
+          min-width: 0 !important;
+        }
+
+        .about-pillar-header {
+          gap: clamp(0.45rem, 0.6vw, 0.75rem) !important;
+          margin-bottom: clamp(0.35rem, 0.6vh, 0.6rem) !important;
+          flex-wrap: nowrap !important;
+        }
+
+        .about-pillar-icon-badge {
+          width: clamp(34px, 2.5vw, 40px) !important;
+          height: clamp(34px, 2.5vw, 40px) !important;
+          font-size: clamp(0.85rem, 0.92vw, 0.98rem) !important;
+          flex-shrink: 0 !important;
+        }
+
+        .about-pillar-label {
+          font-size: clamp(0.68rem, 0.74vw, 0.78rem) !important;
+          letter-spacing: 0.08em !important;
+          line-height: 1.2 !important;
+        }
+
+        .about-left-col .num_title_text {
+          font-size: clamp(0.64rem, 0.68vw, 0.7rem) !important;
+          line-height: 1.35 !important;
+        }
+
+        .about-inset-row {
+          gap: clamp(1rem, 1.8vw, 1.8rem) !important;
+          align-items: center !important;
+          width: 100% !important;
+        }
+
+        .about-chess-frame {
+          height: clamp(75px, 8.5vh, 120px) !important;
+          aspect-ratio: 16 / 10 !important;
+          max-width: clamp(140px, 15vw, 210px) !important;
+          flex-shrink: 0 !important;
+          border-radius: 8px !important;
+        }
+
+        .about-specs-grid {
+          gap: clamp(0.4rem, 0.7vh, 0.75rem) !important;
+          flex: 1 !important;
+          min-width: 0 !important;
+        }
+
+        .about-spec-row {
+          grid-template-columns: clamp(78px, 6.8vw, 100px) 1fr !important;
+          column-gap: clamp(0.5rem, 0.8vw, 0.9rem) !important;
+          align-items: baseline !important;
+        }
+
+        .about-spec-label {
+          font-size: clamp(0.62rem, 0.66vw, 0.7rem) !important;
+          white-space: nowrap !important;
+        }
+
+        .about-spec-value {
+          font-size: clamp(0.62rem, 0.66vw, 0.7rem) !important;
+          white-space: nowrap !important;
+        }
+      }
+
+      /* Ultra-compact / short laptop screens (e.g. 1366x768 with browser bars, height <= 720px) */
+      @media screen and (min-width: 1025px) and (max-height: 720px) {
+        .about-container {
+          padding-top: 4.25rem !important;
+          padding-bottom: 1rem !important;
+          gap: 1.5rem !important;
+        }
+
+        .about-title-wrap {
+          margin-bottom: 0.25rem !important;
+        }
+
+        .about-main-title {
+          font-size: 2.1rem !important;
+        }
+
+        .about-lead-statement {
+          font-size: 0.82rem !important;
+          line-height: 1.28 !important;
+          margin-bottom: 0.35rem !important;
+        }
+
+        .about-left-col .untitled-400-13-big,
+        .about-body-desc {
+          font-size: 0.74rem !important;
+          line-height: 1.38 !important;
+          margin-bottom: 0.5rem !important;
+        }
+
+        .about-pillars-grid {
+          margin-top: 0.45rem !important;
+          margin-bottom: 0.6rem !important;
+          padding-bottom: 0.6rem !important;
+        }
+
+        .about-pillar-header {
+          gap: 0.4rem !important;
+          margin-bottom: 0.25rem !important;
+        }
+
+        .about-pillar-icon-badge {
+          width: 32px !important;
+          height: 32px !important;
+          font-size: 0.8rem !important;
+        }
+
+        .about-pillar-label {
+          font-size: 0.66rem !important;
+        }
+
+        .about-left-col .num_title_text {
+          font-size: 0.62rem !important;
+          line-height: 1.25 !important;
+        }
+
+        .about-chess-frame {
+          height: 75px !important;
+          max-width: 135px !important;
+        }
+
+        .about-specs-grid {
+          gap: 0.35rem !important;
+        }
+
+        .about-spec-row {
+          grid-template-columns: 78px 1fr !important;
+          column-gap: 0.5rem !important;
+        }
+
+        .about-spec-label,
+        .about-spec-value {
+          font-size: 0.62rem !important;
+        }
       }
 
       /* --- RIGHT COLUMN: LARGE HERO IMAGE WITH PARALLAX --- */
@@ -1109,7 +1343,7 @@
         inset: 0;
         /* background: radial-gradient(ellipse at 50% 20%, rgba(223, 170, 94, 0.16) 0%, rgba(158, 100, 67, 0.08) 50%, transparent 80%),
                     linear-gradient(180deg, rgba(255, 255, 255, 0.04) 0%, transparent 35%, rgba(0, 0, 0, 0.45) 100%); */
-        background:
+        /* background:
           radial-gradient(
             ellipse at 50% 20%,
             rgb(223 170 94 / 16%) 0%,
@@ -1121,7 +1355,9 @@
             rgba(255, 255, 255, 0.04) 0%,
             transparent 35%,
             #30160e 100%
-          );
+          ); */
+
+              background: radial-gradient(ellipse at 50% 20%, #30160e 0%, rgb(158 100 67 / 10%) 50%, transparent 80%), linear-gradient(180deg, rgba(255, 255, 255, 0.04) 0%, transparent 35%, #30160e 100%);
         z-index: 1;
         pointer-events: none;
       }
@@ -1718,7 +1954,7 @@
         top: 0 !important;
         left: 0 !important;
         right: 0 !important;
-        padding: 2.2rem 2.4rem 3.8rem 2.4rem !important;
+        padding: 1.2rem 1.4rem 1.8rem 1.4rem !important;
         background: linear-gradient(
           180deg,
           rgba(10, 6, 3, 0.68) 0%,
@@ -1746,8 +1982,8 @@
 
       .ap-interior-title {
         font-family: "Cinzel", "Tobias", "Cormorant Garamond", "Playfair Display", Georgia, serif !important;
-        font-size: clamp(1.2rem, 1.7vw, 1.85rem) !important;
-        font-weight: 500 !important;
+        font-size: clamp(0.8rem, 1.4vw, 1rem) !important;
+        font-weight: 400 !important;
         letter-spacing: 0.16em !important;
         line-height: 1.15 !important;
         text-transform: uppercase !important;
@@ -1801,7 +2037,7 @@
       .apartments-sub-titulo .untitled-400-13-big,
       .apartments-desc-text {
         font-family: "Untitled sans", Montserrat, sans-serif !important;
-        font-size: 11px !important;
+        font-size: 1rem !important;
         font-weight: 400 !important;
         line-height: 1.38 !important;
         letter-spacing: 0.07em !important;
@@ -2203,12 +2439,14 @@
           right: auto !important;
           bottom: 0 !important;
           width: 100vw !important;
-          max-width: 100% !important;
+          max-width: 440px !important;
           height: 100vh !important;
           height: 100dvh !important;
-          background-color: #f7f4ef !important;
-          background: #f7f4ef url('/images/pattern-bg.png') repeat !important;
-          background-size: 260px !important;
+          background-color: rgba(247, 244, 239, 0.78) !important;
+          background: rgba(247, 244, 239, 0.78) !important;
+          backdrop-filter: blur(24px) saturate(180%) !important;
+          -webkit-backdrop-filter: blur(24px) saturate(180%) !important;
+          border-right: 1px solid rgba(194, 161, 128, 0.3) !important;
           z-index: 99999 !important;
           display: flex !important;
           flex-direction: column !important;
@@ -2302,12 +2540,7 @@
         }
 
         .nav-mobile-link-num {
-          font-family: "Cinzel", "Montserrat", serif !important;
-          font-size: 13px !important;
-          font-weight: 500 !important;
-          color: #a88460 !important;
-          letter-spacing: 0.12em !important;
-          min-width: 32px !important;
+          display: none !important;
         }
 
         .nav-mobile-link-text {
@@ -2318,7 +2551,7 @@
           letter-spacing: 0.18em !important;
           color: #221814 !important;
           text-transform: uppercase !important;
-          padding-left: 6px !important;
+          padding-left: 0 !important;
           transition: color 0.2s ease !important;
         }
 
@@ -2357,10 +2590,10 @@
           justify-content: space-between !important;
           width: 100% !important;
           max-width: 290px !important;
-          padding: 13px 22px !important;
+          padding: 14px 22px !important;
           background: #ebe3d9 !important;
-          border:none;
-          border-radius: 999px !important;
+          border: 1px solid rgba(168, 132, 96, 0.35) !important;
+          border-radius: 0px !important;
           color: #221814 !important;
           font-family: "Cinzel", "Montserrat", sans-serif !important;
           font-size: 12.5px !important;
@@ -2595,24 +2828,77 @@
         .about-pillars-grid {
           display: grid !important;
           grid-template-columns: repeat(3, 1fr) !important;
-          gap: 12px !important;
+          gap: 16px !important;
+          border-top: none !important;
+          border-bottom: 1px solid rgba(0, 0, 0, 0.08) !important;
+          padding-bottom: 1.5rem !important;
+          margin-bottom: 1.5rem !important;
         }
 
-        @media screen and (max-width: 540px) {
-          .about-pillars-grid {
-            grid-template-columns: 1fr 1fr !important;
-            gap: 20px !important;
-          }
-          .about-inset-row{
-            gap:0 !important;
-          }
-          .about-values-text {
-            border:none !important;
-          }
+        .about-inset-row {
+          display: flex !important;
+          flex-direction: row !important;
+          align-items: center !important;
+          gap: 1.8rem !important;
+          width: 100% !important;
         }
 
         .about-chess-frame {
-          height: 120px !important;
+          width: 44% !important;
+          max-width: 260px !important;
+          height: auto !important;
+          aspect-ratio: 16 / 10 !important;
+          border-radius: 5px !important;
+        }
+        .about-lead-statement {
+          margin-bottom: 0.75rem !important;
+          }
+
+        @media screen and (max-width: 640px) {
+          .about-pillars-grid {
+            grid-template-columns: 1fr !important;
+            gap: 1.25rem !important;
+            padding-bottom: 1.25rem !important;
+            margin-bottom: 1.25rem !important;
+          }
+
+          .about-pillar-item {
+            padding-right: 0 !important;
+            padding-bottom: 1rem !important;
+            border-bottom: 1px solid rgba(0, 0, 0, 0.06) !important;
+          }
+
+          .about-pillar-item:last-child {
+            padding-bottom: 0 !important;
+            border-bottom: none !important;
+          }
+
+          .about-pillar-item:not(:last-child)::after {
+            display: none !important;
+          }
+
+          .about-inset-row {
+            flex-direction: column !important;
+            align-items: flex-start !important;
+            gap: 1.5rem !important;
+          }
+
+          .about-chess-frame {
+            width: 100% !important;
+            max-width: 100% !important;
+            height: auto !important;
+            aspect-ratio: 16 / 9 !important;
+          }
+
+          .about-specs-grid {
+            width: 100% !important;
+            gap: 0.85rem !important;
+          }
+
+          .about-spec-row {
+            grid-template-columns: 105px 1fr !important;
+            column-gap: 1rem !important;
+          }
         }
 
         .about-right-col {
@@ -3994,7 +4280,7 @@
       /* Luxury Inquire & Contact Overlay Styling matching 2f3602de-5a15-4b02-a087-59016cd2ce39 */
       .inquire-wrap {
         background-color: #0e0703 !important;
-        padding: 40px 60px 48px !important;
+        padding: 40px 60px 48px ;
       }
       .inquire-open {
         background-color: #0e0703 !important;
@@ -4027,7 +4313,7 @@
         font-family: "Tobias", "Cormorant Garamond", Georgia, serif !important;
         color: #ffffff !important;
         font-weight: 300 !important;
-        font-size: clamp(64px, 7.5vw, 115px) !important;
+        font-size: clamp(44px, 7.5vw, 115px) !important;
         line-height: 0.88 !important;
         letter-spacing: 0.01em !important;
       }
@@ -4162,7 +4448,7 @@
       }
       .form-botton {
         font-family: "Tobias", "Cormorant Garamond", Georgia, serif !important;
-        font-size: clamp(75px, 8.5vw, 135px) !important;
+        font-size: clamp(45px, 8.5vw, 135px) !important;
         font-weight: 300 !important;
         line-height: 0.85 !important;
         color: #ffffff !important;
@@ -4875,15 +5161,13 @@ a,
             </button>
           </div>
 
-          <!-- Numbered Navigation Links -->
+          <!-- Navigation Links -->
           <div class="nav-mobile-links">
             <a href="#home" class="nav-mobile-link active" data-target="home">
-              <span class="nav-mobile-link-num">01</span>
               <span class="nav-mobile-link-text">HOME</span>
               <span class="nav-mobile-link-arrow">→</span>
             </a>
             <a href="#vision" class="nav-mobile-link" data-target="vision">
-              <span class="nav-mobile-link-num">02</span>
               <span class="nav-mobile-link-text">VISION</span>
               <span class="nav-mobile-link-arrow">→</span>
             </a>
@@ -4892,17 +5176,14 @@ a,
               class="nav-mobile-link"
               data-target="apartments"
             >
-              <span class="nav-mobile-link-num">03</span>
               <span class="nav-mobile-link-text">RESIDENCES</span>
               <span class="nav-mobile-link-arrow">→</span>
             </a>
             <a href="#island" class="nav-mobile-link" data-target="island">
-              <span class="nav-mobile-link-num">04</span>
               <span class="nav-mobile-link-text">THE DESTINATION</span>
               <span class="nav-mobile-link-arrow">→</span>
             </a>
             <a href="#location" class="nav-mobile-link" data-target="location">
-              <span class="nav-mobile-link-num">05</span>
               <span class="nav-mobile-link-text">AMENITIES</span>
               <span class="nav-mobile-link-arrow">→</span>
             </a>
@@ -4911,7 +5192,6 @@ a,
               class="nav-mobile-link"
               data-target="availability"
             >
-              <span class="nav-mobile-link-num">06</span>
               <span class="nav-mobile-link-text">AVAILABILITY</span>
               <span class="nav-mobile-link-arrow">→</span>
             </a>
@@ -5011,7 +5291,7 @@ a,
                               >
                             </div>
 
-                            <h1 load="anim" class="ref-hero-heading">
+                            <h1 load="anim" split="words" class="ref-hero-heading">
                               <span class="ref-hero-comfort">
                                 Tallest Address</span
                               ><br />
@@ -5099,7 +5379,7 @@ a,
                     </div>
                     <!-- Static fallback background image -->
                     <img
-                      src="/videos/hero-frames\frame_0169.jpg"
+                      src="/videos/hero-frames/frame_0001.jpg"
                       alt="Ananda Crown Sector 78 Mohali"
                       class="hero-image-background animate-hero-zoom"
                       style="z-index: 0 !important"
@@ -5163,11 +5443,11 @@ a,
                           anim="1"
                           split="words"
                         >
-                          <span class="about-highlight-gold">
-                            Ananda Crown</span
+                          <span class="about-highlight-gold"
+                            >ANANDA CROWN</span
                           >
                           is built on a simple belief, that
-                          <span class="about-highlight-gold">ultra-luxury</span>
+                          <span class="about-highlight-gold">ULTRA-LUXURY</span>
                           living should feel considered, not crowded.
                         </div>
 
@@ -5182,27 +5462,31 @@ a,
                           Delhi-based design and consultant roster.
                         </div>
 
-                        <!-- Three Pillars Grid (01, 02, 03) -->
+                        <!-- Three Pillars Grid with Font Awesome Icons -->
                         <div class="about-pillars-grid">
                           <div class="about-pillar-item">
-                            <div class="num_title">
-                              <div class="about-pillar-num">01</div>
+                            <div class="about-pillar-header">
+                              <div class="about-pillar-icon-badge">
+                                <i class="fa-solid fa-city"></i>
+                              </div>
                               <div class="about-pillar-label">
-                                Distinctive <br />
-                                Architecture
+                                DISTINCTIVE<br />
+                                ARCHITECTURE
                               </div>
                             </div>
                             <p class="num_title_text">
                               Four standalone towers, connected only at the base
-                              and the top, a design most high-rises don't
-                              attempt.
+                              and the crown, a design that rises don't attempt.
                             </p>
                           </div>
                           <div class="about-pillar-item">
-                            <div class="num_title">
-                              <div class="about-pillar-num">02</div>
+                            <div class="about-pillar-header">
+                              <div class="about-pillar-icon-badge">
+                                <i class="fa-solid fa-house"></i>
+                              </div>
                               <div class="about-pillar-label">
-                                Crafted <br />Living
+                                CRAFTED<br />
+                                LIVING
                               </div>
                             </div>
                             <p class="num_title_text">
@@ -5211,14 +5495,15 @@ a,
                             </p>
                           </div>
                           <div class="about-pillar-item">
-                            <div class="num_title">
-                              <div class="about-pillar-num">03</div>
+                            <div class="about-pillar-header">
+                              <div class="about-pillar-icon-badge">
+                                <i class="fa-solid fa-location-dot"></i>
+                              </div>
                               <div class="about-pillar-label">
-                                CONNECTED <br />
+                                CONNECTED<br />
                                 LOCATION
                               </div>
                             </div>
-
                             <p class="num_title_text">
                               Minutes from the airport, the stadium, and the
                               city's key business and healthcare hubs.
@@ -5227,36 +5512,34 @@ a,
                         </div>
                       </div>
 
-                      <!-- Bottom Feature: EST. 2026, Inset Chess Image, and Timeless Values Text -->
+                      <!-- Bottom Feature: Inset Chess Image & Specifications -->
                       <div class="about-bottom-feature">
-                        <!-- <div class="about-est-wrap">
-                          <span class="about-est-text">EST. 2026</span>
-                          <span class="about-est-line"></span>
-                        </div> -->
                         <div class="about-inset-row">
                           <div class="about-chess-frame">
                             <img
-                              src="/images/golden-chess.webp"
+                              src="/images/about-us-2.png"
                               alt="Ananda Crown Timeless Living"
                               class="about-chess-img"
                               loading="lazy"
                             />
                           </div>
-                          <div class="about-values-text">
-                            <span class="about-highlight-gold">Location:</span>
-                            Sector 78, Mohali<br /><span
-                              class="about-highlight-gold"
-                              >Typologies:</span
-                            >
-                            3, 3+1, 4, 4+1 & 5 BHK<br /><span
-                              class="about-highlight-gold"
-                              >Elevation:</span
-                            >
-                            28 Storeys, 4 Towers<br /><span
-                              class="about-highlight-gold"
-                              >RERA:</span
-                            >
-                            PBRERA-SAS81-PR1421-082026
+                          <div class="about-specs-grid">
+                            <div class="about-spec-row">
+                              <span class="about-spec-label about-highlight-gold">LOCATION</span>
+                              <span class="about-spec-value">SECTOR 78, MOHALI</span>
+                            </div>
+                            <div class="about-spec-row">
+                              <span class="about-spec-label about-highlight-gold">TYPOLOGIES</span>
+                              <span class="about-spec-value">3, 3+1, 4, 4+1 &amp; 5 BHK</span>
+                            </div>
+                            <div class="about-spec-row">
+                              <span class="about-spec-label about-highlight-gold">ELEVATION</span>
+                              <span class="about-spec-value">28 STOREYS, 4 TOWERS</span>
+                            </div>
+                            <div class="about-spec-row">
+                              <span class="about-spec-label about-highlight-gold">RERA</span>
+                              <span class="about-spec-value">PBRERA-SAS81-PR1421-082026</span>
+                            </div>
                           </div>
                         </div>
                       </div>
@@ -8421,7 +8704,6 @@ a,
               </div>
             </div>
           </div>
-        </section>
         <img
           class="ap-img-full-screen-1"
           src="/images/interior/bedroom.webp"
@@ -8429,7 +8711,6 @@ a,
           sizes="100vw"
           data-flip-id="1"
           loading="lazy"
-          srcset="/images/interior/bedroom.webp 1200w"
         /><img
           class="ap-img-full-screen-2"
           src="/images/interior/hall.webp"
@@ -8437,7 +8718,6 @@ a,
           sizes="100vw"
           data-flip-id="2"
           loading="lazy"
-          srcset="/images/interior/hall.webp 1200w"
         /><img
           class="ap-img-full-screen-3"
           src="/images/interior/kitchen.webp"
@@ -8445,7 +8725,6 @@ a,
           sizes="100vw"
           data-flip-id="3"
           loading="lazy"
-          srcset="/images/interior/kitchen.webp 1200w"
         /><img
           class="ap-img-full-screen-4"
           src="/images/interior/balcony.webp"
@@ -8453,7 +8732,6 @@ a,
           sizes="100vw"
           data-flip-id="4"
           loading="lazy"
-          srcset="/images/interior/balcony.webp 1200w"
         />
         <div class="inquire-open close">
           <div class="inquire-wrap close">
@@ -8494,23 +8772,10 @@ a,
                   <div class="inquire-open-info-links">
                     <div class="contact-num-item" style="margin-bottom: 14px">
                       <a
-                        href="tel:+919779799705"
+                        href="tel:+911234512345"
                         class="tobias-300-26 hover-links"
-                        >+91 97797 99705</a
+                        >+91 12345 12345</a
                       >
-                      <div class="contact-sub-label">
-                        LOCAL CALL, FEES MAY APPLY
-                      </div>
-                    </div>
-                    <div class="contact-num-item">
-                      <a
-                        href="tel:+919872400078"
-                        class="tobias-300-26 hover-links"
-                        >+91 98724 00078</a
-                      >
-                      <div class="contact-sub-label">
-                        LOCAL CALL, FEES MAY APPLY
-                      </div>
                     </div>
                   </div>
                 </div>
@@ -8549,9 +8814,9 @@ a,
                               <div class="toggle-handle"></div>
                             </div>
                           </div>
-                          <div class="form-required">
+                          <!-- <div class="form-required">
                             <div class="untitled-400-10">*REQUIRED FIELDS</div>
-                          </div>
+                          </div> -->
                         </div>
                         <div class="horizontal-line-wrap">
                           <div class="horizontal-line"></div>
@@ -8809,11 +9074,6 @@ a,
         <div class="mouse black"></div>
         <div class="mouse black expand"></div>
         <div class="mouse black hover"></div>
-        <div class="ap-img-full-screen-1 visible"></div>
-        <div class="ap-img-full-screen-2 visible"></div>
-        <div class="ap-img-full-screen-3 visible"></div>
-        <div class="ap-img-full-screen-4 visible"></div>
-        <div class="ap-img-full-close close"></div>
         <div class="mouse-wrap close"></div>
         <div class="inquire-open close"></div>
         <div class="inquire-wrap close"></div>
@@ -8891,6 +9151,7 @@ a,
 
     <!-- JAVASCRIP CODE - PARA EDITAR FAZER DOWNLOAD DO DOCUMENTO NO WEBFLOW, EDITAR E CARREGAR NOVAMENTE -->
     <script src="/one24.js"></script>
+    <script src="/js/clone-animations.js"></script>
     <script>
       (function () {
         var AMENITIES = [
@@ -9780,6 +10041,18 @@ a,
           // Close on escape key
           document.addEventListener("keydown", function (e) {
             if (e.key === "Escape" && drawer.classList.contains("is-open")) {
+              closeDrawer();
+            }
+          });
+
+          // Close on outside click
+          document.addEventListener("click", function (e) {
+            if (
+              drawer.classList.contains("is-open") &&
+              !drawer.contains(e.target) &&
+              toggleBtn &&
+              !toggleBtn.contains(e.target)
+            ) {
               closeDrawer();
             }
           });

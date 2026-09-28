@@ -1,8 +1,13 @@
 "use client";
 
-import React, { useState } from "react";
+import React, { useState, useRef } from "react";
+import gsap from "gsap";
+import { useGSAP } from "@gsap/react";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { Download, Calendar, ArrowRight, Eye, CheckCircle2, Lock } from "lucide-react";
 import { INVENTORY_DATA, InventoryUnit, PROJECT_DETAILS } from "@/data/projectData";
+
+gsap.registerPlugin(ScrollTrigger);
 
 interface AvailabilitySectionProps {
   onOpenInquire: () => void;
@@ -19,6 +24,13 @@ export default function AvailabilitySection({
   const [filterStatus, setFilterStatus] = useState<string>("all");
   const [unitUnitSystem, setUnitUnitSystem] = useState<"sqft" | "sqm">("sqft");
 
+  const containerRef = useRef<HTMLElement>(null);
+  const headerRef = useRef<HTMLDivElement>(null);
+  const ctaRef = useRef<HTMLDivElement>(null);
+  const filterRef = useRef<HTMLDivElement>(null);
+  const tableHeadRef = useRef<HTMLTableSectionElement>(null);
+  const tableBodyRef = useRef<HTMLTableSectionElement>(null);
+
   const filteredInventory = INVENTORY_DATA.filter((unit) => {
     const matchesBhk =
       filterBhk === "all" ||
@@ -32,14 +44,114 @@ export default function AvailabilitySection({
     return matchesBhk && matchesStatus;
   });
 
+  useGSAP(() => {
+    // 1. Section header ("Availability" tag + title)
+    gsap.fromTo(
+      gsap.utils.toArray(headerRef.current?.children || []),
+      { y: 30, opacity: 0 },
+      {
+        y: 0,
+        opacity: 1,
+        stagger: 0.15,
+        ease: "power3.out",
+        scrollTrigger: {
+          trigger: headerRef.current,
+          start: "top 80%",
+          once: true,
+        },
+      }
+    );
+
+    // 2. CTA buttons row
+    gsap.fromTo(
+      gsap.utils.toArray(ctaRef.current?.children || []),
+      { x: -20, opacity: 0 },
+      {
+        x: 0,
+        opacity: 1,
+        stagger: 0.1,
+        scrollTrigger: {
+          trigger: ctaRef.current,
+          start: "top 75%",
+          once: true,
+        },
+      }
+    );
+
+    // 3. Filter pills
+    gsap.fromTo(
+      ".avail-filter",
+      { scale: 0 },
+      {
+        scale: 1,
+        stagger: 0.05,
+        ease: "back.out(2)",
+        scrollTrigger: {
+          trigger: filterRef.current,
+          start: "top 72%",
+          once: true,
+        },
+      }
+    );
+
+    // 4. Table header row
+    gsap.fromTo(
+      tableHeadRef.current,
+      { y: -15, opacity: 0 },
+      {
+        y: 0,
+        opacity: 1,
+        duration: 0.5,
+        scrollTrigger: {
+          trigger: tableHeadRef.current,
+          start: "top 70%",
+          once: true,
+        },
+      }
+    );
+
+    // 5. Table body rows & 6. Fraction numbers
+    const rows = gsap.utils.toArray(tableBodyRef.current?.children || []);
+    if (rows.length > 0) {
+      const tl = gsap.timeline({
+        scrollTrigger: {
+          trigger: tableBodyRef.current,
+          start: "top 68%",
+          once: true,
+        },
+      });
+
+      tl.fromTo(
+        rows,
+        { x: -20, opacity: 0 },
+        {
+          x: 0,
+          opacity: 1,
+          stagger: 0.06,
+        }
+      ).to(
+        ".avail-fraction",
+        {
+          color: "#DFBA73",
+          duration: 0.3,
+          yoyo: true,
+          repeat: 1,
+          stagger: 0.06,
+        },
+        "<0.2"
+      );
+    }
+  }, { dependencies: [filteredInventory], scope: containerRef });
+
   return (
     <section
+      ref={containerRef}
       id="availability"
       className="relative w-full bg-[#180E09] py-28 px-6 md:px-12 lg:px-16 overflow-hidden border-t border-[#C5A880]/15"
     >
       <div className="max-w-7xl mx-auto space-y-12">
         {/* Section Header matching One24 layout */}
-        <div className="space-y-4">
+        <div ref={headerRef} className="space-y-4">
           <span className="text-[11px] tracking-[0.3em] uppercase text-[#C5A880]">
             Availability
           </span>
@@ -53,7 +165,7 @@ export default function AvailabilitySection({
         <div className="h-[1px] w-full bg-[#C5A880]/20" />
 
         {/* Action CTAs Row: Download Brochure & Make Appointment */}
-        <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-6">
+        <div ref={ctaRef} className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-6">
           <div className="flex flex-wrap items-center gap-4">
             {/* Download Brochure Button matching One24 cta-ball */}
             <button
@@ -105,7 +217,7 @@ export default function AvailabilitySection({
         </div>
 
         {/* Filter Controls Bar */}
-        <div className="flex flex-wrap items-center justify-between gap-4 pt-2">
+        <div ref={filterRef} className="flex flex-wrap items-center justify-between gap-4 pt-2">
           {/* BHK Filters */}
           <div className="flex flex-wrap items-center gap-2">
             {[
@@ -117,7 +229,7 @@ export default function AvailabilitySection({
               <button
                 key={btn.value}
                 onClick={() => setFilterBhk(btn.value)}
-                className={`rounded-full px-4 py-2 text-[10px] tracking-[0.18em] uppercase transition-all ${
+                className={`avail-filter rounded-full px-4 py-2 text-[10px] tracking-[0.18em] uppercase transition-all ${
                   filterBhk === btn.value
                     ? "bg-[#C5A880] text-[#160D08] font-semibold"
                     : "bg-[#20130C] text-[#A8988B] border border-[#341F14] hover:text-[#F5EFEB]"
@@ -132,7 +244,7 @@ export default function AvailabilitySection({
           <div className="flex items-center space-x-2">
             <button
               onClick={() => setFilterStatus("all")}
-              className={`px-3 py-1.5 rounded-full text-[10px] tracking-[0.15em] uppercase transition-all ${
+              className={`avail-filter px-3 py-1.5 rounded-full text-[10px] tracking-[0.15em] uppercase transition-all ${
                 filterStatus === "all"
                   ? "border border-[#C5A880] text-[#C5A880]"
                   : "text-[#A8988B] hover:text-[#F5EFEB]"
@@ -142,7 +254,7 @@ export default function AvailabilitySection({
             </button>
             <button
               onClick={() => setFilterStatus("available")}
-              className={`px-3 py-1.5 rounded-full text-[10px] tracking-[0.15em] uppercase transition-all ${
+              className={`avail-filter px-3 py-1.5 rounded-full text-[10px] tracking-[0.15em] uppercase transition-all ${
                 filterStatus === "available"
                   ? "bg-emerald-950/80 border border-emerald-500/50 text-emerald-400"
                   : "text-[#A8988B] hover:text-[#F5EFEB]"
@@ -157,7 +269,7 @@ export default function AvailabilitySection({
         {/* Availability Table Component matching One24 availability-table */}
         <div className="w-full overflow-x-auto rounded-2xl border border-[#C5A880]/25 bg-[#20130C]/90 shadow-2xl backdrop-blur-md">
           <table className="w-full text-left border-collapse min-w-[900px]">
-            <thead>
+            <thead ref={tableHeadRef}>
               <tr className="border-b border-[#C5A880]/20 text-[10px] tracking-[0.25em] uppercase text-[#C5A880] bg-[#160D08]/80">
                 <th className="py-4 px-6">Residence</th>
                 <th className="py-4 px-6">Typology</th>
@@ -171,7 +283,7 @@ export default function AvailabilitySection({
                 <th className="py-4 px-6 text-right">Floorplan</th>
               </tr>
             </thead>
-            <tbody className="divide-y divide-[#341F14]/70 text-xs">
+            <tbody ref={tableBodyRef} className="divide-y divide-[#341F14]/70 text-xs">
               {filteredInventory.map((unit) => (
                 <tr
                   key={unit.id}
@@ -179,7 +291,7 @@ export default function AvailabilitySection({
                 >
                   {/* Fraction */}
                   <td className="py-5 px-6">
-                    <span className="font-serif text-2xl font-light text-[#E7CFAD] group-hover:text-white transition-colors">
+                    <span className="avail-fraction font-serif text-2xl font-light text-[#E7CFAD] group-hover:text-white transition-colors">
                       {unit.fraction}
                     </span>
                     <span className="block text-[9px] uppercase tracking-widest text-[#A8988B]">

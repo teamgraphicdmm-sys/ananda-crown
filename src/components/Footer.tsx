@@ -1,6 +1,9 @@
 "use client";
 
-import React, { useState } from "react";
+import React, { useState, useRef } from "react";
+import gsap from "gsap";
+import { useGSAP } from "@gsap/react";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
 import Image from "next/image";
 import Link from "next/link";
 import {
@@ -13,34 +16,78 @@ import {
 } from "lucide-react";
 import { PROJECT_DETAILS } from "@/data/projectData";
 
+gsap.registerPlugin(ScrollTrigger);
+
 interface FooterProps {
   onOpenInquire: () => void;
 }
 
 export default function Footer({ onOpenInquire }: FooterProps) {
   const [privacyOpen, setPrivacyOpen] = useState(false);
+  const containerRef = useRef<HTMLElement>(null);
+  const calloutRef = useRef<HTMLDivElement>(null);
+  const gridRef = useRef<HTMLDivElement>(null);
+
+  useGSAP(() => {
+    // 1. Inquire callout section
+    const calloutTl = gsap.timeline({
+      scrollTrigger: {
+        trigger: calloutRef.current,
+        start: "top 80%",
+        once: true,
+      }
+    });
+    calloutTl.fromTo(".footer-tag", { y: 15, opacity: 0 }, { y: 0, opacity: 1 })
+      .fromTo(".footer-title", { y: 30, opacity: 0 }, { y: 0, opacity: 1, duration: 0.8, ease: "power3.out" }, "<0.1")
+      .fromTo(".footer-desc", { y: 15, opacity: 0 }, { y: 0, opacity: 1 }, "<0.2")
+      .fromTo(".footer-btn", { scale: 0.9, opacity: 0 }, { scale: 1, opacity: 1, ease: "back.out(1.7)" }, "<0.2");
+
+    // 2. Footer grid columns
+    const gridTl = gsap.timeline({
+      scrollTrigger: {
+        trigger: gridRef.current,
+        start: "top 75%",
+        once: true,
+      }
+    });
+    
+    gridTl.fromTo(
+      ".footer-col",
+      { y: 30, opacity: 0 },
+      { y: 0, opacity: 1, stagger: 0.15, duration: 0.6 }
+    )
+    // 3. Logo in footer
+    .fromTo(".footer-logo", { scale: 0.8, opacity: 0, rotation: -5 }, { scale: 1, opacity: 1, rotation: 0, duration: 0.6, ease: "back.out(1.7)" }, "<0.2")
+    // 4. Social icons
+    .fromTo(".footer-social", { scale: 0 }, { scale: 1, stagger: 0.08, ease: "back.out(2.5)" }, "<0.3")
+    // 5. RERA badge
+    .fromTo(".footer-rera", { rotation: -15, opacity: 0 }, { rotation: 0, opacity: 1, duration: 0.5, ease: "back.out(1.7)" }, "<0.1")
+    // 6. Copyright bar
+    .fromTo(".footer-bottom", { y: 10, opacity: 0 }, { y: 0, opacity: 1, duration: 0.5 }, "<0.2");
+
+  }, { scope: containerRef });
 
   return (
     <>
-      <footer className="relative w-full bg-[#120902] text-[#F5EFEB] pt-24 pb-16 px-6 md:px-12 lg:px-16 border-t border-[#C5A880]/20">
+      <footer ref={containerRef} className="relative w-full bg-[#120902] text-[#F5EFEB] pt-24 pb-16 px-6 md:px-12 lg:px-16 border-t border-[#C5A880]/20">
         <div className="max-w-7xl mx-auto space-y-16">
           {/* Top Inquire Callout matching One24 footer banner */}
-          <div className="flex flex-col lg:flex-row items-start lg:items-center justify-between gap-8 border-b border-[#341F14] pb-16">
+          <div ref={calloutRef} className="flex flex-col lg:flex-row items-start lg:items-center justify-between gap-8 border-b border-[#341F14] pb-16">
             <div className="space-y-3 max-w-2xl">
-              <span className="text-[11px] tracking-[0.3em] uppercase text-[#C5A880]">
+              <span className="footer-tag text-[11px] tracking-[0.3em] uppercase text-[#C5A880] block">
                 Private Consultations
               </span>
-              <h2 className="font-serif text-4xl sm:text-5xl font-light text-[#F5EFEB] leading-[1.05]">
+              <h2 className="footer-title font-serif text-4xl sm:text-5xl font-light text-[#F5EFEB] leading-[1.05]">
                 Inquire Today for Exclusive Previews
               </h2>
-              <p className="text-xs md:text-sm text-[#A8988B] leading-relaxed">
+              <p className="footer-desc text-xs md:text-sm text-[#A8988B] leading-relaxed">
                 Experience bespoke hospitality at our Sector 78 sales pavilion. Schedule a curated private walk-through of the masterplan and scale model.
               </p>
             </div>
 
             <button
               onClick={onOpenInquire}
-              className="group relative overflow-hidden rounded-full bg-gradient-to-r from-[#C5A880] via-[#DFBA73] to-[#C5A880] px-8 py-4 text-xs font-semibold tracking-[0.25em] uppercase text-[#160D08] shadow-[0_8px_32px_rgba(197,168,128,0.3)] hover:scale-105 transition-transform flex items-center space-x-3 shrink-0"
+              className="footer-btn group relative overflow-hidden rounded-full bg-gradient-to-r from-[#C5A880] via-[#DFBA73] to-[#C5A880] px-8 py-4 text-xs font-semibold tracking-[0.25em] uppercase text-[#160D08] shadow-[0_8px_32px_rgba(197,168,128,0.3)] hover:scale-105 transition-transform flex items-center space-x-3 shrink-0"
             >
               <span>Schedule Appointment</span>
               <span className="h-2 w-2 rounded-full bg-[#160D08]" />
@@ -48,11 +95,11 @@ export default function Footer({ onOpenInquire }: FooterProps) {
           </div>
 
           {/* Main Footer Grid matching One24 columns */}
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-12 pt-4">
+          <div ref={gridRef} className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-12 pt-4">
             {/* Left 1: Brand & Logo */}
-            <div className="lg:col-span-4 space-y-6">
+            <div className="footer-col lg:col-span-4 space-y-6">
               <div className="flex items-center space-x-3.5">
-                <div className="relative h-12 w-12 overflow-hidden rounded-full border border-[#C5A880]/40 p-0.5">
+                <div className="footer-logo relative h-12 w-12 overflow-hidden rounded-full border border-[#C5A880]/40 p-0.5">
                   <div className="relative h-full w-full rounded-full overflow-hidden">
                     <Image
                       src="/images/logo.jpg"
@@ -76,14 +123,14 @@ export default function Footer({ onOpenInquire }: FooterProps) {
                 An aristocratic real estate landmark by Ananda Group, designed to elevate high-rise luxury living in the Chandigarh Capital Region.
               </p>
 
-              <div className="flex items-center space-x-3 text-xs tracking-wider text-[#A8988B]">
+              <div className="footer-rera flex items-center space-x-3 text-xs tracking-wider text-[#A8988B]">
                 <ShieldCheck className="h-4 w-4 text-[#C5A880]" />
                 <span>RERA: {PROJECT_DETAILS.rera.number}</span>
               </div>
             </div>
 
             {/* Column 2: Visit Us */}
-            <div className="lg:col-span-3 space-y-4">
+            <div className="footer-col lg:col-span-3 space-y-4">
               <span className="text-[11px] tracking-[0.25em] uppercase text-[#C5A880] block">
                 Visit Us
               </span>
@@ -102,7 +149,7 @@ export default function Footer({ onOpenInquire }: FooterProps) {
             </div>
 
             {/* Column 3: Contact & Concierge */}
-            <div className="lg:col-span-3 space-y-4">
+            <div className="footer-col lg:col-span-3 space-y-4">
               <span className="text-[11px] tracking-[0.25em] uppercase text-[#C5A880] block">
                 Contact Concierge
               </span>
@@ -133,7 +180,7 @@ export default function Footer({ onOpenInquire }: FooterProps) {
                   href={PROJECT_DETAILS.contact.instagram}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="flex h-8 w-8 items-center justify-center rounded-full bg-[#20130C] border border-[#C5A880]/30 text-[#C5A880] hover:bg-[#C5A880] hover:text-[#160D08] transition-colors"
+                  className="footer-social flex h-8 w-8 items-center justify-center rounded-full bg-[#20130C] border border-[#C5A880]/30 text-[#C5A880] hover:bg-[#C5A880] hover:text-[#160D08] transition-colors"
                   aria-label="Instagram"
                 >
                   <svg className="h-3.5 w-3.5 fill-current" viewBox="0 0 24 24">
@@ -144,7 +191,7 @@ export default function Footer({ onOpenInquire }: FooterProps) {
                   href={PROJECT_DETAILS.contact.facebook}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="flex h-8 w-8 items-center justify-center rounded-full bg-[#20130C] border border-[#C5A880]/30 text-[#C5A880] hover:bg-[#C5A880] hover:text-[#160D08] transition-colors"
+                  className="footer-social flex h-8 w-8 items-center justify-center rounded-full bg-[#20130C] border border-[#C5A880]/30 text-[#C5A880] hover:bg-[#C5A880] hover:text-[#160D08] transition-colors"
                   aria-label="Facebook"
                 >
                   <svg className="h-3.5 w-3.5 fill-current" viewBox="0 0 24 24">
@@ -155,7 +202,7 @@ export default function Footer({ onOpenInquire }: FooterProps) {
                   href={PROJECT_DETAILS.contact.whatsapp}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="flex h-8 w-8 items-center justify-center rounded-full bg-[#20130C] border border-[#C5A880]/30 text-[#C5A880] hover:bg-[#C5A880] hover:text-[#160D08] transition-colors"
+                  className="footer-social flex h-8 w-8 items-center justify-center rounded-full bg-[#20130C] border border-[#C5A880]/30 text-[#C5A880] hover:bg-[#C5A880] hover:text-[#160D08] transition-colors"
                   aria-label="WhatsApp"
                 >
                   <MessageCircle className="h-3.5 w-3.5" />
@@ -164,7 +211,7 @@ export default function Footer({ onOpenInquire }: FooterProps) {
             </div>
 
             {/* Column 4: Architectural Pedigree */}
-            <div className="lg:col-span-2 space-y-4">
+            <div className="footer-col lg:col-span-2 space-y-4">
               <span className="text-[11px] tracking-[0.25em] uppercase text-[#C5A880] block">
                 Development By
               </span>
@@ -183,7 +230,7 @@ export default function Footer({ onOpenInquire }: FooterProps) {
           </div>
 
           {/* Bottom Bar: Copyright & Legal */}
-          <div className="border-t border-[#341F14] pt-8 flex flex-col sm:flex-row items-center justify-between text-[11px] text-[#A8988B] gap-4">
+          <div className="footer-bottom border-t border-[#341F14] pt-8 flex flex-col sm:flex-row items-center justify-between text-[11px] text-[#A8988B] gap-4">
             <p>© {new Date().getFullYear()} Ananda Crown Mohali. All rights reserved.</p>
             <div className="flex items-center space-x-6">
               <button

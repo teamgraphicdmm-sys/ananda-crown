@@ -531,6 +531,7 @@ horizontalM.add("(min-width: 1025px) and (pointer: fine)", () => {
       xPercent: -100,
       ease: "none",
     });
+  window.tlMain = tlMain;
 
   // SCROLL TO home
   document.querySelectorAll(".nav-link.home").forEach((element) => {
@@ -873,170 +874,143 @@ horizontalM.add("(min-width: 1025px) and (pointer: fine)", () => {
       $(this).css("pointer-events", "none");
     }, 100);
   });
-  // EXPAND IMAGE ----------
-  // Z-INDEX
-  $(".ap-img-a-1, .ap-img-a-2, .ap-img-a-3, .ap-img-a-4").on(
-    "click",
-    function () {
-      $(".ap-img-a-1, .ap-img-a-2, .ap-img-a-3, .ap-img-a-4").css(
-        "z-index",
-        "2",
-      );
-      $(this).css("z-index", "20");
-    },
-  );
-  // Animation FLIP
-  const img1 = $(".ap-img-a-1");
-  const img1back = $(".ap-img-full-screen-1");
-  function doFlip() {
-    // Get the initial state
-    const state = Flip.getState(img1);
-    // Animate from the initial state to the end state
-    $(".ap-img-full-screen-1").addClass("visible");
-    Flip.from(state, {
-      duration: 1,
-      targets: ".ap-img-full-screen-1",
-      absolute: true,
-      zIndex: 1100,
-      ease: "power2.inOut",
+  // EXPAND IMAGE (Original One24 Full-bleed design, fluid cinematic shutter expand)
+  function initOriginalResidenceExpand() {
+    let isAnimating = false;
+    let activeIndex = null;
+
+    const closeBtn = $(".ap-img-full-close");
+
+    function openImage(idx) {
+      if (isAnimating) return;
+      isAnimating = true;
+      activeIndex = idx;
+
+      const thumb = document.querySelector(".ap-img-a-" + idx);
+      const fullImg = document.querySelector(".ap-img-full-screen-" + idx);
+      if (!thumb || !fullImg) {
+        isAnimating = false;
+        return;
+      }
+
+      const rect = thumb.getBoundingClientRect();
+      const insetTop = Math.round(rect.top);
+      const insetRight = Math.round(window.innerWidth - rect.right);
+      const insetBottom = Math.round(window.innerHeight - rect.bottom);
+      const insetLeft = Math.round(rect.left);
+
+      gsap.killTweensOf(fullImg);
+
+      // Start clipped precisely to the thumbnail boundary
+      gsap.set(fullImg, {
+        display: "block",
+        position: "fixed",
+        top: 0,
+        left: 0,
+        width: "100vw",
+        height: "100vh",
+        objectFit: "cover",
+        zIndex: 9999,
+        clipPath: `inset(${insetTop}px ${insetRight}px ${insetBottom}px ${insetLeft}px round 4px)`,
+        scale: 1.14,
+        opacity: 1,
+      });
+
+      // Expand to full-bleed across screen with subtle scale ease (slowed down for cinematic luxury feel)
+      gsap.to(fullImg, {
+        clipPath: "inset(0px 0px 0px 0px round 0px)",
+        scale: 1.0,
+        duration: 1.35,
+        ease: "power3.inOut",
+        onComplete: function () {
+          fullImg.classList.add("visible");
+          isAnimating = false;
+        },
+      });
+
+      // Show close button
+      if (closeBtn.length) {
+        gsap.to(closeBtn, { opacity: 1, pointerEvents: "auto", duration: 0.6, delay: 0.4 });
+      }
+    }
+
+    function closeImage(idx) {
+      if (isAnimating && idx === null) return;
+      const targetIdx = idx || activeIndex;
+      if (!targetIdx) return;
+      isAnimating = true;
+
+      const thumb = document.querySelector(".ap-img-a-" + targetIdx);
+      const fullImg = document.querySelector(".ap-img-full-screen-" + targetIdx);
+
+      if (!fullImg) {
+        isAnimating = false;
+        return;
+      }
+
+      const rect = thumb
+        ? thumb.getBoundingClientRect()
+        : {
+            top: window.innerHeight / 4,
+            right: (window.innerWidth * 3) / 4,
+            bottom: (window.innerHeight * 3) / 4,
+            left: window.innerWidth / 4,
+          };
+      const insetTop = Math.round(rect.top);
+      const insetRight = Math.round(window.innerWidth - rect.right);
+      const insetBottom = Math.round(window.innerHeight - rect.bottom);
+      const insetLeft = Math.round(rect.left);
+
+      // Hide close button
+      if (closeBtn.length) {
+        gsap.to(closeBtn, { opacity: 0, pointerEvents: "none", duration: 0.35 });
+      }
+
+      gsap.to(fullImg, {
+        clipPath: `inset(${insetTop}px ${insetRight}px ${insetBottom}px ${insetLeft}px round 4px)`,
+        scale: 1.1,
+        duration: 1.05,
+        ease: "power3.inOut",
+        onComplete: function () {
+          fullImg.style.display = "none";
+          fullImg.classList.remove("visible");
+          gsap.set(fullImg, { clearProps: "all" });
+          activeIndex = null;
+          isAnimating = false;
+        },
+      });
+    }
+
+    // Attach click to thumbnails 1, 2, 3, 4
+    [1, 2, 3, 4].forEach(function (idx) {
+      $(".ap-img-a-" + idx).on("click", function (e) {
+        e.preventDefault();
+        e.stopPropagation();
+        openImage(idx);
+      });
+
+      $(".ap-img-full-screen-" + idx).on("click", function (e) {
+        e.preventDefault();
+        e.stopPropagation();
+        closeImage(idx);
+      });
+    });
+
+    // Close button click
+    closeBtn.on("click", function (e) {
+      e.preventDefault();
+      e.stopPropagation();
+      closeImage(activeIndex);
+    });
+
+    // Escape key
+    document.addEventListener("keydown", function (e) {
+      if (e.key === "Escape" && activeIndex !== null) {
+        closeImage(activeIndex);
+      }
     });
   }
-  function backFlip() {
-    // Get the initial state
-    const state = Flip.getState(img1back);
-    $(".ap-img-full-screen-1").removeClass("visible");
-    // Animate from the initial state to the end state
-    Flip.from(state, {
-      duration: 1,
-      targets: ".ap-img-a-1",
-      absolute: true,
-      zIndex: 1100,
-      ease: "power2.inOut",
-    });
-  }
-  // click anywhere to flip
-  $(".ap-img-a-1").on("click", function () {
-    $("body").addClass("no-scroll-transition");
-    doFlip();
-  });
-  $(".ap-img-full-screen-1").on("click", function () {
-    $("body").removeClass("no-scroll-transition");
-    backFlip();
-  });
-  // EXPAND IMAGE
-  const img2 = $(".ap-img-a-2");
-  const img2back = $(".ap-img-full-screen-2");
-  function doFlip2() {
-    // Get the initial state
-    const state = Flip.getState(img2);
-    // Animate from the initial state to the end state
-    $(".ap-img-full-screen-2").addClass("visible");
-    Flip.from(state, {
-      duration: 1,
-      targets: ".ap-img-full-screen-2",
-      absolute: true,
-      zIndex: 1100,
-      ease: "power2.inOut",
-    });
-  }
-  function backFlip2() {
-    // Get the initial state
-    const state = Flip.getState(img2back, { props: "z, index" });
-    $(".ap-img-full-screen-2").removeClass("visible");
-    // Animate from the initial state to the end state
-    Flip.from(state, {
-      duration: 1,
-      targets: ".ap-img-a-2",
-      absolute: true,
-      zIndex: 1100,
-      ease: "power2.inOut",
-    });
-  }
-  // click anywhere to flip
-  $(".ap-img-a-2").on("click", function () {
-    $("body").addClass("no-scroll-transition");
-    doFlip2();
-  });
-  $(".ap-img-full-screen-2").on("click", function () {
-    $("body").removeClass("no-scroll-transition");
-    backFlip2();
-  });
-  // EXPAND IMAGE
-  const img3 = $(".ap-img-a-3");
-  const img3back = $(".ap-img-full-screen-3");
-  function doFlip3() {
-    // Get the initial state
-    const state = Flip.getState(img3);
-    // Animate from the initial state to the end state
-    $(".ap-img-full-screen-3").addClass("visible");
-    Flip.from(state, {
-      duration: 1,
-      targets: ".ap-img-full-screen-3",
-      absolute: true,
-      zIndex: 1100,
-      ease: "power2.inOut",
-    });
-  }
-  function backFlip3() {
-    // Get the initial state
-    const state = Flip.getState(img3back, { props: "z, index" });
-    $(".ap-img-full-screen-3").removeClass("visible");
-    // Animate from the initial state to the end state
-    Flip.from(state, {
-      duration: 1,
-      targets: ".ap-img-a-3",
-      absolute: true,
-      zIndex: 1100,
-      ease: "power2.inOut",
-    });
-  }
-  // click anywhere to flip
-  $(".ap-img-a-3").on("click", function () {
-    $("body").addClass("no-scroll-transition");
-    doFlip3();
-  });
-  $(".ap-img-full-screen-3").on("click", function () {
-    $("body").removeClass("no-scroll-transition");
-    backFlip3();
-  });
-  // EXPAND IMAGE
-  const img4 = $(".ap-img-a-4");
-  const img4back = $(".ap-img-full-screen-4");
-  function doFlip4() {
-    // Get the initial state
-    const state = Flip.getState(img4);
-    // Animate from the initial state to the end state
-    $(".ap-img-full-screen-4").addClass("visible");
-    Flip.from(state, {
-      duration: 1,
-      targets: ".ap-img-full-screen-4",
-      absolute: true,
-      zIndex: 1100,
-      ease: "power2.inOut",
-    });
-  }
-  function backFlip4() {
-    // Get the initial state
-    const state = Flip.getState(img4back, { props: "z, index" });
-    $(".ap-img-full-screen-4").removeClass("visible");
-    // Animate from the initial state to the end state
-    Flip.from(state, {
-      duration: 1,
-      targets: ".ap-img-a-4",
-      absolute: true,
-      zIndex: 1100,
-      ease: "power2.inOut",
-    });
-  }
-  // click anywhere to flip
-  $(".ap-img-a-4").on("click", function () {
-    $("body").addClass("no-scroll-transition");
-    doFlip4();
-  });
-  $(".ap-img-full-screen-4").on("click", function () {
-    $("body").removeClass("no-scroll-transition");
-    backFlip4();
-  });
+  initOriginalResidenceExpand();
   // END EXPAND IMAGE
   // THE ISLAND ------
   gsap

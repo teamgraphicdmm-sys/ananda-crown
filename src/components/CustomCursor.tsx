@@ -1,38 +1,69 @@
 "use client";
 
-import React, { useEffect, useState } from "react";
+import React, { useRef, useState, useEffect } from "react";
+import gsap from "gsap";
+import { useGSAP } from "@gsap/react";
 
 export default function CustomCursor() {
-  const [position, setPosition] = useState({ x: -100, y: -100 });
-  const [isHovered, setIsHovered] = useState(false);
-  const [isVisible, setIsVisible] = useState(false);
+  const ringRef = useRef<HTMLDivElement>(null);
+  const dotRef = useRef<HTMLDivElement>(null);
+  const [isTouch, setIsTouch] = useState(false);
 
   useEffect(() => {
-    // Only run on non-touch devices
-    const isTouch = "ontouchstart" in window || navigator.maxTouchPoints > 0;
+    setIsTouch("ontouchstart" in window || navigator.maxTouchPoints > 0);
+  }, []);
+
+  useGSAP(() => {
     if (isTouch) return;
+    if (!ringRef.current || !dotRef.current) return;
+
+    // Set initial state
+    gsap.set([ringRef.current, dotRef.current], { 
+      xPercent: -50, 
+      yPercent: -50,
+      opacity: 0
+    });
+
+    const xToRing = gsap.quickTo(ringRef.current, "x", { duration: 0.5, ease: "power3" });
+    const yToRing = gsap.quickTo(ringRef.current, "y", { duration: 0.5, ease: "power3" });
+    
+    const xToDot = gsap.quickTo(dotRef.current, "x", { duration: 0.15, ease: "power2" });
+    const yToDot = gsap.quickTo(dotRef.current, "y", { duration: 0.15, ease: "power2" });
+
+    let isVisible = false;
 
     const handleMouseMove = (e: MouseEvent) => {
-      setPosition({ x: e.clientX, y: e.clientY });
-      if (!isVisible) setIsVisible(true);
+      if (!isVisible) {
+        gsap.to([ringRef.current, dotRef.current], { opacity: 1, duration: 0.3 });
+        isVisible = true;
+      }
+
+      xToRing(e.clientX);
+      yToRing(e.clientY);
+      xToDot(e.clientX);
+      yToDot(e.clientY);
 
       const target = e.target as HTMLElement | null;
-      if (
+      const isHovering = 
         target?.closest("a") ||
         target?.closest("button") ||
         target?.closest("input") ||
         target?.closest("select") ||
         target?.closest("textarea") ||
-        target?.getAttribute("role") === "button"
-      ) {
-        setIsHovered(true);
-      } else {
-        setIsHovered(false);
-      }
+        target?.getAttribute("role") === "button";
+
+      gsap.to(ringRef.current, {
+        width: isHovering ? 48 : 28,
+        height: isHovering ? 48 : 28,
+        backgroundColor: isHovering ? "rgba(197, 168, 128, 0.15)" : "transparent",
+        duration: 0.3,
+        ease: "power2.out"
+      });
     };
 
     const handleMouseLeave = () => {
-      setIsVisible(false);
+      gsap.to([ringRef.current, dotRef.current], { opacity: 0, duration: 0.3 });
+      isVisible = false;
     };
 
     window.addEventListener("mousemove", handleMouseMove);
@@ -42,32 +73,22 @@ export default function CustomCursor() {
       window.removeEventListener("mousemove", handleMouseMove);
       document.removeEventListener("mouseleave", handleMouseLeave);
     };
-  }, [isVisible]);
+  }, [isTouch]);
 
-  if (!isVisible) return null;
+  if (isTouch) return null;
 
   return (
     <>
       {/* Outer Follower Ring */}
       <div
-        className="pointer-events-none fixed z-[9999] rounded-full border border-[#C5A880]/60 transition-all duration-150 ease-out hidden md:block"
-        style={{
-          left: `${position.x}px`,
-          top: `${position.y}px`,
-          width: isHovered ? "48px" : "28px",
-          height: isHovered ? "48px" : "28px",
-          transform: "translate(-50%, -50%)",
-          backgroundColor: isHovered ? "rgba(197, 168, 128, 0.15)" : "transparent",
-        }}
+        ref={ringRef}
+        className="pointer-events-none fixed top-0 left-0 z-[9999] rounded-full border border-[#C5A880]/60 hidden md:block opacity-0"
+        style={{ width: "28px", height: "28px" }}
       />
       {/* Inner Pinpoint Dot */}
       <div
-        className="pointer-events-none fixed z-[9999] h-1.5 w-1.5 rounded-full bg-[#C5A880] transition-transform duration-75 ease-out hidden md:block"
-        style={{
-          left: `${position.x}px`,
-          top: `${position.y}px`,
-          transform: "translate(-50%, -50%)",
-        }}
+        ref={dotRef}
+        className="pointer-events-none fixed top-0 left-0 z-[9999] h-1.5 w-1.5 rounded-full bg-[#C5A880] hidden md:block opacity-0"
       />
     </>
   );

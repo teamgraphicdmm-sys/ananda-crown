@@ -1,13 +1,28 @@
 "use client";
 
-import React, { useState } from "react";
+import React, { useState, useRef } from "react";
 import Image from "next/image";
 import { MapPin, ArrowRight, X, ExternalLink } from "lucide-react";
 import { NEARBY_LANDMARKS, PROJECT_DETAILS } from "@/data/projectData";
+import gsap from "gsap";
+import { useGSAP } from "@gsap/react";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
+
+gsap.registerPlugin(ScrollTrigger);
 
 export default function LocationSection() {
   const [activeTab, setActiveTab] = useState<number>(1);
   const [mapModalOpen, setMapModalOpen] = useState(false);
+
+  const sectionRef = useRef<HTMLElement>(null);
+  const headerRef = useRef<HTMLDivElement>(null);
+  const tabsRef = useRef<HTMLDivElement>(null);
+  const contentRef = useRef<HTMLDivElement>(null);
+  const ctaRef = useRef<HTMLDivElement>(null);
+  const imageRef = useRef<HTMLDivElement>(null);
+  const imageInnerRef = useRef<HTMLImageElement>(null);
+  const imageOverlayRef = useRef<HTMLDivElement>(null);
+  const modalRef = useRef<HTMLDivElement>(null);
 
   const stories = [
     {
@@ -33,9 +48,127 @@ export default function LocationSection() {
     },
   ];
 
+  useGSAP(() => {
+    // 1. Section header (MapPin + "Strategic Location" + title)
+    if (headerRef.current) {
+      const headerTl = gsap.timeline({
+        scrollTrigger: {
+          trigger: headerRef.current,
+          start: "top 75%",
+          once: true,
+        },
+      });
+
+      headerTl
+        .from(".map-pin", { y: -20, opacity: 0, ease: "bounce.out", duration: 0.8 }, 0)
+        .from(".strategic-text", { x: -15, opacity: 0, duration: 0.8 }, 0)
+        .from(".title-line-1", { y: 40, opacity: 0, duration: 0.8, ease: "power3.out" }, 0)
+        .from(".title-line-2", { y: 40, opacity: 0, duration: 0.8, ease: "power3.out" }, 0.15);
+    }
+
+    // 2. Story tabs row
+    if (tabsRef.current) {
+      gsap.from(".story-tab", {
+        scrollTrigger: {
+          trigger: tabsRef.current,
+          start: "top 70%",
+          once: true,
+        },
+        scale: 0.8,
+        opacity: 0,
+        stagger: 0.08,
+        ease: "back.out(1.7)",
+        duration: 0.6,
+      });
+    }
+
+    // 4. CTA buttons
+    if (ctaRef.current) {
+      gsap.from(".cta-btn", {
+        scrollTrigger: {
+          trigger: ctaRef.current,
+          start: "top 65%",
+          once: true,
+        },
+        y: 15,
+        opacity: 0,
+        stagger: 0.1,
+        duration: 0.6,
+      });
+    }
+
+    // 5. Location image & 6. Bottom overlay label on image
+    if (imageRef.current) {
+      const imgTl = gsap.timeline({
+        scrollTrigger: {
+          trigger: imageRef.current,
+          start: "top 68%",
+          once: true,
+        },
+      });
+      imgTl
+        .fromTo(
+          imageRef.current,
+          { clipPath: "inset(5% 5% 5% 5%)", opacity: 0 },
+          { clipPath: "inset(0% 0% 0% 0%)", opacity: 1, duration: 1, ease: "power3.out" }
+        )
+        .from(imageOverlayRef.current, { y: 15, opacity: 0, duration: 0.6 }, "-=0.2"); // after image reveal
+
+      // Add subtle parallax
+      let mm = gsap.matchMedia();
+      mm.add("(min-width: 1024px)", () => {
+        if (imageInnerRef.current) {
+          gsap.to(imageInnerRef.current, {
+            yPercent: -8,
+            ease: "none",
+            scrollTrigger: {
+              trigger: imageRef.current,
+              start: "top bottom",
+              end: "bottom top",
+              scrub: 1,
+            },
+          });
+        }
+      });
+    }
+  }, { scope: sectionRef });
+
+  // 7. Map modal landmarks
+  useGSAP(() => {
+    if (mapModalOpen && modalRef.current) {
+      gsap.from(".landmark-card", {
+        y: -30,
+        opacity: 0,
+        stagger: 0.06,
+        ease: "back.out(1.7)",
+        duration: 0.5,
+      });
+    }
+  }, { dependencies: [mapModalOpen], scope: modalRef });
+
+  // 3. Story content transition
+  const handleTabClick = (idx: number) => {
+    if (activeTab === idx + 1) return;
+
+    gsap.to(contentRef.current, {
+      y: -15,
+      opacity: 0,
+      duration: 0.25,
+      onComplete: () => {
+        setActiveTab(idx + 1);
+        gsap.fromTo(
+          contentRef.current,
+          { y: 15, opacity: 0 },
+          { y: 0, opacity: 1, duration: 0.4, ease: "power2.out" }
+        );
+      },
+    });
+  };
+
   return (
     <section
       id="location"
+      ref={sectionRef}
       className="relative w-full bg-[#160D08] py-24 md:py-32 overflow-hidden border-t border-[#C5A880]/15"
     >
       {/* Moving Marquee Ticker matching One24 layout */}
@@ -66,14 +199,14 @@ export default function LocationSection() {
 
       <div className="max-w-7xl mx-auto px-6 md:px-12 lg:px-16 space-y-16">
         {/* Section Header */}
-        <div className="space-y-4">
+        <div className="space-y-4" ref={headerRef}>
           <div className="flex items-center space-x-3 text-[11px] tracking-[0.3em] uppercase text-[#C5A880]">
-            <MapPin className="h-4 w-4 text-[#C5A880]" />
-            <span>Strategic Location</span>
+            <MapPin className="map-pin h-4 w-4 text-[#C5A880]" />
+            <span className="strategic-text">Strategic Location</span>
           </div>
           <h2 className="font-serif text-3xl sm:text-5xl md:text-6xl font-light text-[#F5EFEB] leading-[1.1]">
-            Sector 78, SAS Nagar <br />
-            <span className="italic text-[#E7CFAD]">The Sovereign Address</span>
+            <div className="title-line-1 overflow-hidden">Sector 78, SAS Nagar</div>
+            <span className="title-line-2 italic text-[#E7CFAD] inline-block">The Sovereign Address</span>
           </h2>
         </div>
 
@@ -81,12 +214,12 @@ export default function LocationSection() {
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
           {/* Left: 3-Story Interactive Tabs */}
           <div className="lg:col-span-6 space-y-6">
-            <div className="flex space-x-2 border-b border-[#341F14] pb-3">
+            <div className="flex space-x-2 border-b border-[#341F14] pb-3" ref={tabsRef}>
               {stories.map((story, idx) => (
                 <button
                   key={idx}
-                  onClick={() => setActiveTab(idx + 1)}
-                  className={`px-4 py-2 rounded-full text-[11px] tracking-[0.2em] uppercase transition-all duration-300 ${
+                  onClick={() => handleTabClick(idx)}
+                  className={`story-tab px-4 py-2 rounded-full text-[11px] tracking-[0.2em] uppercase transition-all duration-300 ${
                     activeTab === idx + 1
                       ? "bg-[#C5A880] text-[#160D08] font-semibold"
                       : "text-[#A8988B] hover:text-[#F5EFEB] hover:bg-[#20130C]"
@@ -97,7 +230,7 @@ export default function LocationSection() {
               ))}
             </div>
 
-            <div className="space-y-6 pt-4 min-h-[220px]">
+            <div className="space-y-6 pt-4 min-h-[220px]" ref={contentRef}>
               <span className="font-mono text-sm text-[#C5A880]">
                 {stories[activeTab - 1].num} / 03
               </span>
@@ -110,10 +243,10 @@ export default function LocationSection() {
             </div>
 
             {/* See Location CTA matching One24 seta-cta */}
-            <div className="pt-4 flex flex-wrap items-center gap-4">
+            <div className="pt-4 flex flex-wrap items-center gap-4" ref={ctaRef}>
               <button
                 onClick={() => setMapModalOpen(true)}
-                className="group inline-flex items-center space-x-3 rounded-full border border-[#C5A880]/50 hover:border-[#C5A880] bg-[#20130C] hover:bg-[#C5A880] px-7 py-3.5 text-[11px] tracking-[0.2em] uppercase text-[#F5EFEB] hover:text-[#160D08] transition-all duration-300 shadow-xl"
+                className="cta-btn group inline-flex items-center space-x-3 rounded-full border border-[#C5A880]/50 hover:border-[#C5A880] bg-[#20130C] hover:bg-[#C5A880] px-7 py-3.5 text-[11px] tracking-[0.2em] uppercase text-[#F5EFEB] hover:text-[#160D08] transition-all duration-300 shadow-xl"
               >
                 <span>Explore Location Map</span>
                 <div className="flex h-5 w-5 items-center justify-center rounded-full bg-[#C5A880] text-[#160D08] group-hover:bg-[#160D08] group-hover:text-[#C5A880] transition-colors">
@@ -125,7 +258,7 @@ export default function LocationSection() {
                 href={PROJECT_DETAILS.location.googleMapsUrl}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center space-x-2 text-xs tracking-[0.18em] uppercase text-[#C5A880] hover:text-[#E7CFAD] transition-colors py-3"
+                className="cta-btn inline-flex items-center space-x-2 text-xs tracking-[0.18em] uppercase text-[#C5A880] hover:text-[#E7CFAD] transition-colors py-3"
               >
                 <span>Open Google Maps</span>
                 <ExternalLink className="h-3.5 w-3.5" />
@@ -135,8 +268,12 @@ export default function LocationSection() {
 
           {/* Right: Location Visual Image */}
           <div className="lg:col-span-6">
-            <div className="relative aspect-[4/3] w-full rounded-2xl overflow-hidden border border-[#C5A880]/30 shadow-2xl group">
+            <div 
+              ref={imageRef} 
+              className="relative aspect-[4/3] w-full rounded-2xl overflow-hidden border border-[#C5A880]/30 shadow-2xl group"
+            >
               <Image
+                ref={imageInnerRef as any}
                 src="/images/wait-is-over.webp"
                 alt="Sector 78 Mohali Location"
                 fill
@@ -145,7 +282,10 @@ export default function LocationSection() {
               />
               <div className="absolute inset-0 bg-gradient-to-t from-[#160D08] via-transparent to-black/30" />
 
-              <div className="absolute bottom-6 left-6 right-6 flex items-center justify-between text-xs tracking-[0.2em] uppercase text-[#E7CFAD]">
+              <div 
+                ref={imageOverlayRef}
+                className="absolute bottom-6 left-6 right-6 flex items-center justify-between text-xs tracking-[0.2em] uppercase text-[#E7CFAD]"
+              >
                 <div className="space-y-1">
                   <p className="font-serif text-lg text-white font-light">
                     Sector 78, SAS Nagar
@@ -168,7 +308,10 @@ export default function LocationSection() {
 
       {/* Interactive Map & Distance Dossier Modal */}
       {mapModalOpen && (
-        <div className="fixed inset-0 z-[9999] flex items-center justify-center bg-black/90 p-4 md:p-8 backdrop-blur-md animate-in fade-in">
+        <div 
+          ref={modalRef}
+          className="fixed inset-0 z-[9999] flex items-center justify-center bg-black/90 p-4 md:p-8 backdrop-blur-md animate-in fade-in"
+        >
           <div className="relative w-full max-w-4xl max-h-[90vh] overflow-y-auto rounded-2xl border border-[#C5A880]/40 bg-[#160D08] p-6 md:p-10 shadow-2xl space-y-8">
             <div className="flex items-center justify-between border-b border-[#341F14] pb-4">
               <div>
@@ -196,7 +339,7 @@ export default function LocationSection() {
                 {NEARBY_LANDMARKS.map((item, idx) => (
                   <div
                     key={idx}
-                    className="flex items-center justify-between p-4 rounded-xl border border-[#341F14] bg-[#20130C]/60"
+                    className="landmark-card flex items-center justify-between p-4 rounded-xl border border-[#341F14] bg-[#20130C]/60"
                   >
                     <div>
                       <p className="text-sm font-medium text-[#F5EFEB]">

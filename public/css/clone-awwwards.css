@@ -1,0 +1,239 @@
+/* ==========================================================================
+   ANANDA CROWN — AWWWARDS-GRADE SCROLL ANIMATION & TRANSITION STYLES
+   ========================================================================== */
+
+/* 1. Kinetic Typography & 3D Perspective Wrappers */
+.perspective-stage {
+  perspective: 1400px;
+  perspective-origin: center center;
+  transform-style: preserve-3d;
+}
+
+.char-3d-wrap {
+  display: inline-block;
+  overflow: hidden;
+  vertical-align: top;
+  line-height: 1.15;
+}
+
+.char-3d {
+  display: inline-block;
+  transform-origin: 0% 100% -50px;
+  will-change: transform, opacity, filter;
+  backface-visibility: hidden;
+}
+
+/* 2. Liquid Gold Shimmer Sweep on Text */
+.gold-shimmer-sweep {
+  background: linear-gradient(
+    110deg,
+    #c2a180 0%,
+    #dfcaa8 25%,
+    #ffffff 50%,
+    #dfcaa8 75%,
+    #c2a180 100%
+  );
+  background-size: 250% 100%;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: goldSheenLoop 6s cubic-bezier(0.4, 0, 0.2, 1) infinite;
+}
+
+@keyframes goldSheenLoop {
+  0% {
+    background-position: 250% 0;
+  }
+  100% {
+    background-position: -250% 0;
+  }
+}
+
+/* 3. Luxury Image Frame Clip-Paths & Sheen */
+.awwwards-img-frame {
+  position: relative;
+  overflow: hidden;
+  will-change: clip-path, transform;
+}
+
+.awwwards-img-frame img {
+  will-change: transform;
+  transform-origin: center center;
+}
+
+.glass-reflection-sheen {
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: linear-gradient(
+    45deg,
+    transparent 42%,
+    rgba(255, 255, 255, 0.18) 50%,
+    transparent 58%
+  );
+  transform: translate3d(-100%, -100%, 0) rotate(25deg);
+  pointer-events: none;
+  mix-blend-mode: overlay;
+  z-index: 10;
+  transition: transform 1.2s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.awwwards-img-frame:hover .glass-reflection-sheen {
+  transform: translate3d(100%, 100%, 0) rotate(25deg);
+}
+
+/* 4. Pillar Card Dynamic Accent Lines */
+.about-pillar-accent-line {
+  width: 100%;
+  height: 1.5px;
+  background: linear-gradient(90deg, #c2a180 0%, rgba(194, 161, 128, 0.1) 100%);
+  transform-origin: left;
+  transform: scaleX(0);
+  margin-top: 10px;
+  margin-bottom: 12px;
+  transition: transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.about-pillar-item {
+  transition: transform 0.4s cubic-bezier(0.2, 0.8, 0.2, 1), box-shadow 0.4s ease;
+  will-change: transform;
+}
+
+.about-pillar-item:hover {
+  transform: translateY(-4px) scale(1.015);
+}
+
+/* 5. 3D Tilt Card Container */
+.tilt-card-3d {
+  transform-style: preserve-3d;
+  transition: transform 0.2s ease-out;
+}
+
+/* 6. Dynamic Sonar Ping Radar for Location */
+.sonar-ping {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.sonar-ping::after {
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  border: 1.5px solid #c2a180;
+  animation: sonarPing 2.2s cubic-bezier(0, 0.2, 0.8, 1) infinite;
+  pointer-events: none;
+}
+
+@keyframes sonarPing {
+  0% {
+    transform: scale(0.8);
+    opacity: 0.9;
+  }
+  100% {
+    transform: scale(2.4);
+    opacity: 0;
+  }
+}
+
+/* 7. Availability Table Row Elevated Louver Effect */
+.ap-spec-row,
+.availability-table-row {
+  transition: transform 0.3s cubic-bezier(0.2, 0.8, 0.2, 1),
+    background-color 0.3s ease, box-shadow 0.3s ease;
+  will-change: transform, opacity;
+}
+
+.ap-spec-row:hover,
+.availability-table-row:hover {
+  transform: translateX(6px);
+  background-color: rgba(194, 161, 128, 0.08) !important;
+}
+
+
+
+/* 9. Hardware Acceleration Hints */
+.track,
+.hero-component,
+.about-container,
+.apartments-component,
+.amenities-showcase-stage,
+.additional-amenities-panel {
+  transform-style: flat;
+  backface-visibility: hidden;
+}
+
+/* 10. Additional Amenities Animations */
+.add-amen-title {
+  transform-origin: 0% 100%;
+  will-change: transform, opacity;
+}
+
+.add-amen-item {
+  transition: transform 0.3s cubic-bezier(0.2, 0.8, 0.2, 1), color 0.3s ease;
+  will-change: transform, opacity;
+}
+
+.add-amen-item:hover {
+  transform: translateX(8px);
+  color: #271a11 !important;
+}
+
+.add-amen-item-dash {
+  transform-origin: left center;
+  transition: width 0.35s ease, background-color 0.35s ease, box-shadow 0.35s ease;
+  will-change: transform, width;
+}
+
+.add-amen-item:hover + .add-amen-item-dash {
+  width: 48px !important;
+  background-color: #dfcaa8 !important;
+  box-shadow: 0 0 10px rgba(194, 161, 128, 0.55);
+}
+
+.add-amen-v-divider {
+  transform-origin: top center;
+  will-change: transform;
+}
+
+.additional-amenities-image-wrap {
+  will-change: clip-path, transform;
+}
+
+.additional-amenities-image-wrap img {
+  will-change: transform;
+  transform-origin: center center;
+}
+
+/* 11. Residence Image Full-Bleed Expand (Original Design) */
+.ap-img-full-screen-1,
+.ap-img-full-screen-2,
+.ap-img-full-screen-3,
+.ap-img-full-screen-4 {
+  position: fixed;
+  inset: 0;
+  width: 100vw;
+  height: 100vh;
+  object-fit: cover;
+  z-index: 9999;
+  cursor: pointer;
+  display: none;
+  pointer-events: none;
+  will-change: clip-path, transform, opacity;
+}
+
+.ap-img-full-screen-1.visible,
+.ap-img-full-screen-2.visible,
+.ap-img-full-screen-3.visible,
+.ap-img-full-screen-4.visible {
+  display: block;
+  pointer-events: auto;
+}
+
+.ap-img-full-close {
+  z-index: 10001 !important;
+}

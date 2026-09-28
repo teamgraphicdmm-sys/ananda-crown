@@ -4,6 +4,11 @@ import React, { useEffect, useRef } from "react";
 import Link from "next/link";
 import { Phone, MapPin, ArrowRight } from "lucide-react";
 import { PROJECT_DETAILS } from "@/data/projectData";
+import gsap from "gsap";
+import { useGSAP } from "@gsap/react";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
+
+gsap.registerPlugin(ScrollTrigger);
 
 interface HeroProps {
   onOpenInquire: () => void;
@@ -14,6 +19,20 @@ export default function Hero({ onOpenInquire }: HeroProps) {
   const videoRef = useRef<HTMLVideoElement>(null);
   const canvasRef = useRef<HTMLCanvasElement>(null);
   const contentRef = useRef<HTMLDivElement>(null);
+
+  // GSAP animation refs
+  const eyebrowLineRef = useRef<HTMLSpanElement>(null);
+  const eyebrowText1Ref = useRef<HTMLSpanElement>(null);
+  const eyebrowText2Ref = useRef<HTMLSpanElement>(null);
+  const titleLine1Ref = useRef<HTMLSpanElement>(null);
+  const titleLine2Ref = useRef<HTMLSpanElement>(null);
+  const subtitleRef = useRef<HTMLDivElement>(null);
+  const dividerRef = useRef<HTMLDivElement>(null);
+  const exploreRef = useRef<HTMLDivElement>(null);
+  const phoneRef = useRef<HTMLAnchorElement>(null);
+  const locationRef = useRef<HTMLAnchorElement>(null);
+  const scrollRef = useRef<HTMLAnchorElement>(null);
+  const scrollIndicatorRef = useRef<HTMLDivElement>(null);
 
   const animationFrameId = useRef<number | null>(null);
   const targetProgress = useRef<number>(0);
@@ -55,6 +74,29 @@ export default function Hero({ onOpenInquire }: HeroProps) {
     // Direct cover drawing without clearRect to eliminate micro-frame flash
     ctx.drawImage(media, offsetX, offsetY, drawWidth, drawHeight);
   };
+
+  useGSAP(() => {
+    const tl = gsap.timeline({ delay: 2.3 });
+
+    // a. Eyebrow copper line
+    tl.from(eyebrowLineRef.current, { width: 0, duration: 0.8, ease: "power2.out" })
+      // b. "SOPHISTICATION" + "LIVES HERE"
+      .from([eyebrowText1Ref.current, eyebrowText2Ref.current], { y: 15, opacity: 0, stagger: 0.1, duration: 0.6 }, "-=0.4")
+      // c. "Comfort and"
+      .from(titleLine1Ref.current, { y: 60, opacity: 0, duration: 1, ease: "power4.out" }, "-=0.2")
+      // d. "Elegance" (italic)
+      .from(titleLine2Ref.current, { y: 60, opacity: 0, duration: 1, ease: "power4.out" }, "<0.15")
+      // e. "IN SECTOR 78 MOHALI"
+      .from(subtitleRef.current, { y: 15, opacity: 0, duration: 0.6 }, "-=0.4")
+      // f. Divider line
+      .from(dividerRef.current, { scaleX: 0, transformOrigin: "left", duration: 0.6 }, "-=0.4")
+      // g. "EXPLORE RESIDENCES" + arrow
+      .from(exploreRef.current, { x: -20, opacity: 0, duration: 0.6 }, "-=0.4")
+      // h. Bottom row (phone, location, scroll)
+      .from([phoneRef.current, locationRef.current, scrollRef.current], { y: 20, opacity: 0, stagger: 0.15, duration: 0.8 }, "-=0.4")
+      // 2. Scroll indicator infinite bob
+      .to(scrollIndicatorRef.current, { y: 8, repeat: -1, yoyo: true, ease: "power1.inOut", duration: 1.5 });
+  }, { scope: containerRef });
 
   useEffect(() => {
     const video = videoRef.current;
@@ -226,31 +268,31 @@ export default function Hero({ onOpenInquire }: HeroProps) {
           <div className="max-w-2xl w-full my-auto py-4 z-10">
             <div className="flex flex-col items-start text-left">
               {/* Eyebrow: Copper line + SOPHISTICATION (Copper) LIVES HERE (Dark Espresso) */}
-              <div className="inline-flex items-center space-x-3.5 mb-6 animate-in fade-in slide-in-from-bottom-3 duration-700">
-                <span className="w-9 h-[1.5px] bg-[#9e6443]" />
+              <div className="inline-flex items-center space-x-3.5 mb-6">
+                <span ref={eyebrowLineRef} className="w-9 h-[1.5px] bg-[#9e6443]" />
                 <div className="flex items-center space-x-1.5 text-[11px] tracking-[0.28em] uppercase font-sans">
-                  <span className="font-semibold text-[#8c5d3d]">SOPHISTICATION</span>
-                  <span className="font-medium text-[#2b221d]">LIVES HERE</span>
+                  <span ref={eyebrowText1Ref} className="font-semibold text-[#8c5d3d] inline-block">SOPHISTICATION</span>
+                  <span ref={eyebrowText2Ref} className="font-medium text-[#2b221d] inline-block">LIVES HERE</span>
                 </div>
               </div>
 
               {/* Main Display Headline: Comfort and (Espresso) Elegance (Golden Terracotta Italic) */}
-              <h1 className="font-serif text-5xl sm:text-7xl md:text-[5.25rem] lg:text-[5.75rem] leading-[1.04] tracking-[-0.01em] text-left mb-4 animate-in fade-in slide-in-from-bottom-5 duration-900 delay-150">
-                <span className="font-normal text-[#221814]">Comfort and</span>
+              <h1 className="font-serif text-5xl sm:text-7xl md:text-[5.25rem] lg:text-[5.75rem] leading-[1.04] tracking-[-0.01em] text-left mb-4">
+                <span ref={titleLine1Ref} className="font-normal text-[#221814] inline-block">Comfort and</span>
                 <br />
-                <span className="italic font-normal text-[#9e6443]">Elegance</span>
+                <span ref={titleLine2Ref} className="italic font-normal text-[#9e6443] inline-block">Elegance</span>
               </h1>
 
               {/* Location Subtitle: IN SECTOR 78 MOHALI */}
-              <div className="text-[11.5px] font-medium tracking-[0.35em] uppercase text-[#2b221d] font-sans mt-2 mb-6 animate-in fade-in slide-in-from-bottom-3 duration-700 delay-300">
+              <div ref={subtitleRef} className="text-[11.5px] font-medium tracking-[0.35em] uppercase text-[#2b221d] font-sans mt-2 mb-6">
                 IN SECTOR 78 MOHALI
               </div>
 
               {/* Olive-Bronze Divider Line */}
-              <div className="w-11 h-[1.5px] bg-[#7d7265] mb-7 animate-in fade-in duration-700 delay-400" />
+              <div ref={dividerRef} className="w-11 h-[1.5px] bg-[#7d7265] mb-7" />
 
               {/* EXPLORE RESIDENCES Action with Outlined Circular Arrow */}
-              <div className="animate-in fade-in slide-in-from-bottom-3 duration-700 delay-500">
+              <div ref={exploreRef}>
                 <Link
                   href="#residences"
                   className="group inline-flex items-center space-x-4 cursor-pointer transition-transform duration-300 hover:translate-x-1"
@@ -267,10 +309,11 @@ export default function Hero({ onOpenInquire }: HeroProps) {
           </div>
 
           {/* Bottom Row: Warm cream colors (#f2e8dc) with soft shadow for crisp legibility over trees */}
-          <div className="w-full pt-4 flex flex-col sm:flex-row items-start sm:items-end justify-between gap-6 z-10 animate-in fade-in duration-1000 delay-700">
+          <div className="w-full pt-4 flex flex-col sm:flex-row items-start sm:items-end justify-between gap-6 z-10">
             {/* Bottom Left: Phone + Location Pin */}
             <div className="inline-flex items-center space-x-4 text-[#f2e8dc] drop-shadow-[0_1px_4px_rgba(0,0,0,0.6)]">
               <a
+                ref={phoneRef}
                 href={`tel:${PROJECT_DETAILS.contact.phonePrimary}`}
                 className="group inline-flex items-center space-x-2 text-[13px] font-medium tracking-wide hover:text-[#c2a180] transition-colors"
               >
@@ -281,6 +324,7 @@ export default function Hero({ onOpenInquire }: HeroProps) {
               <span className="text-[#f2e8dc]/50 text-sm">|</span>
 
               <Link
+                ref={locationRef}
                 href="#location"
                 className="group inline-flex items-center space-x-2 text-[13px] font-medium tracking-wide hover:text-[#c2a180] transition-colors"
               >
@@ -292,6 +336,7 @@ export default function Hero({ onOpenInquire }: HeroProps) {
             {/* Bottom Right: Vertical SCROLL indicator */}
             <div className="self-end text-[#f2e8dc] drop-shadow-[0_1px_4px_rgba(0,0,0,0.6)]">
               <Link
+                ref={scrollRef}
                 href="#vision"
                 className="group inline-flex flex-col items-center space-y-1.5 cursor-pointer transition-opacity hover:opacity-75"
                 aria-label="Scroll to Vision Section"
@@ -302,7 +347,7 @@ export default function Hero({ onOpenInquire }: HeroProps) {
                 >
                   SCROLL
                 </span>
-                <div className="flex flex-col items-center space-y-1">
+                <div ref={scrollIndicatorRef} className="flex flex-col items-center space-y-1">
                   <div className="w-[1px] h-9 bg-[#f2e8dc]"></div>
                   <div className="h-2 w-2 rounded-full border border-[#f2e8dc] bg-transparent"></div>
                 </div>
