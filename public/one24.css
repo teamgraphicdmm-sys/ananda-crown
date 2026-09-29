@@ -3580,6 +3580,9 @@ figcaption {
   text-transform: capitalize;
 }
 
+.cta-link,.download-brochure-link{
+      text-transform: capitalize;
+}
 .tobias-300-122 {
   font-family: Tobias, sans-serif;
   font-size: 4.625em;
