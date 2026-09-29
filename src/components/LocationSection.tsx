@@ -173,7 +173,7 @@ export default function LocationSection() {
     >
       {/* Moving Marquee Ticker matching One24 layout */}
       <div className="w-full overflow-hidden border-y border-[#C5A880]/20 bg-[#20130C]/60 py-4 mb-20">
-        <div className="animate-marquee flex items-center space-x-12 whitespace-nowrap text-xs md:text-sm tracking-[0.3em] uppercase text-[#E7CFAD]">
+        <div className="animate-marquee flex items-center space-x-12 whitespace-nowrap text-xs md:text-sm tracking-[0.3em] text-[#E7CFAD]">
           <span>In the Heart of Sector 78 Mohali</span>
           <span className="h-1.5 w-1.5 rounded-full bg-[#C5A880]" />
           <span>15 Mins to International Airport (IXC)</span>
@@ -219,7 +219,7 @@ export default function LocationSection() {
                 <button
                   key={idx}
                   onClick={() => handleTabClick(idx)}
-                  className={`story-tab px-4 py-2 rounded-full text-[11px] tracking-[0.2em] uppercase transition-all duration-300 ${
+                  className={`story-tab px-4 py-2 rounded-full text-[11px] tracking-[0.2em] transition-all duration-300 ${
                     activeTab === idx + 1
                       ? "bg-[#C5A880] text-[#160D08] font-semibold"
                       : "text-[#A8988B] hover:text-[#F5EFEB] hover:bg-[#20130C]"
@@ -246,7 +246,7 @@ export default function LocationSection() {
             <div className="pt-4 flex flex-wrap items-center gap-4" ref={ctaRef}>
               <button
                 onClick={() => setMapModalOpen(true)}
-                className="cta-btn group inline-flex items-center space-x-3 rounded-full border border-[#C5A880]/50 hover:border-[#C5A880] bg-[#20130C] hover:bg-[#C5A880] px-7 py-3.5 text-[11px] tracking-[0.2em] uppercase text-[#F5EFEB] hover:text-[#160D08] transition-all duration-300 shadow-xl"
+                className="cta-btn group inline-flex items-center space-x-3 rounded-full border border-[#C5A880]/50 hover:border-[#C5A880] bg-[#20130C] hover:bg-[#C5A880] px-7 py-3.5 text-[11px] tracking-[0.2em] text-[#F5EFEB] hover:text-[#160D08] transition-all duration-300 shadow-xl"
               >
                 <span>Explore Location Map</span>
                 <div className="flex h-5 w-5 items-center justify-center rounded-full bg-[#C5A880] text-[#160D08] group-hover:bg-[#160D08] group-hover:text-[#C5A880] transition-colors">
@@ -258,7 +258,7 @@ export default function LocationSection() {
                 href={PROJECT_DETAILS.location.googleMapsUrl}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="cta-btn inline-flex items-center space-x-2 text-xs tracking-[0.18em] uppercase text-[#C5A880] hover:text-[#E7CFAD] transition-colors py-3"
+                className="cta-btn inline-flex items-center space-x-2 text-xs tracking-[0.18em] text-[#C5A880] hover:text-[#E7CFAD] transition-colors py-3"
               >
                 <span>Open Google Maps</span>
                 <ExternalLink className="h-3.5 w-3.5" />
@@ -284,7 +284,7 @@ export default function LocationSection() {
 
               <div 
                 ref={imageOverlayRef}
-                className="absolute bottom-6 left-6 right-6 flex items-center justify-between text-xs tracking-[0.2em] uppercase text-[#E7CFAD]"
+                className="absolute bottom-6 left-6 right-6 flex items-center justify-between text-xs tracking-[0.2em] text-[#E7CFAD]"
               >
                 <div className="space-y-1">
                   <p className="font-serif text-lg text-white font-light">
@@ -315,7 +315,7 @@ export default function LocationSection() {
           <div className="relative w-full max-w-4xl max-h-[90vh] overflow-y-auto rounded-2xl border border-[#C5A880]/40 bg-[#160D08] p-6 md:p-10 shadow-2xl space-y-8">
             <div className="flex items-center justify-between border-b border-[#341F14] pb-4">
               <div>
-                <span className="text-[10px] tracking-[0.25em] uppercase text-[#C5A880]">
+                <span className="text-[10px] tracking-[0.25em] text-[#C5A880]">
                   Location Dossier
                 </span>
                 <h3 className="font-serif text-2xl md:text-3xl font-light text-[#F5EFEB]">
@@ -332,7 +332,7 @@ export default function LocationSection() {
 
             {/* Landmark Distances Grid */}
             <div className="space-y-4">
-              <p className="text-xs tracking-[0.2em] uppercase text-[#A8988B]">
+              <p className="text-xs tracking-[0.2em] text-[#A8988B]">
                 Key Landmarks & Drive Times
               </p>
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
@@ -345,7 +345,7 @@ export default function LocationSection() {
                       <p className="text-sm font-medium text-[#F5EFEB]">
                         {item.name}
                       </p>
-                      <span className="text-[10px] uppercase tracking-wider text-[#C5A880]">
+                      <span className="text-[10px] tracking-wider text-[#C5A880]">
                         {item.category} • {item.distance}
                       </span>
                     </div>
@@ -365,7 +365,7 @@ export default function LocationSection() {
                 href={PROJECT_DETAILS.location.googleMapsUrl}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="rounded-full bg-[#C5A880] px-5 py-2.5 text-[11px] font-semibold tracking-[0.2em] uppercase text-[#160D08] hover:bg-[#E7CFAD] transition-colors inline-flex items-center space-x-2"
+                className="rounded-full bg-[#C5A880] px-5 py-2.5 text-[11px] font-semibold tracking-[0.2em] text-[#160D08] hover:bg-[#E7CFAD] transition-colors inline-flex items-center space-x-2"
               >
                 <span>Navigate in Maps</span>
                 <ExternalLink className="h-3.5 w-3.5" />

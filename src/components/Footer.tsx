@@ -74,7 +74,7 @@ export default function Footer({ onOpenInquire }: FooterProps) {
           {/* Top Inquire Callout matching One24 footer banner */}
           <div ref={calloutRef} className="flex flex-col lg:flex-row items-start lg:items-center justify-between gap-8 border-b border-[#341F14] pb-16">
             <div className="space-y-3 max-w-2xl">
-              <span className="footer-tag text-[11px] tracking-[0.3em] uppercase text-[#C5A880] block">
+              <span className="footer-tag text-[11px] tracking-[0.3em] text-[#C5A880] block">
                 Private Consultations
               </span>
               <h2 className="footer-title font-serif text-4xl sm:text-5xl font-light text-[#F5EFEB] leading-[1.05]">
@@ -87,7 +87,7 @@ export default function Footer({ onOpenInquire }: FooterProps) {
 
             <button
               onClick={onOpenInquire}
-              className="footer-btn group relative overflow-hidden rounded-full bg-gradient-to-r from-[#C5A880] via-[#DFBA73] to-[#C5A880] px-8 py-4 text-xs font-semibold tracking-[0.25em] uppercase text-[#160D08] shadow-[0_8px_32px_rgba(197,168,128,0.3)] hover:scale-105 transition-transform flex items-center space-x-3 shrink-0"
+              className="footer-btn group relative overflow-hidden rounded-full bg-gradient-to-r from-[#C5A880] via-[#DFBA73] to-[#C5A880] px-8 py-4 text-xs font-semibold tracking-[0.25em] text-[#160D08] shadow-[0_8px_32px_rgba(197,168,128,0.3)] hover:scale-105 transition-transform flex items-center space-x-3 shrink-0"
             >
               <span>Schedule Appointment</span>
               <span className="h-2 w-2 rounded-full bg-[#160D08]" />
@@ -113,7 +113,7 @@ export default function Footer({ onOpenInquire }: FooterProps) {
                   <h3 className="font-serif text-2xl font-light tracking-[0.15em] text-[#F5EFEB] uppercase">
                     Ananda Crown
                   </h3>
-                  <p className="text-[9px] tracking-[0.25em] text-[#C5A880] uppercase">
+                  <p className="text-[9px] tracking-[0.25em] text-[#C5A880]">
                     Sector 78 • Mohali
                   </p>
                 </div>
@@ -131,7 +131,7 @@ export default function Footer({ onOpenInquire }: FooterProps) {
 
             {/* Column 2: Visit Us */}
             <div className="footer-col lg:col-span-3 space-y-4">
-              <span className="text-[11px] tracking-[0.25em] uppercase text-[#C5A880] block">
+              <span className="text-[11px] tracking-[0.25em] text-[#C5A880] block">
                 Visit Us
               </span>
               <p className="text-xs font-light text-[#E8DDD2] leading-relaxed">
@@ -150,7 +150,7 @@ export default function Footer({ onOpenInquire }: FooterProps) {
 
             {/* Column 3: Contact & Concierge */}
             <div className="footer-col lg:col-span-3 space-y-4">
-              <span className="text-[11px] tracking-[0.25em] uppercase text-[#C5A880] block">
+              <span className="text-[11px] tracking-[0.25em] text-[#C5A880] block">
                 Contact Concierge
               </span>
               <div className="space-y-2 font-mono text-xs text-[#F5EFEB]">
@@ -212,7 +212,7 @@ export default function Footer({ onOpenInquire }: FooterProps) {
 
             {/* Column 4: Architectural Pedigree */}
             <div className="footer-col lg:col-span-2 space-y-4">
-              <span className="text-[11px] tracking-[0.25em] uppercase text-[#C5A880] block">
+              <span className="text-[11px] tracking-[0.25em] text-[#C5A880] block">
                 Development By
               </span>
               <p className="text-xs font-semibold text-[#F5EFEB]">

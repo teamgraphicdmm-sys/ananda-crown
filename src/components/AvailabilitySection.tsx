@@ -170,7 +170,7 @@ export default function AvailabilitySection({
             {/* Download Brochure Button matching One24 cta-ball */}
             <button
               onClick={onOpenBrochure}
-              className="group inline-flex items-center space-x-3 rounded-full border border-[#C5A880]/50 hover:border-[#C5A880] bg-[#20130C] hover:bg-[#C5A880] px-6 py-3.5 text-[11px] tracking-[0.2em] uppercase text-[#F5EFEB] hover:text-[#160D08] transition-all duration-300 shadow-xl"
+              className="group inline-flex items-center space-x-3 rounded-full border border-[#C5A880]/50 hover:border-[#C5A880] bg-[#20130C] hover:bg-[#C5A880] px-6 py-3.5 text-[11px] tracking-[0.2em] text-[#F5EFEB] hover:text-[#160D08] transition-all duration-300 shadow-xl"
             >
               <span>Download Brochure</span>
               <div className="flex h-5 w-5 items-center justify-center rounded-full bg-[#C5A880] text-[#160D08] group-hover:bg-[#160D08] group-hover:text-[#C5A880] transition-colors">
@@ -181,7 +181,7 @@ export default function AvailabilitySection({
             {/* Make an Appointment Button */}
             <button
               onClick={onOpenInquire}
-              className="group inline-flex items-center space-x-3 rounded-full bg-gradient-to-r from-[#C5A880] via-[#DFBA73] to-[#C5A880] px-7 py-3.5 text-[11px] font-semibold tracking-[0.2em] uppercase text-[#160D08] shadow-[0_4px_24px_rgba(197,168,128,0.3)] hover:scale-[1.02] transition-all"
+              className="group inline-flex items-center space-x-3 rounded-full bg-gradient-to-r from-[#C5A880] via-[#DFBA73] to-[#C5A880] px-7 py-3.5 text-[11px] font-semibold tracking-[0.2em] text-[#160D08] shadow-[0_4px_24px_rgba(197,168,128,0.3)] hover:scale-[1.02] transition-all"
             >
               <span>Make An Appointment</span>
               <div className="flex h-5 w-5 items-center justify-center rounded-full bg-[#160D08] text-[#C5A880]">
@@ -191,7 +191,7 @@ export default function AvailabilitySection({
           </div>
 
           {/* Area Toggle: Sq. Ft. vs. Sq. Meters */}
-          <div className="flex items-center space-x-2 bg-[#20130C] p-1 rounded-full border border-[#341F14] text-[10px] tracking-[0.15em] uppercase">
+          <div className="flex items-center space-x-2 bg-[#20130C] p-1 rounded-full border border-[#341F14] text-[10px] tracking-[0.15em]">
             <span className="text-[#A8988B] px-2">Unit Area:</span>
             <button
               onClick={() => setUnitUnitSystem("sqft")}
@@ -229,7 +229,7 @@ export default function AvailabilitySection({
               <button
                 key={btn.value}
                 onClick={() => setFilterBhk(btn.value)}
-                className={`avail-filter rounded-full px-4 py-2 text-[10px] tracking-[0.18em] uppercase transition-all ${
+                className={`avail-filter rounded-full px-4 py-2 text-[10px] tracking-[0.18em] transition-all ${
                   filterBhk === btn.value
                     ? "bg-[#C5A880] text-[#160D08] font-semibold"
                     : "bg-[#20130C] text-[#A8988B] border border-[#341F14] hover:text-[#F5EFEB]"
@@ -244,7 +244,7 @@ export default function AvailabilitySection({
           <div className="flex items-center space-x-2">
             <button
               onClick={() => setFilterStatus("all")}
-              className={`avail-filter px-3 py-1.5 rounded-full text-[10px] tracking-[0.15em] uppercase transition-all ${
+              className={`avail-filter px-3 py-1.5 rounded-full text-[10px] tracking-[0.15em] transition-all ${
                 filterStatus === "all"
                   ? "border border-[#C5A880] text-[#C5A880]"
                   : "text-[#A8988B] hover:text-[#F5EFEB]"
@@ -254,7 +254,7 @@ export default function AvailabilitySection({
             </button>
             <button
               onClick={() => setFilterStatus("available")}
-              className={`avail-filter px-3 py-1.5 rounded-full text-[10px] tracking-[0.15em] uppercase transition-all ${
+              className={`avail-filter px-3 py-1.5 rounded-full text-[10px] tracking-[0.15em] transition-all ${
                 filterStatus === "available"
                   ? "bg-emerald-950/80 border border-emerald-500/50 text-emerald-400"
                   : "text-[#A8988B] hover:text-[#F5EFEB]"
@@ -270,7 +270,7 @@ export default function AvailabilitySection({
         <div className="w-full overflow-x-auto rounded-2xl border border-[#C5A880]/25 bg-[#20130C]/90 shadow-2xl backdrop-blur-md">
           <table className="w-full text-left border-collapse min-w-[900px]">
             <thead ref={tableHeadRef}>
-              <tr className="border-b border-[#C5A880]/20 text-[10px] tracking-[0.25em] uppercase text-[#C5A880] bg-[#160D08]/80">
+              <tr className="border-b border-[#C5A880]/20 text-[10px] tracking-[0.25em] text-[#C5A880] bg-[#160D08]/80">
                 <th className="py-4 px-6">Residence</th>
                 <th className="py-4 px-6">Typology</th>
                 <th className="py-4 px-6">Floor</th>
@@ -294,7 +294,7 @@ export default function AvailabilitySection({
                     <span className="avail-fraction font-serif text-2xl font-light text-[#E7CFAD] group-hover:text-white transition-colors">
                       {unit.fraction}
                     </span>
-                    <span className="block text-[9px] uppercase tracking-widest text-[#A8988B]">
+                    <span className="block text-[9px] tracking-widest text-[#A8988B]">
                       {unit.tower}
                     </span>
                   </td>
@@ -334,19 +334,19 @@ export default function AvailabilitySection({
                   {/* Availability Status Badge */}
                   <td className="py-5 px-6">
                     {unit.status === "available" && (
-                      <span className="inline-flex items-center space-x-1.5 rounded-full bg-emerald-950/80 px-3 py-1 text-[10px] tracking-wider uppercase text-emerald-400 border border-emerald-500/30">
+                      <span className="inline-flex items-center space-x-1.5 rounded-full bg-emerald-950/80 px-3 py-1 text-[10px] tracking-wider text-emerald-400 border border-emerald-500/30">
                         <span className="h-1.5 w-1.5 rounded-full bg-emerald-400 animate-pulse" />
                         <span>Available</span>
                       </span>
                     )}
                     {unit.status === "reserved" && (
-                      <span className="inline-flex items-center space-x-1.5 rounded-full bg-amber-950/80 px-3 py-1 text-[10px] tracking-wider uppercase text-amber-300 border border-amber-500/30">
+                      <span className="inline-flex items-center space-x-1.5 rounded-full bg-amber-950/80 px-3 py-1 text-[10px] tracking-wider text-amber-300 border border-amber-500/30">
                         <span className="h-1.5 w-1.5 rounded-full bg-amber-400" />
                         <span>Reserved</span>
                       </span>
                     )}
                     {unit.status === "sold" && (
-                      <span className="inline-flex items-center space-x-1.5 rounded-full bg-[#160D08] px-3 py-1 text-[10px] tracking-wider uppercase text-[#A8988B] border border-[#341F14]">
+                      <span className="inline-flex items-center space-x-1.5 rounded-full bg-[#160D08] px-3 py-1 text-[10px] tracking-wider text-[#A8988B] border border-[#341F14]">
                         <Lock className="h-2.5 w-2.5" />
                         <span>Sold</span>
                       </span>
@@ -357,7 +357,7 @@ export default function AvailabilitySection({
                   <td className="py-5 px-6 text-right">
                     <button
                       onClick={() => onSelectFloorplan(unit)}
-                      className="group/btn inline-flex items-center space-x-2 rounded-full border border-[#C5A880]/40 px-4 py-1.5 text-[10px] tracking-[0.15em] uppercase text-[#E7CFAD] hover:bg-[#C5A880] hover:text-[#160D08] transition-all"
+                      className="group/btn inline-flex items-center space-x-2 rounded-full border border-[#C5A880]/40 px-4 py-1.5 text-[10px] tracking-[0.15em] text-[#E7CFAD] hover:bg-[#C5A880] hover:text-[#160D08] transition-all"
                     >
                       <Eye className="h-3 w-3" />
                       <span>View Floorplan</span>
@@ -372,7 +372,7 @@ export default function AvailabilitySection({
         {filteredInventory.length === 0 && (
           <div className="text-center py-12 text-[#A8988B] space-y-2">
             <p className="font-serif text-2xl text-[#E7CFAD]">No residences match criteria</p>
-            <p className="text-xs tracking-wider uppercase">
+            <p className="text-xs tracking-wider">
               Please reset filters or contact concierge for customized inventory
             </p>
           </div>

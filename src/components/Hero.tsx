@@ -267,12 +267,12 @@ export default function Hero({ onOpenInquire }: HeroProps) {
           {/* Mid-Left Hero Display Content matching ChatGPT Image Sep 16, 2026, 05_59_01 PM.png */}
           <div className="max-w-2xl w-full my-auto py-4 z-10">
             <div className="flex flex-col items-start text-left">
-              {/* Eyebrow: Copper line + SOPHISTICATION (Copper) LIVES HERE (Dark Espresso) */}
+              {/* Eyebrow: Copper line + Sophistication (Copper) Lives Here (Dark Espresso) */}
               <div className="inline-flex items-center space-x-3.5 mb-6">
                 <span ref={eyebrowLineRef} className="w-9 h-[1.5px] bg-[#9e6443]" />
-                <div className="flex items-center space-x-1.5 text-[11px] tracking-[0.28em] uppercase font-sans">
-                  <span ref={eyebrowText1Ref} className="font-semibold text-[#8c5d3d] inline-block">SOPHISTICATION</span>
-                  <span ref={eyebrowText2Ref} className="font-medium text-[#2b221d] inline-block">LIVES HERE</span>
+                <div className="flex items-center space-x-1.5 text-[11px] tracking-[0.28em] font-sans">
+                  <span ref={eyebrowText1Ref} className="font-semibold text-[#8c5d3d] inline-block">Sophistication</span>
+                  <span ref={eyebrowText2Ref} className="font-medium text-[#2b221d] inline-block">Lives Here</span>
                 </div>
               </div>
 
@@ -283,22 +283,22 @@ export default function Hero({ onOpenInquire }: HeroProps) {
                 <span ref={titleLine2Ref} className="italic font-normal text-[#9e6443] inline-block">Elegance</span>
               </h1>
 
-              {/* Location Subtitle: IN SECTOR 78 MOHALI */}
-              <div ref={subtitleRef} className="text-[11.5px] font-medium tracking-[0.35em] uppercase text-[#2b221d] font-sans mt-2 mb-6">
-                IN SECTOR 78 MOHALI
+              {/* Location Subtitle: In Sector 78 Mohali */}
+              <div ref={subtitleRef} className="text-[11.5px] font-medium tracking-[0.35em] text-[#2b221d] font-sans mt-2 mb-6">
+                In Sector 78 Mohali
               </div>
 
               {/* Olive-Bronze Divider Line */}
               <div ref={dividerRef} className="w-11 h-[1.5px] bg-[#7d7265] mb-7" />
 
-              {/* EXPLORE RESIDENCES Action with Outlined Circular Arrow */}
+              {/* Explore Residences Action with Outlined Circular Arrow */}
               <div ref={exploreRef}>
                 <Link
                   href="#residences"
                   className="group inline-flex items-center space-x-4 cursor-pointer transition-transform duration-300 hover:translate-x-1"
                 >
-                  <span className="text-[11.5px] tracking-[0.25em] font-semibold uppercase text-[#221814] font-sans group-hover:text-[#9e6443] transition-colors">
-                    EXPLORE RESIDENCES
+                  <span className="text-[11.5px] tracking-[0.25em] font-semibold text-[#221814] font-sans group-hover:text-[#9e6443] transition-colors">
+                    Explore Residences
                   </span>
                   <div className="flex h-10 w-10 items-center justify-center rounded-full border border-[#3a281e] bg-transparent group-hover:bg-[#221814] group-hover:text-[#f7f2ed] transition-all duration-300 shadow-sm group-hover:scale-105">
                     <ArrowRight className="h-3.5 w-3.5 text-[#221814] group-hover:text-[#f7f2ed] group-hover:translate-x-0.5 transition-all" strokeWidth={1.3} />
@@ -342,10 +342,10 @@ export default function Hero({ onOpenInquire }: HeroProps) {
                 aria-label="Scroll to Vision Section"
               >
                 <span
-                  className="text-[9.5px] font-semibold tracking-[0.32em] uppercase font-sans text-[#f2e8dc]"
+                  className="text-[9.5px] font-semibold tracking-[0.32em] font-sans text-[#f2e8dc]"
                   style={{ writingMode: "vertical-rl", transform: "rotate(180deg)" }}
                 >
-                  SCROLL
+                  Scroll
                 </span>
                 <div ref={scrollIndicatorRef} className="flex flex-col items-center space-y-1">
                   <div className="w-[1px] h-9 bg-[#f2e8dc]"></div>

@@ -145,27 +145,27 @@ export default function ResidencesSection() {
           <div className="lg:col-span-4 flex flex-col justify-between space-y-12 lg:border-r lg:border-[#C5A880]/20 lg:pr-12">
             {/* Top Specs Table */}
             <div className="space-y-6 spec-container">
-              <div className="spec-row flex items-center justify-between border-b border-[#341F14] pb-3 text-xs tracking-[0.2em] uppercase">
+              <div className="spec-row flex items-center justify-between border-b border-[#341F14] pb-3 text-xs tracking-[0.2em]">
                 <span className="text-[#A8988B]">Location</span>
                 <span className="font-medium text-[#F5EFEB]">Sector 78, Mohali</span>
               </div>
 
-              <div className="spec-row flex items-center justify-between border-b border-[#341F14] pb-3 text-xs tracking-[0.2em] uppercase">
+              <div className="spec-row flex items-center justify-between border-b border-[#341F14] pb-3 text-xs tracking-[0.2em]">
                 <span className="text-[#A8988B]">Typologies</span>
                 <span className="font-medium text-[#F5EFEB]">3, 4 & 5 BHK Penthouse</span>
               </div>
 
-              <div className="spec-row flex items-center justify-between border-b border-[#341F14] pb-3 text-xs tracking-[0.2em] uppercase">
+              <div className="spec-row flex items-center justify-between border-b border-[#341F14] pb-3 text-xs tracking-[0.2em]">
                 <span className="text-[#A8988B]">Possession</span>
                 <span className="font-medium text-[#F5EFEB]">2026 - 2027</span>
               </div>
 
-              <div className="spec-row flex items-center justify-between border-b border-[#341F14] pb-3 text-xs tracking-[0.2em] uppercase">
+              <div className="spec-row flex items-center justify-between border-b border-[#341F14] pb-3 text-xs tracking-[0.2em]">
                 <span className="text-[#A8988B]">Architecture</span>
                 <span className="font-medium text-[#F5EFEB]">G+30 Towers (IE Design)</span>
               </div>
 
-              <div className="spec-row flex items-center justify-between border-b border-[#341F14] pb-3 text-xs tracking-[0.2em] uppercase">
+              <div className="spec-row flex items-center justify-between border-b border-[#341F14] pb-3 text-xs tracking-[0.2em]">
                 <span className="text-[#A8988B]">Ceiling Height</span>
                 <span className="font-medium text-[#F5EFEB]">11.5 Ft. Clear</span>
               </div>
@@ -194,7 +194,7 @@ export default function ResidencesSection() {
               <Link
                 href="#availability"
                 ref={ctaRef}
-                className="group inline-flex items-center space-x-3 rounded-full border border-[#C5A880]/50 hover:border-[#C5A880] bg-[#24150F] hover:bg-[#C5A880] px-6 py-3.5 text-[11px] tracking-[0.2em] uppercase text-[#F5EFEB] hover:text-[#160D08] transition-all duration-300 shadow-lg"
+                className="group inline-flex items-center space-x-3 rounded-full border border-[#C5A880]/50 hover:border-[#C5A880] bg-[#24150F] hover:bg-[#C5A880] px-6 py-3.5 text-[11px] tracking-[0.2em] text-[#F5EFEB] hover:text-[#160D08] transition-all duration-300 shadow-lg"
               >
                 <span>Available Residences</span>
                 <div className="flex h-5 w-5 items-center justify-center rounded-full bg-[#C5A880] text-[#160D08] group-hover:bg-[#160D08] group-hover:text-[#C5A880] transition-colors">
@@ -212,7 +212,7 @@ export default function ResidencesSection() {
                 <button
                   key={space.id}
                   onClick={() => setActiveSpace(space)}
-                  className={`cat-tab shrink-0 rounded-full px-5 py-2.5 text-[10px] md:text-[11px] tracking-[0.2em] uppercase transition-all duration-300 ${
+                  className={`cat-tab shrink-0 rounded-full px-5 py-2.5 text-[10px] md:text-[11px] tracking-[0.2em] transition-all duration-300 ${
                     activeSpace.id === space.id
                       ? "bg-[#C5A880] text-[#160D08] font-semibold shadow-md shadow-[#C5A880]/20"
                       : "bg-[#24150F] text-[#A8988B] hover:text-[#F5EFEB] hover:bg-[#341F14]"
@@ -246,7 +246,7 @@ export default function ResidencesSection() {
 
                 {/* Bottom Overlay Label */}
                 <div ref={imgContentRef} className="absolute bottom-6 left-6 right-6">
-                  <span className="inline-block rounded-full bg-[#C5A880]/90 px-3 py-1 text-[9px] font-semibold tracking-[0.2em] uppercase text-[#160D08] mb-2">
+                  <span className="inline-block rounded-full bg-[#C5A880]/90 px-3 py-1 text-[9px] font-semibold tracking-[0.2em] text-[#160D08] mb-2">
                     {activeSpace.tag}
                   </span>
                   <h3 className="font-serif text-2xl md:text-3xl font-light text-[#F5EFEB]">
@@ -295,7 +295,7 @@ export default function ResidencesSection() {
                     className="object-cover"
                   />
                   <div className="absolute inset-0 bg-black/30" />
-                  <span className="absolute bottom-1 left-1 right-1 text-[8px] uppercase tracking-wider text-[#F5EFEB] truncate text-center font-medium">
+                  <span className="absolute bottom-1 left-1 right-1 text-[8px] tracking-wider text-[#F5EFEB] truncate text-center font-medium">
                     {space.tag.split("&")[0]}
                   </span>
                 </button>

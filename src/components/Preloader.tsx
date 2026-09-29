@@ -127,7 +127,7 @@ export default function Preloader({ onComplete }: { onComplete?: () => void }) {
       className="fixed inset-0 z-[99999] flex flex-col items-center justify-between bg-[#160D08] px-8 py-12 cursor-pointer select-none"
     >
       {/* Top Info */}
-      <div className="w-full flex items-center justify-between text-xs tracking-[0.25em] text-[#C5A880]/70 uppercase">
+      <div className="w-full flex items-center justify-between text-xs tracking-[0.25em] text-[#C5A880]/70">
         <span ref={topTextLeftRef}>Sector 78 • Mohali</span>
         <span ref={topTextRightRef}>Ultra-Luxury Residences</span>
       </div>
@@ -158,7 +158,7 @@ export default function Preloader({ onComplete }: { onComplete?: () => void }) {
               </span>
             ))}
           </h1>
-          <p ref={taglineRef} className="text-[11px] md:text-xs tracking-[0.3em] text-[#C5A880] uppercase">
+          <p ref={taglineRef} className="text-[11px] md:text-xs tracking-[0.3em] text-[#C5A880]">
             The Crown Has Arrived
           </p>
         </div>
@@ -166,7 +166,7 @@ export default function Preloader({ onComplete }: { onComplete?: () => void }) {
 
       {/* Bottom Counter & Loading Bar */}
       <div className="w-full max-w-xs space-y-3">
-        <div className="flex items-center justify-between text-[11px] tracking-[0.2em] text-[#A8988B] uppercase">
+        <div className="flex items-center justify-between text-[11px] tracking-[0.2em] text-[#A8988B]">
           <span className="flex items-center space-x-1">
             <span>Loading Experience</span>
             <span className="inline-block animate-pulse">...</span>
@@ -183,7 +183,7 @@ export default function Preloader({ onComplete }: { onComplete?: () => void }) {
           />
         </div>
 
-        <p className="text-center text-[9px] tracking-[0.2em] text-[#A8988B]/60 uppercase pt-1">
+        <p className="text-center text-[9px] tracking-[0.2em] text-[#A8988B]/60 pt-1">
           Click anywhere to skip
         </p>
       </div>

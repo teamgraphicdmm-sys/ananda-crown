@@ -236,7 +236,7 @@ export default function VisionSection() {
                   className="object-cover"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-[#160D08]/80 via-transparent to-transparent" />
-                <div className="absolute bottom-6 left-6 right-6 flex items-center justify-between text-xs tracking-[0.2em] uppercase text-[#E7CFAD]">
+                <div className="absolute bottom-6 left-6 right-6 flex items-center justify-between text-xs tracking-[0.2em] text-[#E7CFAD]">
                   <span>Sculptural Arrival Porte-Cochère</span>
                   <span>Architecture by IE Design</span>
                 </div>
@@ -256,14 +256,14 @@ export default function VisionSection() {
                   className="object-cover"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-[#160D08]/80 via-transparent to-transparent" />
-                <div className="absolute bottom-6 left-6 right-6 flex items-center justify-between text-xs tracking-[0.2em] uppercase text-[#E7CFAD]">
+                <div className="absolute bottom-6 left-6 right-6 flex items-center justify-between text-xs tracking-[0.2em] text-[#E7CFAD]">
                   <span>600 Ft Landscaped Grand Frontage</span>
                   <span>Landscape by Oracles</span>
                 </div>
               </div>
 
               {/* Interactive toggle pills */}
-              <div className="absolute top-6 right-6 z-20 flex space-x-2 bg-[#160D08]/70 backdrop-blur-md p-1 rounded-full border border-[#C5A880]/30 text-[10px] uppercase tracking-[0.15em]">
+              <div className="absolute top-6 right-6 z-20 flex space-x-2 bg-[#160D08]/70 backdrop-blur-md p-1 rounded-full border border-[#C5A880]/30 text-[10px] tracking-[0.15em]">
                 <button
                   onClick={() => setActiveVisual("crown")}
                   className={`toggle-pill px-3 py-1 rounded-full transition-all ${
@@ -304,7 +304,7 @@ export default function VisionSection() {
                 <span ref={metric600Ref} className="font-serif text-3xl font-light text-[#C5A880]">
                   0 Ft.
                 </span>
-                <p className="metric-label text-[10px] tracking-[0.2em] uppercase text-[#A8988B]">
+                <p className="metric-label text-[10px] tracking-[0.2em] text-[#A8988B]">
                   Grand Boulevard Frontage
                 </p>
               </div>
@@ -313,7 +313,7 @@ export default function VisionSection() {
                 <span ref={metric11Ref} className="font-serif text-3xl font-light text-[#C5A880]">
                   0.0 Ft.
                 </span>
-                <p className="metric-label text-[10px] tracking-[0.2em] uppercase text-[#A8988B]">
+                <p className="metric-label text-[10px] tracking-[0.2em] text-[#A8988B]">
                   Clear Ceiling Height
                 </p>
               </div>
@@ -322,7 +322,7 @@ export default function VisionSection() {
                 <span ref={metric30Ref} className="font-serif text-3xl font-light text-[#C5A880]">
                   G+0
                 </span>
-                <p className="metric-label text-[10px] tracking-[0.2em] uppercase text-[#A8988B]">
+                <p className="metric-label text-[10px] tracking-[0.2em] text-[#A8988B]">
                   High-Rise Towers
                 </p>
               </div>
@@ -331,7 +331,7 @@ export default function VisionSection() {
                 <span ref={metric20Ref} className="font-serif text-3xl font-light text-[#C5A880]">
                   0+
                 </span>
-                <p className="metric-label text-[10px] tracking-[0.2em] uppercase text-[#A8988B]">
+                <p className="metric-label text-[10px] tracking-[0.2em] text-[#A8988B]">
                   Bespoke World Amenities
                 </p>
               </div>

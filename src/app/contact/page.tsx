@@ -40,9 +40,9 @@ export default function ContactPage() {
       <div className="w-full flex justify-end items-center mb-6">
         <button
           onClick={handleClose}
-          className="text-xs sm:text-[13px] tracking-[0.18em] uppercase font-medium text-white hover:text-[#A27B58] transition-colors"
+          className="text-xs sm:text-[13px] tracking-[0.18em] font-medium text-white hover:text-[#A27B58] transition-colors"
         >
-          CLOSE
+          Close
         </button>
       </div>
 
@@ -59,25 +59,25 @@ export default function ContactPage() {
           <div className="mt-12 space-y-8">
             {/* Where */}
             <div>
-              <div className="text-[11px] tracking-[0.16em] uppercase text-[#A27B58] font-medium mb-3">
-                WHERE
+              <div className="text-[11px] tracking-[0.16em] text-[#A27B58] font-medium mb-3">
+                Where
               </div>
               <a
                 href="https://maps.google.com/?q=Sector+78+Mohali+Punjab"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="font-serif text-xl sm:text-2xl text-white uppercase tracking-wide leading-snug hover:text-[#A27B58] transition-colors block"
+                className="font-serif text-xl sm:text-2xl text-white tracking-wide leading-snug hover:text-[#A27B58] transition-colors block"
               >
-                SECTOR 78, SAS NAGAR,<br />
-                MOHALI, PUNJAB<br />
+                Sector 78, SAS Nagar,<br />
+                Mohali, Punjab<br />
                 140308
               </a>
             </div>
 
             {/* Contacts */}
             <div>
-              <div className="text-[11px] tracking-[0.16em] uppercase text-[#A27B58] font-medium mb-3">
-                CONTACTS
+              <div className="text-[11px] tracking-[0.16em] text-[#A27B58] font-medium mb-3">
+                Contacts
               </div>
               <div className="space-y-4">
                 <div>
@@ -87,9 +87,6 @@ export default function ContactPage() {
                   >
                     +91 12345 12345
                   </a>
-                  {/* <span className="text-[9px] tracking-[0.14em] uppercase text-white/45 block mt-1">
-                    LOCAL CALL, FEES MAY APPLY
-                  </span> */}
                 </div>
 
                 <div>
@@ -99,9 +96,6 @@ export default function ContactPage() {
                   >
                     +91 12345 12345
                   </a>
-                  {/* <span className="text-[9px] tracking-[0.14em] uppercase text-white/45 block mt-1">
-                    LOCAL CALL, FEES MAY APPLY
-                  </span> */}
                 </div>
               </div>
             </div>
@@ -117,8 +111,8 @@ export default function ContactPage() {
                 <div className="flex items-center justify-between pb-3 border-b border-white/25">
                   <div className="flex items-center space-x-3">
                     <span className="w-1.5 h-1.5 rounded-full bg-white block" />
-                    <span className="text-xs tracking-[0.14em] uppercase text-white font-medium">
-                      {isRegisterInterest ? "REGISTER INTEREST" : "SCHEDULE VISIT"}
+                    <span className="text-xs tracking-[0.14em] text-white font-medium">
+                      {isRegisterInterest ? "Register Interest" : "Schedule Visit"}
                     </span>
                     <button
                       type="button"
@@ -138,8 +132,8 @@ export default function ContactPage() {
                       />
                     </button>
                   </div>
-                  <span className="text-[10px] tracking-[0.12em] uppercase text-white/45">
-                    *REQUIRED FIELDS
+                  <span className="text-[10px] tracking-[0.12em] text-white/45">
+                    *Required fields
                   </span>
                 </div>
 
@@ -149,10 +143,10 @@ export default function ContactPage() {
                     <input
                       type="text"
                       required
-                      placeholder="FIRST NAME*"
+                      placeholder="First Name*"
                       value={formData.firstName}
                       onChange={(e) => setFormData({ ...formData, firstName: e.target.value })}
-                      className="w-full bg-transparent border-b border-white/25 py-2.5 text-[11px] tracking-[0.14em] uppercase text-white placeholder-white/45 focus:border-white focus:outline-none transition-colors"
+                      className="w-full bg-transparent border-b border-white/25 py-2.5 text-[11px] tracking-[0.14em] text-white placeholder-white/45 focus:border-white focus:outline-none transition-colors"
                     />
                   </div>
 
@@ -160,10 +154,10 @@ export default function ContactPage() {
                     <input
                       type="text"
                       required
-                      placeholder="LAST NAME*"
+                      placeholder="Last Name*"
                       value={formData.lastName}
                       onChange={(e) => setFormData({ ...formData, lastName: e.target.value })}
-                      className="w-full bg-transparent border-b border-white/25 py-2.5 text-[11px] tracking-[0.14em] uppercase text-white placeholder-white/45 focus:border-white focus:outline-none transition-colors"
+                      className="w-full bg-transparent border-b border-white/25 py-2.5 text-[11px] tracking-[0.14em] text-white placeholder-white/45 focus:border-white focus:outline-none transition-colors"
                     />
                   </div>
 
@@ -171,20 +165,20 @@ export default function ContactPage() {
                     <input
                       type="email"
                       required
-                      placeholder="EMAIL*"
+                      placeholder="Email*"
                       value={formData.email}
                       onChange={(e) => setFormData({ ...formData, email: e.target.value })}
-                      className="w-full bg-transparent border-b border-white/25 py-2.5 text-[11px] tracking-[0.14em] uppercase text-white placeholder-white/45 focus:border-white focus:outline-none transition-colors"
+                      className="w-full bg-transparent border-b border-white/25 py-2.5 text-[11px] tracking-[0.14em] text-white placeholder-white/45 focus:border-white focus:outline-none transition-colors"
                     />
                   </div>
 
                   <div>
                     <input
                       type="tel"
-                      placeholder="PHONE NUMBER"
+                      placeholder="Phone Number"
                       value={formData.phone}
                       onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
-                      className="w-full bg-transparent border-b border-white/25 py-2.5 text-[11px] tracking-[0.14em] uppercase text-white placeholder-white/45 focus:border-white focus:outline-none transition-colors"
+                      className="w-full bg-transparent border-b border-white/25 py-2.5 text-[11px] tracking-[0.14em] text-white placeholder-white/45 focus:border-white focus:outline-none transition-colors"
                     />
                   </div>
 
@@ -192,10 +186,10 @@ export default function ContactPage() {
                     <textarea
                       required
                       rows={1}
-                      placeholder="REQUEST*"
+                      placeholder="Request*"
                       value={formData.request}
                       onChange={(e) => setFormData({ ...formData, request: e.target.value })}
-                      className="w-full bg-transparent border-b border-white/25 py-2.5 text-[11px] tracking-[0.14em] uppercase text-white placeholder-white/45 focus:border-white focus:outline-none transition-colors resize-y min-h-[42px]"
+                      className="w-full bg-transparent border-b border-white/25 py-2.5 text-[11px] tracking-[0.14em] text-white placeholder-white/45 focus:border-white focus:outline-none transition-colors resize-y min-h-[42px]"
                     />
                   </div>
                 </div>
@@ -212,10 +206,10 @@ export default function ContactPage() {
                   >
                     {privacyAccepted && <div className="w-1.5 h-1.5 rounded-full bg-white" />}
                   </div>
-                  <span className="text-[10px] tracking-[0.1em] uppercase text-white/70">
-                    I HAVE READ AND ACCEPT THE{" "}
+                  <span className="text-[10px] tracking-[0.1em] text-white/70">
+                    I have read and accept the{" "}
                     <Link href="/privacy" className="underline text-white/90 hover:text-white">
-                      PRIVACY POLICY
+                      Privacy Policy
                     </Link>
                     .
                   </span>
@@ -225,14 +219,14 @@ export default function ContactPage() {
               <div className="py-12 space-y-4">
                 <div className="flex items-center space-x-3 pb-3 border-b border-white/25">
                   <span className="w-1.5 h-1.5 rounded-full bg-white block" />
-                  <span className="text-xs tracking-[0.14em] uppercase text-white font-medium">
-                    WE RECEIVED YOUR MESSAGE
+                  <span className="text-xs tracking-[0.14em] text-white font-medium">
+                    We received your message
                   </span>
                 </div>
                 <h2 className="font-serif text-5xl sm:text-6xl text-white uppercase font-light">
                   THANK YOU
                 </h2>
-                <p className="text-xs tracking-wider uppercase text-white/50 pt-2">
+                <p className="text-xs tracking-wider text-white/50 pt-2">
                   Our private concierge will contact you shortly.
                 </p>
               </div>
@@ -245,9 +239,9 @@ export default function ContactPage() {
               <button
                 type="submit"
                 onClick={handleSubmit}
-                className="font-serif text-7xl sm:text-8xl md:text-9xl lg:text-[130px] font-light leading-[0.85] text-white hover:text-[#A27B58] transition-all duration-300 uppercase tracking-tight text-right block ml-auto"
+                className="font-serif text-7xl sm:text-8xl md:text-9xl lg:text-[130px] font-light leading-[0.85] text-white hover:text-[#A27B58] transition-all duration-300 tracking-tight text-right block ml-auto"
               >
-                SUBMIT
+                Submit
               </button>
             </div>
           )}

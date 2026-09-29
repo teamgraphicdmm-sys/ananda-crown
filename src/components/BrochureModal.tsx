@@ -33,7 +33,7 @@ export default function BrochureModal({
               />
             </div>
             <div>
-              <span className="text-[10px] tracking-[0.25em] uppercase text-[#C5A880]">
+              <span className="text-[10px] tracking-[0.25em] text-[#C5A880]">
                 Official Project Dossier
               </span>
               <h3 className="font-serif text-2xl md:text-3xl font-light text-[#F5EFEB]">
@@ -60,7 +60,7 @@ export default function BrochureModal({
               className="object-cover"
             />
             <div className="absolute inset-0 bg-gradient-to-t from-[#160D08] via-transparent to-black/30" />
-            <div className="absolute bottom-4 left-6 right-6 flex items-center justify-between text-xs tracking-widest uppercase text-[#E7CFAD]">
+            <div className="absolute bottom-4 left-6 right-6 flex items-center justify-between text-xs tracking-widest text-[#E7CFAD]">
               <span>Punjab RERA Verified: {PROJECT_DETAILS.rera.number}</span>
               <span>Sector 78, Mohali</span>
             </div>
@@ -69,7 +69,7 @@ export default function BrochureModal({
           {/* Key Executive Summary */}
           <div className="grid grid-cols-1 md:grid-cols-3 gap-4 pt-2">
             <div className="p-5 rounded-xl border border-[#341F14] bg-[#20130C]">
-              <span className="text-[10px] tracking-[0.2em] uppercase text-[#C5A880]">
+              <span className="text-[10px] tracking-[0.2em] text-[#C5A880]">
                 Iconic High-Rise
               </span>
               <p className="font-serif text-xl font-light text-[#F5EFEB] mt-1">
@@ -81,7 +81,7 @@ export default function BrochureModal({
             </div>
 
             <div className="p-5 rounded-xl border border-[#341F14] bg-[#20130C]">
-              <span className="text-[10px] tracking-[0.2em] uppercase text-[#C5A880]">
+              <span className="text-[10px] tracking-[0.2em] text-[#C5A880]">
                 Palatial Volumes
               </span>
               <p className="font-serif text-xl font-light text-[#F5EFEB] mt-1">
@@ -93,7 +93,7 @@ export default function BrochureModal({
             </div>
 
             <div className="p-5 rounded-xl border border-[#341F14] bg-[#20130C]">
-              <span className="text-[10px] tracking-[0.2em] uppercase text-[#C5A880]">
+              <span className="text-[10px] tracking-[0.2em] text-[#C5A880]">
                 Curated Landscape
               </span>
               <p className="font-serif text-xl font-light text-[#F5EFEB] mt-1">
@@ -107,7 +107,7 @@ export default function BrochureModal({
 
           {/* Amenities Summary */}
           <div className="space-y-3 pt-2">
-            <p className="text-xs tracking-[0.2em] uppercase text-[#C5A880]">
+            <p className="text-xs tracking-[0.2em] text-[#C5A880]">
               Over 20+ Bespoke Amenities Included
             </p>
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 text-xs text-[#E8DDD2]">
@@ -143,7 +143,7 @@ export default function BrochureModal({
               onClick={() => {
                 window.print();
               }}
-              className="flex-1 sm:flex-none flex items-center justify-center space-x-2 rounded-full border border-[#C5A880]/40 px-6 py-3 text-xs tracking-[0.2em] uppercase text-[#F5EFEB] hover:bg-[#C5A880] hover:text-[#160D08] transition-colors"
+              className="flex-1 sm:flex-none flex items-center justify-center space-x-2 rounded-full border border-[#C5A880]/40 px-6 py-3 text-xs tracking-[0.2em] text-[#F5EFEB] hover:bg-[#C5A880] hover:text-[#160D08] transition-colors"
             >
               <Download className="h-4 w-4" />
               <span>Download PDF</span>
@@ -154,7 +154,7 @@ export default function BrochureModal({
                 onClose();
                 onOpenInquire();
               }}
-              className="flex-1 sm:flex-none rounded-full bg-gradient-to-r from-[#C5A880] via-[#DFBA73] to-[#C5A880] px-6 py-3 text-xs font-semibold tracking-[0.2em] uppercase text-[#160D08] hover:scale-[1.02] transition-transform"
+              className="flex-1 sm:flex-none rounded-full bg-gradient-to-r from-[#C5A880] via-[#DFBA73] to-[#C5A880] px-6 py-3 text-xs font-semibold tracking-[0.2em] text-[#160D08] hover:scale-[1.02] transition-transform"
             >
               Request Hardcopy Dossier
             </button>

@@ -24,7 +24,7 @@ export default function FloorplanModal({
         {/* Modal Header */}
         <div className="flex items-start justify-between border-b border-[#341F14] pb-6">
           <div className="space-y-1">
-            <div className="flex items-center space-x-2 text-[10px] tracking-[0.25em] uppercase text-[#C5A880]">
+            <div className="flex items-center space-x-2 text-[10px] tracking-[0.25em] text-[#C5A880]">
               <Sparkles className="h-3 w-3" />
               <span>Architectural Blueprint • Fraction {unit.fraction}</span>
             </div>
@@ -57,7 +57,7 @@ export default function FloorplanModal({
                 className="object-cover transition-transform duration-700 group-hover:scale-105"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-black/30" />
-              <div className="absolute bottom-4 left-4 right-4 flex items-center justify-between text-xs tracking-wider uppercase text-[#E7CFAD]">
+              <div className="absolute bottom-4 left-4 right-4 flex items-center justify-between text-xs tracking-wider text-[#E7CFAD]">
                 <span>Super Area: {unit.areaSqFt.toLocaleString()} Sq.Ft</span>
                 <span>{unit.areaSqM} Sq.M</span>
               </div>
@@ -67,7 +67,7 @@ export default function FloorplanModal({
           {/* Specifications Breakdown */}
           <div className="lg:col-span-5 space-y-6">
             <div className="space-y-3">
-              <p className="text-xs tracking-[0.2em] uppercase text-[#C5A880]">
+              <p className="text-xs tracking-[0.2em] text-[#C5A880]">
                 Space Breakdown & Dimensions
               </p>
 
@@ -123,7 +123,7 @@ export default function FloorplanModal({
                   onClose();
                   onInquireUnit(unit);
                 }}
-                className="w-full flex items-center justify-center space-x-2 rounded-full bg-gradient-to-r from-[#C5A880] via-[#DFBA73] to-[#C5A880] py-3.5 text-xs font-semibold tracking-[0.2em] uppercase text-[#160D08] shadow-lg hover:scale-[1.01] transition-transform"
+                className="w-full flex items-center justify-center space-x-2 rounded-full bg-gradient-to-r from-[#C5A880] via-[#DFBA73] to-[#C5A880] py-3.5 text-xs font-semibold tracking-[0.2em] text-[#160D08] shadow-lg hover:scale-[1.01] transition-transform"
               >
                 <Send className="h-3.5 w-3.5" />
                 <span>Inquire For Fraction {unit.fraction}</span>
@@ -133,7 +133,7 @@ export default function FloorplanModal({
                 onClick={() => {
                   window.print();
                 }}
-                className="w-full flex items-center justify-center space-x-2 rounded-full border border-[#C5A880]/30 py-3 text-xs tracking-[0.18em] uppercase text-[#A8988B] hover:text-[#F5EFEB] hover:border-[#C5A880] transition-colors"
+                className="w-full flex items-center justify-center space-x-2 rounded-full border border-[#C5A880]/30 py-3 text-xs tracking-[0.18em] text-[#A8988B] hover:text-[#F5EFEB] hover:border-[#C5A880] transition-colors"
               >
                 <Download className="h-3.5 w-3.5" />
                 <span>Print Floorplan Schematic</span>

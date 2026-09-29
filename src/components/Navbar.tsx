@@ -28,12 +28,12 @@ export default function Navbar({ onOpenInquire, activeSection }: NavbarProps) {
   }, []);
 
   const navItems = [
-    { label: "HOME", href: "#home", id: "home" },
-    { label: "VISION", href: "#vision", id: "vision" },
-    { label: "RESIDENCES", href: "#residences", id: "residences" },
-    { label: "THE DESTINATION", href: "#destination", id: "destination" },
-    { label: "LOCATION", href: "#location", id: "location" },
-    { label: "AVAILABILITY", href: "#availability", id: "availability" },
+    { label: "Home", href: "#home", id: "home" },
+    { label: "Vision", href: "#vision", id: "vision" },
+    { label: "Residences", href: "#residences", id: "residences" },
+    { label: "The Destination", href: "#destination", id: "destination" },
+    { label: "Location", href: "#location", id: "location" },
+    { label: "Availability", href: "#availability", id: "availability" },
   ];
 
   return (
@@ -72,7 +72,7 @@ export default function Navbar({ onOpenInquire, activeSection }: NavbarProps) {
                 <Link
                   key={item.id}
                   href={item.href}
-                  className="group relative flex flex-col items-center py-1 text-[11.5px] font-medium tracking-[0.22em] uppercase text-[#221814] hover:text-[#9e6443] transition-colors duration-300"
+                  className="group relative flex flex-col items-center py-1 text-[11.5px] font-medium tracking-[0.22em] text-[#221814] hover:text-[#9e6443] transition-colors duration-300"
                 >
                   <span>{item.label}</span>
                   {/* Active underline indicator */}
@@ -91,9 +91,9 @@ export default function Navbar({ onOpenInquire, activeSection }: NavbarProps) {
             <span className="h-4 w-[1px] bg-[#221814]/40" />
             <button
               onClick={onOpenInquire}
-              className="text-[11.5px] font-medium tracking-[0.22em] uppercase text-[#221814] hover:text-[#9e6443] transition-colors cursor-pointer"
+              className="text-[11.5px] font-medium tracking-[0.22em] text-[#221814] hover:text-[#9e6443] transition-colors cursor-pointer"
             >
-              INQUIRE
+              Inquire
             </button>
           </div>
 
@@ -101,7 +101,7 @@ export default function Navbar({ onOpenInquire, activeSection }: NavbarProps) {
           <div className="flex items-center space-x-3 lg:hidden ml-auto">
             <button
               onClick={onOpenInquire}
-              className="rounded-full border border-[#221814] px-3.5 py-1 text-[10px] tracking-[0.2em] uppercase font-semibold text-[#221814]"
+              className="rounded-full border border-[#221814] px-3.5 py-1 text-[10px] tracking-[0.2em] font-semibold text-[#221814]"
             >
               Inquire
             </button>
@@ -166,7 +166,7 @@ export default function Navbar({ onOpenInquire, activeSection }: NavbarProps) {
                 setMobileMenuOpen(false);
                 onOpenInquire();
               }}
-              className="w-full bg-[#c2a180] text-[#30160e] py-3.5 text-xs font-semibold tracking-[0.25em] uppercase hover:bg-[#dfcaa8] transition-colors"
+              className="w-full bg-[#c2a180] text-[#30160e] py-3.5 text-xs font-semibold tracking-[0.25em] hover:bg-[#dfcaa8] transition-colors"
             >
               Open Inquiry Dossier
             </button>

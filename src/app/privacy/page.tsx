@@ -12,7 +12,7 @@ export default function PrivacyPage() {
       <div className="max-w-3xl mx-auto space-y-8">
         <Link
           href="/"
-          className="text-xs tracking-[0.18em] uppercase text-white/70 hover:text-[#A27B58] transition-colors"
+          className="text-xs tracking-[0.18em] text-white/70 hover:text-[#A27B58] transition-colors"
         >
           ← Back to home
         </Link>

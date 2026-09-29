@@ -266,7 +266,7 @@ export default function DestinationSection() {
           </div>
 
           <div ref={statsCardRef} className="lg:col-span-5 bg-[#20130C]/80 backdrop-blur-md rounded-2xl border border-[#C5A880]/30 p-8 space-y-6 shadow-2xl">
-            <div className="flex items-center space-x-2 text-[10px] tracking-[0.25em] text-[#C5A880] uppercase">
+            <div className="flex items-center space-x-2 text-[10px] tracking-[0.25em] text-[#C5A880]">
               <Sparkles ref={badgeIconRef} className="h-3.5 w-3.5 text-[#C5A880]" />
               <span ref={badgeTextRef}>Architectural Supremacy</span>
             </div>
@@ -276,7 +276,7 @@ export default function DestinationSection() {
                 <span ref={metric600Ref} className="font-serif text-3xl md:text-4xl text-[#C5A880] block">
                   600 Ft.
                 </span>
-                <p ref={(el) => { statLabelsRef.current[0] = el; }} className="text-[10px] uppercase tracking-wider text-[#A8988B]">
+                <p ref={(el) => { statLabelsRef.current[0] = el; }} className="text-[10px] tracking-wider text-[#A8988B]">
                   Grand Avenue Frontage
                 </p>
               </div>
@@ -285,7 +285,7 @@ export default function DestinationSection() {
                 <span ref={metric11Ref} className="font-serif text-3xl md:text-4xl text-[#C5A880] block">
                   11.5 Ft.
                 </span>
-                <p ref={(el) => { statLabelsRef.current[1] = el; }} className="text-[10px] uppercase tracking-wider text-[#A8988B]">
+                <p ref={(el) => { statLabelsRef.current[1] = el; }} className="text-[10px] tracking-wider text-[#A8988B]">
                   Slab-to-Slab Ceilings
                 </p>
               </div>
@@ -294,7 +294,7 @@ export default function DestinationSection() {
                 <span ref={metric15Ref} className="font-serif text-3xl md:text-4xl text-[#C5A880] block">
                   15 Mins
                 </span>
-                <p ref={(el) => { statLabelsRef.current[2] = el; }} className="text-[10px] uppercase tracking-wider text-[#A8988B]">
+                <p ref={(el) => { statLabelsRef.current[2] = el; }} className="text-[10px] tracking-wider text-[#A8988B]">
                   To Intl. Airport (IXC)
                 </p>
               </div>
@@ -303,7 +303,7 @@ export default function DestinationSection() {
                 <span ref={metric30Ref} className="font-serif text-3xl md:text-4xl text-[#C5A880] block">
                   G+30
                 </span>
-                <p ref={(el) => { statLabelsRef.current[3] = el; }} className="text-[10px] uppercase tracking-wider text-[#A8988B]">
+                <p ref={(el) => { statLabelsRef.current[3] = el; }} className="text-[10px] tracking-wider text-[#A8988B]">
                   Iconic Sky Towers
                 </p>
               </div>
