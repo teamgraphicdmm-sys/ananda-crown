@@ -6724,6 +6724,7 @@ figcaption {
     align-items: flex-start;
     display: flex;
   }
+
 }
 
 @media screen and (max-width: 767px) {
@@ -7124,6 +7125,12 @@ figcaption {
   .margin-horizontal {
     margin-top: 0;
     margin-bottom: 0;
+  }
+    .small-links {
+      justify-content: center;
+      align-items: center;
+      display: flex;
+      position: relative;
   }
 
   .padding-top {
