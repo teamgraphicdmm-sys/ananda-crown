@@ -2428,13 +2428,9 @@
           background-color: #c2a180 !important;
         }
 
-        /* Luxury Mobile Navigation Drawer matching reference design */
         html.body-scroll-locked,
         body.body-scroll-locked {
           overflow: hidden !important;
-          touch-action: none !important;
-          -webkit-overflow-scrolling: auto !important;
-          height: 100% !important;
         }
 
         .nav-mobile-drawer {
@@ -2589,41 +2585,87 @@
           z-index: 5 !important;
         }
 
-        .nav-mobile-inquire-pill {
+        .nav-mobile-inquire-cta {
+          display: inline-flex !important;
+          align-items: center !important;
+          text-decoration: none !important;
+          cursor: pointer !important;
+          width: fit-content !important;
+          margin-bottom: 0.5rem !important;
+        }
+        .nav-mobile-inquire-cta .cta {
           display: flex !important;
           align-items: center !important;
-          justify-content: space-between !important;
+          color: #221814 !important;
+          transition: color 0.35s ease !important;
+          margin: 0 !important;
+        }
+        .nav-mobile-inquire-cta .cta .untitled-400-13 {
+          font-family: "Montserrat", sans-serif !important;
+          font-size: 13px !important;
+          font-weight: 500 !important;
+          letter-spacing: 0.08em !important;
+          text-transform: uppercase !important;
+          color: #221814 !important;
+          transition: color 0.35s ease !important;
+          white-space: nowrap !important;
+        }
+        .nav-mobile-inquire-cta .cta-ball {
+          background-color: #9e6443 !important;
+          border-radius: 100vh !important;
+          width: 36px !important;
+          height: 36px !important;
+          margin-left: 12px !important;
+          display: flex !important;
+          justify-content: center !important;
+          align-items: center !important;
+          transition: background-color 0.35s ease, transform 0.3s ease !important;
+          flex-shrink: 0 !important;
+        }
+        .nav-mobile-inquire-cta .seta-cta-wrap {
+          width: 14px !important;
+          height: 12px !important;
+          position: relative !important;
+          overflow: hidden !important;
+          display: flex !important;
+          align-items: center !important;
+          justify-content: center !important;
+        }
+        .nav-mobile-inquire-cta .seta-cta-anda-1,
+        .nav-mobile-inquire-cta .seta-cta-anda-2 {
+          position: absolute !important;
           width: 100% !important;
-          max-width: 290px !important;
-          padding: 14px 22px !important;
-          background: #ebe3d9 !important;
-          border: 1px solid rgba(168, 132, 96, 0.35) !important;
-          border-radius: 0px !important;
-          color: #221814 !important;
-          font-family: "Cinzel", "Montserrat", sans-serif !important;
-          font-size: 12.5px !important;
-          font-weight: 600 !important;
-          letter-spacing: 0.16em !important;
-          text-transform: none !important;
-          cursor: pointer !important;
-          transition: all 0.25s ease !important;
-          box-shadow: 0 4px 14px rgba(0, 0, 0, 0.04) !important;
-          box-sizing: border-box !important;
+          height: 100% !important;
+          display: flex !important;
+          align-items: center !important;
+          justify-content: center !important;
+          transition: transform 0.35s cubic-bezier(0.165, 0.84, 0.44, 1) !important;
         }
-
-        .nav-mobile-inquire-pill:hover {
-          background: #dfd4c5 !important;
-          border-color: #a88460 !important;
+        .nav-mobile-inquire-cta .seta-cta-anda-1 {
+          transform: translateX(0) !important;
         }
-
-        .nav-mobile-inquire-pill .nav-pill-arrow {
-          font-size: 15px !important;
-          color: #221814 !important;
-          transition: transform 0.2s ease !important;
+        .nav-mobile-inquire-cta .seta-cta-anda-2 {
+          transform: translateX(-120%) !important;
         }
-
-        .nav-mobile-inquire-pill:hover .nav-pill-arrow {
-          transform: translateX(3px) !important;
+        .nav-mobile-inquire-cta .seta-cta {
+          width: 10px !important;
+          height: 9px !important;
+          display: block !important;
+          filter: brightness(0) invert(1) !important;
+        }
+        .nav-mobile-inquire-cta:hover .cta,
+        .nav-mobile-inquire-cta:hover .cta .untitled-400-13 {
+          color: #9e6443 !important;
+        }
+        .nav-mobile-inquire-cta:hover .cta-ball {
+          background-color: #c2a180 !important;
+          transform: scale(1.06) !important;
+        }
+        .nav-mobile-inquire-cta:hover .seta-cta-anda-1 {
+          transform: translateX(120%) !important;
+        }
+        .nav-mobile-inquire-cta:hover .seta-cta-anda-2 {
+          transform: translateX(0) !important;
         }
 
         .nav-mobile-contact {
@@ -4123,13 +4165,24 @@
         }
               
 
-      .floorplan-download-btn {
-            padding: 9px 20px !important;
-          border-radius: 5px !important;
-                  line-height: normal;
+      .floorplan-modal-actions {
+        gap: 10px !important;
+      }
+      .floorplan-modal-actions .download-btn-mobile {
+        display: none !important;
+      }
+      .floorplan-modal-actions .cta .untitled-400-13 {
+        font-size: 10px !important;
+      }
+      .floorplan-modal-actions .cta-ball {
+        width: 28px !important;
+        height: 28px !important;
+        margin-left: 6px !important;
       }
       .floorplan-close-btn {
-        border-radius: 0px !important;
+        border-radius: 50% !important;
+        width: 30px !important;
+        height: 30px !important;
       }
         .nav {
           height: 56px !important;
@@ -4535,14 +4588,14 @@
         color: #ffffff !important;
       }
 
-      /* Floorplan Preview Lightbox Modal */
+      /* Award-Winning Floorplan Architectural Folio Lightbox Modal */
       .floorplan-modal-backdrop {
         position: fixed;
         inset: 0;
         z-index: 99999;
-        background: rgba(14, 8, 5, 0.92);
-        backdrop-filter: blur(12px);
-        -webkit-backdrop-filter: blur(12px);
+        background: rgba(14, 8, 5, 0.94);
+        backdrop-filter: blur(16px);
+        -webkit-backdrop-filter: blur(16px);
         display: flex;
         align-items: center;
         justify-content: center;
@@ -4555,104 +4608,479 @@
         opacity: 1;
         pointer-events: auto;
       }
+      .floorplan-grid-watermark {
+        position: absolute;
+        inset: 0;
+        pointer-events: none;
+        opacity: 0.12;
+        background-image: radial-gradient(rgba(197, 168, 128, 0.3) 1px, transparent 1px),
+          linear-gradient(to right, rgba(197, 168, 128, 0.05) 1px, transparent 1px),
+          linear-gradient(to bottom, rgba(197, 168, 128, 0.05) 1px, transparent 1px);
+        background-size: 32px 32px, 64px 64px, 64px 64px;
+      }
       .floorplan-modal-container {
         position: relative;
-        background: #1c110b;
-        border: 1px solid rgba(194, 161, 128, 0.35);
-        border-radius:5px;
+        background: #160d08;
+        border: 1px solid rgba(197, 168, 128, 0.4);
+        border-radius: 12px;
         max-width: 1040px;
         width: 100%;
         max-height: 92vh;
         display: flex;
         flex-direction: column;
         overflow: hidden;
-        box-shadow: 0 25px 60px rgba(0, 0, 0, 0.85);
-        transform: scale(0.96) translateY(12px);
-        transition: transform 0.35s cubic-bezier(0.165, 0.84, 0.44, 1);
+        box-shadow: 0 30px 80px rgba(0, 0, 0, 0.95), 0 0 50px rgba(197, 168, 128, 0.12);
+        transform: scale(0.92) translateY(24px);
+        will-change: transform, opacity;
       }
       .floorplan-modal-backdrop.is-open .floorplan-modal-container {
         transform: scale(1) translateY(0);
       }
+
+      /* Precision Corner Reticles */
+      .floorplan-reticle {
+        position: absolute;
+        width: 16px;
+        height: 16px;
+        pointer-events: none;
+        z-index: 30;
+      }
+      .floorplan-reticle.corner-tl {
+        top: 6px;
+        left: 6px;
+        border-top: 2px solid #dfba73;
+        border-left: 2px solid #dfba73;
+        box-shadow: -1px -1px 8px rgba(223, 186, 115, 0.4);
+      }
+      .floorplan-reticle.corner-tr {
+        top: 6px;
+        right: 6px;
+        border-top: 2px solid #dfba73;
+        border-right: 2px solid #dfba73;
+        box-shadow: 1px -1px 8px rgba(223, 186, 115, 0.4);
+      }
+      .floorplan-reticle.corner-bl {
+        bottom: 6px;
+        left: 6px;
+        border-bottom: 2px solid #dfba73;
+        border-left: 2px solid #dfba73;
+        box-shadow: -1px 1px 8px rgba(223, 186, 115, 0.4);
+      }
+      .floorplan-reticle.corner-br {
+        bottom: 6px;
+        right: 6px;
+        border-bottom: 2px solid #dfba73;
+        border-right: 2px solid #dfba73;
+        box-shadow: 1px 1px 8px rgba(223, 186, 115, 0.4);
+      }
+
       .floorplan-modal-header {
         display: flex;
         align-items: center;
         justify-content: space-between;
-        padding: 16px 24px;
-        border-bottom: 1px solid rgba(194, 161, 128, 0.2);
-        background: #23160e;
+        padding: 16px 26px;
+        border-bottom: 1px solid rgba(197, 168, 128, 0.25);
+        background: #1f120b;
+        position: relative;
+        z-index: 25;
       }
       .floorplan-modal-badge {
         font-family: "Montserrat", sans-serif;
         font-size: 9.5px;
         font-weight: 600;
         letter-spacing: 0.22em;
-        text-transform: none;
+        text-transform: uppercase;
         color: #c2a180;
-        display: block;
+        display: flex;
+        align-items: center;
+        gap: 6px;
         margin-bottom: 2px;
+      }
+      .floorplan-modal-badge-pulse {
+        display: inline-block;
+        width: 6px;
+        height: 6px;
+        border-radius: 50%;
+        background-color: #dfba73;
+        box-shadow: 0 0 8px #dfba73;
       }
       .floorplan-modal-title h3 {
         font-family: "Cormorant Garamond", Georgia, serif;
-        font-size: 24px;
+        font-size: 26px;
         font-weight: 400;
         color: #f7f2ed;
         margin: 0;
+        line-height: 1.2;
+      }
+      .floorplan-modal-subtitle {
+        font-family: "Montserrat", sans-serif;
+        font-size: 11px;
+        color: #a8988b;
+        margin-top: 3px;
+        letter-spacing: 0.06em;
       }
       .floorplan-modal-actions {
         display: flex;
         align-items: center;
-        gap: 14px;
+        gap: 20px;
       }
-      .floorplan-download-btn {
-        font-family: "Montserrat", sans-serif;
-        font-size: 11px;
-        font-weight: 600;
-        letter-spacing: 0.1em;
-        text-transform: none;
-        color: #ffffff !important;
-        background: #9e6443;
-        padding: 9px 20px;
-        border-radius: 5px;
+      .floorplan-modal-actions .cta-link {
         text-decoration: none !important;
-        transition: all 0.3s ease;
+        cursor: pointer !important;
+        display: inline-flex !important;
+        align-items: center !important;
       }
-      .floorplan-download-btn:hover {
-        background: #c2a180;
-        color: #1c110b !important;
+      .floorplan-modal-actions .cta {
+        display: flex !important;
+        align-items: center !important;
+        color: #c2a180 !important;
+        cursor: pointer !important;
+        transition: color 0.35s cubic-bezier(0.165, 0.84, 0.44, 1) !important;
+        margin: 0 !important;
       }
+      .floorplan-modal-actions .cta .untitled-400-13 {
+        font-family: "Montserrat", sans-serif !important;
+        font-size: 11.5px !important;
+        font-weight: 500 !important;
+        letter-spacing: 0.08em !important;
+        text-transform: uppercase !important;
+        color: inherit !important;
+        transition: color 0.35s ease !important;
+        white-space: nowrap !important;
+      }
+      .floorplan-modal-actions .cta-ball {
+        background-color: #573024 !important;
+        border-radius: 100vh !important;
+        width: 32px !important;
+        height: 32px !important;
+        margin-left: 9px !important;
+        display: flex !important;
+        justify-content: center !important;
+        align-items: center !important;
+        transition: background-color 0.35s ease, transform 0.3s ease !important;
+        flex-shrink: 0 !important;
+      }
+      .floorplan-modal-actions .seta-cta-wrap {
+        width: 14px !important;
+        height: 12px !important;
+        position: relative !important;
+        overflow: hidden !important;
+        display: flex !important;
+        align-items: center !important;
+        justify-content: center !important;
+      }
+      .floorplan-modal-actions .seta-cta-anda-1,
+      .floorplan-modal-actions .seta-cta-anda-2 {
+        position: absolute !important;
+        width: 100% !important;
+        height: 100% !important;
+        display: flex !important;
+        align-items: center !important;
+        justify-content: center !important;
+        transition: transform 0.35s cubic-bezier(0.165, 0.84, 0.44, 1) !important;
+      }
+      .floorplan-modal-actions .seta-cta-anda-1 {
+        transform: translateX(0) !important;
+      }
+      .floorplan-modal-actions .seta-cta-anda-2 {
+        transform: translateX(-120%) !important;
+      }
+      .floorplan-modal-actions .seta-cta {
+        width: 9px !important;
+        height: 8px !important;
+        display: block !important;
+      }
+
+      /* Hover States matching Website Webflow Animation */
+      .floorplan-modal-actions .cta-link:hover .cta {
+        color: #ffffff !important;
+      }
+      .floorplan-modal-actions .cta-link:hover .cta-ball {
+        background-color: #9e6443 !important;
+        transform: scale(1.06) !important;
+      }
+      .floorplan-modal-actions .cta-link:hover .seta-cta-anda-1 {
+        transform: translateX(120%) !important;
+      }
+      .floorplan-modal-actions .cta-link:hover .seta-cta-anda-2 {
+        transform: translateX(0) !important;
+      }
+
+      /* Distinct Terracotta Ball for Inquire CTA */
+      .floorplan-modal-actions .cta-link.inquire .cta-ball {
+        background-color: #9e6443 !important;
+      }
+      .floorplan-modal-actions .cta-link.inquire:hover .cta-ball {
+        background-color: #c2a180 !important;
+      }
+
       .floorplan-close-btn {
         background: transparent;
-        border: 1px solid rgba(194, 161, 128, 0.3);
-        border-radius: 50%;
-        width: 36px;
-        height: 36px;
+        border: 1px solid rgba(194, 161, 128, 0.4);
+        border-radius: 50% !important;
+        width: 32px;
+        height: 32px;
         display: flex;
         align-items: center;
         justify-content: center;
-        color: #f7f2ed;
-        font-size: 24px;
+        color: #c2a180 !important;
+        font-size: 20px;
         line-height: 1;
         cursor: pointer;
-        transition: all 0.25s ease;
+        transition: all 0.35s cubic-bezier(0.165, 0.84, 0.44, 1) !important;
+        flex-shrink: 0;
+        margin-left: 4px;
       }
       .floorplan-close-btn:hover {
-        background: #9e6443;
-        border-color: #9e6443;
-        color: #ffffff;
+        background-color: #9e6443 !important;
+        border-color: #9e6443 !important;
+        color: #ffffff !important;
+        transform: rotate(90deg);
       }
       .floorplan-modal-body {
-        padding: 20px;
+        padding: 24px;
         overflow-y: auto;
         display: flex;
         justify-content: center;
-        background: #fbf8f4;
+        align-items: center;
+        background: #0f0805;
+        position: relative;
+      }
+      .floorplan-viewport {
+        position: relative;
+        width: 100%;
+        max-width: 960px;
+        background: #180e08;
+        border: 1px solid rgba(197, 168, 128, 0.3);
+        border-radius: 8px;
+        overflow: hidden;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        box-shadow: inset 0 0 50px rgba(0, 0, 0, 0.85);
+      }
+      .floorplan-cad-grid {
+        position: absolute;
+        inset: 0;
+        pointer-events: none;
+        z-index: 5;
+        opacity: 0.14;
+        background-image: linear-gradient(to right, rgba(197, 168, 128, 0.2) 1px, transparent 1px),
+          linear-gradient(to bottom, rgba(197, 168, 128, 0.2) 1px, transparent 1px);
+        background-size: 28px 28px;
+      }
+      .floorplan-laser-glow {
+        position: absolute;
+        left: 0;
+        right: 0;
+        height: 60px;
+        background: linear-gradient(to bottom, rgba(223, 186, 115, 0.25), rgba(223, 186, 115, 0.08), transparent);
+        z-index: 15;
+        pointer-events: none;
+        filter: blur(8px);
+        top: -15%;
+      }
+      .floorplan-laser-line {
+        position: absolute;
+        left: 0;
+        right: 0;
+        height: 2px;
+        background: linear-gradient(to right, transparent 5%, #dfba73 50%, transparent 95%);
+        box-shadow: 0 0 16px 2px #dfba73;
+        z-index: 16;
+        pointer-events: none;
+        top: -5%;
       }
       .floorplan-modal-img {
-        max-width: 100%;
-        max-height: 75vh;
+        width: 100%;
+        height: auto;
+        max-height: 70vh;
         object-fit: contain;
         display: block;
-        border-radius: 6px;
+        z-index: 2;
+        transform-origin: center center;
+      }
+      .floorplan-hud-badge {
+        position: absolute;
+        z-index: 20;
+        display: inline-flex;
+        align-items: center;
+        gap: 6px;
+        padding: 5px 12px;
+        border-radius: 9999px;
+        background: rgba(22, 13, 8, 0.85);
+        border: 1px solid rgba(197, 168, 128, 0.35);
+        backdrop-filter: blur(8px);
+        -webkit-backdrop-filter: blur(8px);
+        font-family: "Montserrat", sans-serif;
+        font-size: 9px;
+        font-weight: 600;
+        letter-spacing: 0.15em;
+        color: #e7cfad;
+      }
+      .floorplan-hud-badge.top-left {
+        top: 14px;
+        left: 14px;
+      }
+      .floorplan-hud-badge.top-right {
+        top: 14px;
+        right: 14px;
+        color: #a8988b;
+      }
+      .floorplan-hud-bottom {
+        position: absolute;
+        bottom: 12px;
+        left: 14px;
+        right: 14px;
+        z-index: 20;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 8px 16px;
+        border-radius: 8px;
+        background: rgba(22, 13, 8, 0.85);
+        border: 1px solid rgba(197, 168, 128, 0.25);
+        backdrop-filter: blur(8px);
+        -webkit-backdrop-filter: blur(8px);
+        font-family: "Montserrat", sans-serif;
+        font-size: 10.5px;
+        letter-spacing: 0.08em;
+        color: #e7cfad;
+      }
+
+      /* Small Device & Mobile Responsiveness for Floorplan Modal */
+      @media screen and (max-width: 820px) {
+        .floorplan-modal-backdrop {
+          padding: 14px 10px;
+        }
+        .floorplan-modal-container {
+          max-height: 94vh;
+          border-radius: 10px;
+        }
+        .floorplan-modal-header {
+          padding: 14px 16px;
+        }
+        .floorplan-modal-title h3 {
+          font-size: 20px;
+        }
+        .floorplan-modal-actions {
+          gap: 14px;
+        }
+        .floorplan-modal-actions .cta .untitled-400-13 {
+          font-size: 11px !important;
+        }
+        .floorplan-modal-actions .cta-ball {
+          width: 28px !important;
+          height: 28px !important;
+          margin-left: 7px !important;
+        }
+      }
+
+      @media screen and (max-width: 640px) {
+        .floorplan-modal-backdrop {
+          padding: 8px 6px;
+        }
+        .floorplan-modal-container {
+          max-height: 96vh;
+          border-radius: 8px;
+          overflow-y: auto;
+          -webkit-overflow-scrolling: touch;
+        }
+        .floorplan-modal-header {
+          padding: 12px 14px;
+          flex-direction: column;
+          align-items: flex-start;
+          gap: 12px;
+          position: relative;
+        }
+        .floorplan-modal-title {
+          padding-right: 36px;
+          width: 100%;
+        }
+        .floorplan-modal-title h3 {
+          font-size: 17px;
+          line-height: 1.25;
+        }
+        .floorplan-modal-badge {
+          font-size: 8.5px;
+          letter-spacing: 0.14em;
+        }
+        .floorplan-close-btn {
+          position: absolute;
+          top: 10px;
+          right: 10px;
+          width: 28px;
+          height: 28px;
+          font-size: 18px;
+          margin: 0;
+        }
+        .floorplan-modal-actions {
+          width: 100%;
+          justify-content: flex-start;
+          gap: 14px;
+          flex-wrap: wrap;
+        }
+        .floorplan-modal-actions .cta .untitled-400-13 {
+          font-size: 10.5px !important;
+          letter-spacing: 0.05em !important;
+        }
+        .floorplan-modal-actions .cta-ball {
+          width: 26px !important;
+          height: 26px !important;
+          margin-left: 6px !important;
+        }
+        .floorplan-modal-actions .seta-cta-wrap {
+          width: 11px !important;
+          height: 10px !important;
+        }
+        .floorplan-modal-actions .seta-cta {
+          width: 8px !important;
+          height: 7px !important;
+        }
+        .floorplan-modal-body {
+          padding: 10px 8px;
+        }
+        .floorplan-viewport {
+          border-radius: 6px;
+          min-height: 240px;
+        }
+        .floorplan-modal-img {
+          max-height: 55vh;
+          object-fit: contain !important;
+        }
+        .floorplan-hud-badge {
+          padding: 3px 8px;
+          font-size: 8px;
+          letter-spacing: 0.08em;
+        }
+        .floorplan-hud-badge.top-left {
+          top: 8px;
+          left: 8px;
+        }
+        .floorplan-hud-badge.top-right {
+          top: 8px;
+          right: 8px;
+        }
+        .floorplan-hud-bottom {
+          bottom: 6px;
+          left: 6px;
+          right: 6px;
+          padding: 6px 10px;
+          font-size: 9px;
+          flex-direction: column;
+          align-items: flex-start;
+          gap: 3px;
+        }
+        .floorplan-reticle {
+          width: 12px;
+          height: 12px;
+        }
+      }
+
+      @media screen and (max-width: 400px) {
+        .floorplan-modal-actions .download-btn-mobile {
+          display: none !important;
+        }
       }
       .vision-hover-text,
       .main-color {
@@ -5204,16 +5632,38 @@ a,
 
           <!-- Bottom Actions & Contact Details -->
           <div class="nav-mobile-footer">
-            <button
-              type="button"
-              class="nav-mobile-inquire-pill"
+            <a
+              href="javascript:void(0)"
+              class="cta-link inquire w-inline-block nav-mobile-inquire-cta"
               id="navMobileInquirePill"
             >
-              <span>INQUIRE NOW</span>
-              <span class="nav-pill-arrow">→</span>
-            </button>
+              <div class="cta">
+                <div class="untitled-400-13">inquire</div>
+                <div class="cta-ball">
+                  <div class="seta-cta-wrap">
+                    <div class="seta-cta-anda-1">
+                      <img
+                        src="/images/seta-cta.svg"
+                        loading="lazy"
+                        alt=""
+                        class="seta-cta"
+                      />
+                    </div>
+                    <div class="seta-cta-anda-2">
+                      <img
+                        src="/images/seta-cta.svg"
+                        loading="lazy"
+                        alt=""
+                        class="seta-cta"
+                      />
+                    </div>
+                  </div>
+                </div>
+                <div class="cta-hover-sticky"></div>
+              </div>
+            </a>
             <div class="nav-mobile-contact">
-              <a href="tel:+919779799705" class="nav-mobile-phone">
+              <a href="tel:+911234512345" class="nav-mobile-phone">
                 <svg
                   class="nav-contact-icon"
                   width="13"
@@ -5225,7 +5675,7 @@ a,
                     d="M6.62 10.79a15.05 15.05 0 006.59 6.59l2.2-2.2a1 1 0 011.02-.24c1.12.37 2.33.57 3.57.57a1 1 0 011 1V20a1 1 0 01-1 1A17 17 0 013 4a1 1 0 011-1h3.5a1 1 0 011 1c0 1.25.2 2.45.57 3.57a1 1 0 01-.25 1.02l-2.2 2.2z"
                   />
                 </svg>
-                <span>+91 97797 99705</span>
+                <span>+91 12345 12345</span>
               </a>
               <div class="nav-mobile-addr">
                 <svg
@@ -9649,23 +10099,92 @@ a,
       class="floorplan-modal-backdrop"
       style="display: none"
     >
+      <div class="floorplan-grid-watermark"></div>
+
       <div class="floorplan-modal-container">
+        <!-- Precision Corner Reticles -->
+        <div class="floorplan-reticle corner-tl"></div>
+        <div class="floorplan-reticle corner-tr"></div>
+        <div class="floorplan-reticle corner-bl"></div>
+        <div class="floorplan-reticle corner-br"></div>
+
+        <!-- Modal Header -->
         <div class="floorplan-modal-header">
           <div class="floorplan-modal-title">
-            <span class="floorplan-modal-badge"
-              >ANANDA CROWN • SECTOR 78 MOHALI</span
-            >
-            <h3>Architectural Floor Plan Layout</h3>
+            <span class="floorplan-modal-badge">
+              <span class="floorplan-modal-badge-pulse"></span>
+              <span id="floorplan-badge-text">ANANDA CROWN • SECTOR 78 MOHALI</span>
+            </span>
+            <h3 id="floorplan-title-text">Architectural Floor Plan Layout</h3>
+            <!-- <div class="floorplan-modal-subtitle" id="floorplan-subtitle-text">
+              Master Typology Schematic • Fraction Blueprint Specification
+            </div> -->
           </div>
           <div class="floorplan-modal-actions">
+            <a
+              href="javascript:void(0)"
+              class="cta-link inquire w-inline-block"
+              id="floorplan-inquire-cta"
+            >
+              <div class="cta">
+                <div class="untitled-400-13">inquire</div>
+                <div class="cta-ball">
+                  <div class="seta-cta-wrap">
+                    <div class="seta-cta-anda-1">
+                      <img
+                        src="/images/seta-cta.svg"
+                        loading="lazy"
+                        alt=""
+                        class="seta-cta"
+                      />
+                    </div>
+                    <div class="seta-cta-anda-2">
+                      <img
+                        src="/images/seta-cta.svg"
+                        loading="lazy"
+                        alt=""
+                        class="seta-cta"
+                      />
+                    </div>
+                  </div>
+                </div>
+                <div class="cta-hover-sticky"></div>
+              </div>
+            </a>
+
             <a
               href="/images/florplan.webp"
               target="_blank"
               download="Ananda_Crown_Floorplan.png"
-              class="floorplan-download-btn"
+              id="floorplan-download-link"
+              class="cta-link download-btn-mobile w-inline-block"
             >
-              Download Blueprint
+              <div class="cta">
+                <div class="untitled-400-13">blueprint</div>
+                <div class="cta-ball">
+                  <div class="seta-cta-wrap">
+                    <div class="seta-cta-anda-1">
+                      <img
+                        src="/images/seta-cta.svg"
+                        loading="lazy"
+                        alt=""
+                        class="seta-cta"
+                      />
+                    </div>
+                    <div class="seta-cta-anda-2">
+                      <img
+                        src="/images/seta-cta.svg"
+                        loading="lazy"
+                        alt=""
+                        class="seta-cta"
+                      />
+                    </div>
+                  </div>
+                </div>
+                <div class="cta-hover-sticky"></div>
+              </div>
             </a>
+
             <button
               type="button"
               id="close-floorplan-modal"
@@ -9676,12 +10195,52 @@ a,
             </button>
           </div>
         </div>
+
+        <!-- Modal Body & Viewport -->
         <div class="floorplan-modal-body">
-          <img
-            src="/images/florplan.webp"
-            alt="Ananda Crown Floor Plan"
-            class="floorplan-modal-img"
-          />
+          <div class="floorplan-viewport">
+            <!-- CAD Blueprint Drafting Grid Overlay -->
+            <div class="floorplan-cad-grid"></div>
+
+            <!-- LiDAR Laser Scan Line & Glow -->
+            <div class="floorplan-laser-glow"></div>
+            <div class="floorplan-laser-line"></div>
+
+            <!-- Architectural HUD Badges -->
+            <!-- <div class="floorplan-hud-badge top-left">
+              <span style="width:6px;height:6px;border-radius:50%;background:#34d399;display:inline-block;box-shadow:0 0 6px #34d399;"></span>
+              <span id="floorplan-cad-ref">CAD REF: ARCH-78</span>
+            </div> -->
+
+            <!-- <div class="floorplan-hud-badge top-right">
+              <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="#dfba73" stroke-width="2">
+                <circle cx="12" cy="12" r="10"></circle>
+                <path d="m4.93 4.93 4.24 4.24"></path>
+                <path d="m14.83 9.17 4.24-4.24"></path>
+                <path d="m14.83 14.83 4.24 4.24"></path>
+                <path d="m9.17 14.83-4.24 4.24"></path>
+              </svg>
+              <span>SCALE 1:100 ARCH</span>
+            </div> -->
+
+            <!-- Floorplan Image -->
+            <img
+              id="floorplan-modal-image"
+              src="/images/florplan.webp"
+              alt="Ananda Crown Floor Plan"
+              class="floorplan-modal-img"
+            />
+
+            <!-- Bottom HUD Metric Bar -->
+            <!-- <div class="floorplan-hud-bottom">
+              <div id="floorplan-stat-title">
+                <strong>Floor 03</strong> • North-East View
+              </div>
+              <div id="floorplan-stat-area">
+                SUPER AREA: <strong>2,425 SQ.FT</strong> (225.3 M²)
+              </div>
+            </div> -->
+          </div>
         </div>
       </div>
     </div>
@@ -9690,25 +10249,275 @@ a,
       (function () {
         function initFloorplanModal() {
           const modal = document.getElementById("floorplan-modal");
+          const container = modal ? modal.querySelector(".floorplan-modal-container") : null;
           const closeBtn = document.getElementById("close-floorplan-modal");
-          if (!modal) return;
+          const inquireCta = document.getElementById("floorplan-inquire-cta");
+          const imgEl = document.getElementById("floorplan-modal-image");
+          const downloadLink = document.getElementById("floorplan-download-link");
+          const badgeText = document.getElementById("floorplan-badge-text");
+          const titleText = document.getElementById("floorplan-title-text");
+          const subtitleText = document.getElementById("floorplan-subtitle-text");
+          const cadRefText = document.getElementById("floorplan-cad-ref");
+          const statTitle = document.getElementById("floorplan-stat-title");
+          const statArea = document.getElementById("floorplan-stat-area");
+          const laserLine = modal ? modal.querySelector(".floorplan-laser-line") : null;
+          const laserGlow = modal ? modal.querySelector(".floorplan-laser-glow") : null;
+          const shimmerBar = modal ? modal.querySelector(".floorplan-shimmer-bar") : null;
+
+          if (!modal || !container) return;
+
+          let isClosing = false;
+          let currentAnim = null;
+          let savedScrollPos = 0;
 
           function openModal(e) {
-            if (e) e.preventDefault();
+            if (e) {
+              e.preventDefault();
+              e.stopPropagation();
+            }
+            if (isClosing) return;
+
+            savedScrollPos = window.pageYOffset || document.documentElement.scrollTop || 0;
+
+            // Extract context data from clicked availability row if available
+            const btn = e ? e.currentTarget : null;
+            if (btn) {
+              const row = btn.closest(".availability-col-item");
+              if (row) {
+                const fractionEl = row.querySelector(".availability-unit .untitled-400-13");
+                const bhkEl = row.querySelector(".availability-unit .tobias-300-16");
+                const floorEl = row.querySelector(".availability-floor .tobias-300-16");
+                const sideEl = row.querySelector(".availability-side .tobias-300-16");
+                const areaSqftEl = row.querySelector(".availability-areas .tobias-300-16");
+                const areaSqmEl = row.querySelector(".availability-areas .untitled-400-13");
+
+                const fraction = fractionEl ? fractionEl.textContent.trim() : "Sky Residence";
+                const bhk = bhkEl ? bhkEl.textContent.trim() : "3 BHK";
+                const floor = floorEl ? floorEl.textContent.trim() : "Floor 03";
+                const side = sideEl ? sideEl.textContent.trim() : "North-East (Park View)";
+                const areaSqft = areaSqftEl ? areaSqftEl.textContent.trim() : "2,425 sq.ft";
+                const areaSqm = areaSqmEl ? areaSqmEl.textContent.trim() : "225.3 m²";
+
+                if (badgeText) badgeText.textContent = "ANANDA CROWN • " + fraction.toUpperCase();
+                if (titleText) titleText.textContent = bhk + " — " + floor;
+                if (subtitleText) subtitleText.textContent = side + " • " + areaSqft + " (" + areaSqm + ")";
+                if (cadRefText) cadRefText.textContent = "CAD REF: " + fraction.toUpperCase().replace(/\s+/g, "-");
+                if (statTitle) statTitle.innerHTML = "<strong>" + floor + " (" + bhk + ")</strong> • " + side;
+                if (statArea) statArea.innerHTML = "SUPER AREA: <strong>" + areaSqft.toUpperCase() + "</strong> (" + areaSqm.toUpperCase() + ")";
+
+                const href = btn.getAttribute("href");
+                if (href && imgEl) {
+                  imgEl.src = href;
+                }
+                if (href && downloadLink) {
+                  downloadLink.href = href;
+                  downloadLink.setAttribute("download", "Ananda_Crown_" + fraction.replace(/\s+/g, "_") + "_Floorplan.png");
+                }
+              }
+            }
+
             modal.style.display = "flex";
             void modal.offsetWidth;
             modal.classList.add("is-open");
-            document.body.style.overflow = "hidden";
+
+            if (window.lockBodyScroll) {
+              window.lockBodyScroll();
+            } else {
+              document.body.style.overflow = "hidden";
+            }
+
+            // Award-winning GSAP Entrance Timeline
+            if (window.gsap) {
+              if (currentAnim) currentAnim.kill();
+
+              gsap.set(modal, { opacity: 0 });
+              gsap.set(container, {
+                opacity: 0,
+                scale: 0.90,
+                y: 35,
+                rotateX: 4,
+                transformPerspective: 1200,
+                transformOrigin: "center center",
+              });
+              gsap.set(".floorplan-reticle.corner-tl", { opacity: 0, x: 8, y: 8, scale: 0.6 });
+              gsap.set(".floorplan-reticle.corner-tr", { opacity: 0, x: -8, y: 8, scale: 0.6 });
+              gsap.set(".floorplan-reticle.corner-bl", { opacity: 0, x: 8, y: -8, scale: 0.6 });
+              gsap.set(".floorplan-reticle.corner-br", { opacity: 0, x: -8, y: -8, scale: 0.6 });
+
+              if (laserLine) gsap.set(laserLine, { top: "-5%", opacity: 0 });
+              if (laserGlow) gsap.set(laserGlow, { top: "-15%", opacity: 0 });
+              if (imgEl) gsap.set(imgEl, { scale: 1.08 });
+
+              const enterTl = gsap.timeline({ defaults: { ease: "power4.out" } });
+
+              enterTl
+                .to(modal, { opacity: 1, duration: 0.35, ease: "power2.out" })
+                .to(
+                  container,
+                  {
+                    opacity: 1,
+                    scale: 1,
+                    y: 0,
+                    rotateX: 0,
+                    duration: 0.65,
+                    ease: "power4.out",
+                  },
+                  "-=0.25"
+                )
+                .to(
+                  ".floorplan-reticle",
+                  {
+                    opacity: 1,
+                    x: 0,
+                    y: 0,
+                    scale: 1,
+                    duration: 0.45,
+                    ease: "back.out(1.7)",
+                  },
+                  "-=0.55"
+                )
+                .fromTo(
+                  ".floorplan-modal-header",
+                  { opacity: 0, y: -14 },
+                  { opacity: 1, y: 0, duration: 0.45, ease: "power3.out" },
+                  "-=0.45"
+                )
+                .fromTo(
+                  ".floorplan-viewport",
+                  { opacity: 0, scale: 0.96 },
+                  { opacity: 1, scale: 1, duration: 0.5, ease: "power3.out" },
+                  "-=0.4"
+                );
+
+              if (imgEl) {
+                enterTl.to(
+                  imgEl,
+                  { scale: 1, duration: 1.15, ease: "power2.out" },
+                  "-=0.45"
+                );
+              }
+
+              if (laserLine && laserGlow) {
+                enterTl
+                  .to(
+                    laserLine,
+                    { top: "105%", opacity: 1, duration: 1.25, ease: "power2.inOut" },
+                    "-=1.05"
+                  )
+                  .to(
+                    laserGlow,
+                    { top: "95%", opacity: 0.75, duration: 1.25, ease: "power2.inOut" },
+                    "-=1.2"
+                  );
+              }
+
+              enterTl.fromTo(
+                ".floorplan-hud-badge, .floorplan-hud-bottom",
+                { opacity: 0, y: 10 },
+                { opacity: 1, y: 0, duration: 0.4, stagger: 0.08, ease: "power2.out" },
+                "-=0.75"
+              );
+
+              if (shimmerBar) {
+                enterTl.fromTo(
+                  shimmerBar,
+                  { x: "-120%" },
+                  { x: "220%", duration: 1.1, ease: "power2.inOut" },
+                  "-=0.3"
+                );
+              }
+
+              currentAnim = enterTl;
+            }
           }
 
           function closeModal() {
-            modal.classList.remove("is-open");
-            setTimeout(function () {
+            if (isClosing) return;
+            isClosing = true;
+
+            const finalizeClose = function () {
               modal.style.display = "none";
-              document.body.style.overflow = "";
-            }, 350);
+              modal.classList.remove("is-open");
+              isClosing = false;
+              if (window.unlockBodyScroll) {
+                window.unlockBodyScroll();
+              } else {
+                document.body.style.overflow = "";
+              }
+              if (savedScrollPos > 0) {
+                window.scrollTo({ top: savedScrollPos, behavior: "instant" });
+              }
+            };
+
+            if (window.gsap) {
+              if (currentAnim) currentAnim.kill();
+
+              const exitTl = gsap.timeline({
+                onComplete: finalizeClose,
+              });
+
+              exitTl
+                .to(".floorplan-reticle", {
+                  scale: 0.6,
+                  opacity: 0,
+                  duration: 0.18,
+                  ease: "power2.in",
+                })
+                .to(
+                  ".floorplan-hud-badge, .floorplan-hud-bottom",
+                  { opacity: 0, y: 8, duration: 0.18, ease: "power2.in" },
+                  "-=0.15"
+                )
+                .to(
+                  container,
+                  {
+                    opacity: 0,
+                    scale: 0.93,
+                    y: 20,
+                    rotateX: 3,
+                    duration: 0.28,
+                    ease: "power3.in",
+                  },
+                  "-=0.1"
+                )
+                .to(
+                  modal,
+                  { opacity: 0, duration: 0.22, ease: "power2.inOut" },
+                  "-=0.15"
+                );
+
+              currentAnim = exitTl;
+            } else {
+              modal.classList.remove("is-open");
+              setTimeout(finalizeClose, 350);
+            }
           }
 
+          // Inquire CTA opens inquiry modal seamlessly
+          if (inquireCta) {
+            inquireCta.addEventListener("click", function (e) {
+              e.preventDefault();
+              e.stopPropagation();
+              closeModal();
+              setTimeout(function () {
+                const inquireOpen = document.querySelector(".inquire-open");
+                const inquireWrap = document.querySelector(".inquire-wrap");
+                if (inquireOpen && inquireWrap) {
+                  inquireOpen.classList.remove("close");
+                  inquireWrap.classList.remove("close");
+                  if (window.lockBodyScroll) window.lockBodyScroll();
+                }
+              }, 300);
+            });
+          }
+
+          if (downloadLink) {
+            downloadLink.addEventListener("click", function (e) {
+              e.stopPropagation();
+            });
+          }
+
+          // Attach click listeners to all floorplan triggers
           document
             .querySelectorAll(".availability-button")
             .forEach(function (btn) {
@@ -9716,12 +10525,17 @@ a,
             });
 
           if (closeBtn) closeBtn.addEventListener("click", closeModal);
+
           modal.addEventListener("click", function (e) {
-            if (e.target === modal) closeModal();
-          });
-          document.addEventListener("keydown", function (e) {
-            if (e.key === "Escape" && modal.classList.contains("is-open"))
+            if (e.target === modal || e.target.classList.contains("floorplan-grid-watermark")) {
               closeModal();
+            }
+          });
+
+          document.addEventListener("keydown", function (e) {
+            if (e.key === "Escape" && modal.classList.contains("is-open")) {
+              closeModal();
+            }
           });
         }
 
@@ -9734,7 +10548,11 @@ a,
     </script>
     <script>
       // Global scroll lock helpers for modals and navigation drawers
+      let globalSavedScrollY = 0;
       window.lockBodyScroll = function () {
+        if (!document.body.classList.contains("body-scroll-locked")) {
+          globalSavedScrollY = window.pageYOffset || document.documentElement.scrollTop || 0;
+        }
         document.documentElement.classList.add("body-scroll-locked");
         document.body.classList.add("body-scroll-locked");
       };
@@ -9742,11 +10560,16 @@ a,
       window.unlockBodyScroll = function () {
         const drawer = document.getElementById("navMobileDrawer");
         const inquireWrap = document.querySelector(".inquire-wrap");
+        const floorplanModal = document.getElementById("floorplan-modal");
         const isDrawerOpen = drawer && drawer.classList.contains("is-open");
         const isInquireOpen = inquireWrap && !inquireWrap.classList.contains("close");
-        if (!isDrawerOpen && !isInquireOpen) {
+        const isFloorplanOpen = floorplanModal && floorplanModal.classList.contains("is-open");
+        if (!isDrawerOpen && !isInquireOpen && !isFloorplanOpen) {
           document.documentElement.classList.remove("body-scroll-locked");
           document.body.classList.remove("body-scroll-locked");
+          if (globalSavedScrollY > 0) {
+            window.scrollTo({ top: globalSavedScrollY, behavior: "instant" });
+          }
         }
       };
 

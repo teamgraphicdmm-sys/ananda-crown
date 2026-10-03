@@ -6393,7 +6393,7 @@ figcaption {
   }
 
   .download-brochure-link, .cta-link {
-    width: 100%;
+    /* width: 100%; */
   }
 
   .availability-table {
