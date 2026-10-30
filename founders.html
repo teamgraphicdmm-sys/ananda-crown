@@ -1,0 +1,693 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Leadership & Founders | Ananda Crown Mohali</title>
+  
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400;1,600&family=Montserrat:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
+  
+  <!-- Tailwind CSS -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            brand: {
+              bg: '#F5F0E8',
+              surface: '#FDFBF7',
+              dark: '#1C1512',
+              charcoal: '#2C221D',
+              bronze: '#9E6443',
+              gold: '#C2A180',
+              sand: '#E9E3D8',
+              subtle: '#8C7D73'
+            }
+          },
+          fontFamily: {
+            serif: ['"Cormorant Garamond"', 'Georgia', 'serif'],
+            sans: ['"Montserrat"', 'system-ui', 'sans-serif'],
+            display: ['"Playfair Display"', 'Georgia', 'serif']
+          }
+        }
+      }
+    }
+  </script>
+
+  <!-- GSAP & Flip -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/Flip.min.js"></script>
+
+  <style>
+    * {
+      box-sizing: border-box;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+    }
+
+    body {
+      background-color: #F5F0E8;
+      color: #1C1512;
+      overflow-x: hidden;
+      user-select: none;
+    }
+
+    /* Subtle background architectural curve watermark */
+    .bg-curves {
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+      z-index: 0;
+      opacity: 0.45;
+      background-image: 
+        radial-gradient(circle at 85% 15%, rgba(194, 161, 128, 0.15) 0%, transparent 60%),
+        radial-gradient(circle at 15% 85%, rgba(158, 100, 67, 0.1) 0%, transparent 50%);
+    }
+
+    .curve-lines {
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+      z-index: 0;
+      opacity: 0.18;
+      background: radial-gradient(circle at 50% 50%, transparent 35%, rgba(158, 100, 67, 0.3) 36%, transparent 37%),
+                  radial-gradient(circle at 50% 50%, transparent 60%, rgba(158, 100, 67, 0.25) 61%, transparent 62%);
+    }
+
+    /* Custom scrollbar */
+    ::-webkit-scrollbar {
+      width: 6px;
+    }
+    ::-webkit-scrollbar-track {
+      background: #F5F0E8;
+    }
+    ::-webkit-scrollbar-thumb {
+      background: #C2A180;
+      border-radius: 3px;
+    }
+
+    /* Stacked card perspective */
+    .card-stack-container {
+      perspective: 1200px;
+    }
+
+    /* Pill badge */
+    .tag-pill {
+      letter-spacing: 0.16em;
+      font-size: 0.68rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      padding: 0.35rem 0.85rem;
+      border: 1px solid rgba(44, 34, 29, 0.22);
+      border-radius: 9999px;
+      transition: all 0.3s ease;
+      background: rgba(253, 251, 247, 0.6);
+      backdrop-filter: blur(4px);
+    }
+    .tag-pill:hover {
+      border-color: #9E6443;
+      background: rgba(253, 251, 247, 0.95);
+      color: #9E6443;
+    }
+
+    /* Floating cursor arrow badge */
+    .floating-hover-badge {
+      position: absolute;
+      width: 68px;
+      height: 68px;
+      border-radius: 50%;
+      background: #D9D2BE;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      pointer-events: none;
+      transform: translate(-50%, -50%) scale(0);
+      transition: transform 0.25s cubic-bezier(0.175, 0.885, 0.32, 1.275), opacity 0.2s ease;
+      z-index: 40;
+      box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.2);
+    }
+
+    .card-wrapper:hover .floating-hover-badge {
+      transform: translate(-50%, -50%) scale(1);
+    }
+
+    /* Circular spinning / rotating CTA Badge */
+    .spin-badge {
+      animation: spin 24s linear infinite;
+    }
+    @keyframes spin {
+      100% { transform: rotate(360deg); }
+    }
+
+    /* Glass card backdrop */
+    .glass-panel {
+      background: rgba(253, 251, 247, 0.7);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      border: 1px solid rgba(255, 255, 255, 0.5);
+    }
+
+    /* Slider transition helper */
+    .smooth-stage {
+      transition: transform 0.65s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.65s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+  </style>
+</head>
+<body class="min-h-screen relative flex flex-col justify-between selection:bg-brand-gold selection:text-white">
+
+  <!-- Background Ambience -->
+  <div class="bg-curves"></div>
+  <div class="curve-lines"></div>
+
+  <!-- Top Navigation Bar -->
+  <header class="relative z-30 w-full px-6 md:px-14 py-6 flex items-center justify-between border-b border-brand-dark/5">
+    <div class="flex items-center gap-3">
+      <a href="index.html" class="flex items-center gap-3 group">
+        <!-- Luxury Crest Icon -->
+        <svg class="w-7 h-7 text-brand-dark transition-transform duration-500 group-hover:rotate-45" viewBox="0 0 100 100" fill="none" stroke="currentColor" stroke-width="3">
+          <circle cx="50" cy="50" r="44" stroke-dasharray="4 4" stroke-opacity="0.4"/>
+          <path d="M50 15 L85 50 L50 85 L15 50 Z" stroke-width="2.5"/>
+          <path d="M50 28 L72 50 L50 72 L28 50 Z" stroke-width="1.5" stroke-opacity="0.7"/>
+          <circle cx="50" cy="50" r="4" fill="currentColor"/>
+        </svg>
+        <div class="flex flex-col">
+          <span class="font-serif tracking-[0.22em] text-lg font-bold text-brand-dark uppercase">ANANDA CROWN</span>
+          <span class="font-sans text-[0.62rem] tracking-[0.25em] text-brand-subtle uppercase">Sector 78, Mohali</span>
+        </div>
+      </a>
+    </div>
+
+    <!-- Center Navigation Menu Icon -->
+    <div class="hidden md:flex items-center justify-center">
+      <button class="w-10 h-10 flex flex-col items-center justify-center gap-1.5 hover:opacity-70 transition-opacity">
+        <span class="w-6 h-[1.5px] bg-brand-dark"></span>
+        <span class="w-6 h-[1.5px] bg-brand-dark"></span>
+      </button>
+    </div>
+
+    <!-- Right Actions -->
+    <div class="flex items-center gap-6">
+      <a href="tel:+917347011099" class="hidden sm:inline-block font-sans text-xs tracking-[0.16em] uppercase font-medium text-brand-charcoal hover:text-brand-bronze transition-colors">
+        Contact
+      </a>
+      <a href="#site-visit" class="font-sans text-xs tracking-[0.18em] uppercase font-semibold px-4 py-2 border border-brand-dark/30 rounded-full hover:border-brand-dark hover:bg-brand-dark hover:text-white transition-all duration-300">
+        Book A Visit
+      </a>
+    </div>
+  </header>
+
+  <!-- ======================================================== -->
+  <!-- MAIN SLIDER SECTION (Carousel View)                     -->
+  <!-- ======================================================== -->
+  <main id="slider-view" class="relative z-20 flex-1 max-w-7xl w-full mx-auto px-6 md:px-14 py-8 md:py-12 flex flex-col justify-center">
+    
+    <div class="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-8 items-center">
+      
+      <!-- Left Column: Editorial Headline & Overview -->
+      <div class="lg:col-span-5 flex flex-col justify-between space-y-8">
+        
+        <div>
+          <!-- Sub-badge -->
+          <span class="inline-block font-sans text-[0.68rem] tracking-[0.25em] uppercase text-brand-subtle font-semibold mb-3">
+            The Leadership
+          </span>
+
+          <!-- Editorial Heading (Matching "MEET OUR TEAM" aesthetic) -->
+          <h1 class="font-serif text-5xl sm:text-6xl lg:text-[4.75rem] leading-[0.95] tracking-tight text-brand-dark uppercase">
+            MEET <br>
+            <span class="italic font-light font-serif lowercase text-4xl sm:text-5xl lg:text-[4.25rem] tracking-normal text-brand-bronze">the</span> <br>
+            FOUNDERS
+          </h1>
+        </div>
+
+        <!-- Description from Ananda Group Legacy -->
+        <p class="font-sans text-sm sm:text-base text-brand-charcoal/80 leading-relaxed max-w-md font-light">
+          Three decades of building Punjab’s next addresses. Guided by a visionary standard of global planning, long-term integrity, and immortal architecture.
+        </p>
+
+        <!-- Slider Arrows & Pagination Controls -->
+        <div class="pt-2 flex items-center gap-5">
+          <div class="flex items-center gap-3">
+            <button id="prevBtn" aria-label="Previous Founder" class="w-12 h-12 rounded-full border border-brand-dark/25 flex items-center justify-center hover:border-brand-dark hover:bg-brand-dark hover:text-white transition-all duration-300 group">
+              <svg class="w-4 h-4 transition-transform group-hover:-translate-x-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" d="M15 19l-7-7 7-7"></path>
+              </svg>
+            </button>
+            <button id="nextBtn" aria-label="Next Founder" class="w-12 h-12 rounded-full border border-brand-dark/25 flex items-center justify-center hover:border-brand-dark hover:bg-brand-dark hover:text-white transition-all duration-300 group">
+              <svg class="w-4 h-4 transition-transform group-hover:translate-x-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" d="M9 5l7 7-7 7"></path>
+              </svg>
+            </button>
+          </div>
+
+          <div class="h-6 w-[1px] bg-brand-dark/15"></div>
+
+          <div class="font-sans text-xs tracking-[0.16em] uppercase text-brand-subtle">
+            <span class="text-brand-dark font-bold font-serif text-base" id="activeSlideNum">01</span> / 02
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Right Column: Stacked Interactive Cards (Matching Video Carousel) -->
+      <div class="lg:col-span-7 flex justify-center lg:justify-end">
+        
+        <div class="card-stack-container relative w-full max-w-[420px] sm:max-w-[460px] h-[520px] sm:h-[580px] flex items-center">
+          
+          <!-- Card 1: Anuj Bansal -->
+          <div id="card-0" data-index="0" class="card-wrapper absolute top-0 left-0 w-full cursor-pointer transition-all duration-700 ease-out group">
+            
+            <!-- Card Visual Container -->
+            <div class="relative bg-[#EDE8DE] rounded-[4px] p-2.5 pb-5 shadow-xl border border-black/5 overflow-hidden transition-transform duration-500 group-hover:shadow-2xl">
+              
+              <!-- Floating Hover Arrow Badge (Tracks cursor or hovers) -->
+              <div class="floating-hover-badge" id="hoverBadge-0">
+                <svg class="w-6 h-6 text-brand-dark" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.2" d="M7 17L17 7M17 7H9M17 7V15"></path>
+                </svg>
+              </div>
+
+              <!-- Founder Image with Layout Morph Anchor -->
+              <div class="w-full h-[360px] sm:h-[420px] overflow-hidden rounded-[2px] bg-gradient-to-b from-[#F5F1EA] to-[#E5DFD4] relative">
+                <img 
+                  id="img-anuj" 
+                  src="images/founders/anuj_card.jpg" 
+                  onerror="this.src='public/images/founders/anuj_card.jpg'"
+                  alt="Anuj Bansal - Co-founder and Director" 
+                  class="w-full h-full object-cover object-top transition-transform duration-700 group-hover:scale-105"
+                >
+                <div class="absolute inset-0 bg-gradient-to-t from-black/25 via-transparent to-transparent opacity-40 group-hover:opacity-20 transition-opacity"></div>
+              </div>
+
+              <!-- Card Bottom Info -->
+              <div class="pt-5 px-2 text-center">
+                <h3 class="font-serif text-2xl sm:text-3xl font-medium tracking-tight text-brand-dark uppercase">
+                  Anuj Bansal
+                </h3>
+                <p class="font-sans text-[0.68rem] tracking-[0.2em] uppercase text-brand-bronze font-semibold mt-1">
+                  Co-Founder and Director
+                </p>
+
+                <!-- Tags / Specialties -->
+                <div class="flex items-center justify-center gap-2 mt-3.5 flex-wrap">
+                  <span class="tag-pill">Babson College, USA</span>
+                  <span class="tag-pill">IIT Delhi</span>
+                  <span class="tag-pill">13 Yrs Exp</span>
+                </div>
+              </div>
+
+            </div>
+
+          </div>
+
+          <!-- Card 2: Sahil Aggarwal -->
+          <div id="card-1" data-index="1" class="card-wrapper absolute top-0 left-0 w-full cursor-pointer transition-all duration-700 ease-out group">
+            
+            <!-- Card Visual Container -->
+            <div class="relative bg-[#EDE8DE] rounded-[4px] p-2.5 pb-5 shadow-xl border border-black/5 overflow-hidden transition-transform duration-500 group-hover:shadow-2xl">
+              
+              <!-- Floating Hover Arrow Badge -->
+              <div class="floating-hover-badge" id="hoverBadge-1">
+                <svg class="w-6 h-6 text-brand-dark" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.2" d="M7 17L17 7M17 7H9M17 7V15"></path>
+                </svg>
+              </div>
+
+              <!-- Founder Image -->
+              <div class="w-full h-[360px] sm:h-[420px] overflow-hidden rounded-[2px] bg-gradient-to-b from-[#F5F1EA] to-[#E5DFD4] relative">
+                <img 
+                  id="img-sahil" 
+                  src="images/founders/sahil_card.jpg" 
+                  onerror="this.src='public/images/founders/sahil_card.jpg'"
+                  alt="Sahil Aggarwal - Co-founder and Director" 
+                  class="w-full h-full object-cover object-top transition-transform duration-700 group-hover:scale-105"
+                >
+                <div class="absolute inset-0 bg-gradient-to-t from-black/25 via-transparent to-transparent opacity-40 group-hover:opacity-20 transition-opacity"></div>
+              </div>
+
+              <!-- Card Bottom Info -->
+              <div class="pt-5 px-2 text-center">
+                <h3 class="font-serif text-2xl sm:text-3xl font-medium tracking-tight text-brand-dark uppercase">
+                  Sahil Aggarwal
+                </h3>
+                <p class="font-sans text-[0.68rem] tracking-[0.2em] uppercase text-brand-bronze font-semibold mt-1">
+                  Co-Founder and Director
+                </p>
+
+                <!-- Tags / Specialties -->
+                <div class="flex items-center justify-center gap-2 mt-3.5 flex-wrap">
+                  <span class="tag-pill">IIM Ahmedabad</span>
+                  <span class="tag-pill">HEC Paris</span>
+                  <span class="tag-pill">Thapar Univ</span>
+                </div>
+              </div>
+
+            </div>
+
+          </div>
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </main>
+
+  <!-- Bottom Global Footer Bar (Matching the video) -->
+  <footer class="relative z-20 w-full px-6 md:px-14 py-4 flex flex-col sm:flex-row items-center justify-between border-t border-brand-dark/5 gap-3">
+    <div class="font-sans text-[0.68rem] tracking-[0.16em] uppercase text-brand-subtle">
+      Ananda Crown • 4 Towers Standing Free • 29 Storeys
+    </div>
+    <div class="font-sans text-[0.68rem] tracking-[0.16em] uppercase text-brand-subtle flex items-center gap-4">
+      <span>RERA APPROVED: PBRERA-SAS81-PR1421-082026</span>
+    </div>
+  </footer>
+
+  <!-- ======================================================== -->
+  <!-- DETAIL VIEW (Shared Element Transition Overlay)         -->
+  <!-- ======================================================== -->
+  <div id="detail-view" class="fixed inset-0 z-50 pointer-events-none opacity-0 overflow-y-auto bg-brand-bg/95 backdrop-blur-xl transition-opacity duration-500 flex flex-col justify-between">
+    
+    <!-- Detail Top Bar -->
+    <div class="w-full px-6 md:px-14 py-6 flex items-center justify-between border-b border-brand-dark/10">
+      <div class="flex items-center gap-3">
+        <span class="font-serif tracking-[0.22em] text-lg font-bold text-brand-dark uppercase">ANANDA CROWN</span>
+        <span class="text-brand-dark/30">•</span>
+        <span class="font-sans text-[0.68rem] tracking-[0.2em] text-brand-bronze uppercase font-semibold">Leadership Detail</span>
+      </div>
+
+      <!-- Close / Back Button -->
+      <button id="closeDetailBtn" class="flex items-center gap-2.5 px-4 py-2 rounded-full border border-brand-dark/30 hover:bg-brand-dark hover:text-white transition-all duration-300 group">
+        <span class="font-sans text-xs tracking-[0.16em] uppercase font-semibold">Close</span>
+        <svg class="w-4 h-4 transition-transform group-hover:rotate-90 duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+        </svg>
+      </button>
+    </div>
+
+    <!-- Detail Main Container -->
+    <div class="max-w-7xl w-full mx-auto px-6 md:px-14 py-8 md:py-12 flex-1 flex flex-col justify-center">
+      
+      <!-- Top Tags & Founder Name Headline (Morphs into View) -->
+      <div class="text-center md:text-left mb-8 detail-animate-top">
+        <div class="flex items-center justify-center md:justify-start gap-2 mb-3 flex-wrap" id="detailTags">
+          <!-- Dynamic Pills will be injected here -->
+        </div>
+        <h2 id="detailName" class="font-serif text-4xl sm:text-5xl lg:text-7xl font-normal tracking-tight text-brand-dark uppercase">
+          <!-- Dynamic Name -->
+        </h2>
+      </div>
+
+      <!-- Detail Grid: Left Photo, Right Editorial Content -->
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-14 items-center">
+        
+        <!-- Left Column: The Morphed Photo Box -->
+        <div class="lg:col-span-5 flex justify-center">
+          <div id="detailPhotoContainer" class="relative w-full max-w-[420px] h-[460px] sm:h-[520px] rounded-[4px] p-2 bg-[#EDE8DE] shadow-2xl border border-black/5 overflow-hidden">
+            <img 
+              id="detailPhoto" 
+              src="" 
+              alt="Leader" 
+              class="w-full h-full object-cover object-top rounded-[2px]"
+            >
+          </div>
+        </div>
+
+        <!-- Right Column: Bio Narrative, Metrics Grid & CTA -->
+        <div class="lg:col-span-7 space-y-8 detail-animate-content">
+          
+          <!-- Narrative Quote from PDF -->
+          <div class="relative pl-6 border-l-2 border-brand-bronze/50">
+            <p id="detailBio" class="font-sans text-base sm:text-lg text-brand-charcoal leading-relaxed font-light">
+              <!-- Dynamic Bio -->
+            </p>
+          </div>
+
+          <!-- Metrics / Credentials Grid (Page 4 & 5 Exact Content) -->
+          <div id="detailMetrics" class="grid grid-cols-1 sm:grid-cols-2 gap-6 pt-4 border-t border-brand-dark/10">
+            <!-- Dynamic Stats Cards -->
+          </div>
+
+          <!-- Bottom Action Row: Spinning Badge & Schedule Visit -->
+          <div class="pt-6 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-6">
+            <div class="flex items-center gap-4">
+              <!-- Circular Rotating Stamp / Badge (Just like in the video) -->
+              <div class="relative w-24 h-24 flex items-center justify-center">
+                <svg class="spin-badge absolute inset-0 w-full h-full text-brand-bronze" viewBox="0 0 100 100">
+                  <path id="circlePath" fill="none" stroke="none" d="M 50, 50 m -37, 0 a 37,37 0 1,1 74,0 a 37,37 0 1,1 -74,0" />
+                  <text class="text-[8.5px] uppercase tracking-[0.24em] font-sans font-bold fill-current">
+                    <textPath xlink:href="#circlePath">
+                      • SCHEDULE A PRIVATE VISIT • ANANDA CROWN
+                    </textPath>
+                  </text>
+                </svg>
+                <div class="w-11 h-11 rounded-full bg-brand-gold/30 flex items-center justify-center">
+                  <svg class="w-5 h-5 text-brand-dark" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path>
+                  </svg>
+                </div>
+              </div>
+
+              <div>
+                <span class="block font-sans text-xs tracking-[0.16em] uppercase font-bold text-brand-dark">Schedule Private Briefing</span>
+                <span class="block font-sans text-xs text-brand-subtle mt-0.5">Meet with Ananda Crown advisory team</span>
+              </div>
+            </div>
+
+            <a href="tel:+917347011099" class="px-6 py-3.5 bg-brand-dark text-white rounded-full font-sans text-xs tracking-[0.18em] uppercase font-semibold hover:bg-brand-bronze transition-all duration-300 shadow-lg hover:shadow-xl flex items-center gap-3">
+              <span>Connect Now</span>
+              <span>+91 73470-11099</span>
+            </a>
+          </div>
+
+        </div>
+
+      </div>
+
+    </div>
+
+    <!-- Detail Footer Bar -->
+    <div class="w-full px-6 md:px-14 py-4 border-t border-brand-dark/10 flex items-center justify-between text-xs text-brand-subtle">
+      <span>ANANDA GROUP • 30+ YEARS OF EXCELLENCE</span>
+      <span>BUILT IN BATHINDA. RAISED IN MOHALI.</span>
+    </div>
+
+  </div>
+
+  <!-- ======================================================== -->
+  <!-- JAVASCRIPT: Carousel Logic & Shared Element Transition  -->
+  <!-- ======================================================== -->
+  <script>
+    // Founder Data directly extracted from PDF Pages 4 & 5
+    const founders = [
+      {
+        id: 0,
+        name: "Anuj Bansal",
+        role: "Co-Founder and Director",
+        tags: ["Co-Founder & Director", "Babson College, USA", "IIT Delhi"],
+        image: "images/founders/anuj_card.jpg",
+        fallbackImage: "public/images/founders/anuj_card.jpg",
+        bio: "Anuj has spent thirteen years working across the 4 countries United States, France, China & India, markets that finance, approve and build in entirely different ways. He brings that global standard of planning and execution to Mohali.",
+        metrics: [
+          {
+            highlight: "13 YEARS",
+            label: "In real estate and other major sectors"
+          },
+          {
+            highlight: "4 COUNTRIES",
+            label: "Working experience in the US, France, China & India"
+          },
+          {
+            highlight: "BABSON COLLEGE, USA",
+            label: "Master's in Entrepreneurship (Ranked No. 1 for nearly three decades)"
+          },
+          {
+            highlight: "IIT DELHI",
+            label: "B.Tech Engineering Pedigree"
+          }
+        ]
+      },
+      {
+        id: 1,
+        name: "Sahil Aggarwal",
+        role: "Co-Founder and Director",
+        tags: ["Co-Founder & Director", "IIM Ahmedabad", "HEC Paris"],
+        image: "images/founders/sahil_card.jpg",
+        fallbackImage: "public/images/founders/sahil_card.jpg",
+        bio: "A second-generation entrepreneur who invests across asset classes, Sahil builds for the long view. His brief for Crown is simple: homes that become an immortal part of lives.",
+        metrics: [
+          {
+            highlight: "IIM AHMEDABAD",
+            label: "Institute Rank & Scholarship Holder, Specialization in Finance & Strategy"
+          },
+          {
+            highlight: "HEC PARIS",
+            label: "Specialization in Entrepreneurship & Marketing"
+          },
+          {
+            highlight: "THAPAR UNIVERSITY",
+            label: "B.Tech, Computer Science Engineering (Rank & Scholarship Holder)"
+          },
+          {
+            highlight: "LONG VIEW",
+            label: "Second-generation entrepreneur investing across strategic asset classes"
+          }
+        ]
+      }
+    ];
+
+    let activeIndex = 0;
+    const card0 = document.getElementById('card-0');
+    const card1 = document.getElementById('card-1');
+    const cards = [card0, card1];
+    const prevBtn = document.getElementById('prevBtn');
+    const nextBtn = document.getElementById('nextBtn');
+    const activeSlideNum = document.getElementById('activeSlideNum');
+
+    const detailView = document.getElementById('detail-view');
+    const closeDetailBtn = document.getElementById('closeDetailBtn');
+    const detailName = document.getElementById('detailName');
+    const detailTags = document.getElementById('detailTags');
+    const detailPhoto = document.getElementById('detailPhoto');
+    const detailBio = document.getElementById('detailBio');
+    const detailMetrics = document.getElementById('detailMetrics');
+
+    // Update Stack Positioning (Perspective & Layering like the video)
+    function updateStack() {
+      activeSlideNum.textContent = String(activeIndex + 1).padStart(2, '0');
+
+      cards.forEach((card, idx) => {
+        if (idx === activeIndex) {
+          // ACTIVE CARD: Front and Center
+          card.style.transform = 'translate3d(0, 0, 0) scale(1)';
+          card.style.opacity = '1';
+          card.style.zIndex = '20';
+          card.style.pointerEvents = 'auto';
+          card.style.filter = 'none';
+        } else {
+          // BACKGROUND CARD: Shifted right, scaled down with perspective
+          card.style.transform = 'translate3d(85px, 12px, -60px) scale(0.92)';
+          card.style.opacity = '0.7';
+          card.style.zIndex = '10';
+          card.style.pointerEvents = 'auto';
+          card.style.filter = 'brightness(0.95)';
+        }
+      });
+    }
+
+    function setActive(idx) {
+      activeIndex = idx;
+      updateStack();
+    }
+
+    prevBtn.addEventListener('click', () => {
+      setActive(activeIndex === 0 ? 1 : 0);
+    });
+
+    nextBtn.addEventListener('click', () => {
+      setActive(activeIndex === 1 ? 0 : 1);
+    });
+
+    // Clicking a stacked background card brings it to focus
+    cards.forEach((card, idx) => {
+      card.addEventListener('click', (e) => {
+        if (idx !== activeIndex) {
+          e.stopPropagation();
+          setActive(idx);
+        } else {
+          openDetail(idx);
+        }
+      });
+
+      // Interactive hover arrow badge movement inside active card
+      const badge = document.getElementById(`hoverBadge-${idx}`);
+      card.addEventListener('mousemove', (e) => {
+        if (idx !== activeIndex) return;
+        const rect = card.getBoundingClientRect();
+        const x = e.clientX - rect.left;
+        const y = e.clientY - rect.top;
+        if (badge) {
+          badge.style.left = `${x}px`;
+          badge.style.top = `${y}px`;
+        }
+      });
+    });
+
+    // Open Detail View with Shared Element Transition
+    function openDetail(index) {
+      const f = founders[index];
+
+      // Populate Detail Info
+      detailName.textContent = f.name;
+      detailBio.textContent = f.bio;
+      detailPhoto.src = f.image;
+      detailPhoto.onerror = () => { detailPhoto.src = f.fallbackImage; };
+
+      // Populate Tags
+      detailTags.innerHTML = f.tags.map(t => `<span class="tag-pill text-brand-bronze border-brand-bronze/40">${t}</span>`).join('');
+
+      // Populate Metrics Grid
+      detailMetrics.innerHTML = f.metrics.map(m => `
+        <div class="space-y-1">
+          <div class="font-serif text-2xl sm:text-3xl font-medium text-brand-dark tracking-tight">${m.highlight}</div>
+          <div class="font-sans text-xs text-brand-subtle uppercase tracking-wider">${m.label}</div>
+        </div>
+      `).join('');
+
+      // Show View
+      detailView.classList.remove('pointer-events-none');
+      detailView.style.opacity = '1';
+
+      // GSAP Shared Element FLIP / Staggered Morph
+      const tl = gsap.timeline();
+      tl.fromTo("#detailPhotoContainer", 
+        { scale: 0.88, y: 30, opacity: 0 }, 
+        { scale: 1, y: 0, opacity: 1, duration: 0.65, ease: "power3.out" }
+      )
+      .fromTo(".detail-animate-top", 
+        { y: -20, opacity: 0 }, 
+        { y: 0, opacity: 1, duration: 0.5, ease: "power2.out" }, 
+        "-=0.4"
+      )
+      .fromTo(".detail-animate-content", 
+        { y: 30, opacity: 0 }, 
+        { y: 0, opacity: 1, duration: 0.55, ease: "power2.out" }, 
+        "-=0.35"
+      );
+    }
+
+    // Close Detail View
+    function closeDetail() {
+      const tl = gsap.timeline({
+        onComplete: () => {
+          detailView.style.opacity = '0';
+          detailView.classList.add('pointer-events-none');
+        }
+      });
+
+      tl.to("#detailPhotoContainer", { scale: 0.9, opacity: 0, duration: 0.35, ease: "power2.in" })
+        .to(".detail-animate-content", { y: 20, opacity: 0, duration: 0.25 }, "-=0.25")
+        .to(".detail-animate-top", { opacity: 0, duration: 0.2 }, "-=0.2");
+    }
+
+    closeDetailBtn.addEventListener('click', closeDetail);
+
+    // Keyboard support: Left/Right arrows, Escape to close
+    window.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape') closeDetail();
+      if (detailView.style.opacity !== '1') {
+        if (e.key === 'ArrowLeft') setActive(activeIndex === 0 ? 1 : 0);
+        if (e.key === 'ArrowRight') setActive(activeIndex === 1 ? 0 : 1);
+      }
+    });
+
+    // Initialize Stack
+    updateStack();
+  </script>
+</body>
+</html>
