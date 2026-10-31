@@ -39,7 +39,7 @@ export const metadata: Metadata = {
     title: "Ananda Crown | Sector 78 Mohali - Ultra Luxury Residences",
     description:
       "Comfort, elegance and royal architecture at Sector 78 Mohali. Discover limited edition high-rise sky residences.",
-    images: [`${iconPrefix}/images/ananda-building.png`],
+    images: [`${iconPrefix}/images/ananda-building.optimized.webp`],
   },
   icons: {
     icon: [

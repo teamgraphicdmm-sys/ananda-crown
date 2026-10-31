@@ -5,10 +5,13 @@
   "scripts": {
     "dev": "node preview-server.js 3000 public",
     "dev:react": "next dev",
-    "build": "next build",
+    "build": "node scripts/validate-assets.cjs && node scripts/clean-output.cjs && next build && node export-clone.js && node scripts/minify-export.cjs",
     "preview": "node preview-server.js 8080 out",
     "start": "next start",
-    "lint": "eslint"
+    "lint": "eslint",
+    "optimize:images": "node optimize-assets.js && node scripts/prepare-images.cjs",
+    "audit:assets": "node scripts/audit-assets.cjs",
+    "check:assets": "node scripts/validate-assets.cjs"
   },
   "dependencies": {
     "@gsap/react": "^2.1.2",
@@ -27,6 +30,8 @@
     "@types/react-dom": "^19",
     "eslint": "^9",
     "eslint-config-next": "16.3.5",
+    "lightningcss": "^1.32.0",
+    "sharp": "^0.35.4",
     "tailwindcss": "^4",
     "typescript": "^5"
   }

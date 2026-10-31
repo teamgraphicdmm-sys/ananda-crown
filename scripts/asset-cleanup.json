@@ -1,0 +1,910 @@
+{
+  "unusedFiles": 226,
+  "publicBytes": 220164858,
+  "files": [
+    {
+      "path": "images/about-us-2.png",
+      "bytes": 5487428
+    },
+    {
+      "path": "images/about-us-hero.png",
+      "bytes": 5531205
+    },
+    {
+      "path": "images/about-us-hero_old.png",
+      "bytes": 6514741
+    },
+    {
+      "path": "images/amenities/For-Every-Generation.png",
+      "bytes": 7651865
+    },
+    {
+      "path": "images/amenities/magnific_transform-the-uploaded-ar_N2zgeLf6D9.webp",
+      "bytes": 658090
+    },
+    {
+      "path": "images/amenities/sky-top-pool.webp",
+      "bytes": 115428
+    },
+    {
+      "path": "images/amenities/sky-top-pool_old.webp",
+      "bytes": 113506
+    },
+    {
+      "path": "images/amenity-clubhouse.jpg",
+      "bytes": 964229
+    },
+    {
+      "path": "images/amenity-garden.jpg",
+      "bytes": 920930
+    },
+    {
+      "path": "images/amenity-pool.jpg",
+      "bytes": 911152
+    },
+    {
+      "path": "images/amenity-spa.jpg",
+      "bytes": 794097
+    },
+    {
+      "path": "images/ananda-building.png",
+      "bytes": 20525859
+    },
+    {
+      "path": "images/ananda-logo-transparent.png",
+      "bytes": 91070
+    },
+    {
+      "path": "images/bg/about-us.png",
+      "bytes": 1378572
+    },
+    {
+      "path": "images/bg/full-building-night.png",
+      "bytes": 1770118
+    },
+    {
+      "path": "images/bg/full-building.webp",
+      "bytes": 713028
+    },
+    {
+      "path": "images/bg/Last.png",
+      "bytes": 2179860
+    },
+    {
+      "path": "images/bottom-Photoroom.png",
+      "bytes": 812798
+    },
+    {
+      "path": "images/crown-bg-1.png",
+      "bytes": 18542958
+    },
+    {
+      "path": "images/crown-bg.webp",
+      "bytes": 305460
+    },
+    {
+      "path": "images/Crown-transparent.png",
+      "bytes": 104913
+    },
+    {
+      "path": "images/Crown.png",
+      "bytes": 115669
+    },
+    {
+      "path": "images/Curved Marble Lobby Cutout.png",
+      "bytes": 1648912
+    },
+    {
+      "path": "images/favicon.ico",
+      "bytes": 5162
+    },
+    {
+      "path": "images/favicon.png",
+      "bytes": 24780
+    },
+    {
+      "path": "images/floorplan.png",
+      "bytes": 1874029
+    },
+    {
+      "path": "images/founders/anuj.png",
+      "bytes": 2068091
+    },
+    {
+      "path": "images/founders/anuj_card.jpg",
+      "bytes": 165140
+    },
+    {
+      "path": "images/founders/anuj_clean.jpg",
+      "bytes": 269619
+    },
+    {
+      "path": "images/founders/anuj_transparent.png",
+      "bytes": 1200208
+    },
+    {
+      "path": "images/founders/founder_4.jpeg",
+      "bytes": 153678
+    },
+    {
+      "path": "images/founders/founder_5.jpeg",
+      "bytes": 87738
+    },
+    {
+      "path": "images/founders/page_4.png",
+      "bytes": 2520386
+    },
+    {
+      "path": "images/founders/page_5.png",
+      "bytes": 2068299
+    },
+    {
+      "path": "images/founders/sahil_card.jpg",
+      "bytes": 226594
+    },
+    {
+      "path": "images/founders/sahil_clean.jpg",
+      "bytes": 257722
+    },
+    {
+      "path": "images/founders/thumb_f4.jpg",
+      "bytes": 11919
+    },
+    {
+      "path": "images/founders/thumb_f5.jpg",
+      "bytes": 28637
+    },
+    {
+      "path": "images/founders/Warm Bokeh Corporate Portrait.png",
+      "bytes": 1038988
+    },
+    {
+      "path": "images/founders/Warm Bokeh-Corporate Portrait.png",
+      "bytes": 2081198
+    },
+    {
+      "path": "images/full-building.png",
+      "bytes": 24011930
+    },
+    {
+      "path": "images/golden-chess.webp",
+      "bytes": 65180
+    },
+    {
+      "path": "images/half-building.png",
+      "bytes": 20525859
+    },
+    {
+      "path": "images/hero-building-sunset-1.png",
+      "bytes": 1418497
+    },
+    {
+      "path": "images/hero-page.png",
+      "bytes": 2548172
+    },
+    {
+      "path": "images/interior/kitchen.webp",
+      "bytes": 96078
+    },
+    {
+      "path": "images/logo-transparent.png",
+      "bytes": 10490
+    },
+    {
+      "path": "images/logo_large.webp",
+      "bytes": 13922
+    },
+    {
+      "path": "images/tarnsaperent_logo.png",
+      "bytes": 201470
+    },
+    {
+      "path": "images/text-crown-arrived.webp",
+      "bytes": 15236
+    },
+    {
+      "path": "images/text-wait-over.webp",
+      "bytes": 9996
+    },
+    {
+      "path": "videos/hero-frames/frame_0001.jpg",
+      "bytes": 381578
+    },
+    {
+      "path": "videos/hero-frames/frame_0002.jpg",
+      "bytes": 373241
+    },
+    {
+      "path": "videos/hero-frames/frame_0003.jpg",
+      "bytes": 369231
+    },
+    {
+      "path": "videos/hero-frames/frame_0004.jpg",
+      "bytes": 368603
+    },
+    {
+      "path": "videos/hero-frames/frame_0005.jpg",
+      "bytes": 363435
+    },
+    {
+      "path": "videos/hero-frames/frame_0006.jpg",
+      "bytes": 358473
+    },
+    {
+      "path": "videos/hero-frames/frame_0007.jpg",
+      "bytes": 362938
+    },
+    {
+      "path": "videos/hero-frames/frame_0008.jpg",
+      "bytes": 362586
+    },
+    {
+      "path": "videos/hero-frames/frame_0009.jpg",
+      "bytes": 355821
+    },
+    {
+      "path": "videos/hero-frames/frame_0010.jpg",
+      "bytes": 332874
+    },
+    {
+      "path": "videos/hero-frames/frame_0011.jpg",
+      "bytes": 349652
+    },
+    {
+      "path": "videos/hero-frames/frame_0012.jpg",
+      "bytes": 350522
+    },
+    {
+      "path": "videos/hero-frames/frame_0013.jpg",
+      "bytes": 345827
+    },
+    {
+      "path": "videos/hero-frames/frame_0014.jpg",
+      "bytes": 341176
+    },
+    {
+      "path": "videos/hero-frames/frame_0015.jpg",
+      "bytes": 352007
+    },
+    {
+      "path": "videos/hero-frames/frame_0016.jpg",
+      "bytes": 354068
+    },
+    {
+      "path": "videos/hero-frames/frame_0017.jpg",
+      "bytes": 346945
+    },
+    {
+      "path": "videos/hero-frames/frame_0018.jpg",
+      "bytes": 319800
+    },
+    {
+      "path": "videos/hero-frames/frame_0019.jpg",
+      "bytes": 339235
+    },
+    {
+      "path": "videos/hero-frames/frame_0020.jpg",
+      "bytes": 338159
+    },
+    {
+      "path": "videos/hero-frames/frame_0021.jpg",
+      "bytes": 325713
+    },
+    {
+      "path": "videos/hero-frames/frame_0022.jpg",
+      "bytes": 310695
+    },
+    {
+      "path": "videos/hero-frames/frame_0023.jpg",
+      "bytes": 334558
+    },
+    {
+      "path": "videos/hero-frames/frame_0024.jpg",
+      "bytes": 333820
+    },
+    {
+      "path": "videos/hero-frames/frame_0025.jpg",
+      "bytes": 325616
+    },
+    {
+      "path": "videos/hero-frames/frame_0026.jpg",
+      "bytes": 297938
+    },
+    {
+      "path": "videos/hero-frames/frame_0027.jpg",
+      "bytes": 318497
+    },
+    {
+      "path": "videos/hero-frames/frame_0028.jpg",
+      "bytes": 315319
+    },
+    {
+      "path": "videos/hero-frames/frame_0029.jpg",
+      "bytes": 307708
+    },
+    {
+      "path": "videos/hero-frames/frame_0030.jpg",
+      "bytes": 285853
+    },
+    {
+      "path": "videos/hero-frames/frame_0031.jpg",
+      "bytes": 307577
+    },
+    {
+      "path": "videos/hero-frames/frame_0032.jpg",
+      "bytes": 309318
+    },
+    {
+      "path": "videos/hero-frames/frame_0033.jpg",
+      "bytes": 303226
+    },
+    {
+      "path": "videos/hero-frames/frame_0034.jpg",
+      "bytes": 286665
+    },
+    {
+      "path": "videos/hero-frames/frame_0035.jpg",
+      "bytes": 274629
+    },
+    {
+      "path": "videos/hero-frames/frame_0036.jpg",
+      "bytes": 262414
+    },
+    {
+      "path": "videos/hero-frames/frame_0037.jpg",
+      "bytes": 241980
+    },
+    {
+      "path": "videos/hero-frames/frame_0038.jpg",
+      "bytes": 224224
+    },
+    {
+      "path": "videos/hero-frames/frame_0039.jpg",
+      "bytes": 221123
+    },
+    {
+      "path": "videos/hero-frames/frame_0040.jpg",
+      "bytes": 221484
+    },
+    {
+      "path": "videos/hero-frames/frame_0041.jpg",
+      "bytes": 216217
+    },
+    {
+      "path": "videos/hero-frames/frame_0042.jpg",
+      "bytes": 204389
+    },
+    {
+      "path": "videos/hero-frames/frame_0043.jpg",
+      "bytes": 198726
+    },
+    {
+      "path": "videos/hero-frames/frame_0044.jpg",
+      "bytes": 201043
+    },
+    {
+      "path": "videos/hero-frames/frame_0045.jpg",
+      "bytes": 200014
+    },
+    {
+      "path": "videos/hero-frames/frame_0046.jpg",
+      "bytes": 198012
+    },
+    {
+      "path": "videos/hero-frames/frame_0047.jpg",
+      "bytes": 199237
+    },
+    {
+      "path": "videos/hero-frames/frame_0048.jpg",
+      "bytes": 204659
+    },
+    {
+      "path": "videos/hero-frames/frame_0049.jpg",
+      "bytes": 201722
+    },
+    {
+      "path": "videos/hero-frames/frame_0050.jpg",
+      "bytes": 188924
+    },
+    {
+      "path": "videos/hero-frames/frame_0051.jpg",
+      "bytes": 185502
+    },
+    {
+      "path": "videos/hero-frames/frame_0052.jpg",
+      "bytes": 189861
+    },
+    {
+      "path": "videos/hero-frames/frame_0053.jpg",
+      "bytes": 190726
+    },
+    {
+      "path": "videos/hero-frames/frame_0054.jpg",
+      "bytes": 192245
+    },
+    {
+      "path": "videos/hero-frames/frame_0055.jpg",
+      "bytes": 195127
+    },
+    {
+      "path": "videos/hero-frames/frame_0056.jpg",
+      "bytes": 209333
+    },
+    {
+      "path": "videos/hero-frames/frame_0057.jpg",
+      "bytes": 202828
+    },
+    {
+      "path": "videos/hero-frames/frame_0058.jpg",
+      "bytes": 199831
+    },
+    {
+      "path": "videos/hero-frames/frame_0059.jpg",
+      "bytes": 211710
+    },
+    {
+      "path": "videos/hero-frames/frame_0060.jpg",
+      "bytes": 233057
+    },
+    {
+      "path": "videos/hero-frames/frame_0061.jpg",
+      "bytes": 237962
+    },
+    {
+      "path": "videos/hero-frames/frame_0062.jpg",
+      "bytes": 242472
+    },
+    {
+      "path": "videos/hero-frames/frame_0063.jpg",
+      "bytes": 269076
+    },
+    {
+      "path": "videos/hero-frames/frame_0064.jpg",
+      "bytes": 276611
+    },
+    {
+      "path": "videos/hero-frames/frame_0065.jpg",
+      "bytes": 269215
+    },
+    {
+      "path": "videos/hero-frames/frame_0066.jpg",
+      "bytes": 273550
+    },
+    {
+      "path": "videos/hero-frames/frame_0067.jpg",
+      "bytes": 283558
+    },
+    {
+      "path": "videos/hero-frames/frame_0068.jpg",
+      "bytes": 303572
+    },
+    {
+      "path": "videos/hero-frames/frame_0069.jpg",
+      "bytes": 301974
+    },
+    {
+      "path": "videos/hero-frames/frame_0070.jpg",
+      "bytes": 298632
+    },
+    {
+      "path": "videos/hero-frames/frame_0071.jpg",
+      "bytes": 320828
+    },
+    {
+      "path": "videos/hero-frames/frame_0072.jpg",
+      "bytes": 329006
+    },
+    {
+      "path": "videos/hero-frames/frame_0073.jpg",
+      "bytes": 319577
+    },
+    {
+      "path": "videos/hero-frames/frame_0074.jpg",
+      "bytes": 309239
+    },
+    {
+      "path": "videos/hero-frames/frame_0075.jpg",
+      "bytes": 334236
+    },
+    {
+      "path": "videos/hero-frames/frame_0076.jpg",
+      "bytes": 344372
+    },
+    {
+      "path": "videos/hero-frames/frame_0077.jpg",
+      "bytes": 336558
+    },
+    {
+      "path": "videos/hero-frames/frame_0078.jpg",
+      "bytes": 330403
+    },
+    {
+      "path": "videos/hero-frames/frame_0079.jpg",
+      "bytes": 366649
+    },
+    {
+      "path": "videos/hero-frames/frame_0080.jpg",
+      "bytes": 375816
+    },
+    {
+      "path": "videos/hero-frames/frame_0081.jpg",
+      "bytes": 375660
+    },
+    {
+      "path": "videos/hero-frames/frame_0082.jpg",
+      "bytes": 354311
+    },
+    {
+      "path": "videos/hero-frames/frame_0083.jpg",
+      "bytes": 382788
+    },
+    {
+      "path": "videos/hero-frames/frame_0084.jpg",
+      "bytes": 387381
+    },
+    {
+      "path": "videos/hero-frames/frame_0085.jpg",
+      "bytes": 371139
+    },
+    {
+      "path": "videos/hero-frames/frame_0086.jpg",
+      "bytes": 384687
+    },
+    {
+      "path": "videos/hero-frames/frame_0087.jpg",
+      "bytes": 399879
+    },
+    {
+      "path": "videos/hero-frames/frame_0088.jpg",
+      "bytes": 404578
+    },
+    {
+      "path": "videos/hero-frames/frame_0089.jpg",
+      "bytes": 384497
+    },
+    {
+      "path": "videos/hero-frames/frame_0090.jpg",
+      "bytes": 396181
+    },
+    {
+      "path": "videos/hero-frames/frame_0091.jpg",
+      "bytes": 401397
+    },
+    {
+      "path": "videos/hero-frames/frame_0092.jpg",
+      "bytes": 402561
+    },
+    {
+      "path": "videos/hero-frames/frame_0093.jpg",
+      "bytes": 398552
+    },
+    {
+      "path": "videos/hero-frames/frame_0094.jpg",
+      "bytes": 397830
+    },
+    {
+      "path": "videos/hero-frames/frame_0095.jpg",
+      "bytes": 403997
+    },
+    {
+      "path": "videos/hero-frames/frame_0096.jpg",
+      "bytes": 406165
+    },
+    {
+      "path": "videos/hero-frames/frame_0097.jpg",
+      "bytes": 423840
+    },
+    {
+      "path": "videos/hero-frames/frame_0098.jpg",
+      "bytes": 415150
+    },
+    {
+      "path": "videos/hero-frames/frame_0099.jpg",
+      "bytes": 418924
+    },
+    {
+      "path": "videos/hero-frames/frame_0100.jpg",
+      "bytes": 420401
+    },
+    {
+      "path": "videos/hero-frames/frame_0101.jpg",
+      "bytes": 418720
+    },
+    {
+      "path": "videos/hero-frames/frame_0102.jpg",
+      "bytes": 419831
+    },
+    {
+      "path": "videos/hero-frames/frame_0103.jpg",
+      "bytes": 426446
+    },
+    {
+      "path": "videos/hero-frames/frame_0104.jpg",
+      "bytes": 430020
+    },
+    {
+      "path": "videos/hero-frames/frame_0105.jpg",
+      "bytes": 430478
+    },
+    {
+      "path": "videos/hero-frames/frame_0106.jpg",
+      "bytes": 430403
+    },
+    {
+      "path": "videos/hero-frames/frame_0107.jpg",
+      "bytes": 435326
+    },
+    {
+      "path": "videos/hero-frames/frame_0108.jpg",
+      "bytes": 437201
+    },
+    {
+      "path": "videos/hero-frames/frame_0109.jpg",
+      "bytes": 436896
+    },
+    {
+      "path": "videos/hero-frames/frame_0110.jpg",
+      "bytes": 440445
+    },
+    {
+      "path": "videos/hero-frames/frame_0111.jpg",
+      "bytes": 445406
+    },
+    {
+      "path": "videos/hero-frames/frame_0112.jpg",
+      "bytes": 447133
+    },
+    {
+      "path": "videos/hero-frames/frame_0113.jpg",
+      "bytes": 425716
+    },
+    {
+      "path": "videos/hero-frames/frame_0114.jpg",
+      "bytes": 449381
+    },
+    {
+      "path": "videos/hero-frames/frame_0115.jpg",
+      "bytes": 450695
+    },
+    {
+      "path": "videos/hero-frames/frame_0116.jpg",
+      "bytes": 450242
+    },
+    {
+      "path": "videos/hero-frames/frame_0117.jpg",
+      "bytes": 427401
+    },
+    {
+      "path": "videos/hero-frames/frame_0118.jpg",
+      "bytes": 452261
+    },
+    {
+      "path": "videos/hero-frames/frame_0119.jpg",
+      "bytes": 454415
+    },
+    {
+      "path": "videos/hero-frames/frame_0120.jpg",
+      "bytes": 430427
+    },
+    {
+      "path": "videos/hero-frames/frame_0121.jpg",
+      "bytes": 457923
+    },
+    {
+      "path": "videos/hero-frames/frame_0122.jpg",
+      "bytes": 457861
+    },
+    {
+      "path": "videos/hero-frames/frame_0123.jpg",
+      "bytes": 459340
+    },
+    {
+      "path": "videos/hero-frames/frame_0124.jpg",
+      "bytes": 437629
+    },
+    {
+      "path": "videos/hero-frames/frame_0125.jpg",
+      "bytes": 428231
+    },
+    {
+      "path": "videos/hero-frames/frame_0126.jpg",
+      "bytes": 463264
+    },
+    {
+      "path": "videos/hero-frames/frame_0127.jpg",
+      "bytes": 435313
+    },
+    {
+      "path": "videos/hero-frames/frame_0128.jpg",
+      "bytes": 465028
+    },
+    {
+      "path": "videos/hero-frames/frame_0129.jpg",
+      "bytes": 437537
+    },
+    {
+      "path": "videos/hero-frames/frame_0130.jpg",
+      "bytes": 464223
+    },
+    {
+      "path": "videos/hero-frames/frame_0131.jpg",
+      "bytes": 428502
+    },
+    {
+      "path": "videos/hero-frames/frame_0132.jpg",
+      "bytes": 442359
+    },
+    {
+      "path": "videos/hero-frames/frame_0133.jpg",
+      "bytes": 431911
+    },
+    {
+      "path": "videos/hero-frames/frame_0134.jpg",
+      "bytes": 469586
+    },
+    {
+      "path": "videos/hero-frames/frame_0135.jpg",
+      "bytes": 444805
+    },
+    {
+      "path": "videos/hero-frames/frame_0136.jpg",
+      "bytes": 430192
+    },
+    {
+      "path": "videos/hero-frames/frame_0137.jpg",
+      "bytes": 471881
+    },
+    {
+      "path": "videos/hero-frames/frame_0138.jpg",
+      "bytes": 437671
+    },
+    {
+      "path": "videos/hero-frames/frame_0139.jpg",
+      "bytes": 471775
+    },
+    {
+      "path": "videos/hero-frames/frame_0140.jpg",
+      "bytes": 439046
+    },
+    {
+      "path": "videos/hero-frames/frame_0141.jpg",
+      "bytes": 472125
+    },
+    {
+      "path": "videos/hero-frames/frame_0142.jpg",
+      "bytes": 446566
+    },
+    {
+      "path": "videos/hero-frames/frame_0143.jpg",
+      "bytes": 432798
+    },
+    {
+      "path": "videos/hero-frames/frame_0144.jpg",
+      "bytes": 474571
+    },
+    {
+      "path": "videos/hero-frames/frame_0145.jpg",
+      "bytes": 491968
+    },
+    {
+      "path": "videos/hero-frames/frame_0146.jpg",
+      "bytes": 446489
+    },
+    {
+      "path": "videos/hero-frames/frame_0147.jpg",
+      "bytes": 455563
+    },
+    {
+      "path": "videos/hero-frames/frame_0148.jpg",
+      "bytes": 439789
+    },
+    {
+      "path": "videos/hero-frames/frame_0149.jpg",
+      "bytes": 485927
+    },
+    {
+      "path": "videos/hero-frames/frame_0150.jpg",
+      "bytes": 440789
+    },
+    {
+      "path": "videos/hero-frames/frame_0151.jpg",
+      "bytes": 455459
+    },
+    {
+      "path": "videos/hero-frames/frame_0152.jpg",
+      "bytes": 442749
+    },
+    {
+      "path": "videos/hero-frames/frame_0153.jpg",
+      "bytes": 484293
+    },
+    {
+      "path": "videos/hero-frames/frame_0154.jpg",
+      "bytes": 440171
+    },
+    {
+      "path": "videos/hero-frames/frame_0155.jpg",
+      "bytes": 453160
+    },
+    {
+      "path": "videos/hero-frames/frame_0156.jpg",
+      "bytes": 439291
+    },
+    {
+      "path": "videos/hero-frames/frame_0157.jpg",
+      "bytes": 483046
+    },
+    {
+      "path": "videos/hero-frames/frame_0158.jpg",
+      "bytes": 439531
+    },
+    {
+      "path": "videos/hero-frames/frame_0159.jpg",
+      "bytes": 454175
+    },
+    {
+      "path": "videos/hero-frames/frame_0160.jpg",
+      "bytes": 439279
+    },
+    {
+      "path": "videos/hero-frames/frame_0161.jpg",
+      "bytes": 481242
+    },
+    {
+      "path": "videos/hero-frames/frame_0162.jpg",
+      "bytes": 438888
+    },
+    {
+      "path": "videos/hero-frames/frame_0163.jpg",
+      "bytes": 451842
+    },
+    {
+      "path": "videos/hero-frames/frame_0164.jpg",
+      "bytes": 436941
+    },
+    {
+      "path": "videos/hero-frames/frame_0165.jpg",
+      "bytes": 478119
+    },
+    {
+      "path": "videos/hero-frames/frame_0166.jpg",
+      "bytes": 440908
+    },
+    {
+      "path": "videos/hero-frames/frame_0167.jpg",
+      "bytes": 453611
+    },
+    {
+      "path": "videos/hero-frames/frame_0168.jpg",
+      "bytes": 441072
+    },
+    {
+      "path": "videos/hero-frames/frame_0169.jpg",
+      "bytes": 473251
+    },
+    {
+      "path": "videos/magnific_animate_nVXtg8hYQD.mp4",
+      "bytes": 17433190
+    },
+    {
+      "path": "file.svg",
+      "bytes": 391
+    },
+    {
+      "path": "globe.svg",
+      "bytes": 1035
+    },
+    {
+      "path": "next.svg",
+      "bytes": 1375
+    },
+    {
+      "path": "vercel.svg",
+      "bytes": 128
+    },
+    {
+      "path": "window.svg",
+      "bytes": 385
+    }
+  ]
+}

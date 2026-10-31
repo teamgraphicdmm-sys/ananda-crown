@@ -203,7 +203,7 @@ export const INVENTORY_DATA: InventoryUnit[] = [
     areaSqM: 225.3,
     status: "available",
     priceEst: "₹2.54 Cr*",
-    floorplanImage: "/images/floorplan.png",
+    floorplanImage: "/images/floorplan.optimized.webp",
     specs: {
       livingDining: "28' x 16' Palatial Salon",
       masterBedroom: "18' x 14' with En-suite & Dresser",
@@ -226,7 +226,7 @@ export const INVENTORY_DATA: InventoryUnit[] = [
     areaSqM: 255.5,
     status: "available",
     priceEst: "₹2.88 Cr*",
-    floorplanImage: "/images/floorplan.png",
+    floorplanImage: "/images/floorplan.optimized.webp",
     specs: {
       livingDining: "30' x 18' Living & Dining",
       masterBedroom: "20' x 15' Master Retreat",
@@ -249,7 +249,7 @@ export const INVENTORY_DATA: InventoryUnit[] = [
     areaSqM: 301.9,
     status: "available",
     priceEst: "₹3.41 Cr*",
-    floorplanImage: "/images/floorplan.png",
+    floorplanImage: "/images/floorplan.optimized.webp",
     specs: {
       livingDining: "34' x 20' Grand Salon",
       masterBedroom: "22' x 16' Presidential Suite",
@@ -272,7 +272,7 @@ export const INVENTORY_DATA: InventoryUnit[] = [
     areaSqM: 225.3,
     status: "available",
     priceEst: "₹2.54 Cr*",
-    floorplanImage: "/images/floorplan.png",
+    floorplanImage: "/images/floorplan.optimized.webp",
     specs: {
       livingDining: "28' x 16' Palatial Salon",
       masterBedroom: "18' x 14' with En-suite",
@@ -295,7 +295,7 @@ export const INVENTORY_DATA: InventoryUnit[] = [
     areaSqM: 255.5,
     status: "available",
     priceEst: "₹2.88 Cr*",
-    floorplanImage: "/images/floorplan.png",
+    floorplanImage: "/images/floorplan.optimized.webp",
     specs: {
       livingDining: "30' x 18' Living & Dining",
       masterBedroom: "20' x 15' Master Chamber",
@@ -318,7 +318,7 @@ export const INVENTORY_DATA: InventoryUnit[] = [
     areaSqM: 339.1,
     status: "reserved",
     priceEst: "₹3.83 Cr*",
-    floorplanImage: "/images/floorplan.png",
+    floorplanImage: "/images/floorplan.optimized.webp",
     specs: {
       livingDining: "36' x 22' Royal Salon + Family Den",
       masterBedroom: "24' x 16' Grand Master with Walk-in",
@@ -341,7 +341,7 @@ export const INVENTORY_DATA: InventoryUnit[] = [
     areaSqM: 255.5,
     status: "available",
     priceEst: "₹2.88 Cr*",
-    floorplanImage: "/images/floorplan.png",
+    floorplanImage: "/images/floorplan.optimized.webp",
     specs: {
       livingDining: "30' x 18' Living & Dining",
       masterBedroom: "20' x 15' Master Chamber",
@@ -364,7 +364,7 @@ export const INVENTORY_DATA: InventoryUnit[] = [
     areaSqM: 301.9,
     status: "available",
     priceEst: "₹3.41 Cr*",
-    floorplanImage: "/images/floorplan.png",
+    floorplanImage: "/images/floorplan.optimized.webp",
     specs: {
       livingDining: "34' x 20' Grand Salon",
       masterBedroom: "22' x 16' Presidential Suite",
@@ -387,7 +387,7 @@ export const INVENTORY_DATA: InventoryUnit[] = [
     areaSqM: 339.1,
     status: "sold",
     priceEst: "₹3.83 Cr*",
-    floorplanImage: "/images/floorplan.png",
+    floorplanImage: "/images/floorplan.optimized.webp",
     specs: {
       livingDining: "36' x 22' Royal Salon",
       masterBedroom: "24' x 16' Master Quarters",
@@ -410,7 +410,7 @@ export const INVENTORY_DATA: InventoryUnit[] = [
     areaSqM: 380.9,
     status: "available",
     priceEst: "₹4.75 Cr*",
-    floorplanImage: "/images/floorplan.png",
+    floorplanImage: "/images/floorplan.optimized.webp",
     specs: {
       livingDining: "Double-Height 24 ft Grand Atrium",
       masterBedroom: "28' x 18' Penthouse Master with Private Deck",

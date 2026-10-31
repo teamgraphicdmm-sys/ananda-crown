@@ -1,36 +1,32 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Ananda Crown
 
-## Getting Started
+The live site is the static design in `public/ananda_crown_clone.html`. `index.html` and the root asset folders are its standalone Apache/local-editing mirror. Keep both copies in sync. The Next.js source remains available through `npm run dev:react` and provides the exported privacy route.
 
-First, run the development server:
+## Development and production
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+- `npm run dev`: preview the live static design at http://localhost:3000.
+- `npm run build`: validate local assets, clear only the generated `out/` directory, build Next.js, publish the static home/contact pages, and minify the exported CSS and JavaScript (including inline code). Source files stay readable. Exported static assets receive content-version query strings so browser caches can pick up new deployments.
+- `npm run preview`: serve the production `out/` directory at http://localhost:8080 with gzip, ETags and cache headers.
+- Deploy **only `out/`**. GitHub Actions runs the complete build automatically. Do not run `export-clone.js` again after the build: that would replace the minified home page.
+- GitHub Pages project paths use `NEXT_BASE_PATH` and `NEXT_PUBLIC_BASE_PATH`, set by the workflow. Set the same variables when previewing a project-path build locally.
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Apache hosting can use the included `out/.htaccess` for compression and caching. GitHub Pages manages its own response headers.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Images and animation
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+Large photographs and transparent illustrations use optimized WebP files. HTML images include intrinsic dimensions, asynchronous decoding, and responsive sources where useful. The first hero image has high priority; images further down the site load lazily.
 
-## Learn More
+The hero retains all 169 original animation positions. Desktop and mobile frame sizes are separate. The loader requests nearby frames with at most three requests in flight and retains at most 36 desktop / 20 mobile decoded frames. It pauses idle work and respects reduced motion and data-saving preferences. The previous full-video download and fixed loading-screen delay are removed from the live home page.
 
-To learn more about Next.js, take a look at the following resources:
+GSAP and the existing main fonts are local, with their existing versions and license headers retained. Font license files remain alongside the fonts.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## Asset maintenance
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+- `npm run optimize:images`: optimize newly added referenced images and prepare responsive image tags. To regenerate the hero, supply the original JPEG frames in `public/videos/hero-frames/` before running this command.
+- `npm run check:assets`: check image, script, font, CSS, and srcset paths.
+- `npm run audit:assets`: report assets not referenced by any HTML entry point, CSS, JavaScript, or the Next.js source. This does not delete anything.
+- `node scripts/audit-assets.cjs --clean`: delete the reported unused assets and matching root copies after reviewing the report.
 
-## Deploy on Vercel
+Reference folders, including `refe/`, are excluded from cleanup. Root/public duplicates needed by the two preview modes are retained. `scripts/image-optimization.json` and `scripts/asset-cleanup.json` record the optimization and cleanup results.
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+The existing inquiry/contact forms currently prevent submission and have no configured delivery backend. Performance optimization does not add a form service.

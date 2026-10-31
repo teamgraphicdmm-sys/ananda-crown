@@ -1,87 +1,49 @@
-// One-time (re-runnable) asset optimizer for the clone site.
-// - Finds local raster images (png/jpg) referenced by the clone + contact HTML
-// - Re-encodes files >400KB to WebP (max 1920px, q78) beside the original
-// - Rewrites refs (src/href/srcset) in both HTML files to the .webp version
-// - Skips favicons/icons (.ico, favicon*, apple-touch-icon*)
-// Run: node optimize-assets.js
-
-const fs = require("fs");
-const path = require("path");
-const sharp = require("sharp");
-
+// Re-run after adding new images. Originals are removed separately by audit-assets.js.
+const fs = require('fs');
+const path = require('path');
+const sharp = require('sharp');
 const ROOT = __dirname;
-const HTML_FILES = ["public/ananda_crown_clone.html", "public/contact.html"];
-const SIZE_THRESHOLD = 400 * 1024;
-const MAX_DIM = 1920;
-
-function collectRefs(html) {
-  const refs = new Set();
-  const attrRe = /(?:src|href)="(\/[^"]+?\.(png|jpe?g))"/gi;
-  let m;
-  while ((m = attrRe.exec(html)) !== null) refs.add(m[1]);
-  const srcsetRe = /srcset="([^"]*)"/gi;
-  while ((m = srcsetRe.exec(html)) !== null) {
-    for (const part of m[1].split(",")) {
-      const url = part.trim().split(/\s+/)[0];
-      if (/^\/[^/].*\.(png|jpe?g)$/i.test(url)) refs.add(url);
-    }
+const walk = dir => fs.readdirSync(dir,{withFileTypes:true}).flatMap(e => e.isDirectory()?walk(path.join(dir,e.name)):[path.join(dir,e.name)]);
+const sources = [...fs.readdirSync(ROOT).filter(f=>/\.(html|css|js)$/.test(f)&&!['optimize-assets.js','preview-server.js','export-clone.js'].includes(f)).map(f=>path.join(ROOT,f)),...walk(path.join(ROOT,'src')).filter(f=>/\.(css|tsx?|jsx?)$/.test(f)),...walk(path.join(ROOT,'public')).filter(f=>/\.(html|css|js)$/.test(f))];
+(async()=>{
+ const sourceText = new Map(sources.map(f=>[f,fs.readFileSync(f,'utf8')]));
+ const allText=[...sourceText.values()].join('\n');
+ const result=[];
+ for(const file of walk(path.join(ROOT,'public/images'))){
+  if(!/\.(png|jpe?g|webp)$/i.test(file)||/\.optimized(?:-\d+)?\.webp$/.test(file))continue;
+  const ref=path.relative(path.join(ROOT,'public'),file).replaceAll('\\','/');
+  const oldSize=fs.statSync(file).size;
+  if(oldSize<65000||!allText.includes(ref))continue;
+  const plan=/floorplan|florplan/i.test(ref);
+  const output=file.replace(/\.[^.]+$/,'.optimized.webp');
+  const meta=await sharp(file).metadata();
+  await sharp(file).rotate().resize({width:plan?2600:1920,height:plan?2600:1920,fit:'inside',withoutEnlargement:true}).webp({quality:plan?92:83,effort:5}).toFile(output);
+  const newSize=fs.statSync(output).size;
+  if(newSize>=oldSize){fs.unlinkSync(output);continue;}
+  const newRef=path.relative(path.join(ROOT,'public'),output).replaceAll('\\','/');
+  const rootCopy=path.join(ROOT,newRef);
+  fs.mkdirSync(path.dirname(rootCopy),{recursive:true});fs.copyFileSync(output,rootCopy);
+  for(const [name,text] of sourceText)sourceText.set(name,text.replaceAll(ref,newRef).replaceAll(encodeURI(ref),encodeURI(newRef)));
+  result.push({from:ref,to:newRef,oldBytes:oldSize,newBytes:newSize,width:meta.width,height:meta.height});
+ }
+ // Every source frame is retained; smaller WebP images preserve the complete motion.
+ let framesBefore=0,framesAfter=0;
+ const frameSource=path.join(ROOT,'public/videos/hero-frames');
+ if(fs.existsSync(frameSource)){
+  const frameFiles=walk(frameSource).filter(f=>/\.jpg$/.test(f));
+  for(const file of frameFiles){
+   framesBefore+=fs.statSync(file).size;
+   for(const [folder,width] of [['hero-frames-webp',1280],['hero-frames-mobile',768]]){
+    const ref='videos/'+folder+'/'+path.basename(file,'.jpg')+'.webp';
+    const target=path.join(ROOT,'public',ref);
+    fs.mkdirSync(path.dirname(target),{recursive:true});
+    await sharp(file).resize({width,withoutEnlargement:true}).webp({quality:78,effort:4}).toFile(target);
+    const mirror=path.join(ROOT,ref);fs.mkdirSync(path.dirname(mirror),{recursive:true});fs.copyFileSync(target,mirror);
+    framesAfter+=fs.statSync(target).size;
+   }
   }
-  return [...refs].filter(
-    (u) => !/favicon|apple-touch-icon|\.ico$/i.test(u)
-  );
-}
-
-(async () => {
-  const htmlMap = new Map(
-    HTML_FILES.map((f) => [f, fs.readFileSync(path.join(ROOT, f), "utf8")])
-  );
-  const allRefs = new Set();
-  for (const [, html] of htmlMap) collectRefs(html).forEach((r) => allRefs.add(r));
-
-  console.log(`Found ${allRefs.size} referenced raster images`);
-  let totalOld = 0;
-  let totalNew = 0;
-  const converted = [];
-
-  for (const ref of allRefs) {
-    const file = path.join(ROOT, "public", ref.replace(/^\/+/, "").split("?")[0]);
-    if (!fs.existsSync(file)) {
-      console.log(`  SKIP (missing): ${ref}`);
-      continue;
-    }
-    const { size } = fs.statSync(file);
-    if (size <= SIZE_THRESHOLD) continue;
-    const webpFile = file.replace(/\.(png|jpe?g)$/i, ".webp");
-    await sharp(file)
-      .resize({ width: MAX_DIM, height: MAX_DIM, fit: "inside", withoutEnlargement: true })
-      .webp({ quality: 78 })
-      .toFile(webpFile);
-    const newSize = fs.statSync(webpFile).size;
-    totalOld += size;
-    totalNew += newSize;
-    converted.push({ ref, webpRef: ref.replace(/\.(png|jpe?g)$/i, ".webp"), size, newSize });
-    console.log(
-      `  ${(size / 1048576).toFixed(1)}MB -> ${(newSize / 1048576).toFixed(1)}MB : ${ref}`
-    );
-  }
-
-  for (const [f, html] of htmlMap) {
-    let out = html;
-    for (const c of converted) {
-      out = out.split(c.ref).join(c.webpRef);
-    }
-    if (out !== html) {
-      fs.writeFileSync(path.join(ROOT, f), out);
-      console.log(`Updated refs in ${f}`);
-    }
-  }
-
-  console.log(
-    `\nTotal: ${(totalOld / 1048576).toFixed(1)}MB -> ${(totalNew / 1048576).toFixed(1)}MB ` +
-      `(${converted.length} files, saved ${((totalOld - totalNew) / 1048576).toFixed(1)}MB)`
-  );
-  console.log("Delete the original heavy files only after verifying the site.");
-})().catch((e) => {
-  console.error(e);
-  process.exit(1);
-});
+ }
+ for(const [file,text] of sourceText)if(text!==fs.readFileSync(file,'utf8'))fs.writeFileSync(file,text);
+ fs.writeFileSync(path.join(ROOT,'scripts/image-optimization.json'),JSON.stringify({images:result,frames:{beforeBytes:framesBefore,afterBytes:framesAfter}},null,2)+'\n');
+ console.log(JSON.stringify({images:result.length,beforeMB:result.reduce((s,r)=>s+r.oldBytes,0)/1048576,afterMB:result.reduce((s,r)=>s+r.newBytes,0)/1048576,framesBeforeMB:framesBefore/1048576,framesAfterMB:framesAfter/1048576}));
+})().catch(e=>{console.error(e);process.exitCode=1;});

@@ -1,3 +1,20 @@
+/* Registered for future use; not applied to any elements. */
+@font-face {
+  font-family: 'Apollo';
+  src: url('fonts/apollo/APOLLO.otf') format('opentype');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Apollo';
+  src: url('fonts/apollo/APOLLOItalic.otf') format('opentype');
+  font-weight: 400;
+  font-style: italic;
+  font-display: swap;
+}
+
 html {
   -webkit-text-size-adjust: 100%;
   -ms-text-size-adjust: 100%;
@@ -2089,6 +2106,7 @@ textarea.w-input, textarea.w-select {
   --grey: #7e7e7e;
   --form-grey: #969696;
   --form-error: #eb473b;
+  --apollo-font: 'apollo', sans-serif;
 }
 
 .w-embed-youtubevideo {
@@ -7281,14 +7299,14 @@ figcaption {
 
 @font-face {
   font-family: 'Untitled sans';
-  src: url('https://assets.website-files.com/63d3a5c57af34837d7bbb1a0/6406036ea7eadc8675ccf684_UntitledSansWeb-Regular.woff2') format('woff2');
+  src: url('fonts/site/untitled-sans-regular.woff2') format('woff2');
   font-weight: 400;
   font-style: normal;
   font-display: swap;
 }
 @font-face {
   font-family: 'Tobias';
-  src: url('https://assets.website-files.com/63d3a5c57af34837d7bbb1a0/640603819170086ea05df6fc_Tobias-Light.woff2') format('woff2');
+  src: url('fonts/site/tobias-light.woff2') format('woff2');
   font-weight: 300;
   font-style: normal;
   font-display: swap;

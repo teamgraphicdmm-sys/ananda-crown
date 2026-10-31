@@ -1,0 +1,128 @@
+{
+  "images": [
+    {
+      "from": "images/about-us-2.png",
+      "to": "images/about-us-2.optimized.webp",
+      "oldBytes": 5487428,
+      "newBytes": 112018,
+      "width": 5504,
+      "height": 3072
+    },
+    {
+      "from": "images/about-us-hero.png",
+      "to": "images/about-us-hero.optimized.webp",
+      "oldBytes": 5531205,
+      "newBytes": 225594,
+      "width": 5504,
+      "height": 3072
+    },
+    {
+      "from": "images/amenities/For-Every-Generation.png",
+      "to": "images/amenities/For-Every-Generation.optimized.webp",
+      "oldBytes": 7651865,
+      "newBytes": 423732,
+      "width": 2752,
+      "height": 1536
+    },
+    {
+      "from": "images/amenities/sky-top-pool.webp",
+      "to": "images/amenities/sky-top-pool.optimized.webp",
+      "oldBytes": 115428,
+      "newBytes": 87466,
+      "width": 1376,
+      "height": 768
+    },
+    {
+      "from": "images/amenity-clubhouse.jpg",
+      "to": "images/amenity-clubhouse.optimized.webp",
+      "oldBytes": 964229,
+      "newBytes": 174464,
+      "width": 1200,
+      "height": 896
+    },
+    {
+      "from": "images/ananda-building.png",
+      "to": "images/ananda-building.optimized.webp",
+      "oldBytes": 20525859,
+      "newBytes": 248424,
+      "width": 5504,
+      "height": 3072
+    },
+    {
+      "from": "images/bg/about-us.png",
+      "to": "images/bg/about-us.optimized.webp",
+      "oldBytes": 1378572,
+      "newBytes": 57738,
+      "width": 1024,
+      "height": 1024
+    },
+    {
+      "from": "images/bottom-Photoroom.png",
+      "to": "images/bottom-Photoroom.optimized.webp",
+      "oldBytes": 812798,
+      "newBytes": 62780,
+      "width": 1747,
+      "height": 900
+    },
+    {
+      "from": "images/floorplan.png",
+      "to": "images/floorplan.optimized.webp",
+      "oldBytes": 1874029,
+      "newBytes": 168530,
+      "width": 1492,
+      "height": 1054
+    },
+    {
+      "from": "images/founders/anuj.png",
+      "to": "images/founders/anuj.optimized.webp",
+      "oldBytes": 2068091,
+      "newBytes": 111410,
+      "width": 1122,
+      "height": 1402
+    },
+    {
+      "from": "images/founders/anuj_card.jpg",
+      "to": "images/founders/anuj_card.optimized.webp",
+      "oldBytes": 165140,
+      "newBytes": 49280,
+      "width": 900,
+      "height": 1125
+    },
+    {
+      "from": "images/founders/sahil_card.jpg",
+      "to": "images/founders/sahil_card.optimized.webp",
+      "oldBytes": 226594,
+      "newBytes": 60826,
+      "width": 900,
+      "height": 1125
+    },
+    {
+      "from": "images/founders/Warm Bokeh Corporate Portrait.png",
+      "to": "images/founders/Warm Bokeh Corporate Portrait.optimized.webp",
+      "oldBytes": 1038988,
+      "newBytes": 52018,
+      "width": 895,
+      "height": 1024
+    },
+    {
+      "from": "images/full-building.png",
+      "to": "images/full-building.optimized.webp",
+      "oldBytes": 24011930,
+      "newBytes": 360586,
+      "width": 5504,
+      "height": 3072
+    },
+    {
+      "from": "images/tarnsaperent_logo.png",
+      "to": "images/tarnsaperent_logo.optimized.webp",
+      "oldBytes": 201470,
+      "newBytes": 130304,
+      "width": 3525,
+      "height": 3525
+    }
+  ],
+  "frames": {
+    "beforeBytes": 61877448,
+    "afterBytes": 25882692
+  }
+}
