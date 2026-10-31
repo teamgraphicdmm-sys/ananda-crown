@@ -6,6 +6,15 @@ const {createHash}=require('crypto');
 const root=path.resolve(__dirname,'../out');
 const walk=dir=>fs.readdirSync(dir,{withFileTypes:true}).flatMap(e=>e.isDirectory()?(e.name==='_next'?[]:walk(path.join(dir,e.name))):[path.join(dir,e.name)]);
 (async()=>{
+ // Keep the large local editing source out of the static deployment artifact.
+ const heroManifest=path.resolve(__dirname,'hero-sequence.json');
+ if(fs.existsSync(heroManifest)){
+  const source=JSON.parse(fs.readFileSync(heroManifest,'utf8')).source;
+  if(typeof source==='string'&&source.startsWith('public/videos/')&&source.endsWith('.mp4')){
+   const editingSource=path.resolve(root,source.slice('public/'.length));
+   if(editingSource.startsWith(root+path.sep)&&fs.existsSync(editingSource))fs.unlinkSync(editingSource);
+  }
+ }
  let before=0,after=0,count=0;
  const css=code=>transform({filename:'site.css',code:Buffer.from(code),minify:true,errorRecovery:true}).code.toString();
  for(const file of walk(root)){

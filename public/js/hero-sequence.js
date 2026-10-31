@@ -13,12 +13,19 @@
     var reduced = matchMedia('(prefers-reduced-motion: reduce)');
     var connection = navigator.connection || {};
     var mobile = innerWidth <= 1024 || matchMedia('(pointer: coarse)').matches;
-    var directory = new URL('videos/' + (mobile ? 'hero-frames-mobile/' : 'hero-frames-webp/'), document.baseURI);
+    var frameDirectory = mobile ? canvas.dataset.mobileFrames : canvas.dataset.desktopFrames;
+    var directory = new URL(frameDirectory || ('videos/' + (mobile ? 'hero-frames-mobile/' : 'hero-frames-webp/')), document.baseURI);
     var frames = new Map(), pending = new Set(), queue = [], failures = new Set();
-    var active = 0, frameCount = 169, cacheLimit = mobile ? 20 : 36;
+    var active = 0, frameCount = Number(canvas.dataset.frameCount) || 169, cacheLimit = mobile ? 20 : 24;
     var progress = 0, desired = 0, lastDrawn = -1, dirty = true, activeUntil = 0;
     function request(index, priority) {
-      if (frames.has(index) || pending.has(index) || failures.has(index)) return;
+      if (frames.has(index) || failures.has(index)) return;
+      if (pending.has(index)) {
+        // A frame first queued as a neighbour becomes urgent when scrolling reaches it.
+        var position = priority ? queue.indexOf(index) : -1;
+        if (position > 0) { queue.splice(position, 1); queue.unshift(index); }
+        return;
+      }
       pending.add(index);
       if (priority) queue.unshift(index); else queue.push(index);
       pump();
@@ -99,8 +106,11 @@
       }
       draw(desired);
       if (text) {
-        var amount = Math.min(1, progress / (isDesktop ? .25 : .35));
+        // Fade through the first five frames, then leave the video unobstructed.
+        var amount = Math.min(1, Math.max(0, progress / .88) * (frameCount - 1) / 5);
         text.style.opacity = (1 - amount).toFixed(3);
+        text.style.visibility = amount >= 1 ? 'hidden' : 'visible';
+        if (text.inert !== (amount >= 1)) text.inert = amount >= 1;
         text.style.transform = 'translate3d(0,' + (-amount * (isDesktop ? 40 : 35)).toFixed(2) + 'px,0)';
         text.style.pointerEvents = amount > .95 ? 'none' : 'auto';
       }

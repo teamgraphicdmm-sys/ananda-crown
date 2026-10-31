@@ -39,7 +39,7 @@
     <meta property="og:type" content="website" />
     <meta content="summary_large_image" name="twitter:card" />
     <meta content="width=device-width, initial-scale=1" name="viewport" />
-    <link rel="preload" as="image" href="videos/hero-frames-webp/frame_0001.webp" imagesrcset="videos/hero-frames-mobile/frame_0001.webp 768w, videos/hero-frames-webp/frame_0001.webp 1280w" imagesizes="100vw" fetchpriority="high" />
+    <link rel="preload" as="image" href="videos/hero-website-0023fa383907/desktop/frame_0001.webp" imagesrcset="videos/hero-website-0023fa383907/mobile/frame_0001.webp 960w, videos/hero-website-0023fa383907/desktop/frame_0001.webp 1920w" imagesizes="100vw" fetchpriority="high" />
     <link rel="preload" as="font" href="fonts/site/untitled-sans-regular.woff2" type="font/woff2" crossorigin />
     <link href="/one24.css" rel="stylesheet" type="text/css" />
     <link href="css/clone-awwwards.css" rel="stylesheet" type="text/css" />
@@ -5890,6 +5890,16 @@ display:none;
 .crown-leadership-details .crown-founder-controls button:hover {background:var(--brand-accent-on-light);color:var(--leadership-ground);}
 .crown-leadership-details .crown-founder-controls button:focus-visible {outline-color:var(--brand-accent-on-light);}
 
+/* Put the same founder controls below the gallery on tablet and phone. */
+@media(max-width:1024px),(pointer:coarse){
+  .crown-leadership-content > .crown-founder-controls {grid-column:2;width:100%;justify-content:space-between;gap:18px;margin:18px 0 0;}
+  .crown-leadership-content > .crown-founder-controls button {color:var(--brand-accent-on-light);border-color:var(--brand-accent-on-light);}
+  .crown-leadership-content > .crown-founder-controls button:hover {background:var(--brand-accent-on-light);color:var(--leadership-ground);}
+}
+@media(max-width:700px){
+  .crown-leadership-content > .crown-founder-controls {grid-column:1;}
+}
+
 /* GSAP owns carousel transforms; avoid competing CSS transitions. */
 #leadership[data-founder-motion="gsap"] .crown-founder-card,#leadership[data-founder-motion="gsap"] .crown-founder-card-copy {transition:none;}
 .crown-leadership-credentials {--credential-row-gap:20px;gap:var(--credential-row-gap);align-content:start;min-height:calc(var(--credential-icon-size) * 4 + var(--credential-row-gap) * 3);}
@@ -5953,7 +5963,35 @@ display:none;
 .awwwards-img-frame {position:relative;overflow:hidden;}
 .residence-story-media .residence-detail-trigger svg {overflow:visible;}
 </style>
-    </head>
+    <link rel="stylesheet" href="css/responsive-layout.css" />
+<style id="hero-video-text-contrast">
+/* Keep the existing type and layout legible over the architectural footage. */
+#home .ref-hero-comfort,#home .ref-hero-eyebrow-word-dark,#home .ref-hero-cta-label,#home .ref-hero-arrow-circle {color:#fff9ef!important;}
+#home .ref-hero-elegance {color:#f0d5b4!important;}
+#home .hero-img-gradient {display:none!important;background:none!important;}
+#home .ref-hero-heading {animation:none!important;filter:none!important;}
+#home .ref-hero-comfort {font-weight:500!important;}
+#home .ref-hero-heading,#home .ref-hero-eyebrow-word-dark,#home .ref-hero-cta-label {text-shadow:0 1px 3px rgba(0,0,0,.7),0 3px 18px rgba(0,0,0,.4);}
+#home .ref-hero-cta-label {font-weight:600!important;}
+@media(max-width:1024px){
+  #home .hero-img-gradient,#home .ref-hero-container::before {display:none!important;background:none!important;}
+  #home .ref-hero-container {justify-content:flex-end!important;padding-bottom:max(24px,env(safe-area-inset-bottom))!important;}
+  #home .ref-hero-text-block {margin-top:auto!important;margin-bottom:28px!important;flex:none!important;}
+  #home .ref-hero-bottom {position:relative!important;flex:none!important;}
+  #home .ref-hero-bottom-right {position:absolute!important;right:0;bottom:0;}
+  #home .ref-scroll-line {height:48px!important;}
+  #home .ref-hero-elegance {color:#ffe3bd!important;font-weight:500!important;}
+  #home .ref-hero-heading,#home .ref-hero-eyebrow-word-dark,#home .ref-hero-cta-label {text-shadow:0 1px 2px rgba(0,0,0,.95),0 3px 10px rgba(0,0,0,.8);}
+  #home .ref-hero-cta-label {font-size:13px!important;letter-spacing:.08em!important;}
+}
+@media(max-width:700px){
+  #home .ref-hero-heading {font-size:clamp(36px,10.5vw,46px)!important;line-height:1.08!important;}
+}
+#home .ref-hero-arrow-circle {border-color:rgba(255,249,239,.8)!important;}
+#home .ref-hero-eyebrow-line {background-color:#fff9ef!important;}
+#home .ref-hero-divider {background-color:rgba(255,249,239,.4)!important;}
+</style>
+</head>
   <body>
     <div class="page-wrapper">
       <div class="global-styles w-embed">
@@ -6540,13 +6578,16 @@ a,
                     </div>
                     <!-- Static fallback background image -->
                     <img
-                      src="videos/hero-frames-webp/frame_0001.webp"
+                      src="videos/hero-website-0023fa383907/desktop/frame_0001.webp"
                       alt="Ananda Crown Sector 78 Mohali"
                       class="hero-image-background animate-hero-zoom"
-                      style="z-index: 0 !important" width="1280" height="720" decoding="async" loading="eager" fetchpriority="high" srcset="videos/hero-frames-mobile/frame_0001.webp 768w, videos/hero-frames-webp/frame_0001.webp 1280w" sizes="100vw" />
+                      style="z-index: 0 !important" width="1920" height="1080" decoding="async" loading="eager" fetchpriority="high" srcset="videos/hero-website-0023fa383907/mobile/frame_0001.webp 960w, videos/hero-website-0023fa383907/desktop/frame_0001.webp 1920w" sizes="100vw" />
                     <!-- High performance canvas for 60fps frame painting -->
                     <canvas
                       id="hero-video-canvas"
+                      data-frame-count="511"
+                      data-desktop-frames="videos/hero-website-0023fa383907/desktop/"
+                      data-mobile-frames="videos/hero-website-0023fa383907/mobile/"
                       class="hero-image-background"
                       style="
                         position: absolute;
@@ -6809,7 +6850,7 @@ A home should make room for <span class="residence-primary-emphasis">the way you
                         ></a>
                       </div>
                     </div>
-<div class="ap-img-wrap residence-story-wrap residence-slide-full" data-pdf-pages="11" id="residence-slide-arrival"><article class="residence-story-media residence-story-tile" data-pdf-pages="8 10" id="residence-architecture"><div class="residence-photo-surface"><img alt="Ananda Crown tower architectural illustration" class="residence-story-image" loading="lazy" src="images/hero-building-sunset.webp" width="1792" height="878" decoding="async" srcset="images/hero-building-sunset-640.webp 640w, images/hero-building-sunset-1024.webp 1024w, images/hero-building-sunset.webp 1792w" sizes="(max-width: 700px) 100vw, 60vw" /></div><div class="residence-story-image-note"><span aria-hidden="true" class="residence-story-icon"><svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.2" viewbox="0 0 24 24"><path d="M4 21V8l6-3v16M10 21V3l8 4v14M18 12h3v9M2 21h21M6.5 10v1m0 3v1m0 3v1M13 7v2m3 0v2m-3 1v2m3 0v2m-3 1v2"></path></svg></span><div><strong>4 towers</strong><span>Independent architecture</span></div></div><div class="residence-front-copy"><div><h3 class="residence-front-heading">Stand apart.</h3><p class="residence-front-summary">No shared walls. No linking bridges.</p></div><div class="residence-front-actions"><ul class="residence-feature-list"><li><svg aria-hidden="true" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" viewbox="0 0 24 24"><path d="m6 12 4 4 8-8"></path></svg><span>29 storeys</span></li><li><svg aria-hidden="true" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" viewbox="0 0 24 24"><path d="m6 12 4 4 8-8"></path></svg><span>No connecting podium</span></li></ul><button class="residence-detail-trigger" data-residence-details="residence-architecture" type="button">Explore details<span><svg aria-hidden="true" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.4" viewbox="0 0 24 24"><path d="M5 12h14m-5-5 5 5-5 5"></path></svg></span></button></div></div><template id="details-residence-architecture"><div class="residence-story-copy"><div class="residence-story-heading"><h3>Separate by<br/>design.</h3><p>The towers are planned as individual buildings, rather than linked blocks.</p></div><ul class="residence-story-points"><li><strong>No shared walls</strong>Each of the four towers stands independently.</li><li><strong>No linking bridges or podium</strong>The buildings remain separate from one another.</li><li><strong>29 storeys</strong>The towers rise above Sector 78, Mohali.</li></ul></div></template></article></div>
+<div class="ap-img-wrap residence-story-wrap residence-slide-full" data-pdf-pages="11" id="residence-slide-arrival"><article class="residence-story-media residence-story-tile" data-pdf-pages="8 10" id="residence-architecture"><div class="residence-photo-surface"><img alt="Ananda Crown towers with tropical sky gardens at sunset" class="residence-story-image" loading="lazy" src="images/sky-garden-towers.webp" width="1672" height="941" decoding="async" srcset="images/sky-garden-towers-640.webp 640w, images/sky-garden-towers-1024.webp 1024w, images/sky-garden-towers.webp 1672w" sizes="(max-width: 700px) 100vw, 60vw" /></div><div class="residence-story-image-note"><span aria-hidden="true" class="residence-story-icon"><svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.2" viewbox="0 0 24 24"><path d="M4 21V8l6-3v16M10 21V3l8 4v14M18 12h3v9M2 21h21M6.5 10v1m0 3v1m0 3v1M13 7v2m3 0v2m-3 1v2m3 0v2m-3 1v2"></path></svg></span><div><strong>4 towers</strong><span>Independent architecture</span></div></div><div class="residence-front-copy"><div><h3 class="residence-front-heading">Stand apart.</h3><p class="residence-front-summary">No shared walls. No linking bridges.</p></div><div class="residence-front-actions"><ul class="residence-feature-list"><li><svg aria-hidden="true" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" viewbox="0 0 24 24"><path d="m6 12 4 4 8-8"></path></svg><span>29 storeys</span></li><li><svg aria-hidden="true" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" viewbox="0 0 24 24"><path d="m6 12 4 4 8-8"></path></svg><span>No connecting podium</span></li></ul><button class="residence-detail-trigger" data-residence-details="residence-architecture" type="button">Explore details<span><svg aria-hidden="true" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.4" viewbox="0 0 24 24"><path d="M5 12h14m-5-5 5 5-5 5"></path></svg></span></button></div></div><template id="details-residence-architecture"><div class="residence-story-copy"><div class="residence-story-heading"><h3>Separate by<br/>design.</h3><p>The towers are planned as individual buildings, rather than linked blocks.</p></div><ul class="residence-story-points"><li><strong>No shared walls</strong>Each of the four towers stands independently.</li><li><strong>No linking bridges or podium</strong>The buildings remain separate from one another.</li><li><strong>29 storeys</strong>The towers rise above Sector 78, Mohali.</li></ul></div></template></article></div>
 <div class="ap-img-wrap residence-story-wrap residence-slide-split" data-pdf-pages="12 13" id="residence-slide-interiors"><article class="residence-story-media residence-story-tile" data-pdf-pages="12" id="residence-interiors"><div class="residence-photo-surface"><img alt="Ananda Crown living space architectural illustration" class="residence-story-image ap-img-a-2" data-flip-id="2" loading="lazy" src="images/interior/hall.webp" width="1920" height="1072" decoding="async" srcset="images/interior/hall-640.webp 640w, images/interior/hall-1024.webp 1024w, images/interior/hall.webp 1920w" sizes="(max-width: 700px) 100vw, 60vw" /></div><div class="residence-story-image-note"><span aria-hidden="true" class="residence-story-icon"><svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.2" viewbox="0 0 24 24"><path d="M3 9V3h6m6 0h6v6m0 6v6h-6m-6 0H3v-6M3 3l6 6m12-6-6 6m6 12-6-6M3 21l6-6"></path></svg></span><div><strong>11.5 ft</strong><span>Floor-to-floor height</span></div></div><div class="residence-front-copy"><div><h3 class="residence-front-heading">Space above.Air across.</h3><p class="residence-front-summary">Rooms shaped for the everyday moments spent indoors.</p></div><div class="residence-front-actions"><ul class="residence-feature-list"><li><svg aria-hidden="true" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" viewbox="0 0 24 24"><path d="m6 12 4 4 8-8"></path></svg><span>Corner homes</span></li><li><svg aria-hidden="true" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" viewbox="0 0 24 24"><path d="m6 12 4 4 8-8"></path></svg><span>Cross ventilation</span></li></ul><button class="residence-detail-trigger" data-residence-details="residence-interiors" type="button">Explore details<span><svg aria-hidden="true" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.4" viewbox="0 0 24 24"><path d="M5 12h14m-5-5 5 5-5 5"></path></svg></span></button></div></div><template id="details-residence-interiors"><div class="residence-story-copy"><div class="residence-story-heading"><h3>Proportions.<br/>Light. Air.</h3><p>The qualities of the rooms begin with how the home is proportioned and opened to the outside.</p></div><ul class="residence-story-points"><li><strong>11.5 ft floor to floor</strong>Among the highest floor-to-floor heights in Tricity.</li><li><strong>Corner-home planning</strong>Every residence opens on more than one face.</li><li><strong>End-to-end ventilation</strong>Openings on opposite faces allow air to travel through the home.</li></ul></div></template></article><article class="residence-story-media residence-story-tile" data-pdf-pages="13" id="residence-balconies"><div class="residence-photo-surface"><img alt="Ananda Crown balcony architectural illustration" class="residence-story-image ap-img-a-4" data-flip-id="4" loading="lazy" src="images/interior/balcony.webp" width="1679" height="937" decoding="async" srcset="images/interior/balcony-640.webp 640w, images/interior/balcony-1024.webp 1024w, images/interior/balcony.webp 1679w" sizes="(max-width: 700px) 100vw, 60vw" /></div><div class="residence-story-image-note"><span aria-hidden="true" class="residence-story-icon"><svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.2" viewbox="0 0 24 24"><path d="M3 21h18M4 21v-8h16v8M8 13v8m4-8v8m4-8v8M6 10V3h12v7M9 3v7m6-7v7"></path></svg></span><div><strong>Wrap-around</strong><span>Outdoor living</span></div></div><div class="residence-front-copy"><div><h3 class="residence-front-heading">Beyond one wall.</h3><p class="residence-front-summary">A place to step outside, without leaving home.</p></div><div class="residence-front-actions"><ul class="residence-feature-list"><li><svg aria-hidden="true" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" viewbox="0 0 24 24"><path d="m6 12 4 4 8-8"></path></svg><span>A first for Tricity</span></li><li><svg aria-hidden="true" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" viewbox="0 0 24 24"><path d="m6 12 4 4 8-8"></path></svg><span>Morning &amp; evening light</span></li></ul><button class="residence-detail-trigger" data-residence-details="residence-balconies" type="button">Explore details<span><svg aria-hidden="true" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.4" viewbox="0 0 24 24"><path d="M5 12h14m-5-5 5 5-5 5"></path></svg></span></button></div></div><template id="details-residence-balconies"><div class="residence-story-copy"><div class="residence-story-heading"><h3>A different side<br/>of the day.</h3><p>Step outdoors as the light changes from morning to evening.</p></div><ul class="residence-story-points"><li><strong>Wrap-around balconies</strong>A first for Tricity, with outdoor space continuing beyond a single wall.</li><li><strong>Morning and evening light</strong>The balcony turns with the home, offering a different outlook on either side.</li></ul></div></template></article></div>
 <div class="ap-img-wrap residence-story-wrap residence-slide-full" data-pdf-pages="14 15" id="residence-slide-family"><article class="residence-story-media residence-story-tile" data-pdf-pages="14 15" id="residence-family-layouts"><div class="residence-photo-surface"><img alt="Ananda Crown bedroom architectural illustration" class="residence-story-image" loading="lazy" src="images/interior/bedroom.webp" width="1920" height="1072" decoding="async" srcset="images/interior/bedroom-640.webp 640w, images/interior/bedroom-1024.webp 1024w, images/interior/bedroom.webp 1920w" sizes="(max-width: 700px) 100vw, 60vw" /></div><div class="residence-story-image-note"><span aria-hidden="true" class="residence-story-icon"><svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.2" viewbox="0 0 24 24"><path d="m2 11 10-8 10 8M5 9v12h14V9M9 21v-6h6v6"></path><circle cx="12" cy="10" r="2"></circle></svg></span><div><strong>2,425–4,100</strong><span>sq. ft. residence formats</span></div></div><div class="residence-front-copy"><div><h3 class="residence-front-heading">Room for generations.</h3><p class="residence-front-summary">Space for grandparents, parents and children under one roof.</p></div><div class="residence-front-actions"><div class="residence-format-picker"><fieldset class="residence-format-options"><label class="residence-format-choice"><input type="radio" name="residence-home-format" value="3 BHK | 2,425 sq. ft." checked /><span>3 BHK</span><small>2,425 sq. ft.</small></label><label class="residence-format-choice"><input type="radio" name="residence-home-format" value="3+1 BHK | 2,750 sq. ft." /><span>3+1 BHK</span><small>2,750 sq. ft.</small></label><label class="residence-format-choice"><input type="radio" name="residence-home-format" value="3+1 BHK | 2,875 sq. ft." /><span>3+1 BHK</span><small>2,875 sq. ft.</small></label><label class="residence-format-choice"><input type="radio" name="residence-home-format" value="4 BHK | 3,250 sq. ft." /><span>4 BHK</span><small>3,250 sq. ft.</small></label><label class="residence-format-choice"><input type="radio" name="residence-home-format" value="5 BHK | 4,100 sq. ft." /><span>5 BHK</span><small>4,100 sq. ft.</small></label></fieldset><button class="residence-plan-request-ui" type="button">Request this floor plan &rarr;</button></div><button class="residence-detail-trigger" data-residence-details="residence-family-layouts" type="button">Explore details<span><svg aria-hidden="true" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.4" viewbox="0 0 24 24"><path d="M5 12h14m-5-5 5 5-5 5"></path></svg></span></button></div></div><template id="details-residence-family-layouts"><div class="residence-story-copy"><div class="residence-story-heading"><h3>Space that grows<br/>with your family.</h3><p>The layouts respond to households moving up, with room for changing family needs.</p></div><ul class="residence-story-points"><li><strong>Kothi-sized living</strong>Moving to a tower need not mean downsizing your living space.</li><li><strong>Three generations</strong>Room for grandparents, parents and children to live under one roof.</li></ul></div></template></article></div>
 <div class="ap-img-wrap residence-story-wrap residence-slide-split" data-pdf-pages="8 10 16" id="residence-slide-club"><article class="residence-story-media residence-story-tile" data-pdf-pages="11" id="residence-arrival"><div class="residence-photo-surface"><img alt="Ananda Crown entrance lobby architectural illustration" class="residence-story-image ap-img-a-1" data-flip-id="1" loading="lazy" src="images/about-us-2.optimized.webp" width="1920" height="1072" decoding="async" srcset="images/about-us-2.optimized-640.webp 640w, images/about-us-2.optimized-1024.webp 1024w, images/about-us-2.optimized.webp 1920w" sizes="(max-width: 700px) 100vw, 60vw" /></div><div class="residence-story-image-note"><span aria-hidden="true" class="residence-story-icon"><svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.2" viewbox="0 0 24 24"><path d="M3 21h18M5 21V5h14v16M9 21V10h6v11M8 5V2h8v3M8 14h1m6 0h1"></path></svg></span><div><strong>27 ft</strong><span>Entrance lobby</span></div></div><div class="residence-front-copy"><div><h3 class="residence-front-heading">A grand arrival.</h3><p class="residence-front-summary">The first impression, before the lift journey home.</p></div><div class="residence-front-actions"><ul class="residence-feature-list"><li><svg aria-hidden="true" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" viewbox="0 0 24 24"><path d="m6 12 4 4 8-8"></path></svg><span>Private entrance</span></li><li><svg aria-hidden="true" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" viewbox="0 0 24 24"><path d="m6 12 4 4 8-8"></path></svg><span>Triple-height scale</span></li></ul><button class="residence-detail-trigger" data-residence-details="residence-arrival" type="button">Explore details<span><svg aria-hidden="true" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.4" viewbox="0 0 24 24"><path d="M5 12h14m-5-5 5 5-5 5"></path></svg></span></button></div></div><template id="details-residence-arrival"><div class="residence-story-copy"><div class="residence-story-heading"><h3>An entrance<br/>of your own.</h3><p>The arrival experience begins at the tower, before the lift journey home.</p></div><ul class="residence-story-points"><li><strong>Private to each tower</strong>A dedicated entrance lobby rather than a shared arrival space.</li><li><strong>27 ft triple height</strong>A generous entrance volume sets the scale of the welcome.</li></ul></div></template></article><article class="residence-story-media residence-story-tile" data-pdf-pages="16" id="residence-clubhouse"><div class="residence-photo-surface"><img alt="Ananda Crown clubhouse architectural illustration" class="residence-story-image ap-img-a-3" data-flip-id="3" loading="lazy" src="images/amenity-clubhouse.optimized.webp" width="1200" height="896" decoding="async" srcset="images/amenity-clubhouse.optimized-640.webp 640w, images/amenity-clubhouse.optimized-1024.webp 1024w, images/amenity-clubhouse.optimized.webp 1200w" sizes="(max-width: 700px) 100vw, 60vw" /></div><div class="residence-story-image-note"><span aria-hidden="true" class="residence-story-icon"><svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.2" viewbox="0 0 24 24"><path d="M2 21h20M4 21V9h16v12M2 9l10-6 10 6M8 12v6m4-6v6m4-6v6M7 3V1m10 2V1"></path></svg></span><div><strong>Ground level</strong><span>Leisure, centrally placed</span></div></div><div class="residence-front-copy"><div><h3 class="residence-front-heading">The Signature Club.</h3><p class="residence-front-summary">A place to unwind, meet neighbours and spend time together.</p></div><div class="residence-front-actions"><ul class="residence-feature-list"><li><svg aria-hidden="true" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" viewbox="0 0 24 24"><path d="m6 12 4 4 8-8"></path></svg><span>Central to the community</span></li><li><svg aria-hidden="true" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" viewbox="0 0 24 24"><path d="m6 12 4 4 8-8"></path></svg><span>Membership by address</span></li></ul><button class="residence-detail-trigger" data-residence-details="residence-clubhouse" type="button">Explore details<span><svg aria-hidden="true" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.4" viewbox="0 0 24 24"><path d="M5 12h14m-5-5 5 5-5 5"></path></svg></span></button></div></div><template id="details-residence-clubhouse"><div class="residence-story-copy"><div class="residence-story-heading"><h3>A shared place<br/>to come together.</h3><p>The Signature Clubhouse is the community’s common destination for leisure.</p></div><ul class="residence-story-points"><li><strong>At ground level</strong>One grand clubhouse serves the development.</li><li><strong>A central walk</strong>Its position keeps it a short walk from each tower’s entrance.</li><li><strong>Membership by address</strong>Access comes with being a resident at Crown.</li></ul></div></template></article></div>
@@ -7529,7 +7570,15 @@ A professional workday, fine dining and celebrations, a lift ride from home.
 </div>
                         </div>
 
-                        <ul class="amenity-main-points" id="amenityMainPoints"><li>Business centre &amp; co-working lounge</li><li>Library &amp; exhibition gallery</li><li>Multi-cuisine restaurant &amp; tea sommelier</li><li>Banquet hall &amp; kitty halls</li><li>Amphitheatre</li></ul>
+                        <div class="amenity-points-dropdown">
+<button class="amenity-points-toggle" type="button" aria-expanded="false" aria-controls="amenityPointsPanel"><span>Click to expand</span><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg></button>
+<div class="amenity-points-panel" id="amenityPointsPanel"><div class="amenity-points-inner"><ul class="amenity-main-points" id="amenityMainPoints"><li>Business centre &amp; co-working lounge</li><li>Library &amp; exhibition gallery</li><li>Multi-cuisine restaurant &amp; tea sommelier</li><li>Banquet hall &amp; kitty halls</li><li>Amphitheatre</li></ul></div></div>
+</div>
+<div class="amenity-arrow-nav" aria-label="Amenity navigation">
+<button type="button" data-amenity-step="-1" aria-label="Previous amenity"><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M20 12H4m6-6-6 6 6 6"/></svg></button>
+<span id="amenityPosition" aria-live="polite" aria-atomic="true">01 / 04</span>
+<button type="button" data-amenity-step="1" aria-label="Next amenity"><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M4 12h16m-6-6 6 6-6 6"/></svg></button>
+</div>
 <!-- Content line that fills to full while scrolling -->
                         <div class="amenity-content-line-container">
                           <div
@@ -8397,6 +8446,9 @@ Planned In<br />From Day One
           if (displayedIdx === idx && !immediate) return;
           displayedIdx = idx;
           var item = AMENITIES[idx];
+          var position = document.getElementById('amenityPosition');
+          if (position) position.textContent = item.index + ' / ' + item.total;
+
           if (showcaseCard) showcaseCard.dataset.pdfPages = String(17 + idx);
 
           var textTargets = [];
@@ -8818,6 +8870,13 @@ Planned In<br />From Day One
           cacheElements();
           showAmenity(0, true);
           requestAnimationFrame(loop);
+
+          document.querySelectorAll('[data-amenity-step]').forEach(function (button) {
+            button.addEventListener('click', function () {
+              var next = (displayedIdx + Number(button.dataset.amenityStep) + AMENITIES.length) % AMENITIES.length;
+              showAmenity(next, matchMedia('(prefers-reduced-motion: reduce)').matches);
+            });
+          });
 
           // Setup Mobile Pills, Touch Swipe & Auto-Cycle
           var pills = document.querySelectorAll(".amenity-mobile-pill");
@@ -10024,6 +10083,19 @@ Planned In<br />From Day One
 var credentialIcons={"education":"M2 9l10-5 10 5-10 5L2 9 M6 11v6c4 3 8 3 12 0v-6 M2 9v9","building":"M3 21h18 M5 20V8h14v12 M3 8l9-5 9 5 M8 11v6 M12 11v6 M16 11v6","engineering":"M10 3l-.7 2.3-2 .9-2.2-1-2 3.5 1.7 1.7v2.3l-1.7 1.7 2 3.5 2.2-1 2 .9L10 21h4l.7-2.3 2-.9 2.2 1 2-3.5-1.7-1.7v-2.3l1.7-1.7-2-3.5-2.2 1-2-.9L14 3Z M15 12a3 3 0 1 1-6 0a3 3 0 0 1 6 0","globe":"M21 12a9 9 0 1 1-18 0a9 9 0 0 1 18 0 M3 12h18 M12 3c4 5 4 13 0 18 M12 3c-4 5-4 13 0 18","experience":"M3 7h18v13H3Z M8 7V4h8v3 M3 11c6 4 12 4 18 0 M10 12v3h4v-3"};
 function makeCredentialIcon(title){var key=/countr/i.test(title)?'globe':/years|long.term|view/i.test(title)?'experience':/IIT|Thapar/i.test(title)?'engineering':/HEC/i.test(title)?'building':'education',badge=document.createElement('span'),svg=document.createElementNS('http://www.w3.org/2000/svg','svg'),path=document.createElementNS('http://www.w3.org/2000/svg','path');badge.className='about-pillar-icon-badge';badge.setAttribute('aria-hidden','true');svg.setAttribute('viewBox','0 0 24 24');svg.setAttribute('focusable','false');path.setAttribute('d',credentialIcons[key]);svg.append(path);badge.append(svg);return badge;}
 function init(){if(typeof NAV_SECTIONS!=='undefined'&&!NAV_SECTIONS.some(function(item){return item.id==='leadership';}))NAV_SECTIONS.splice(NAV_SECTIONS.findIndex(function(item){return item.id==='vision';})+1,0,{id:'leadership',navId:'nav-leadership'});var section=document.getElementById('leadership'),cards=Array.from(section.querySelectorAll('.crown-founder-card')),index=0,portraitMotion,initialized=false,scrollReveals=[],rebuildScrollReveals=null;
+// Move the existing controls, preserving their listeners and keyboard order.
+var founderControls=section.querySelector('.crown-founder-controls');
+var founderGallery=section.querySelector('.crown-leadership-gallery');
+var controlsHome=document.createComment('Founder controls desktop position');
+founderControls.before(controlsHome);
+var compactLeadership=matchMedia('(max-width:1024px), (pointer:coarse)');
+function placeFounderControls(){
+  if(compactLeadership.matches)founderGallery.after(founderControls);
+  else controlsHome.after(founderControls);
+  requestAnimationFrame(function(){if(window.ScrollTrigger)ScrollTrigger.refresh();});
+}
+compactLeadership.addEventListener('change',placeFounderControls);
+placeFounderControls();
 function reduced(){return matchMedia('(prefers-reduced-motion:reduce)').matches;}
 function detailTargets(){return [document.getElementById('crown-leadership-bio')].concat(Array.from(document.getElementById('crown-leadership-credentials').children));}
 function renderDetails(){
@@ -10421,5 +10493,6 @@ if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',
 })();
 </script>
 <script src="js/number-counters.js"></script>
+<script src="js/responsive-layout.js"></script>
 </body>
 </html>

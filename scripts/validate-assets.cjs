@@ -18,4 +18,12 @@ for(const file of sources){
  for(const m of text.matchAll(/url\(\s*['"]?([^'"\)]+)['"]?\s*\)/g))check(m[1],file);
  if(/\.(tsx?|js)$/.test(file))for(const m of text.matchAll(/['"](\/(?:images|videos|fonts)\/[^'"]+)['"]/g))check(m[1],path.join(publicRoot,'index.html'));
 }
-if(missing.length){console.error(JSON.stringify(missing,null,2));process.exitCode=1;}else console.log('All static image, font, stylesheet, script and srcset references resolve.');
+const heroManifest=path.join(root,'scripts/hero-sequence.json');
+if(fs.existsSync(heroManifest)){
+ const hero=JSON.parse(fs.readFileSync(heroManifest,'utf8'));
+ if(!Number.isInteger(hero.frameCount)||hero.frameCount<1||hero.frameCount>10000)throw Error('Invalid hero frame count');
+ for(const dir of [hero.desktop,hero.mobile])for(let frame=1;frame<=hero.frameCount;frame++){
+  check('/'+dir+'frame_'+String(frame).padStart(4,'0')+'.webp',path.join(publicRoot,'index.html'));
+ }
+}
+if(missing.length){console.error(JSON.stringify(missing,null,2));process.exitCode=1;}else console.log('All static assets and generated hero frames resolve.');

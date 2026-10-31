@@ -49,11 +49,10 @@
       if (eyebrowWord) gsap.set(eyebrowWord, { x: -25, opacity: 0 });
       if (heading) {
         gsap.set(heading, {
-          y: 45,
-          opacity: 0,
-          scale: 0.96,
-          transformPerspective: 1200,
-          rotationX: 12,
+          y: 16,
+          opacity: 1,
+          scale: 1,
+          rotationX: 0,
         });
       }
       if (location) gsap.set(location, { y: 25, opacity: 0 });
@@ -96,28 +95,9 @@
         tlHero.to(bottom, { y: 0, opacity: 1, duration: 0.9, ease: "power2.out" }, "-=0.6");
       }
 
-      // Scroll-Driven Horizon Dispersion
-      if (heading) {
-        const homeSection = document.getElementById("home");
-        if (homeSection) {
-          if (isDesktop() && window.tlMain) {
-            gsap.to(heading, {
-              letterSpacing: "0.14em",
-              scale: 0.93,
-              filter: "blur(6px)",
-              opacity: 0,
-              ease: "none",
-              scrollTrigger: {
-                trigger: homeSection,
-                containerAnimation: window.tlMain,
-                start: "left left",
-                end: "25% left",
-                scrub: 0.5,
-              },
-            });
-          }
-        }
-      }
+      // The hero sequence owns the container fade and movement on scroll.
+      // Do not blur or independently hide the heading while that transition runs.
+
     }
 
     // =========================================================================

@@ -7343,3 +7343,6 @@ figcaption {
 .additional-amenities-content-wrap  .apartments-cta {
   margin-top: 0!important;
 }
+
+/* Keep native cursors and hide all legacy cursor follower states. */
+.mouse-anda,.mouse-outro,.mouse-outro-2,.mouse-wrap {display:none!important;}

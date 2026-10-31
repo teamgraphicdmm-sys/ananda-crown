@@ -4,12 +4,15 @@ const root=path.resolve(__dirname,'..');
 const walk=dir=>fs.existsSync(dir)?fs.readdirSync(dir,{withFileTypes:true}).flatMap(e=>e.isDirectory()?walk(path.join(dir,e.name)):[path.join(dir,e.name)]):[];
 const sourceFiles=[...fs.readdirSync(root).filter(f=>/\.(html|css|js)$/.test(f)&&!['optimize-assets.js','export-clone.js','preview-server.js'].includes(f)).map(f=>path.join(root,f)),...walk(path.join(root,'src')).filter(f=>/\.(tsx?|css|jsx?)$/.test(f)),...walk(path.join(root,'public')).filter(f=>/\.(html|css|js)$/.test(f))];
 const text=sourceFiles.map(f=>fs.readFileSync(f,'utf8')).join('\n');
+const heroManifest=path.join(root,'scripts/hero-sequence.json');
+const hero=fs.existsSync(heroManifest)?JSON.parse(fs.readFileSync(heroManifest,'utf8')):null;
 const candidates=[];
 for(const bucket of ['images','videos','fonts','js','css'])for(const file of walk(path.join(root,'public',bucket))){
  const ref=path.relative(path.join(root,'public'),file).replaceAll('\\','/');
- const dynamic=/^videos\/hero-frames-(webp|mobile)\//.test(ref);
+ const dynamic=hero?[hero.desktop,hero.mobile].some(dir=>ref.startsWith(dir)):/^videos\/hero-frames-(webp|mobile)\//.test(ref);
+ const editingSource=hero&&ref===hero.source.replace(/^public\//,'');
  const license=/license|readme|notice/i.test(path.basename(file));
- if(dynamic||license||text.includes(ref)||text.includes(encodeURI(ref)))continue;
+ if(dynamic||editingSource||license||text.includes(ref)||text.includes(encodeURI(ref)))continue;
  candidates.push({path:ref,bytes:fs.statSync(file).size});
 }
 for(const name of ['file.svg','globe.svg','next.svg','vercel.svg','window.svg']){
