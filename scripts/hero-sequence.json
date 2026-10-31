@@ -11,5 +11,7 @@
   "outputBytes": {
     "desktop": 32454734,
     "mobile": 20998662
-  }
+  },
+  "desktopVideo": "videos/hero-desktop-0023fa383907-v1.mp4",
+  "desktopVideoBytes": 20988307
 }

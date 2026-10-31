@@ -16,7 +16,7 @@ Apache hosting can use the included `out/.htaccess` for compression and caching.
 
 Large photographs and transparent illustrations use optimized WebP files. HTML images include intrinsic dimensions, asynchronous decoding, and responsive sources where useful. The first hero image has high priority; images further down the site load lazily.
 
-The hero uses 256 frames sampled at 12 fps from `Website_Video.mp4`, preserving the earlier cutoff at approximately 21.3 seconds. Desktop frames are 1280px wide; mobile uses a dedicated 640px-wide portrait crop so screen density does not trigger desktop downloads. The first frame is preloaded, then nearby frames warm after the page load in idle time. The loader prioritizes the current frame and the scroll direction, limits downloads to four simultaneous requests, and retains at most 64 desktop / 48 mobile decoded frames. It pauses idle work and respects reduced motion and data-saving preferences. Offscreen Google Maps loads only as the map approaches the viewport. Production animation libraries are bundled in their original execution order.
+Desktop uses a native 1600px H.264 MP4 (about 21 MB) for scroll-controlled hero playback, with 30 fps, a keyframe every 12 frames, no audio/B-frames, and fast-start metadata. The loader allows one seek at a time and always follows the latest scroll target. The first hero image remains the immediate fallback. The same earlier cutoff at approximately 21.3 seconds and the first-five-frame text fade are preserved. Mobile retains the 256-frame 640px-wide portrait sequence; desktop falls back to WebP frames if video decoding fails. Reduced-motion/data-saving visits keep a static poster without fetching the video. Offscreen Google Maps loads only as the map approaches the viewport. Production animation libraries are bundled in their original execution order.
 
 GSAP and the existing main fonts are local, with their existing versions and license headers retained. Font license files remain alongside the fonts.
 
@@ -24,6 +24,7 @@ GSAP and the existing main fonts are local, with their existing versions and lic
 
 - `npm run optimize:images`: optimize newly added referenced images and prepare responsive image tags. Hero video generation is separate from this image command.
 - `python scripts/generate-hero.py`: regenerate the desktop/mobile hero sequences from `public/videos/Website_Video.mp4`. Requires FFmpeg on PATH (or `--ffmpeg <path>`); the installed `imageio_ffmpeg` package is also supported. The large source video remains local, is Git-ignored, and is excluded from `out/`. Generated frames are committed instead. The sequence paths and frame count are recorded in `scripts/hero-sequence.json`.
+- `python scripts/generate-hero-video.py`: regenerate the trimmed, seek-friendly desktop MP4 and its root mirror from the local master. Requires FFmpeg or `imageio_ffmpeg`.
 - `npm run check:assets`: check image, script, font, CSS, and srcset paths.
 - `npm run audit:assets`: report assets not referenced by any HTML entry point, CSS, JavaScript, or the Next.js source. This does not delete anything.
 - `node scripts/audit-assets.cjs --clean`: delete the reported unused assets and matching root copies after reviewing the report.

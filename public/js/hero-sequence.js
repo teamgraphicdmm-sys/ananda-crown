@@ -13,6 +13,7 @@
     var reduced = matchMedia('(prefers-reduced-motion: reduce)');
     var connection = navigator.connection || {};
     var mobile = innerWidth <= 1024;
+    var video = null, videoTarget = 0, useVideo = !mobile && !!canvas.dataset.desktopVideo;
     var frameDirectory = mobile ? canvas.dataset.mobileFrames : canvas.dataset.desktopFrames;
     var directory = new URL(frameDirectory || ('videos/' + (mobile ? 'hero-frames-mobile/' : 'hero-frames-webp/')), document.baseURI);
     var frames = new Map(), pending = new Set(), queue = [], failures = new Set();
@@ -20,6 +21,7 @@
     var progress = 0, desired = 0, lastDrawn = -1, dirty = true, activeUntil = 0;
     var scrollStarted = false, warm = false, previousDesired = 0, direction = 1;
     function request(index, priority) {
+      if (useVideo) return;
       if (frames.has(index) || failures.has(index)) return;
       if (pending.has(index)) {
         // A frame first queued as a neighbour becomes urgent when scrolling reaches it.
@@ -57,6 +59,7 @@
       }
     }
     function draw(index) {
+      if (useVideo) return;
       var closest = -1, distance = Infinity;
       frames.forEach(function (image, key) {
         var delta = Math.abs(key - index);
@@ -70,6 +73,35 @@
       lastDrawn = closest;
     }
     function desktop() { return typeof window.isDesktopScrollMode === 'function' ? window.isDesktopScrollMode() : innerWidth > 1024; }
+    function seekVideo() {
+      if (!useVideo || !video || video.readyState < 2 || video.seeking || document.hidden) return;
+      if (Math.abs(video.currentTime - videoTarget) >= 1 / 30) video.currentTime = videoTarget;
+    }
+    function setupVideo() {
+      if (!useVideo || reduced.matches || connection.saveData) return;
+      video = document.createElement('video');
+      video.id = 'hero-desktop-video';
+      video.muted = true;
+      video.playsInline = true;
+      video.preload = 'auto';
+      video.disablePictureInPicture = true;
+      video.setAttribute('aria-hidden', 'true');
+      video.style.cssText = canvas.style.cssText;
+      video.style.opacity = '0';
+      canvas.before(video);
+      video.addEventListener('loadeddata', function () {
+        video.style.opacity = '1'; canvas.style.visibility = 'hidden';
+        invalidate(); seekVideo();
+      });
+      // Let each seek finish before sending the latest target, avoiding a backlog.
+      video.addEventListener('seeked', seekVideo);
+      video.addEventListener('canplay', seekVideo);
+      video.addEventListener('error', function () {
+        useVideo = false; video.style.display = 'none'; canvas.style.visibility = '';
+        request(0, true); invalidate();
+      });
+      video.src = new URL(canvas.dataset.desktopVideo, document.baseURI).href;
+    }
     function resize() {
       canvas.width = Math.min(innerWidth, 1920);
       canvas.height = Math.round(innerHeight * canvas.width / innerWidth);
@@ -92,6 +124,11 @@
       if (Math.abs(raw - progress) < .0005) { progress = raw; dirty = false; }
       var staticOnly = reduced.matches || connection.saveData;
       desired = staticOnly ? 0 : Math.round(Math.min(1, progress / .88) * (frameCount - 1));
+      if (useVideo && video) {
+        var duration = Number.isFinite(video.duration) ? Math.max(0, video.duration - 1 / 30) : 0;
+        videoTarget = staticOnly ? 0 : Math.min(1, progress / .88) * duration;
+        seekVideo();
+      }
       if (desired !== previousDesired) direction = desired > previousDesired ? 1 : -1;
       previousDesired = desired;
       // Remove obsolete work before starting more downloads during a fast scrub.
@@ -133,15 +170,19 @@
     if (document.readyState === 'complete') scheduleWarmup();
     else addEventListener('load', scheduleWarmup, { once: true });
     request(0, true); resize();
+    setupVideo();
     gsap.ticker.add(update);
     addEventListener('scroll', onScroll, { passive: true });
     addEventListener('resize', resize, { passive: true });
     if (window.lenis) window.lenis.on('scroll', onScroll);
     if (window.ScrollTrigger) ScrollTrigger.addEventListener('refresh', invalidate);
-    reduced.addEventListener('change', invalidate);
+    reduced.addEventListener('change', function () {
+      if (useVideo && !video && !reduced.matches) setupVideo();
+      invalidate();
+    });
     document.addEventListener('visibilitychange', function () { dirty = true; pump(); });
     addEventListener('pageshow', invalidate);
-    window.heroSequenceStats = function () { return { cachedFrames: frames.size, pendingFrames: pending.size, activeRequests: active, currentFrame: desired, renderedFrame: lastDrawn }; };
+    window.heroSequenceStats = function () { return { mode: useVideo ? 'video' : 'frames', cachedFrames: frames.size, pendingFrames: pending.size, activeRequests: active, currentFrame: desired, renderedFrame: lastDrawn, videoTime: video ? video.currentTime : null, videoTarget: videoTarget }; };
   }
   if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', init); else init();
 })();

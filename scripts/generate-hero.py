@@ -36,5 +36,13 @@ for name,folder in folders.items():
  mirror.mkdir(parents=True,exist_ok=True)
  for frame in folder.glob('frame_*.webp'):shutil.copy2(frame,mirror/frame.name)
 manifest={'source':args.source,'version':version,'fps':12,'frameCount':counts[0],'desktop':base+'/desktop/','desktopWidth':1280,'mobile':base+'/mobile/','mobileWidth':640,'sourceBytes':source.stat().st_size,'outputBytes':{name:sum(f.stat().st_size for f in folder.glob('frame_*.webp')) for name,folder in folders.items()}}
+# Regenerating fallback frames must retain the matching native desktop video.
+previous_path=root/'scripts/hero-sequence.json'
+if previous_path.is_file():
+ previous=json.loads(previous_path.read_text())
+ video=previous.get('desktopVideo','')
+ if video.startswith('videos/hero-desktop-'+version.split('-fast-')[0]) and (root/'public'/video).is_file():
+  manifest['desktopVideo']=video
+  manifest['desktopVideoBytes']=(root/'public'/video).stat().st_size
 (root/'scripts/hero-sequence.json').write_text(json.dumps(manifest,indent=2)+'\n',encoding='utf-8')
 print(json.dumps(manifest),flush=True)

@@ -12,7 +12,7 @@ for(const bucket of ['images','videos','fonts','js','css'])for(const file of wal
  const dynamic=hero?[hero.desktop,hero.mobile].some(dir=>ref.startsWith(dir)):/^videos\/hero-frames-(webp|mobile)\//.test(ref);
  const editingSource=hero&&ref===hero.source.replace(/^public\//,'');
  const license=/license|readme|notice/i.test(path.basename(file));
- if(dynamic||editingSource||license||text.includes(ref)||text.includes(encodeURI(ref)))continue;
+ if(dynamic||ref===hero?.desktopVideo||editingSource||license||text.includes(ref)||text.includes(encodeURI(ref)))continue;
  candidates.push({path:ref,bytes:fs.statSync(file).size});
 }
 for(const name of ['file.svg','globe.svg','next.svg','vercel.svg','window.svg']){

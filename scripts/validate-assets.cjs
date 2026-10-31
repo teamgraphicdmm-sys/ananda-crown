@@ -22,6 +22,7 @@ const heroManifest=path.join(root,'scripts/hero-sequence.json');
 if(fs.existsSync(heroManifest)){
  const hero=JSON.parse(fs.readFileSync(heroManifest,'utf8'));
  if(!Number.isInteger(hero.frameCount)||hero.frameCount<1||hero.frameCount>10000)throw Error('Invalid hero frame count');
+ if(hero.desktopVideo)check('/'+hero.desktopVideo,path.join(publicRoot,'index.html'));
  for(const dir of [hero.desktop,hero.mobile])for(let frame=1;frame<=hero.frameCount;frame++){
   check('/'+dir+'frame_'+String(frame).padStart(4,'0')+'.webp',path.join(publicRoot,'index.html'));
  }
