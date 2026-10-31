@@ -11,6 +11,7 @@
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
     />
     <link rel="stylesheet" href="css/lenis.css" />
+    <link rel="stylesheet" href="css/number-counters.css" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
@@ -10301,7 +10302,7 @@ if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',
           if(title){
             capitalized=getComputedStyle(title).textTransform==='capitalize';if(capitalized)title.classList.add('site-hover-capitalize');
             chars=Array.from(title.querySelectorAll('.chars'));
-            if(!chars.length&&window.SplitText){ownSplit=new SplitText(title,{type:'words,chars',wordsClass:'site-hover-word',charsClass:'site-hover-char'});chars=ownSplit.chars;}
+            if(!chars.length&&window.SplitText&&!title.querySelector('[data-count-number]')){ownSplit=new SplitText(title,{type:'words,chars',wordsClass:'site-hover-word',charsClass:'site-hover-char'});chars=ownSplit.chars;}
             textLayer=document.createElement('motion-label');textLayer.className='site-hover-text';
             while(title.firstChild)textLayer.append(title.firstChild);title.append(textLayer);
           }
@@ -10477,5 +10478,6 @@ if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',
   if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',init);else init();
 })();
 </script>
+<script src="js/number-counters.js"></script>
 </body>
 </html>
