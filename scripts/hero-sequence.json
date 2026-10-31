@@ -1,16 +1,15 @@
 {
   "source": "public/videos/Website_Video.mp4",
-  "version": "0023fa383907",
-  "fps": 24,
-  "frameCount": 511,
-  "desktop": "videos/hero-website-0023fa383907/desktop/",
-  "desktopWidth": 1920,
-  "mobile": "videos/hero-website-0023fa383907/mobile/",
-  "mobileWidth": 960,
+  "version": "0023fa383907-fast-v1",
+  "fps": 12,
+  "frameCount": 256,
+  "desktop": "videos/hero-website-0023fa383907-fast-v1/desktop/",
+  "desktopWidth": 1280,
+  "mobile": "videos/hero-website-0023fa383907-fast-v1/mobile/",
+  "mobileWidth": 640,
   "sourceBytes": 108022478,
   "outputBytes": {
-    "desktop": 143251902,
-    "mobile": 56614680
-  },
-  "trimmedAfterFrame": 511
+    "desktop": 32454734,
+    "mobile": 20998662
+  }
 }

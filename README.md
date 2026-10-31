@@ -16,7 +16,7 @@ Apache hosting can use the included `out/.htaccess` for compression and caching.
 
 Large photographs and transparent illustrations use optimized WebP files. HTML images include intrinsic dimensions, asynchronous decoding, and responsive sources where useful. The first hero image has high priority; images further down the site load lazily.
 
-The hero uses 511 frames sampled at 24 fps from `Website_Video.mp4`, ending at `frame_0511.webp`. Desktop frames are 1920px wide and mobile frames are 960px wide. The loader requests nearby frames with at most three requests in flight and retains at most 24 desktop / 20 mobile decoded frames. It pauses idle work and respects reduced motion and data-saving preferences. The previous full-video download and fixed loading-screen delay are removed from the live home page.
+The hero uses 256 frames sampled at 12 fps from `Website_Video.mp4`, preserving the earlier cutoff at approximately 21.3 seconds. Desktop frames are 1280px wide; mobile uses a dedicated 640px-wide portrait crop so screen density does not trigger desktop downloads. The first frame is preloaded, then nearby frames warm after the page load in idle time. The loader prioritizes the current frame and the scroll direction, limits downloads to four simultaneous requests, and retains at most 64 desktop / 48 mobile decoded frames. It pauses idle work and respects reduced motion and data-saving preferences. Offscreen Google Maps loads only as the map approaches the viewport. Production animation libraries are bundled in their original execution order.
 
 GSAP and the existing main fonts are local, with their existing versions and license headers retained. Font license files remain alongside the fonts.
 

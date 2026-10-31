@@ -1,6 +1,15 @@
 /* Responsive-only layout adjustments; restore original DOM placement on desktop. */
 (function () {
   function init() {
+    // Do not download the offscreen map during the hero's critical load.
+    var maps = document.querySelectorAll('iframe[data-map-src]');
+    function loadMap(map) { map.src = map.dataset.mapSrc; map.removeAttribute('data-map-src'); }
+    if ('IntersectionObserver' in window) {
+      var mapObserver = new IntersectionObserver(function (entries) {
+        entries.forEach(function (entry) { if (entry.isIntersecting) { loadMap(entry.target); mapObserver.unobserve(entry.target); } });
+      }, { rootMargin: '400px' });
+      maps.forEach(function (map) { mapObserver.observe(map); });
+    } else maps.forEach(loadMap);
     var compact = matchMedia('(max-width:1024px)');
     var dropdown = document.querySelector('.amenity-points-dropdown');
     var toggle = dropdown && dropdown.querySelector('.amenity-points-toggle');

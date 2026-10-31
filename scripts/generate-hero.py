@@ -5,7 +5,7 @@ root=Path(__file__).resolve().parent.parent
 parser=argparse.ArgumentParser()
 parser.add_argument('--source',default='public/videos/Website_Video.mp4')
 parser.add_argument('--ffmpeg')
-parser.add_argument('--frames',type=int,default=511,help='Keep only this many frames (default: 511).')
+parser.add_argument('--frames',type=int,default=256,help='Keep only this many frames (default: 256 at 12 fps).')
 args=parser.parse_args()
 if args.frames<1:raise SystemExit('--frames must be positive')
 source=(root/args.source).resolve()
@@ -17,11 +17,12 @@ if not ffmpeg:
   ffmpeg=imageio_ffmpeg.get_ffmpeg_exe()
  except ImportError:raise SystemExit('Install FFmpeg or pass --ffmpeg with its executable path.')
 version=hashlib.sha256(source.read_bytes()).hexdigest()[:12]
+version+='-fast-v1'
 base='videos/hero-website-'+version
 folders={name:root/'public'/base/name for name in ['desktop','mobile']}
 for folder in folders.values():folder.mkdir(parents=True,exist_ok=True)
-command=[ffmpeg,'-hide_banner','-loglevel','error','-y','-i',str(source),'-filter_complex',f'[0:v]fps=24,trim=end_frame={args.frames},split=2[wide][small];[wide]scale=1920:-2:flags=lanczos[desktop];[small]scale=960:-2:flags=lanczos[mobile]']
-for name,quality in [('desktop',83),('mobile',82)]:
+command=[ffmpeg,'-hide_banner','-loglevel','error','-y','-i',str(source),'-filter_complex',f'[0:v]fps=12,trim=end_frame={args.frames},split=2[wide][small];[wide]scale=1280:-2:flags=lanczos[desktop];[small]scale=-2:1138:flags=lanczos,crop=640:1138[mobile]']
+for name,quality in [('desktop',72),('mobile',74)]:
  command+=['-map','['+name+']','-c:v','libwebp','-quality',str(quality),'-compression_level','4','-threads','2','-fps_mode','passthrough',str(folders[name]/'frame_%04d.webp')]
 print('Generating full-length desktop and mobile sequences...',flush=True)
 subprocess.run(command,check=True)
@@ -34,6 +35,6 @@ for name,folder in folders.items():
  mirror=root/base/name
  mirror.mkdir(parents=True,exist_ok=True)
  for frame in folder.glob('frame_*.webp'):shutil.copy2(frame,mirror/frame.name)
-manifest={'source':args.source,'version':version,'fps':24,'frameCount':counts[0],'desktop':base+'/desktop/','desktopWidth':1920,'mobile':base+'/mobile/','mobileWidth':960,'sourceBytes':source.stat().st_size,'outputBytes':{name:sum(f.stat().st_size for f in folder.glob('frame_*.webp')) for name,folder in folders.items()}}
+manifest={'source':args.source,'version':version,'fps':12,'frameCount':counts[0],'desktop':base+'/desktop/','desktopWidth':1280,'mobile':base+'/mobile/','mobileWidth':640,'sourceBytes':source.stat().st_size,'outputBytes':{name:sum(f.stat().st_size for f in folder.glob('frame_*.webp')) for name,folder in folders.items()}}
 (root/'scripts/hero-sequence.json').write_text(json.dumps(manifest,indent=2)+'\n',encoding='utf-8')
 print(json.dumps(manifest),flush=True)

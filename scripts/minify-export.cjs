@@ -9,7 +9,17 @@ const walk=dir=>fs.readdirSync(dir,{withFileTypes:true}).flatMap(e=>e.isDirector
  // Keep the large local editing source out of the static deployment artifact.
  const heroManifest=path.resolve(__dirname,'hero-sequence.json');
  if(fs.existsSync(heroManifest)){
-  const source=JSON.parse(fs.readFileSync(heroManifest,'utf8')).source;
+  const hero=JSON.parse(fs.readFileSync(heroManifest,'utf8'));
+  const source=hero.source;
+  // Omit superseded sequences from deployment; keep source originals locally.
+  const videoRoot=path.resolve(root,'videos');
+  const active=new Set([hero.desktop,hero.mobile].map(dir=>dir.split('/')[1]));
+  if(fs.existsSync(videoRoot))for(const entry of fs.readdirSync(videoRoot,{withFileTypes:true})){
+   if(!entry.isDirectory()||!/^hero-website-[a-f0-9]{12}(?:-fast-v\d+)?$/.test(entry.name)||active.has(entry.name))continue;
+   const stale=path.resolve(videoRoot,entry.name);
+   if(path.dirname(stale)!==videoRoot||fs.lstatSync(stale).isSymbolicLink())throw Error('Unsafe stale sequence path');
+   fs.rmSync(stale,{recursive:true,force:true});
+  }
   if(typeof source==='string'&&source.startsWith('public/videos/')&&source.endsWith('.mp4')){
    const editingSource=path.resolve(root,source.slice('public/'.length));
    if(editingSource.startsWith(root+path.sep)&&fs.existsSync(editingSource))fs.unlinkSync(editingSource);
@@ -32,6 +42,17 @@ const walk=dir=>fs.readdirSync(dir,{withFileTypes:true}).flatMap(e=>e.isDirector
    }
   }
   if(output!==original){fs.writeFileSync(file,output);before+=Buffer.byteLength(original);after+=Buffer.byteLength(output);count++;}
+ }
+ // Preserve the libraries' execution order while avoiding nine separate requests.
+ const vendors=['js/jquery-3.5.1.min.js','js/webflow.js','js/vendor/gsap.min.js','js/vendor/ScrollTrigger.min.js','js/SplitText.min.js','js/vendor/Flip.min.js','js/vendor/ScrollToPlugin.min.js','js/vendor/CustomEase.min.js','js/lenis.min.js'];
+ const bundle=(await minify(vendors.map(f=>fs.readFileSync(path.join(root,f),'utf8')).join('\n;\n'),{format:{comments:/@license|@preserve|copyright/i}})).code;
+ fs.writeFileSync(path.join(root,'js/vendor/site-vendor.min.js'),bundle);
+ for(const file of walk(root).filter(f=>f.endsWith('.html'))){
+  const html=fs.readFileSync(file,'utf8');
+  if(html.includes('__next_f'))continue;
+  const pattern=/<script src="js\/jquery-3\.5\.1\.min\.js"[^>]*><\/script>[\s\S]*?<script src="js\/lenis\.min\.js"><\/script>/;
+  const block=html.match(pattern);
+  if(block&&vendors.every(f=>block[0].includes('src="'+f+'"')))fs.writeFileSync(file,html.replace(pattern,'<script src="js/vendor/site-vendor.min.js"></script>'));
  }
  // Content versions let updated assets bypass an older browser/CDN cache.
  const base=(process.env.NEXT_PUBLIC_BASE_PATH||process.env.NEXT_BASE_PATH||'').replace(/^\/+|\/+$/g,'');

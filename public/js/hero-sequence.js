@@ -1,4 +1,4 @@
-/* Demand-loaded hero sequence. Keep all frames; bound network concurrency and decoded memory. */
+/* Demand-loaded hero sequence. Prioritize visible and upcoming frames; bound network concurrency and decoded memory. */
 (function () {
   function init() {
     var canvas = document.getElementById('hero-video-canvas');
@@ -12,12 +12,13 @@
     var firstImage = home.querySelector('img.hero-image-background');
     var reduced = matchMedia('(prefers-reduced-motion: reduce)');
     var connection = navigator.connection || {};
-    var mobile = innerWidth <= 1024 || matchMedia('(pointer: coarse)').matches;
+    var mobile = innerWidth <= 1024;
     var frameDirectory = mobile ? canvas.dataset.mobileFrames : canvas.dataset.desktopFrames;
     var directory = new URL(frameDirectory || ('videos/' + (mobile ? 'hero-frames-mobile/' : 'hero-frames-webp/')), document.baseURI);
     var frames = new Map(), pending = new Set(), queue = [], failures = new Set();
-    var active = 0, frameCount = Number(canvas.dataset.frameCount) || 169, cacheLimit = mobile ? 20 : 24;
+    var active = 0, frameCount = Number(canvas.dataset.frameCount) || 169, cacheLimit = mobile ? 48 : 64;
     var progress = 0, desired = 0, lastDrawn = -1, dirty = true, activeUntil = 0;
+    var scrollStarted = false, warm = false, previousDesired = 0, direction = 1;
     function request(index, priority) {
       if (frames.has(index) || failures.has(index)) return;
       if (pending.has(index)) {
@@ -32,12 +33,12 @@
     }
     function pump() {
       if (document.hidden) return;
-      while (active < 3 && queue.length) {
+      while (active < 4 && queue.length) {
         (function (index) {
           active++;
           var image = new Image();
           image.decoding = 'async';
-          image.fetchPriority = index === 0 ? 'high' : 'low';
+          image.fetchPriority = index === 0 || index === desired ? 'high' : 'low';
           image.onload = async function () {
             if (image.decode) await image.decode().catch(function () {});
             active--; pending.delete(index); frames.set(index, image); dirty = true;
@@ -91,23 +92,26 @@
       if (Math.abs(raw - progress) < .0005) { progress = raw; dirty = false; }
       var staticOnly = reduced.matches || connection.saveData;
       desired = staticOnly ? 0 : Math.round(Math.min(1, progress / .88) * (frameCount - 1));
+      if (desired !== previousDesired) direction = desired > previousDesired ? 1 : -1;
+      previousDesired = desired;
+      // Remove obsolete work before starting more downloads during a fast scrub.
+      queue = queue.filter(function (index) {
+        if (Math.abs(index - desired) <= 16 || index === 0) return true;
+        pending.delete(index); return false;
+      });
       request(desired, true);
-      if (!staticOnly) {
-        // Fetch the nearby frames first, rather than 169 simultaneous downloads.
-        for (var offset = 1; offset <= 6; offset++) {
-          if (desired + offset < frameCount) request(desired + offset, false);
-          if (desired - offset >= 0) request(desired - offset, false);
+      if (!staticOnly && (scrollStarted || warm)) {
+        for (var offset = 1; offset <= 12; offset++) {
+          var ahead = desired + offset * direction;
+          if (ahead >= 0 && ahead < frameCount) request(ahead, false);
         }
-        // Drop stale queued requests when someone jumps far through the page.
-        queue = queue.filter(function (index) {
-          if (Math.abs(index - desired) <= 12 || index === 0) return true;
-          pending.delete(index); return false;
-        });
+        var behind = desired - direction;
+        if (behind >= 0 && behind < frameCount) request(behind, false);
       }
       draw(desired);
       if (text) {
         // Fade through the first five frames, then leave the video unobstructed.
-        var amount = Math.min(1, Math.max(0, progress / .88) * (frameCount - 1) / 5);
+        var amount = Math.min(1, Math.max(0, progress / .88) * (frameCount - 1) / 2.5);
         text.style.opacity = (1 - amount).toFixed(3);
         text.style.visibility = amount >= 1 ? 'hidden' : 'visible';
         if (text.inert !== (amount >= 1)) text.inert = amount >= 1;
@@ -116,11 +120,23 @@
       }
     }
     function invalidate() { dirty = true; activeUntil = performance.now() + 1500; }
+    function onScroll() { if (scrollY > 0 || progress > 0) scrollStarted = true; invalidate(); }
+    function warmFrames() {
+      if (reduced.matches || connection.saveData) return;
+      warm = true; invalidate();
+    }
+    // Leave the initial paint uncontested, then prepare the first scroll in idle time.
+    function scheduleWarmup() {
+      if ('requestIdleCallback' in window) requestIdleCallback(warmFrames, { timeout: 1200 });
+      else setTimeout(warmFrames, 200);
+    }
+    if (document.readyState === 'complete') scheduleWarmup();
+    else addEventListener('load', scheduleWarmup, { once: true });
     request(0, true); resize();
     gsap.ticker.add(update);
-    addEventListener('scroll', invalidate, { passive: true });
+    addEventListener('scroll', onScroll, { passive: true });
     addEventListener('resize', resize, { passive: true });
-    if (window.lenis) window.lenis.on('scroll', invalidate);
+    if (window.lenis) window.lenis.on('scroll', onScroll);
     if (window.ScrollTrigger) ScrollTrigger.addEventListener('refresh', invalidate);
     reduced.addEventListener('change', invalidate);
     document.addEventListener('visibilitychange', function () { dirty = true; pump(); });
