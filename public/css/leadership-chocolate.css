@@ -1,0 +1,31 @@
+/* Solid chocolate background for the leadership section. */
+#leadership {
+  --leadership-ground: #241209;
+  --leadership-ink: #f5e9dc;
+  --leadership-muted: #c99c70;
+  --leadership-copy: #d3bca8;
+  --brand-accent-on-light: #e0b789;
+  background: var(--leadership-ground);
+}
+#leadership::before {
+  display: none;
+}
+#leadership .about-main-title,
+#leadership .crown-leadership-bio {color: var(--leadership-ink) !important;}
+#leadership .crown-leadership-copy > p,
+#leadership #crown-leadership-credentials dd {color: var(--leadership-copy) !important;}
+#leadership #crown-leadership-credentials dt {color: var(--leadership-muted) !important;}
+#leadership .crown-leadership-credentials {border-top-color: rgb(201 156 112 / 28%);}
+#leadership .crown-founder-card-copy {
+  --brand-accent-text: #795735;
+  color: #271a11;
+}
+#leadership .crown-founder-card-copy::before {background: #c2a180;}
+#leadership .crown-founder-education > span {border-color: #c2a180;}
+#leadership .crown-founder-controls button {
+  color: #e0b789;
+  border-color: rgb(224 183 137 / 55%);
+}
+#leadership .crown-founder-controls button:hover {background: #e0b789;color: #241209;}
+#leadership .crown-founder-controls button:focus-visible,
+#leadership .crown-founder-card:focus-visible {outline-color: #e0b789;}

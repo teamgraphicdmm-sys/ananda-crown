@@ -4,7 +4,7 @@
   "private": true,
   "scripts": {
     "dev": "node preview-server.js 3000 public",
-    "dev:react": "next dev",
+    "dev:react": "next dev -H 0.0.0.0",
     "build": "node scripts/validate-assets.cjs && node scripts/clean-output.cjs && next build && node export-clone.js && node scripts/minify-export.cjs",
     "preview": "node preview-server.js 8080 out",
     "start": "next start",
