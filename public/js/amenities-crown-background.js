@@ -17,20 +17,21 @@
     }
 
     gsap.registerPlugin(ScrollTrigger);
+    var construction = window.createCrownConstruction(crown);
     gsap.matchMedia().add({
       desktop: '(min-width: 1025px) and (pointer: fine)',
       mobile: '(max-width: 1024px), (pointer: coarse)',
       reduced: '(prefers-reduced-motion: reduce)'
     }, function (context) {
       if (context.conditions.reduced) {
-        gsap.set(crown, { y: 0, autoAlpha: 1 });
+        construction.showFinished();
         return;
       }
       var horizontal = context.conditions.desktop && window.tlMain;
       if (context.conditions.desktop && !horizontal) return;
 
       gsap.set(wipe, { x: -2000 });
-      gsap.set(crown, { y: 640, autoAlpha: 1 });
+      construction.reset();
       // Give the reveal more scroll distance without adding a pause at the end.
       function scrollDistance() {
         return Math.round(innerHeight * (matchMedia('(max-width: 1024px)').matches ? 1.92 : 2.56));
@@ -104,9 +105,9 @@
         trigger.end = function () { return '+=' + (scrollDistance() + innerHeight * .85); };
       }
 
-      gsap.timeline({ defaults: { ease: 'none' }, scrollTrigger: trigger })
-        .fromTo(wipe, { x: -2000 }, { x: 0, duration: 2.6, ease: 'sine.inOut', immediateRender: false }, 0)
-        .fromTo(crown, { y: 640 }, { y: 0, duration: 2.3, ease: 'power2.out', immediateRender: false }, 1.640574)
+      var scene = gsap.timeline({ defaults: { ease: 'none' }, scrollTrigger: trigger })
+        .fromTo(wipe, { x: -2000 }, { x: 0, duration: 2.6, ease: 'sine.inOut', immediateRender: false }, 0);
+      construction.animate(scene, 1.640574)
         .to({}, { duration: horizontal ? 0 : .12 });
       return cleanupHold;
     });

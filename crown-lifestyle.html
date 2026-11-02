@@ -72,6 +72,7 @@
       <p>one signature clubhouse. 68+ amenities. a world within your address.</p>
     </div>
   </section>
+  <script src="js/crown-construction.js?v=champagne-2"></script>
   <script src="js/vendor/gsap.min.js"></script>
   <script src="js/vendor/ScrollTrigger.min.js"></script>
   <script>
@@ -93,10 +94,11 @@
         return;
       }
       gsap.registerPlugin(ScrollTrigger);
+      var construction = window.createCrownConstruction(crown);
       gsap.matchMedia().add('(prefers-reduced-motion: no-preference)', function () {
         var wipe = section.querySelector('.line-wipe');
         gsap.set(wipe, { x: -2000 });
-        gsap.set(crown, { y: 640, visibility: 'visible' });
+        construction.reset();
         var scene = gsap.timeline({
           defaults: { ease: 'none' },
           scrollTrigger: {
@@ -105,9 +107,9 @@
             pin: true, scrub: 1.1, anticipatePin: 1, invalidateOnRefresh: true
           }
         });
-        // Reveal the gold curves from left to right, then let the crown emerge.
-        scene.fromTo(wipe, { x: -2000 }, { x: 0, duration: 2.2, ease: 'sine.inOut', immediateRender: false }, 0)
-          .fromTo(crown, { y: 640 }, { y: 0, duration: 2.3, ease: 'power2.out', immediateRender: false }, 1.388178);
+        // Reveal the gold curves, then construct and finish the crown from the foundation upward.
+        scene.fromTo(wipe, { x: -2000 }, { x: 0, duration: 2.2, ease: 'sine.inOut', immediateRender: false }, 0);
+        construction.animate(scene, 1.388178);
       });
     })();
   </script>
