@@ -123,3 +123,14 @@
   #apartments .ap-highlights-col {gap:6px!important;}
   #apartments .apartments-cta {margin-top:8px!important;}
 }
+
+/* The arrival photo occupies the former two-tile clubhouse column. */
+#apartments #residence-clubhouse {display:none!important;}
+#apartments #residence-slide-club {grid-template-rows:minmax(0,1fr)!important;gap:0!important;}
+#apartments #residence-arrival {grid-row:1 / -1;height:100%!important;}
+@media (max-width:1024px), (max-width:1400px) and (any-pointer:coarse) {
+  #apartments #residence-arrival {
+    height:max(100svh,var(--compact-residence-height,640px))!important;
+    min-height:100svh!important;
+  }
+}

@@ -1,0 +1,21 @@
+/* Show the header surface only over the portion still covered by the hero. */
+.nav[data-nav-section] {
+  background:transparent!important;
+  border-color:transparent!important;
+  box-shadow:none!important;
+  backdrop-filter:none!important;
+  -webkit-backdrop-filter:none!important;
+  isolation:isolate;
+}
+.nav[data-nav-section]::before {
+  content:"";position:absolute;inset:0;z-index:-1;pointer-events:none;
+  background:rgba(48,22,14,.24);opacity:1;
+  -webkit-mask-image:linear-gradient(var(--nav-hero-direction,to right),#000 calc(var(--nav-hero-visible,100%) - var(--nav-hero-feather,0%)),transparent var(--nav-hero-visible,100%));
+  mask-image:linear-gradient(var(--nav-hero-direction,to right),#000 calc(var(--nav-hero-visible,100%) - var(--nav-hero-feather,0%)),transparent var(--nav-hero-visible,100%));
+}
+@media (max-width:1024px), (max-width:1400px) and (any-pointer:coarse) {
+  .nav[data-nav-section]::before {
+    background:rgba(18,9,2,.88);
+    backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);
+  }
+}

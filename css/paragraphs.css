@@ -1,0 +1,20 @@
+/* Change these two tokens to update paragraph colors across the main page. */
+:root {
+  --paragraph-dark-color: #65574d;
+  --paragraph-light-color: #f7f4ef;
+}
+
+/* Layered importance lets these classes override legacy section color rules. */
+@layer paragraph-colors {
+  .paragraph-text {
+    color: var(--paragraph-text-color, inherit) !important;
+  }
+
+  .paragraph-dark {
+    --paragraph-text-color: var(--paragraph-dark-color);
+  }
+
+  .paragraph-light {
+    --paragraph-text-color: var(--paragraph-light-color);
+  }
+}
