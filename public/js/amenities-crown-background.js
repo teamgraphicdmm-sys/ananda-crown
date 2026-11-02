@@ -31,16 +31,16 @@
 
       gsap.set(wipe, { x: -2000 });
       gsap.set(crown, { y: 640, autoAlpha: 1 });
-      // Match public/crown-lifestyle.html's scroll distance, not just its tween durations.
+      // Give the reveal more scroll distance without adding a pause at the end.
       function scrollDistance() {
-        return Math.round(innerHeight * (matchMedia('(max-width: 1024px)').matches ? 1.3 : 1.6));
+        return Math.round(innerHeight * (matchMedia('(max-width: 1024px)').matches ? 1.92 : 2.56));
       }
       var trigger = {
         id: 'amenities-crown-background',
         trigger: panel,
         start: 'top top',
         end: function () { return '+=' + scrollDistance(); },
-        scrub: 1.1,
+        scrub: 1.3,
         invalidateOnRefresh: true
       };
       var cleanupHold = null;
@@ -81,8 +81,9 @@
           }
         });
         trigger.containerAnimation = horizontal;
-        trigger.start = 'left left';
-        trigger.end = function () { return '+=' + animationDistance; };
+        // Begin revealing during the entrance, while keeping the finish inside the hold.
+        trigger.start = 'left 85%';
+        trigger.end = function () { return '+=' + (animationDistance + innerWidth * .85); };
         cleanupHold = function () {
           ScrollTrigger.removeEventListener('refreshInit', sizeHold);
           while (stage.firstChild) panel.insertBefore(stage.firstChild, stage);
@@ -93,15 +94,19 @@
           if (sectionHeight && track) sectionHeight.style.height = track.offsetWidth + 'px';
         };
       } else {
-        trigger.pin = true;
-        trigger.pinSpacing = true;
-        trigger.anticipatePin = 1;
-        trigger.end = function () { return '+=' + (scrollDistance() + innerHeight * .06); };
+        // Reveal on approach; only pin once the panel reaches the top of the screen.
+        ScrollTrigger.create({
+          id: 'amenities-crown-mobile-hold', trigger: panel, start: 'top top',
+          end: function () { return '+=' + (scrollDistance() + innerHeight * .06); },
+          pin: true, pinSpacing: true, anticipatePin: 1, invalidateOnRefresh: true
+        });
+        trigger.start = 'top 85%';
+        trigger.end = function () { return '+=' + (scrollDistance() + innerHeight * .85); };
       }
 
       gsap.timeline({ defaults: { ease: 'none' }, scrollTrigger: trigger })
-        .fromTo(wipe, { x: -2000 }, { x: 0, duration: 2.2, ease: 'sine.inOut', immediateRender: false }, 0)
-        .fromTo(crown, { y: 640 }, { y: 0, duration: 2.3, ease: 'power2.out', immediateRender: false }, 1.388178)
+        .fromTo(wipe, { x: -2000 }, { x: 0, duration: 2.6, ease: 'sine.inOut', immediateRender: false }, 0)
+        .fromTo(crown, { y: 640 }, { y: 0, duration: 2.3, ease: 'power2.out', immediateRender: false }, 1.640574)
         .to({}, { duration: horizontal ? 0 : .12 });
       return cleanupHold;
     });

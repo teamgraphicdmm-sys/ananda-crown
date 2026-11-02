@@ -5998,6 +5998,30 @@ display:none;
   #location[data-crown-hold] #amenitiesTitle {width:var(--crown-panel-width)!important;min-width:var(--crown-panel-width)!important;max-width:var(--crown-panel-width)!important;}
   #amenitiesTitle .amenities-crown-stage {position:absolute;left:0;top:0;width:100vw;height:100%;display:flex;align-items:center;overflow:hidden;}
 }
+
+#amenitiesTitle .amenities-title-content {
+  box-sizing:border-box;width:100%;min-width:0;max-width:min(56vw,960px);
+  padding-left:clamp(32px,8vw,160px);padding-right:clamp(24px,2.5vw,48px);
+}
+#amenitiesTitle .amenities-title-heading {
+  font-size:clamp(64px,6.2vw,104px)!important;line-height:1.02!important;
+  margin-bottom:clamp(16px,1.7vw,28px)!important;max-width:100%;
+}
+#amenitiesTitle .amenities-title-sub {
+  font-size:clamp(16px,1.3vw,20px)!important;line-height:1.6!important;
+  width:100%;max-width:34ch;margin:0;white-space:normal!important;
+  text-wrap:balance;overflow-wrap:break-word;
+}
+@media(max-width:1024px),(pointer:coarse) {
+  #amenitiesTitle {padding-inline:clamp(20px,5vw,56px)!important;}
+  #amenitiesTitle .amenities-title-content {max-width:100%!important;padding:0!important;}
+  #amenitiesTitle .amenities-title-heading {font-size:clamp(44px,7.5vw,76px)!important;}
+  #amenitiesTitle .amenities-title-sub {font-size:clamp(14px,1.7vw,18px)!important;letter-spacing:.08em!important;max-width:36ch;}
+}
+@media(max-width:700px) {
+  #amenitiesTitle .amenities-title-heading {font-size:clamp(36px,10.8vw,64px)!important;line-height:1.08!important;}
+  #amenitiesTitle .amenities-title-sub {font-size:clamp(14px,3.6vw,16px)!important;letter-spacing:.04em!important;max-width:32ch;}
+}
 </style>
 <noscript><style>#amenitiesTitle .crown-rise {visibility:visible;}</style></noscript>
 </head>
@@ -10533,6 +10557,6 @@ if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',
 </script>
 <script src="js/number-counters.js"></script>
 <script src="js/responsive-layout.js"></script>
-<script src="js/amenities-crown-background.js?v=short-hold-10"></script>
+<script src="js/amenities-crown-background.js?v=entrance-reveal-15"></script>
 </body>
 </html>
