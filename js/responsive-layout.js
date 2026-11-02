@@ -10,7 +10,7 @@
       }, { rootMargin: '400px' });
       maps.forEach(function (map) { mapObserver.observe(map); });
     } else maps.forEach(loadMap);
-    var compact = matchMedia('(max-width:1024px)');
+    var compact = matchMedia('(max-width:1024px), (max-width: 1400px) and (any-pointer: coarse)');
     var dropdown = document.querySelector('.amenity-points-dropdown');
     var toggle = dropdown && dropdown.querySelector('.amenity-points-toggle');
     var panel = dropdown && dropdown.querySelector('.amenity-points-panel');

@@ -810,7 +810,7 @@ textarea.w-input, textarea.w-select {
   display: none !important;
 }
 
-@media screen and (max-width: 991px) {
+@media screen and (max-width: 991px), screen and (max-width: 1400px) and (any-pointer: coarse) {
   .w-container {
     max-width: 728px;
   }
@@ -1977,7 +1977,7 @@ textarea.w-input, textarea.w-select {
   position: static;
 }
 
-@media screen and (max-width: 991px) {
+@media screen and (max-width: 991px), screen and (max-width: 1400px) and (any-pointer: coarse) {
   .w-nav[data-collapse="medium"] .w-nav-menu {
     display: none;
   }
@@ -5831,7 +5831,7 @@ figcaption {
         font-size: 0.8rem !important;
   }
 }
-@media screen and (max-width: 991px) {
+@media screen and (max-width: 991px), screen and (max-width: 1400px) and (any-pointer: coarse) {
   .padding-xlarge {
     padding: 3rem;
   }

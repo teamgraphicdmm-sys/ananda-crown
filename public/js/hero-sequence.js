@@ -12,7 +12,7 @@
     var firstImage = home.querySelector('img.hero-image-background');
     var reduced = matchMedia('(prefers-reduced-motion: reduce)');
     var connection = navigator.connection || {};
-    var mobile = innerWidth <= 1024;
+    var mobile = matchMedia('(max-width: 1024px), (max-width: 1400px) and (any-pointer: coarse)').matches;
     var video = null, videoTarget = 0, useVideo = !mobile && !!canvas.dataset.desktopVideo;
     var frameDirectory = mobile ? canvas.dataset.mobileFrames : canvas.dataset.desktopFrames;
     var directory = new URL(frameDirectory || ('videos/' + (mobile ? 'hero-frames-mobile/' : 'hero-frames-webp/')), document.baseURI);

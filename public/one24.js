@@ -95,7 +95,7 @@ function isDesktopMode() {
   }
   var isTouchTablet =
     ("ontouchstart" in window || navigator.maxTouchPoints > 0) &&
-    window.innerWidth <= 1200;
+    window.innerWidth <= 1400;
   return window.innerWidth > 1024 && !isTouchTablet;
 }
 
@@ -195,7 +195,7 @@ window.createSiteTextAnimation=function(element,containerAnimation,id){
 
 // HORIZONTAL SCROLL ----------
 let horizontalM = gsap.matchMedia();
-horizontalM.add("(min-width: 1025px) and (pointer: fine)", () => {
+horizontalM.add("(min-width: 1025px) and (pointer: fine) and (not (any-pointer: coarse)), (min-width: 1401px) and (pointer: fine) and (any-pointer: coarse)", () => {
   // Optional - Set sticky section heights based on inner content width
   // Makes scroll timing feel more natural
   function setTrackHeights() {
@@ -952,8 +952,8 @@ $(".nav-link.inquire-close, #close-inquire, [inquire=close]").on("click", functi
 // END Inquire Open
 
 // Resize PC to TABLET - TABLET to PC - Reload Site
-var pc = window.matchMedia("(min-width: 1025px) and (pointer: fine)");
-var tabletM = window.matchMedia("(max-width: 1024px), (max-width: 1200px) and (pointer: coarse)");
+var pc = window.matchMedia("(min-width: 1025px) and (pointer: fine) and (not (any-pointer: coarse)), (min-width: 1401px) and (pointer: fine) and (any-pointer: coarse)");
+var tabletM = window.matchMedia("(max-width: 1024px), (max-width: 1400px) and (any-pointer: coarse)");
 var pcM;
 var tabletV;
 
@@ -987,7 +987,7 @@ $(window).on("resize", function () {
 // END Resize PC to TABLET - TABLET to PC - Reload Site
 
 // MOBILE GSAP
-horizontalM.add("(max-width: 1024px), (max-width: 1200px) and (pointer: coarse)", () => {
+horizontalM.add("(max-width: 1024px), (max-width: 1400px) and (any-pointer: coarse)", () => {
   // Nav Color 1
   gsap
     .timeline({

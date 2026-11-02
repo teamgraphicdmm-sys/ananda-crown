@@ -45,14 +45,14 @@
     <meta property="og:type" content="website" />
     <meta content="summary_large_image" name="twitter:card" />
     <meta content="width=device-width, initial-scale=1" name="viewport" />
-    <link rel="preload" as="image" href="videos/hero-website-0023fa383907-fast-v1/mobile/frame_0001.webp" media="(max-width: 1024px)" fetchpriority="high" />
-    <link rel="preload" as="image" href="videos/hero-website-0023fa383907-fast-v1/desktop/frame_0001.webp" media="(min-width: 1025px)" fetchpriority="high" />
+    <link rel="preload" as="image" href="videos/hero-website-0023fa383907-fast-v1/mobile/frame_0001.webp" media="(max-width: 1024px), (max-width: 1400px) and (any-pointer: coarse)" fetchpriority="high" />
+    <link rel="preload" as="image" href="videos/hero-website-0023fa383907-fast-v1/desktop/frame_0001.webp" media="(min-width: 1025px) and (not (any-pointer: coarse)), (min-width: 1401px) and (any-pointer: coarse)" fetchpriority="high" />
     <link rel="preload" as="font" href="fonts/site/untitled-sans-regular.woff2" type="font/woff2" crossorigin />
     <link href="/one24.css" rel="stylesheet" type="text/css" />
     <link href="css/clone-awwwards.css" rel="stylesheet" type="text/css" />
     <style>
       .transition { display: none !important; }
-      @media (min-width: 1025px) {
+      @media (min-width: 1025px) and (not (any-pointer: coarse)), (min-width: 1401px) and (any-pointer: coarse) {
         html.w-mod-js:not(.w-mod-ix)
           [data-w-id="7fb9b671-cea2-61c8-1f36-8c4c088a28c1"] {
           opacity: 0.3;
@@ -112,7 +112,7 @@
           opacity: 0;
         }
       }
-      @media (max-width: 1024px) and (min-width: 768px) {
+      @media (max-width: 1024px) and (min-width: 768px), (max-width: 1400px) and (min-width: 768px) and (any-pointer: coarse) {
         html.w-mod-js:not(.w-mod-ix)
           [data-w-id="a69e3c76-4a04-0ceb-2f87-e329ebd28016"] {
           -webkit-transform: translate3d(0%, nullem, 0) scale3d(1, 1, 1)
@@ -1099,8 +1099,7 @@
          LAPTOP & COMPACT DESKTOP (<= 1440px or height <= 880px)
          Prevents about-left-col elements from collapsing/overflowing
          ========================================================= */
-      @media screen and (min-width: 1025px) and (max-width: 1440px),
-             screen and (min-width: 1025px) and (max-height: 880px) {
+      @media screen and (min-width: 1025px) and (max-width: 1440px) and (not (any-pointer: coarse)), screen and (min-width: 1401px) and (max-width: 1440px) and (any-pointer: coarse), screen and (min-width: 1025px) and (max-height: 880px) and (not (any-pointer: coarse)), screen and (min-width: 1401px) and (max-height: 880px) and (any-pointer: coarse) {
         .about-container {
           padding-top: clamp(4.25rem, 7vh, 5.5rem) !important;
           padding-bottom: clamp(1.25rem, 2.5vh, 2rem) !important;
@@ -1217,7 +1216,7 @@
       }
 
       /* Ultra-compact / short laptop screens (e.g. 1366x768 with browser bars, height <= 720px) */
-      @media screen and (min-width: 1025px) and (max-height: 720px) {
+      @media screen and (min-width: 1025px) and (max-height: 720px) and (not (any-pointer: coarse)), screen and (min-width: 1401px) and (max-height: 720px) and (any-pointer: coarse) {
         .about-container {
           padding-top: 4.25rem !important;
           padding-bottom: 1rem !important;
@@ -2195,7 +2194,7 @@
                     background-color: #faf7f2 !important;
               }
       /* Desktop & Large Laptop layout (> 1024px) - Strict Preservation */
-      @media screen and (min-width: 1025px) {
+      @media screen and (min-width: 1025px) and (not (any-pointer: coarse)), screen and (min-width: 1401px) and (any-pointer: coarse) {
         #home.hero-section.panel {
           width: 250vw !important;
           min-width: 250vw !important;
@@ -2227,9 +2226,7 @@
          RESPONSIVE RULES FOR ALL MOBILE & TABLET (<= 1024px & Touch Devices)
          Clean, elegant vertical layout for all sections
          ========================================================= */
-      @media screen and (max-width: 1024px),
-             screen and (max-width: 1200px) and (hover: none) and (pointer: coarse),
-             screen and (max-width: 1200px) and (pointer: coarse) {
+      @media screen and (max-width: 1024px), screen and (max-width: 1400px) and (any-pointer: coarse), screen and (max-width: 1400px) and (hover: none) and (any-pointer: coarse) {
         html {
           overflow-x: clip !important;
           overflow-y: visible !important;
@@ -3798,8 +3795,7 @@
          TABLET RESPONSIVE RULES (768px - 1024px, & Touch Tablets)
          Refined luxury magazine layout for iPad & Android tablets
          ========================================================= */
-      @media screen and (min-width: 768px) and (max-width: 1024px),
-             screen and (min-width: 768px) and (max-width: 1200px) and (pointer: coarse) {
+      @media screen and (min-width: 768px) and (max-width: 1024px), screen and (min-width: 768px) and (max-width: 1400px) and (any-pointer: coarse) {
         /* Navigation */
         .nav {
           height: 64px !important;
@@ -4215,7 +4211,7 @@
           max-width: calc(100% - 16px) !important;
           height: 68vh !important;
           min-height: 460px !important;
-          margin-bottom: 2.5rem !important;
+          margin-bottom: 0rem !important;
         }
 
         .ap-img-description._2, .ap-img-description._3 {
@@ -5221,7 +5217,7 @@
       .ap-spec-size {
         color: var(--brand-secondary) !important;
       }
-      @media (min-width: 1025px) {
+      @media (min-width: 1025px) and (not (any-pointer: coarse)), (min-width: 1401px) and (any-pointer: coarse) {
         .nav-links-component { gap: clamp(10px, 1.1vw, 20px) !important; }
         .nav-link { padding-left: 12px !important; padding-right: 4px !important; }
         .nav-link .untitled-400-13 { font-size: clamp(10px, .84vw, 12px) !important; letter-spacing: .1em !important; }
@@ -5272,7 +5268,7 @@
       .about-delivery-item:not(:last-child) .about-delivery-icon::after { content: ""; position: absolute; width: 3px; height: 3px; left: 50%; bottom: -10px; margin-left: -1.5px; border-radius: 50%; background: #c89b51; }
       #vision .about-delivery-copy h3 { font-family: "Tobias", Georgia, serif !important; font-size: clamp(10px,.82vw,12px) !important; font-weight: 400 !important; line-height: 1.25 !important; letter-spacing: .1em !important; text-transform: uppercase !important; color: #f0e8d8 !important; margin: 1px 0 4px !important; }
       #vision .about-delivery-copy p { font-family: "Untitled sans", Montserrat, sans-serif !important; font-size: clamp(9px,.76vw,11px) !important; font-weight: 400; line-height: 1.45 !important; letter-spacing: .015em !important; color: #d1cbba !important; margin: 0 !important; text-transform: none; }
-      @media (min-width: 1025px) and (max-height: 760px) {
+      @media (min-width: 1025px) and (max-height: 760px) and (not (any-pointer: coarse)), (min-width: 1401px) and (max-height: 760px) and (any-pointer: coarse) {
         #vision .about-bottom-feature { height: 226px !important; min-height: 226px; margin-top: 18px; }
         .about-delivery-list { gap: 9px; }
         .about-delivery-panel { padding: 14px; }
@@ -5282,7 +5278,7 @@
         #vision .about-delivery-copy h3 { font-size: 10px !important; }
         #vision .about-delivery-copy p { font-size: 9px !important; }
       }
-      @media (max-width: 1024px) {
+      @media (max-width: 1024px), (max-width: 1400px) and (any-pointer: coarse) {
         #vision .about-bottom-feature { height: 320px !important; min-height: 0; margin-top: 16px; }
         .about-delivery-panel { padding: 22px; }
         .about-delivery-list { gap: 19px; }
@@ -5313,7 +5309,7 @@
 #apartments .ap-highlights-group .ap-highlight-icon {position:relative;isolation:isolate;overflow:hidden;transition:none!important;}
 #apartments .ap-highlights-group .ap-highlight-icon svg {position:relative;z-index:1;transform-origin:50% 50%;}
 .ap-highlight-hover-fill {position:absolute;inset:0;z-index:0;border-radius:inherit;background:var(--brand-light);opacity:0;pointer-events:none;}
-@media(prefers-reduced-motion:reduce) and (hover:hover){#apartments .ap-highlight-card:hover .ap-highlight-icon {background:rgba(194,161,128,.16)!important;border-color:var(--brand-accent-on-light)!important;}}
+@media (prefers-reduced-motion:reduce) and (hover:hover) {#apartments .ap-highlight-card:hover .ap-highlight-icon {background:rgba(194,161,128,.16)!important;border-color:var(--brand-accent-on-light)!important;}}
 
 #apartments .ap-highlights-group .ap-highlight-card {display:grid!important;grid-template-columns:max-content minmax(0,1fr);gap:4px 8px!important;align-items:center;}
 #apartments .ap-highlights-group .ap-highlight-icon {grid-column:1;grid-row:1;display:grid;place-items:center;width:28px;height:28px;box-sizing:border-box;border:1px solid var(--brand-light);border-radius:50%;color:var(--brand-accent-on-light);}
@@ -5389,7 +5385,7 @@
       #residence-family-layouts .residence-format-choice:has(input:checked) { background: #c2a180; border-color: #c2a180; color: #30160e; }
       #residence-family-layouts .residence-format-choice:hover { border-color: #c2a180; transform: translateY(-2px); }
       #residence-family-layouts .residence-format-choice:focus-within { outline: 2px solid #c2a180; outline-offset: 3px; }
-      @media(prefers-reduced-motion:reduce) { #residence-family-layouts .residence-format-choice { transition: none; } }
+      @media (prefers-reduced-motion:reduce) { #residence-family-layouts .residence-format-choice { transition: none; } }
       .residence-plan-request-ui { justify-self: start; border: 0; padding: 6px 0 0; color: #f7f4ef; background: transparent; cursor: pointer; font: 15px "Untitled sans",Montserrat,sans-serif; }
       .residence-tile-controls button:focus-visible,.residence-detail-trigger:focus-visible,.residence-plan-request-ui:focus-visible { outline: 2px solid #c2a180; outline-offset: 5px; }
       #apartments .residence-slide-split .residence-story-image-note { top: 20px; left: 32px; }
@@ -5425,7 +5421,7 @@
       #residence-details-body .residence-format-list { list-style: none; padding: 0; margin: 22px 0 0; display: grid; gap: 12px; }
       #residence-details-body .residence-format-list li { display: flex; justify-content: space-between; gap: 16px; }
       #residence-details-body .residence-format-list strong { font-weight: 500; color: #30160e; }
-      @media(min-width:1025px) and (max-height:760px) {
+      @media (min-width:1025px) and (max-height:760px) and (not (any-pointer: coarse)), (min-width: 1401px) and (max-height:760px) and (any-pointer: coarse) {
         #apartments .ap-img-wrap.residence-story-wrap { padding-top: 100px !important; padding-bottom: 28px !important; gap: 16px; }
         #apartments .residence-front-heading { font-size: 52px; }
         #apartments .residence-front-summary { font-size: 17px; }
@@ -5434,7 +5430,7 @@
         #apartments .residence-slide-split .residence-front-copy { gap: 26px; bottom: 24px; }
         #apartments .residence-slide-split .residence-front-actions { gap: 10px; }
       }
-      @media(max-width:1024px) {
+      @media (max-width:1024px), (max-width: 1400px) and (any-pointer: coarse) {
         #apartments .ap-img-wrap.residence-story-wrap,#apartments .ap-img-wrap.residence-slide-split { width: 100% !important; height: auto !important; padding: 0 !important; margin: 0 0 26px !important; grid-template-rows: auto; gap: 24px; }
         #apartments .residence-story-tile { height: 640px; }
         #apartments .residence-slide-split .residence-story-tile { height: 470px; }
@@ -5444,7 +5440,7 @@
         #apartments .residence-front-summary { font-size: 17px; }
         #apartments .residence-front-actions { gap: 20px; }
       }
-      @media(max-width:600px) {
+      @media (max-width:600px) {
         #apartments .residence-story-tile { height: auto; min-height: 660px; display: flex; align-items: end; box-sizing: border-box; padding: 24px; }
         #apartments .residence-slide-split .residence-story-tile { height: auto; min-height: 540px; padding: 24px; }
         #apartments .residence-story-tile::after,#apartments .residence-slide-split .residence-story-tile::after { background: linear-gradient(180deg,rgba(18,12,8,.42),rgba(18,12,8,.16) 24%,rgba(18,12,8,.76) 50%,rgba(18,12,8,.95)); }
@@ -5474,7 +5470,7 @@
           display: none;
         }
       }
-      @media(prefers-reduced-motion:reduce) {
+      @media (prefers-reduced-motion:reduce) {
         #apartments .residence-story-wrap,#apartments .residence-photo-surface,#apartments .residence-story-image,#apartments .residence-front-heading,#apartments .residence-front-summary,#apartments .residence-front-actions { transform: none !important; opacity: 1 !important; visibility: visible !important; clip-path: none !important; }
         .residence-tile-controls button,.residence-detail-trigger > span { transition: none; }
       }
@@ -5492,7 +5488,7 @@ box-shadow:inset 0 1px 0 rgba(255,255,255,.26),inset 0 -1px 0 rgba(255,255,255,.
 #amenityCard .amenity-card-num {color:#f1dfc6!important;}
 #amenityCard .amenity-card-title,#amenityCard .amenity-main-points li {color:#fff!important;}
 #amenityCard .amenity-card-num,#amenityCard .amenity-card-title,#amenityCard .amenity-card-sub,#amenityCard .amenity-main-points {text-shadow:0 1px 3px rgba(0,0,0,.65);}
-@media(min-width:1025px) and (pointer:fine){#amenityCard #amenityMobilePills {display:none!important;}}
+@media (min-width:1025px) and (pointer:fine) and (not (any-pointer: coarse)), (min-width: 1401px) and (pointer:fine) and (any-pointer: coarse) {#amenityCard #amenityMobilePills {display:none!important;}}
 #amenityCard .amenity-card-num {font-size:52px!important;margin-bottom:14px!important;}
 #amenityCard .amenity-card-title {font-size:32px!important;text-transform:none!important;}
 #amenityCard .amenity-card-sub {font-family:"Untitled sans",sans-serif!important;font-size:16px!important;font-weight:400!important;letter-spacing:0!important;line-height:1.45!important;margin-bottom:16px!important;color:#f1e6da!important;}
@@ -5503,8 +5499,8 @@ box-shadow:inset 0 1px 0 rgba(255,255,255,.26),inset 0 -1px 0 rgba(255,255,255,.
 #amenityMobilePills button {flex:1;min-height:38px;border:1px solid #c2a180;border-radius:20px;background:transparent;color:#f7f4ef;font-size:14px;cursor:pointer;}
 #amenityMobilePills button.active {background:#c2a180;color:#30160e;}
 #amenityMobilePills button:focus-visible {outline:2px solid #f7f4ef;outline-offset:3px;}
-@media(max-width:1024px),(pointer:coarse){#amenityCard {width:calc(100% - 32px)!important;max-width:460px!important;right:16px!important;bottom:30px!important;padding:22px!important;}#amenityCard .amenity-card-num {font-size:42px!important;}#amenityCard .amenity-card-title {font-size:30px!important;}#amenitiesShowcase {height:760px!important;min-height:760px!important;}.amenities-showcase-stage {min-height:760px!important;}}
-@media(min-width:1025px) and (max-height:760px){#amenityCard {padding:20px!important;}#amenityCard .amenity-card-num {font-size:42px!important;margin-bottom:10px!important;}.amenity-main-points {gap:7px;margin-bottom:16px!important;}}
+@media (max-width:1024px), (max-width: 1400px) and (any-pointer: coarse), (any-pointer: coarse) and (max-width: 1400px) {#amenityCard {width:calc(100% - 32px)!important;max-width:460px!important;right:16px!important;bottom:30px!important;padding:22px!important;}#amenityCard .amenity-card-num {font-size:42px!important;}#amenityCard .amenity-card-title {font-size:30px!important;}#amenitiesShowcase {height:760px!important;min-height:760px!important;}.amenities-showcase-stage {min-height:760px!important;}}
+@media (min-width:1025px) and (max-height:760px) and (not (any-pointer: coarse)), (min-width: 1401px) and (max-height:760px) and (any-pointer: coarse) {#amenityCard {padding:20px!important;}#amenityCard .amenity-card-num {font-size:42px!important;margin-bottom:10px!important;}.amenity-main-points {gap:7px;margin-bottom:16px!important;}}
 </style>
 
 
@@ -5728,7 +5724,7 @@ box-shadow:inset 0 1px 0 rgba(255,255,255,.26),inset 0 -1px 0 rgba(255,255,255,.
   padding: 0 !important;
 }
 
-@media(min-width:1025px) and (pointer:fine) and (max-height:780px){
+@media (min-width:1025px) and (pointer:fine) and (max-height:780px) and (not (any-pointer: coarse)), (min-width: 1401px) and (pointer:fine) and (max-height:780px) and (any-pointer: coarse) {
   #additionalAmenitiesContent .add-amen-item,
   #additionalAmenitiesContent .crown-lifestyle-group,
   #additionalAmenitiesContent .add-amen-parking-point,
@@ -5774,10 +5770,10 @@ box-shadow:inset 0 1px 0 rgba(255,255,255,.26),inset 0 -1px 0 rgba(255,255,255,.
 .availability-map-caption p {font-size:14px;max-width:23ch;}
 .availability-map-caption a {font-family:"Untitled sans",sans-serif;font-size:14px;line-height:1.5;color:#754d2c;text-decoration:underline;text-underline-offset:4px;white-space:nowrap;}
 .availability-map-caption a:focus-visible,.availability-map-visit:focus-visible {outline:2px solid #754d2c;outline-offset:5px;}
-@media(min-width:1025px) and (pointer:fine){#availability .inquire-section {min-height:100vh;transform:none!important;}#availability .inquire-background-img {transform:none!important;}}
-@media(max-width:1024px),(pointer:coarse){#availability .availability-map-component {padding:48px 32px 36px!important;gap:24px 32px;grid-template-columns:minmax(0,1fr) minmax(0,1.1fr);}.availability-map-frame {height:320px;}.availability-map-caption {flex-wrap:wrap;}}
-@media(min-width:601px) and (max-width:1024px){#availability .availability-map-heading h3 {font-size:clamp(20px,3.1vw,28px)!important;}.availability-map-pin {width:36px;height:36px;}.availability-map-title-row {gap:10px;}}
-@media(max-width:600px){#availability .availability-map-component {display:flex!important;flex-direction:column;padding:42px 24px 32px!important;gap:24px;}.availability-map-heading {gap:22px;}.availability-map-pin {width:32px;height:32px;margin:0;}.availability-map-pin svg {width:22px;height:22px;}.availability-map-title-row {gap:10px;}#availability .availability-map-heading h3 {font-size:clamp(20px,6.6vw,28px)!important;}.availability-map-frame {height:280px;padding:7px;}.availability-map-caption {gap:12px;}.availability-map-caption p {max-width:18ch;}}
+@media (min-width:1025px) and (pointer:fine) and (not (any-pointer: coarse)), (min-width: 1401px) and (pointer:fine) and (any-pointer: coarse) {#availability .inquire-section {min-height:100vh;transform:none!important;}#availability .inquire-background-img {transform:none!important;}}
+@media (max-width:1024px), (max-width: 1400px) and (any-pointer: coarse), (any-pointer: coarse) and (max-width: 1400px) {#availability .availability-map-component {padding:48px 32px 36px!important;gap:24px 32px;grid-template-columns:minmax(0,1fr) minmax(0,1.1fr);}.availability-map-frame {height:320px;}.availability-map-caption {flex-wrap:wrap;}}
+@media (min-width:601px) and (max-width:1024px), (min-width:601px) and (max-width: 1400px) and (any-pointer: coarse) {#availability .availability-map-heading h3 {font-size:clamp(20px,3.1vw,28px)!important;}.availability-map-pin {width:36px;height:36px;}.availability-map-title-row {gap:10px;}}
+@media (max-width:600px) {#availability .availability-map-component {display:flex!important;flex-direction:column;padding:42px 24px 32px!important;gap:24px;}.availability-map-heading {gap:22px;}.availability-map-pin {width:32px;height:32px;margin:0;}.availability-map-pin svg {width:22px;height:22px;}.availability-map-title-row {gap:10px;}#availability .availability-map-heading h3 {font-size:clamp(20px,6.6vw,28px)!important;}.availability-map-frame {height:280px;padding:7px;}.availability-map-caption {gap:12px;}.availability-map-caption p {max-width:18ch;}}
 </style>
 
 <style id="crown-leadership-style">
@@ -5860,43 +5856,43 @@ display:none;
 
 #crown-founder-dialog-metrics dt {font-family:"Tobias",Georgia,serif;font-size:25px;line-height:1.15;font-weight:300;color:var(--brand-accent-on-light);margin-bottom:7px;}
 #crown-founder-dialog-metrics dd {font-family:"Untitled sans",sans-serif;font-size:15px;line-height:1.5;color:#65574d;margin:0;}
-@media(max-width:1024px),(pointer:coarse){#leadership {height:auto!important;min-height:0;grid-template-columns:39% 61%;}#leadership .crown-leadership-copy {padding:56px 24px 32px 56px;justify-content:flex-start;}.crown-leadership-gallery {height:580px;padding:56px 56px 0 0;}.crown-founder-stack,.crown-founder-controls {width:40vw;}.crown-leadership-details {grid-column:1 / -1;padding:42px 56px 90px;}.crown-leadership-bio {
+@media (max-width:1024px), (max-width: 1400px) and (any-pointer: coarse), (any-pointer: coarse) and (max-width: 1400px) {#leadership {height:auto!important;min-height:0;grid-template-columns:39% 61%;}#leadership .crown-leadership-copy {padding:56px 24px 32px 56px;justify-content:flex-start;}.crown-leadership-gallery {height:580px;padding:56px 56px 0 0;}.crown-founder-stack,.crown-founder-controls {width:40vw;}.crown-leadership-details {grid-column:1 / -1;padding:42px 56px 90px;}.crown-leadership-bio {
   font-size:18px;}.crown-leadership-credentials dt {font-size:24px;}.crown-founder-pagination {bottom:30px;}}
-@media(max-width:700px){#leadership {grid-template-columns:minmax(0,1fr);}#leadership .crown-leadership-copy {padding:56px 24px 26px;}#leadership h2 span,#leadership h2 em {display:inline;}#leadership h2 span::after,#leadership h2 em::after {content:' ';}#leadership .crown-leadership-copy>p {font-size:15px;max-width:33ch;margin:20px 0 0;}.crown-leadership-gallery {height:500px;padding:0 24px;}.crown-founder-stack,.crown-founder-controls {width:72%;}.crown-founder-card {transform:translate(57%,28px) scale(.8);}.crown-founder-card-name {font-size:26px;}.crown-founder-card-copy {height:120px;}.crown-founder-photo {height:calc(100% - 120px);}.crown-leadership-details {padding:38px 24px 92px;}.crown-leadership-bio {font-size:17px;padding-left:25px;margin-bottom:28px;}.crown-leadership-credentials {gap:26px 20px;padding-top:28px;}.crown-leadership-credentials dt {font-size:21px;}.crown-leadership-credentials dd {font-size:13px;}}
-@media(prefers-reduced-motion:reduce){.crown-founder-card,.crown-founder-photo img {transition:none!important;}}
+@media (max-width:700px) {#leadership {grid-template-columns:minmax(0,1fr);}#leadership .crown-leadership-copy {padding:56px 24px 26px;}#leadership h2 span,#leadership h2 em {display:inline;}#leadership h2 span::after,#leadership h2 em::after {content:' ';}#leadership .crown-leadership-copy>p {font-size:15px;max-width:33ch;margin:20px 0 0;}.crown-leadership-gallery {height:500px;padding:0 24px;}.crown-founder-stack,.crown-founder-controls {width:72%;}.crown-founder-card {transform:translate(57%,28px) scale(.8);}.crown-founder-card-name {font-size:26px;}.crown-founder-card-copy {height:120px;}.crown-founder-photo {height:calc(100% - 120px);}.crown-leadership-details {padding:38px 24px 92px;}.crown-leadership-bio {font-size:17px;padding-left:25px;margin-bottom:28px;}.crown-leadership-credentials {gap:26px 20px;padding-top:28px;}.crown-leadership-credentials dt {font-size:21px;}.crown-leadership-credentials dd {font-size:13px;}}
+@media (prefers-reduced-motion:reduce) {.crown-founder-card,.crown-founder-photo img {transition:none!important;}}
 
-@media(min-width:1025px) and (pointer:fine){
+@media (min-width:1025px) and (pointer:fine) and (not (any-pointer: coarse)), (min-width: 1401px) and (pointer:fine) and (any-pointer: coarse) {
 .nav-links-component {width:max-content!important;max-width:calc(100vw - 380px)!important;left:47%!important;gap:clamp(6px,.7vw,12px)!important;}
 .nav-links-component .nav-link {flex:none!important;}
 .nav-links-component .nav-link .untitled-400-13 {white-space:nowrap!important;font-size:clamp(10px,.78vw,14px)!important;letter-spacing:.08em!important;}
 }
 
 /* Match .about-container padding at each of its responsive breakpoints. */
-@media screen and (min-width:1025px) and (max-width:1440px), screen and (min-width:1025px) and (max-height:880px) {
+@media screen and (min-width:1025px) and (max-width:1440px) and (not (any-pointer: coarse)), screen and (min-width: 1401px) and (max-width:1440px) and (any-pointer: coarse), screen and (min-width:1025px) and (max-height:880px) and (not (any-pointer: coarse)), screen and (min-width: 1401px) and (max-height:880px) and (any-pointer: coarse) {
   #leadership {padding:clamp(4.25rem,7vh,5.5rem) 3vw 3.125em 3.5vw;}
   #leadership .crown-leadership-copy,.crown-leadership-gallery {padding-top:32px;}
 }
-@media screen and (min-width:1025px) and (max-height:720px) {
+@media screen and (min-width:1025px) and (max-height:720px) and (not (any-pointer: coarse)), screen and (min-width: 1401px) and (max-height:720px) and (any-pointer: coarse) {
   #leadership {padding-top:4.25rem;padding-bottom:3.125em;}
 }
-@media screen and (max-width:1024px), screen and (max-width:1200px) and (hover:none) and (pointer:coarse), screen and (max-width:1200px) and (pointer:coarse) {
+@media screen and (max-width:1024px), screen and (max-width: 1400px) and (any-pointer: coarse), screen and (max-width: 1400px) and (hover:none) and (any-pointer: coarse) {
   #leadership {padding:56px 56px 72px;--leadership-bottom-space:72px;}
 }
 
-@media(max-width:1024px),(pointer:coarse){.crown-leadership-credentials {grid-template-columns:minmax(0,1fr);}.crown-founder-card-copy {width:calc(100% + 10px);}}
-@media(max-width:700px){.crown-founder-photo {height:calc(100% - 56px);}.crown-founder-card-copy {left:18px;width:calc(100% + 8px);padding-left:28px;}.crown-founder-role {font-size:11px;letter-spacing:.06em;}.crown-founder-education {font-size:11px;}.crown-founder-controls {gap:18px;}.crown-leadership-credentials {gap:26px;}.crown-leadership-credentials>div {padding-left:78px;min-height:54px;}.crown-leadership-credentials dt {font-size:21px;}.crown-leadership-credentials dd {font-size:13px;}.crown-founder-pagination {bottom:20px;}}
+@media (max-width:1024px), (max-width: 1400px) and (any-pointer: coarse), (any-pointer: coarse) and (max-width: 1400px) {.crown-leadership-credentials {grid-template-columns:minmax(0,1fr);}.crown-founder-card-copy {width:calc(100% + 10px);}}
+@media (max-width:700px) {.crown-founder-photo {height:calc(100% - 56px);}.crown-founder-card-copy {left:18px;width:calc(100% + 8px);padding-left:28px;}.crown-founder-role {font-size:11px;letter-spacing:.06em;}.crown-founder-education {font-size:11px;}.crown-founder-controls {gap:18px;}.crown-leadership-credentials {gap:26px;}.crown-leadership-credentials>div {padding-left:78px;min-height:54px;}.crown-leadership-credentials dt {font-size:21px;}.crown-leadership-credentials dd {font-size:13px;}.crown-founder-pagination {bottom:20px;}}
 
 /* Keep every painted layer within the section's content box. */
 .crown-leadership-content {position:relative;z-index:1;isolation:isolate;grid-column:1 / -1;display:grid;grid-template-columns:inherit;align-items:stretch;width:100%;height:100%;min-width:0;min-height:0;overflow:clip;}
 #leadership {border-bottom:0!important;}
 .crown-leadership-content .crown-founder-pagination {right:0;bottom:0;}
-@media(max-width:1024px),(pointer:coarse){
+@media (max-width:1024px), (max-width: 1400px) and (any-pointer: coarse), (any-pointer: coarse) and (max-width: 1400px) {
   #leadership .crown-leadership-copy {padding:0 24px 32px 0;}
   .crown-leadership-gallery {height:524px;padding:0;}
   .crown-founder-stack,.crown-founder-controls {width:min(40vw,71.4%);}
   .crown-leadership-details {padding:42px 0 42px;}
 }
-@media(max-width:700px){
+@media (max-width:700px) {
   #leadership {padding:56px 24px 56px;--leadership-bottom-space:56px;}
   #leadership .crown-leadership-copy {padding:0 0 26px;}
   .crown-leadership-gallery {height:500px;padding:0;}
@@ -5910,7 +5906,7 @@ display:none;
 .crown-leadership-credentials dt {margin:0 0 .45rem;}
 .crown-leadership-credentials .about-pillar-icon-badge {position:absolute;left:0;top:0;box-sizing:border-box;}
 .crown-leadership-credentials .about-pillar-icon-badge svg {display:block;width:1em;height:1em;fill:none;stroke:currentColor;stroke-width:1.6;stroke-linecap:round;stroke-linejoin:round;}
-@media screen and (min-width:1025px) and (max-width:1440px),screen and (min-width:1025px) and (max-height:880px) {
+@media screen and (min-width:1025px) and (max-width:1440px) and (not (any-pointer: coarse)), screen and (min-width: 1401px) and (max-width:1440px) and (any-pointer: coarse), screen and (min-width:1025px) and (max-height:880px) and (not (any-pointer: coarse)), screen and (min-width: 1401px) and (max-height:880px) and (any-pointer: coarse) {
   .crown-leadership-credentials {--credential-icon-size:clamp(34px,2.5vw,40px);--credential-icon-gap:clamp(.45rem,.6vw,.75rem);gap:16px;}
 }
 .crown-leadership-details .crown-founder-controls {width:100%;justify-content:flex-start;margin-top:28px;}
@@ -5919,12 +5915,12 @@ display:none;
 .crown-leadership-details .crown-founder-controls button:focus-visible {outline-color:var(--brand-accent-on-light);}
 
 /* Put the same founder controls below the gallery on tablet and phone. */
-@media(max-width:1024px),(pointer:coarse){
+@media (max-width:1024px), (max-width: 1400px) and (any-pointer: coarse), (any-pointer: coarse) and (max-width: 1400px) {
   .crown-leadership-content > .crown-founder-controls {grid-column:2;width:100%;justify-content:space-between;gap:18px;margin:18px 0 0;}
   .crown-leadership-content > .crown-founder-controls button {color:var(--brand-accent-on-light);border-color:var(--brand-accent-on-light);}
   .crown-leadership-content > .crown-founder-controls button:hover {background:var(--brand-accent-on-light);color:var(--leadership-ground);}
 }
-@media(max-width:700px){
+@media (max-width:700px) {
   .crown-leadership-content > .crown-founder-controls {grid-column:1;}
 }
 
@@ -5932,7 +5928,7 @@ display:none;
 #leadership[data-founder-motion="gsap"] .crown-founder-card,#leadership[data-founder-motion="gsap"] .crown-founder-card-copy {transition:none;}
 .crown-leadership-credentials {--credential-row-gap:20px;gap:var(--credential-row-gap);align-content:start;min-height:calc(var(--credential-icon-size) * 4 + var(--credential-row-gap) * 3);}
 .crown-leadership-bio {min-height:4.8em;}
-@media screen and (min-width:1025px) and (max-width:1440px),screen and (min-width:1025px) and (max-height:880px){.crown-leadership-credentials {--credential-row-gap:16px;}}
+@media screen and (min-width:1025px) and (max-width:1440px) and (not (any-pointer: coarse)), screen and (min-width: 1401px) and (max-width:1440px) and (any-pointer: coarse), screen and (min-width:1025px) and (max-height:880px) and (not (any-pointer: coarse)), screen and (min-width: 1401px) and (max-height:880px) and (any-pointer: coarse) {.crown-leadership-credentials {--credential-row-gap:16px;}}
 
 /* Keep portrait geometry fixed while the selection changes. */
 #leadership[data-founder-motion="gsap"] .crown-founder-photo {height:100%;filter:none;}
@@ -5942,22 +5938,21 @@ display:none;
 /* Keep the rear portrait from showing through the transparent foreground. */
 .crown-founder-card:not([data-current="true"]) {clip-path:inset(0 0 0 50%);}
 .crown-founder-card[data-current="true"] {clip-path:inset(-5% -25% -5% -10%);}
-@media(max-width:700px){.crown-founder-card:not([data-current="true"]) {clip-path:inset(0 0 0 53.75%);}}
+@media (max-width:700px) {.crown-founder-card:not([data-current="true"]) {clip-path:inset(0 0 0 53.75%);}}
 </style>
 <style id="crown-hidden-sky-island">
 #island, #nav-island, .nav-mobile-link[data-target="island"] {display:none!important;}
 </style>
 <style id="apartments-component-padding-match">
 /* Match .apartments-component left and right padding to .about-container */
-@media screen and (min-width: 1025px) {
+@media screen and (min-width: 1025px) and (not (any-pointer: coarse)), screen and (min-width: 1401px) and (any-pointer: coarse) {
   .apartments-component {
     padding-left: 4.5vw !important;
     padding-right: 3.5vw !important;
     box-sizing: border-box !important;
   }
 }
-@media screen and (min-width: 1025px) and (max-width: 1440px),
-       screen and (min-width: 1025px) and (max-height: 880px) {
+@media screen and (min-width: 1025px) and (max-width: 1440px) and (not (any-pointer: coarse)), screen and (min-width: 1401px) and (max-width: 1440px) and (any-pointer: coarse), screen and (min-width: 1025px) and (max-height: 880px) and (not (any-pointer: coarse)), screen and (min-width: 1401px) and (max-height: 880px) and (any-pointer: coarse) {
   .apartments-component {
     padding-left: 3.5vw !important;
     padding-right: 3vw !important;
@@ -6001,7 +5996,7 @@ display:none;
 #home .ref-hero-comfort {font-weight:500!important;}
 #home .ref-hero-heading,#home .ref-hero-eyebrow-word-dark,#home .ref-hero-cta-label {text-shadow:0 1px 3px rgba(0,0,0,.7),0 3px 18px rgba(0,0,0,.4);}
 #home .ref-hero-cta-label {font-weight:600!important;}
-@media(max-width:1024px){
+@media (max-width:1024px), (max-width: 1400px) and (any-pointer: coarse) {
   #home .hero-img-gradient,#home .ref-hero-container::before {display:none!important;background:none!important;}
   #home .ref-hero-container {justify-content:flex-end!important;padding-bottom:max(24px,env(safe-area-inset-bottom))!important;}
   #home .ref-hero-text-block {margin-top:auto!important;margin-bottom:28px!important;flex:none!important;}
@@ -6012,7 +6007,7 @@ display:none;
   #home .ref-hero-heading,#home .ref-hero-eyebrow-word-dark,#home .ref-hero-cta-label {text-shadow:0 1px 2px rgba(0,0,0,.95),0 3px 10px rgba(0,0,0,.8);}
   #home .ref-hero-cta-label {font-size:13px!important;letter-spacing:.08em!important;}
 }
-@media(max-width:700px){
+@media (max-width:700px) {
   #home .ref-hero-heading {font-size:clamp(36px,10.5vw,46px)!important;line-height:1.08!important;}
 }
 #home .ref-hero-arrow-circle {border-color:rgba(255,249,239,.8)!important;}
@@ -6027,7 +6022,7 @@ display:none;
 #amenitiesTitle .amenities-title-botanical-wrap,
 #amenitiesTitle .amenities-title-ambient-glow {display:none !important;}
 
-@media (min-width:1025px) and (pointer:fine) {
+@media (min-width:1025px) and (pointer:fine) and (not (any-pointer: coarse)), (min-width: 1401px) and (pointer:fine) and (any-pointer: coarse) {
   #location[data-crown-hold] {width:var(--crown-location-width)!important;min-width:var(--crown-location-width)!important;max-width:var(--crown-location-width)!important;}
   #location[data-crown-hold] #amenitiesTitle {width:var(--crown-panel-width)!important;min-width:var(--crown-panel-width)!important;max-width:var(--crown-panel-width)!important;}
   #amenitiesTitle .amenities-crown-stage {position:absolute;left:0;top:0;width:100vw;height:100%;display:flex;align-items:center;overflow:hidden;}
@@ -6046,15 +6041,26 @@ display:none;
   width:100%;max-width:34ch;margin:0;white-space:normal!important;
   text-wrap:balance;overflow-wrap:break-word;
 }
-@media(max-width:1024px),(pointer:coarse) {
+@media (max-width:1024px), (max-width: 1400px) and (any-pointer: coarse), (any-pointer: coarse) and (max-width: 1400px) {
   #amenitiesTitle {padding-inline:clamp(20px,5vw,56px)!important;}
   #amenitiesTitle .amenities-title-content {max-width:100%!important;padding:0!important;}
   #amenitiesTitle .amenities-title-heading {font-size:clamp(44px,7.5vw,76px)!important;}
   #amenitiesTitle .amenities-title-sub {font-size:clamp(14px,1.7vw,18px)!important;letter-spacing:.08em!important;max-width:36ch;}
 }
-@media(max-width:700px) {
+@media (max-width:700px) {
   #amenitiesTitle .amenities-title-heading {font-size:clamp(36px,10.8vw,64px)!important;line-height:1.08!important;}
   #amenitiesTitle .amenities-title-sub {font-size:clamp(14px,3.6vw,16px)!important;letter-spacing:.04em!important;max-width:32ch;}
+}
+
+/* Keep responsive amenities compact and text-only. */
+@media (max-width:1024px), (max-width: 1400px) and (any-pointer: coarse), (any-pointer: coarse) and (max-width: 1400px) {
+  #amenitiesTitle {
+    height:auto!important;min-height:0!important;
+    padding:clamp(48px,8vw,80px) clamp(20px,5vw,56px)!important;
+    align-items:flex-start!important;
+  }
+  #amenitiesTitle .amenities-crown-visual {display:none!important;}
+  #amenitiesTitle .amenities-title-content {align-self:auto;max-width:100%!important;padding:0!important;}
 }
 </style>
 <noscript><style>#amenitiesTitle .crown-rise {visibility:visible;}</style></noscript>
@@ -6170,7 +6176,7 @@ a,
             display: none !important;
           }
 
-          @media screen and (max-width: 1024px) {
+          @media screen and (max-width: 1024px), screen and (max-width: 1400px) and (any-pointer: coarse) {
             .hide,
             .hide-tablet {
               display: none !important;
@@ -6233,14 +6239,14 @@ a,
           }
 
           /* Min-width PC*/
-          @media only screen and (max-width: 1440px) and (min-width: 1025px) {
+          @media only screen and (max-width: 1440px) and (min-width: 1025px) and (not (any-pointer: coarse)), only screen and (max-width: 1440px) and (min-width: 1401px) and (any-pointer: coarse) {
             body {
               font-size: 1.0256410256410258vw;
             }
           }
 
           /* Min Max Width - Tablets */
-          @media only screen and (max-width: 1024px) and (min-width: 768px) {
+          @media only screen and (max-width: 1024px) and (min-width: 768px), only screen and (max-width: 1400px) and (min-width: 768px) and (any-pointer: coarse) {
             body {
               font-size: 14px;
             }
@@ -6318,34 +6324,43 @@ a,
           .vision-img.n2 {
             clip-path: polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%);
           }
-          .ref-hero-heading,
-          .about-main-title,
-          #additionalAmenitiesContent .add-amen-item > h3,
-          #additionalAmenitiesContent .crown-lifestyle-group h3,
-          #additionalAmenitiesContent .add-amen-parking-point h3,
-          .ap-highlight-card .ap-highlight-name, #apartments .ap-highlight-card .ap-highlight-name,
-          #apartments .ap-highlights-group .ap-highlight-name, .about-pillar-item .about-pillar-label,
-          .about-highlight-gold,
-          #vision .about-delivery-copy h3,
-          .about-main-title,
-          #crown-leadership-credentials dt,
-          .apartments-main-title,
-          #apartments .residence-primary-emphasis,
-          .media-card-hover-title,
-          .residence-story-image-note strong,
-          .amenities-title-heading,
-          .add-amen-title,
-          #availability .availability-map-heading h3,
-          .inquire-section .inquire-title h2,
-          .crown-assurance h3,
-          .inquire-section .footer-visite>.untitled-400-13, .inquire-section .footer-exclusive>.untitled-400-13{
-                font-family: var(--apollo-font) !important;
-                letter-spacing:1px !important;
-          }
-          a .untitled-400-13 {
-              font-size: 1.1em;
-              font-weight: 600;
-          }
+
+        .ref-hero-heading,
+        .about-main-title,
+        #additionalAmenitiesContent .add-amen-item > h3,
+        #additionalAmenitiesContent .crown-lifestyle-group h3,
+        #additionalAmenitiesContent .add-amen-parking-point h3,
+        .ap-highlight-card .ap-highlight-name,
+        #apartments .ap-highlight-card .ap-highlight-name,
+        .about-highlight-gold,
+        #crown-leadership-credentials dt,
+        .apartments-main-title,
+        #apartments .residence-primary-emphasis,
+        .media-card-hover-title,
+        .residence-story-image-note strong,
+        .amenities-title-heading,
+        .add-amen-title,
+        #availability .availability-map-heading h3,
+        .inquire-section .inquire-title h2,
+        .crown-assurance h3,
+        .inquire-section .footer-visite > .untitled-400-13,
+        .inquire-section .footer-exclusive > .untitled-400-13 {
+            font-family: var(--apollo-font) !important;
+            letter-spacing: 1px !important;
+        }
+
+        .about-pillar-item .about-pillar-label,
+        #vision .about-delivery-copy h3,
+        #apartments .ap-highlights-group .ap-highlight-name,
+        .crown-lifestyle-group h3 {
+            font-family: "Tobias", serif !important;
+        }
+          
+        a .untitled-400-13 {
+            font-size: 1.1em;
+            font-weight: 600;
+        }
+
         </style>
       </div>
       <div class="new-home-css w-embed">
@@ -6672,7 +6687,7 @@ a,
                       </div>
                     </div>
                     <!-- Static fallback background image -->
-                    <picture><source media="(max-width: 1024px)" srcset="videos/hero-website-0023fa383907-fast-v1/mobile/frame_0001.webp" /><img
+                    <picture><source media="(max-width: 1024px), (max-width: 1400px) and (any-pointer: coarse)" srcset="videos/hero-website-0023fa383907-fast-v1/mobile/frame_0001.webp" /><img
                       src="videos/hero-website-0023fa383907-fast-v1/desktop/frame_0001.webp"
                       alt="Ananda Crown Sector 78 Mohali"
                       class="hero-image-background animate-hero-zoom"
@@ -8450,7 +8465,7 @@ Planned In<br />From Day One
       function isDesktopScrollMode() {
         var isTouchTablet =
           ("ontouchstart" in window || navigator.maxTouchPoints > 0) &&
-          window.innerWidth <= 1200;
+          window.innerWidth <= 1400;
         return window.innerWidth > 1024 && !isTouchTablet;
       }
       window.isDesktopScrollMode = isDesktopScrollMode;
@@ -10013,7 +10028,7 @@ Planned In<br />From Day One
           if (!card || !window.gsap || !window.ScrollTrigger) return;
           gsap.registerPlugin(ScrollTrigger);
           var media = gsap.matchMedia();
-          media.add({ desktop: '(min-width: 1025px) and (pointer: fine)', mobile: '(max-width: 1024px), (pointer: coarse)', reduced: '(prefers-reduced-motion: reduce)' }, function (context) {
+          media.add({ desktop: '(min-width: 1025px) and (pointer: fine) and (not (any-pointer: coarse)), (min-width: 1401px) and (pointer: fine) and (any-pointer: coarse)', mobile: '(max-width: 1024px), (max-width: 1400px) and (any-pointer: coarse), (any-pointer: coarse) and (max-width: 1400px)', reduced: '(prefers-reduced-motion: reduce)' }, function (context) {
             if (context.conditions.reduced) return;
             var trigger = { id: 'about-delivery-reveal', trigger: card, start: 'top 88%', once: true };
             if (context.conditions.desktop && window.tlMain) {
@@ -10183,7 +10198,7 @@ Planned In<br />From Day One
           });
           if(!window.gsap||!window.ScrollTrigger)return;
           gsap.registerPlugin(ScrollTrigger);
-          gsap.matchMedia().add({desktop:'(min-width:1025px) and (pointer:fine)',mobile:'(max-width:1024px),(pointer:coarse)',reduced:'(prefers-reduced-motion:reduce)'},function(context){
+          gsap.matchMedia().add({desktop:'(min-width:1025px) and (pointer:fine) and (not (any-pointer: coarse)), (min-width: 1401px) and (pointer:fine) and (any-pointer: coarse)',mobile:'(max-width:1024px), (max-width: 1400px) and (any-pointer: coarse), (any-pointer: coarse) and (max-width: 1400px)',reduced:'(prefers-reduced-motion:reduce)'},function(context){
             if(context.conditions.reduced)return;
             document.querySelectorAll('#apartments .residence-story-tile').forEach(function(tile){
               var trigger={trigger:tile,start:'top 88%',once:true};if(context.conditions.desktop&&window.tlMain){trigger.containerAnimation=window.tlMain;trigger.start='left 92%';}
@@ -10211,7 +10226,7 @@ var founderControls=section.querySelector('.crown-founder-controls');
 var founderGallery=section.querySelector('.crown-leadership-gallery');
 var controlsHome=document.createComment('Founder controls desktop position');
 founderControls.before(controlsHome);
-var compactLeadership=matchMedia('(max-width:1024px), (pointer:coarse)');
+var compactLeadership=matchMedia('(max-width:1024px), (max-width: 1400px) and (any-pointer: coarse), (any-pointer: coarse) and (max-width: 1400px)');
 function placeFounderControls(){
   if(compactLeadership.matches)founderGallery.after(founderControls);
   else controlsHome.after(founderControls);
@@ -10346,7 +10361,7 @@ function initScrollReveals(){
   gsap.registerPlugin(ScrollTrigger);
   if(window.SplitText)gsap.registerPlugin(SplitText);
   var media=gsap.matchMedia();
-  media.add({desktop:'(min-width:1025px) and (pointer:fine)',vertical:'(max-width:1024px), (pointer:coarse)',reduce:'(prefers-reduced-motion:reduce)'},function(context){
+  media.add({desktop:'(min-width:1025px) and (pointer:fine) and (not (any-pointer: coarse)), (min-width: 1401px) and (pointer:fine) and (any-pointer: coarse)',vertical:'(max-width:1024px), (max-width: 1400px) and (any-pointer: coarse), (any-pointer: coarse) and (max-width: 1400px)',reduce:'(prefers-reduced-motion:reduce)'},function(context){
     if(context.conditions.reduce){rebuildScrollReveals=null;return;}
     function build(alreadyVisible){
       finishScrollReveals();
@@ -10618,6 +10633,6 @@ if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',
 <script src="js/number-counters.js"></script>
 <script src="js/responsive-layout.js"></script>
 <script src="js/crown-construction.js?v=champagne-2"></script>
-<script src="js/amenities-crown-background.js?v=construction-16"></script>
+<script src="js/amenities-crown-background.js?v=responsive-text-only-19"></script>
 </body>
 </html>
