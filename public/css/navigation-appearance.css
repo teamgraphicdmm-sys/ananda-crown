@@ -1,4 +1,4 @@
-/* Show the header surface only over the portion still covered by the hero. */
+/* Clip only the background to the hero overlap, with no fading at its edge. */
 .nav[data-nav-section] {
   background:transparent!important;
   border-color:transparent!important;
@@ -10,8 +10,7 @@
 .nav[data-nav-section]::before {
   content:"";position:absolute;inset:0;z-index:-1;pointer-events:none;
   background:rgba(48,22,14,.24);opacity:1;
-  -webkit-mask-image:linear-gradient(var(--nav-hero-direction,to right),#000 calc(var(--nav-hero-visible,100%) - var(--nav-hero-feather,0%)),transparent var(--nav-hero-visible,100%));
-  mask-image:linear-gradient(var(--nav-hero-direction,to right),#000 calc(var(--nav-hero-visible,100%) - var(--nav-hero-feather,0%)),transparent var(--nav-hero-visible,100%));
+  clip-path:var(--nav-hero-clip,inset(0));
 }
 @media (max-width:1024px), (max-width:1400px) and (any-pointer:coarse) {
   .nav[data-nav-section]::before {

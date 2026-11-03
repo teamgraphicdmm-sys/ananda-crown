@@ -130,7 +130,14 @@
 #apartments #residence-arrival {grid-row:1 / -1;height:100%!important;}
 @media (max-width:1024px), (max-width:1400px) and (any-pointer:coarse) {
   #apartments #residence-arrival {
-    height:max(100svh,var(--compact-residence-height,640px))!important;
-    min-height:100svh!important;
+    grid-row:auto!important;
+    height:var(--compact-residence-height,auto)!important;
+    min-height:640px!important;
+  }
+}
+@media (max-width:600px) {
+  #apartments #residence-arrival {
+    height:auto!important;
+    min-height:660px!important;
   }
 }
