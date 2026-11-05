@@ -1,5 +1,3 @@
-import Link from "next/link";
-
 export default function NotFound() {
   return (
     <div className="min-h-screen w-full bg-[#0E0703] text-white flex flex-col items-center justify-center px-6 text-center space-y-6">
@@ -9,12 +7,12 @@ export default function NotFound() {
       <h1 className="font-serif text-6xl sm:text-7xl font-light uppercase">
         404
       </h1>
-      <Link
+      <a
         href="/"
         className="rounded-full border border-white/30 px-6 py-3 text-xs tracking-[0.25em] hover:bg-white hover:text-black transition-colors"
       >
         Back to home
-      </Link>
+      </a>
     </div>
   );
 }

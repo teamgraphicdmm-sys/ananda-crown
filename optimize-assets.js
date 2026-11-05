@@ -38,7 +38,7 @@ const sources = [...fs.readdirSync(ROOT).filter(f=>/\.(html|css|js)$/.test(f)&&!
     const target=path.join(ROOT,'public',ref);
     fs.mkdirSync(path.dirname(target),{recursive:true});
     await sharp(file).resize({width,withoutEnlargement:true}).webp({quality:78,effort:4}).toFile(target);
-    const mirror=path.join(ROOT,ref);fs.mkdirSync(path.dirname(mirror),{recursive:true});fs.copyFileSync(target,mirror);
+    
     framesAfter+=fs.statSync(target).size;
    }
   }

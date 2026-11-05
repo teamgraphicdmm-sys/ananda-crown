@@ -1,5 +1,5 @@
 const fs=require('fs'),path=require('path'),sharp=require('sharp');
-const files=['index.html','contact.html','founder.html','founders.html','public/ananda_crown_clone.html','public/contact.html','public/founder.html','public/founders.html'];
+const files=['public/ananda_crown_clone.html','public/contact.html','public/founder.html','public/founders.html'];
 (async()=>{
  const variants=new Map();let changed=0;
  for(const file of files){
@@ -30,7 +30,7 @@ const files=['index.html','contact.html','founder.html','founders.html','public/
       if(width>=meta.width)continue;
       const small=ref.replace(/\.[^.]+$/, '-'+width+'.webp');
       await sharp(asset).resize({width}).webp({quality:82}).toFile(path.join('public',small));
-      fs.mkdirSync(path.dirname(small),{recursive:true});fs.copyFileSync(path.join('public',small),small);
+      
       generated.push([small,width]);
      }
      generated.push([ref,meta.width]);variants.set(ref,generated);

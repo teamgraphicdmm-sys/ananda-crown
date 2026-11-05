@@ -46,8 +46,20 @@ function publish(srcFile, destFile) {
   console.log(`export-clone: ${srcFile} -> ${destFile} (base="${base}")`);
 }
 
+function publishFrom(srcPath, destFile) {
+  const dest = path.join(outDir, destFile);
+  if (!fs.existsSync(srcPath)) {
+    console.error(`export-clone: missing ${srcPath}`);
+    process.exit(1);
+  }
+  fs.mkdirSync(path.dirname(dest), { recursive: true });
+  fs.writeFileSync(dest, prefixRootRefs(fs.readFileSync(srcPath, "utf8")));
+  console.log(`export-clone: ${path.basename(srcPath)} (from public) -> ${destFile} (base="${base}")`);
+}
+
 publish("ananda_crown_clone.html", "index.html");
 publish("contact.html", path.join("contact", "index.html"));
+publishFrom(path.join(__dirname, "public", "404.html"), "404.html");
 
 // Keep the React /privacy page (out/privacy/index.html from next build)
 // as the target of the clone's privacy links.

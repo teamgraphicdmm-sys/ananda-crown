@@ -11,8 +11,7 @@ const path = require('path');
 async function prepareLeadershipAssets() {
   const w = 800;
   const h = 1000;
-  const foundersDir = path.resolve(__dirname, '../images/founders');
-  const publicFoundersDir = path.resolve(__dirname, '../public/images/founders');
+  const foundersDir = path.resolve(__dirname, '../public/images/founders');
 
   const maskSvg = `<svg width="${w}" height="${h}" xmlns="http://www.w3.org/2000/svg">
     <rect width="${w}" height="${h}" rx="50" fill="#fff" />
@@ -85,24 +84,7 @@ async function prepareLeadershipAssets() {
       .toFile(path.join(foundersDir, 'sahil_portrait_card.webp'));
   }
 
-  // Sync to public/images/founders
-  const filesToCopy = [
-    'anuj_card_orange.webp',
-    'sahil_card_warm.webp',
-    'anuj_office_card.webp',
-    'sahil_portrait_card.webp',
-    'anuj_transparent.webp'
-  ];
-
-  for (const f of filesToCopy) {
-    const src = path.join(foundersDir, f);
-    const dest = path.join(publicFoundersDir, f);
-    if (fs.existsSync(src)) {
-      fs.copyFileSync(src, dest);
-    }
-  }
-
-  console.log('Leadership assets successfully generated and synced.');
+  console.log('Leadership assets successfully generated.');
 }
 
 prepareLeadershipAssets().catch(console.error);
