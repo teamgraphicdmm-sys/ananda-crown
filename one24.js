@@ -25,6 +25,7 @@ $("[privacidade=link]").attr("href", linkPrivacidadePT);
 const NAV_SECTIONS = [
   { id: "home", navId: "nav-home" },
   { id: "vision", navId: "nav-vision" },
+  { id: "leadership-card", navId: "nav-leadership" },
   { id: "apartments", navId: "nav-apartments" },
   { id: "location", navId: "nav-location" },
   { id: "availability", navId: "nav-availability" }
@@ -348,6 +349,22 @@ horizontalM.add("(min-width: 1025px) and (pointer: fine) and (not (any-pointer: 
         end: "right left",
         toggleActions: "play none none reverse",
         //markers: true
+      },
+    })
+    .to(".nav", { color: "#120902", duration: 0.3, ease: "none" })
+    .to(
+      ".nav-ball",
+      { backgroundColor: "#120902", duration: 0.3, ease: "none" },
+      0,
+    );
+  gsap
+    .timeline({
+      scrollTrigger: {
+        trigger: "#leadership-card",
+        containerAnimation: tlMain,
+        start: "left 50%",
+        end: "right left",
+        toggleActions: "play none none reverse",
       },
     })
     .to(".nav", { color: "#120902", duration: 0.3, ease: "none" })
@@ -997,6 +1014,16 @@ horizontalM.add("(max-width: 1024px), (max-width: 1400px) and (any-pointer: coar
         end: "bottom bottom",
         toggleActions: "play none none reverse",
         //markers: true
+      },
+    })
+    .to(".nav", { color: "#120902", duration: 0.3, ease: "none" });
+  gsap
+    .timeline({
+      scrollTrigger: {
+        trigger: "#leadership-card",
+        start: "top 70px",
+        end: "bottom 70px",
+        toggleActions: "play none none reverse",
       },
     })
     .to(".nav", { color: "#120902", duration: 0.3, ease: "none" });
