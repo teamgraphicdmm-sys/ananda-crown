@@ -1,6 +1,6 @@
 # Ananda Crown
 
-The live site is the static design in `public/ananda_crown_clone.html`. `index.html` and the root asset folders are its standalone Apache/local-editing mirror. Keep both copies in sync. The Next.js source remains available through `npm run dev:react` and provides the exported privacy route.
+The live site is the static design in `public/index.html`. All static assets live in `public/`. The Next.js source remains available through `npm run dev:react` and provides the exported privacy route.
 
 ## Development and production
 

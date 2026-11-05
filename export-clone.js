@@ -57,8 +57,8 @@ function publishFrom(srcPath, destFile) {
   console.log(`export-clone: ${path.basename(srcPath)} (from public) -> ${destFile} (base="${base}")`);
 }
 
-publish("ananda_crown_clone.html", "index.html");
-publish("contact.html", path.join("contact", "index.html"));
+publishFrom(path.join(__dirname, "public", "index.html"), "index.html");
+publishFrom(path.join(__dirname, "public", "contact.html"), path.join("contact", "index.html"));
 publishFrom(path.join(__dirname, "public", "404.html"), "404.html");
 
 // Keep the React /privacy page (out/privacy/index.html from next build)

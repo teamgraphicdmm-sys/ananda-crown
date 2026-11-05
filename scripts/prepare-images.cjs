@@ -1,5 +1,5 @@
 const fs=require('fs'),path=require('path'),sharp=require('sharp');
-const files=['public/ananda_crown_clone.html','public/contact.html','public/founder.html','public/founders.html'];
+const files=['public/index.html','public/contact.html','public/founder.html','public/founders.html'];
 (async()=>{
  const variants=new Map();let changed=0;
  for(const file of files){
