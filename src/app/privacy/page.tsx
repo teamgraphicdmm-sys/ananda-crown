@@ -1,4 +1,3 @@
-import Link from "next/link";
 
 export const metadata = {
   title: "Privacy Policy | Ananda Crown Mohali",
@@ -10,12 +9,12 @@ export default function PrivacyPage() {
   return (
     <div className="min-h-screen w-full bg-[#0E0703] text-white px-6 sm:px-12 md:px-16 py-12 md:py-16">
       <div className="max-w-3xl mx-auto space-y-8">
-        <Link
+        <a
           href="/"
           className="text-xs tracking-[0.18em] text-white/70 hover:text-[#A27B58] transition-colors"
         >
           ← Back to home
-        </Link>
+        </a>
         <h1 className="font-serif text-5xl sm:text-6xl font-light uppercase">
           Privacy Policy
         </h1>
