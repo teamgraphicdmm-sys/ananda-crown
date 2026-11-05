@@ -1,7 +1,19 @@
 {
-  "unusedFiles": 1,
-  "publicBytes": 49280,
+  "unusedFiles": 4,
+  "publicBytes": 199536,
   "files": [
+    {
+      "path": "images/amenities/cmmunity-center-1024.webp",
+      "bytes": 43768
+    },
+    {
+      "path": "images/amenities/cmmunity-center-640.webp",
+      "bytes": 25070
+    },
+    {
+      "path": "images/amenities/cmmunity-center.webp",
+      "bytes": 81418
+    },
     {
       "path": "images/founders/anuj_card.optimized.webp",
       "bytes": 49280

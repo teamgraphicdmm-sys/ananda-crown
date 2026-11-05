@@ -70,9 +70,11 @@
         padding: 6px 0;
       }
 
-      .contact-close-btn:hover {
-        color: var(--bronze);
-        opacity: 0.85;
+      .contact-close-btn:hover,
+      #contact-close-link:hover,
+      a.contact-close-btn:hover {
+        color: #ffffff !important;
+        opacity: 1 !important;
       }
 
       /* Main 2-Column Layout */
@@ -464,7 +466,7 @@
     <div class="contact-page-container">
       <!-- Top Close Link -->
       <div class="contact-top-bar">
-        <a href="/" id="contact-close-link" class="contact-close-btn" aria-label="Close contact page">
+        <a href="/" id="contact-close-link" class="contact-close-btn" aria-label="Close contact page" onmouseenter="this.style.setProperty('color','#ffffff','important');this.style.setProperty('opacity','1','important');" onmouseleave="this.style.setProperty('color','#ffffff','important');this.style.setProperty('opacity','1','important');">
           CLOSE
         </a>
       </div>

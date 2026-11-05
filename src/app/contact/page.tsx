@@ -40,7 +40,7 @@ export default function ContactPage() {
       <div className="w-full flex justify-end items-center mb-6">
         <button
           onClick={handleClose}
-          className="text-xs sm:text-[13px] tracking-[0.18em] font-medium text-white hover:text-[#A27B58] transition-colors"
+          className="text-xs sm:text-[13px] tracking-[0.18em] font-medium text-white hover:text-white transition-colors"
         >
           Close
         </button>

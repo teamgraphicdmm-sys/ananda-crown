@@ -55,7 +55,7 @@ export default function InquireDrawer({
       <div className="w-full flex justify-end items-center mb-6">
         <button
           onClick={onClose}
-          className="text-xs sm:text-[13px] tracking-[0.18em] font-medium text-white hover:text-[#A27B58] transition-colors cursor-pointer"
+          className="text-xs sm:text-[13px] tracking-[0.18em] font-medium text-white hover:text-white transition-colors cursor-pointer"
         >
           Close
         </button>
