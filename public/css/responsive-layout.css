@@ -43,7 +43,7 @@
   :is(.apartments-cta, .availability-map-visit) .seta-cta {width:16px !important;height:auto !important;}
 }
 @media (max-width:600px) {
-  #apartments .residence-story-media.residence-story-tile {min-height:660px !important;}
+  #apartments .residence-story-media.residence-story-tile {min-height:auto !important;height: auto!important; }
 }
 
 .amenity-points-toggle {display:none;}
@@ -138,6 +138,62 @@
 @media (max-width:600px) {
   #apartments #residence-arrival {
     height:auto!important;
-    min-height:660px!important;
+    min-height:auto!important;
   }
 }
+
+/* WHAT SETS CROWN APART: full view responsive layout up to iPad Mini (<= 1024px) */
+@media screen and (max-width: 1024px), screen and (max-width: 1400px) and (any-pointer: coarse) {
+  #apartments .apartments-info {
+    min-width: 0 !important;
+  }
+  #apartments .ap-section-group.ap-highlights-group {
+    margin-top: 2rem !important;
+    margin-bottom: 0 !important;
+    width: 100% !important;
+    min-width: 0 !important;
+  }
+  #apartments .ap-highlights-grid {
+    display: flex !important;
+    flex-direction: column !important;
+    gap: 14px !important;
+    margin-top: 1rem !important;
+    width: 100% !important;
+    min-width: 0 !important;
+  }
+  #apartments .ap-highlights-col {
+    display: contents !important;
+    padding: 0 !important;
+    margin: 0 !important;
+  }
+  #apartments .ap-highlights-v-divider {
+    display: none !important;
+  }
+  /* 2 Core & 4 Core at starting (1, 2 point) */
+  #apartments .ap-highlights-col:first-child .ap-highlight-card:nth-child(1) {
+    order: 1 !important; /* Point 1: 2 Core Residences */
+  }
+  #apartments .ap-highlights-col:last-child .ap-highlight-card:nth-child(1) {
+    order: 2 !important; /* Point 2: 4 Core Residences */
+  }
+  #apartments .ap-highlights-col:first-child .ap-highlight-card:nth-child(2) {
+    order: 3 !important; /* Point 3: 350 Ft */
+  }
+  #apartments .ap-highlights-col:last-child .ap-highlight-card:nth-child(2) {
+    order: 4 !important; /* Point 4: 80% Open spaces */
+  }
+  #apartments .ap-highlights-col:first-child .ap-highlight-card:nth-child(3) {
+    order: 5 !important; /* Point 5: 700+ Parking spaces */
+  }
+  #apartments .ap-highlights-col:last-child .ap-highlight-card:nth-child(3) {
+    order: 6 !important; /* Point 6: 68+ Amenities */
+  }
+  #apartments .ap-highlight-card {
+    width: 100% !important;
+    min-width: 0 !important;
+    padding: 4px 0 !important;
+    margin: 0 !important;
+    box-sizing: border-box !important;
+  }
+}
+
