@@ -26,7 +26,14 @@ const walk=dir=>fs.readdirSync(dir,{withFileTypes:true}).flatMap(e=>e.isDirector
   }
  }
  let before=0,after=0,count=0;
- const css=code=>transform({filename:'site.css',code:Buffer.from(code),minify:true,errorRecovery:true}).code.toString();
+ const targets = {
+  chrome: 90 << 16,
+  firefox: 90 << 16,
+  safari: 14 << 16,
+  ios_saf: 14 << 16,
+  edge: 90 << 16
+ };
+ const css=code=>transform({filename:'site.css',code:Buffer.from(code),targets,minify:true,errorRecovery:true}).code.toString();
  for(const file of walk(root)){
   if(!/\.(css|js|html)$/.test(file)||/\.min\.js$/.test(file))continue;
   const original=fs.readFileSync(file,'utf8');let output=original;
