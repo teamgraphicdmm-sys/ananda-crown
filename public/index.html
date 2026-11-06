@@ -9474,7 +9474,7 @@ a,
     </div>
 
 
-    <nav class="nav" data-nav-section="home">
+    <nav class="nav is-dark-bg" data-nav-section="home">
       <a href="#home" class="ref-top-logo" aria-label="Ananda Crown"><img src="images/tarnsaperent-logo-256.webp"
           alt="Ananda Crown" class="ref-top-logo-img" width="256" height="256" decoding="async" loading="eager" /></a>
       <div class="nav-links-component">
@@ -12893,6 +12893,21 @@ a,
       const heroSection = document.getElementById('home');
       function updateNavHeroState() {
         if (!navEl || !heroSection) return;
+        const isDesktop =
+          typeof isDesktopScrollMode === "function"
+            ? isDesktopScrollMode()
+            : window.innerWidth > 1024;
+        const hasToggleBtn = Boolean(
+          navEl.querySelector(".nav-mobile-toggle") ||
+          navEl.querySelector("#navMobileToggle") ||
+          document.getElementById("navMobileToggle")
+        );
+        if (!isDesktop && hasToggleBtn) {
+          if (navEl.style.getPropertyValue('--nav-hero-clip') !== 'inset(0)') {
+            navEl.style.setProperty('--nav-hero-clip', 'inset(0)');
+          }
+          return;
+        }
         // The section includes the entire pinned sequence; its animated content does not.
         const bounds = heroSection.getBoundingClientRect();
         const navBounds = navEl.getBoundingClientRect();
@@ -12961,23 +12976,39 @@ a,
           const footer = document.querySelector('.inquire-section');
           if (footer) { const r = footer.getBoundingClientRect(); isDark = r.left <= checkX && r.right > checkX && r.top <= checkY && r.bottom > checkY; }
         }
-        if (isDark) {
+        const hasToggleBtn = Boolean(
+          navEl.querySelector(".nav-mobile-toggle") ||
+          navEl.querySelector("#navMobileToggle") ||
+          document.getElementById("navMobileToggle")
+        );
+
+        if (!isDesktop && hasToggleBtn) {
           if (!navEl.classList.contains("is-dark-bg")) {
             navEl.classList.add("is-dark-bg");
+          }
+          if (navEl.classList.contains("is-light-bg")) {
             navEl.classList.remove("is-light-bg");
           }
+          if (navEl.hasAttribute("data-nav-section")) {
+            navEl.removeAttribute("data-nav-section");
+          }
         } else {
-          if (
-            navEl.classList.contains("is-dark-bg") ||
-            !navEl.classList.contains("is-light-bg")
-          ) {
-            navEl.classList.remove("is-dark-bg");
-            navEl.classList.add("is-light-bg");
+          navEl.dataset.navSection = currentSection;
+          if (isDark) {
+            if (!navEl.classList.contains("is-dark-bg")) {
+              navEl.classList.add("is-dark-bg");
+              navEl.classList.remove("is-light-bg");
+            }
+          } else {
+            if (
+              navEl.classList.contains("is-dark-bg") ||
+              !navEl.classList.contains("is-light-bg")
+            ) {
+              navEl.classList.remove("is-dark-bg");
+              navEl.classList.add("is-light-bg");
+            }
           }
         }
-
-
-        navEl.dataset.navSection = currentSection;
 
 
 

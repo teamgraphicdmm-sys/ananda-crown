@@ -38,6 +38,29 @@ let currentActiveSectionId = null;
 function updateNavTheme(sectionId) {
   const navEl = document.querySelector(".nav");
   if (!navEl) return;
+  const isDesktop =
+    typeof isDesktopMode === "function"
+      ? isDesktopMode()
+      : (typeof window.isDesktopScrollMode === "function"
+          ? window.isDesktopScrollMode()
+          : window.innerWidth > 1024);
+  const hasToggleBtn = Boolean(
+    navEl.querySelector(".nav-mobile-toggle") ||
+    navEl.querySelector("#navMobileToggle") ||
+    document.getElementById("navMobileToggle")
+  );
+  if (!isDesktop && hasToggleBtn) {
+    if (!navEl.classList.contains("is-dark-bg")) {
+      navEl.classList.add("is-dark-bg");
+    }
+    if (navEl.classList.contains("is-light-bg")) {
+      navEl.classList.remove("is-light-bg");
+    }
+    if (navEl.hasAttribute("data-nav-section")) {
+      navEl.removeAttribute("data-nav-section");
+    }
+    return;
+  }
   const isDark = DARK_SECTIONS.indexOf(sectionId) !== -1;
   if (isDark) {
     navEl.classList.add("is-dark-bg");
