@@ -1,17 +1,17 @@
 {
-  "source": "public/videos/Website_Video.mp4",
-  "version": "0023fa383907-fast-v1",
+  "source": "public/videos/flip-jogging.mp4",
+  "version": "ada25f68a906-fast-v1",
   "fps": 12,
-  "frameCount": 256,
-  "desktop": "videos/hero-website-0023fa383907-fast-v1/desktop/",
+  "frameCount": 85,
+  "desktop": "videos/hero-website-ada25f68a906-fast-v1/desktop/",
   "desktopWidth": 1280,
-  "mobile": "videos/hero-website-0023fa383907-fast-v1/mobile/",
+  "mobile": "videos/hero-website-ada25f68a906-fast-v1/mobile/",
   "mobileWidth": 640,
-  "sourceBytes": 108022478,
+  "sourceBytes": 27005231,
   "outputBytes": {
-    "desktop": 32454734,
-    "mobile": 20998662
+    "desktop": 7382742,
+    "mobile": 4812920
   },
-  "desktopVideo": "videos/hero-desktop-0023fa383907-v1.mp4",
-  "desktopVideoBytes": 20988307
+  "desktopVideo": "videos/hero-desktop-ada25f68a906-v1.mp4",
+  "desktopVideoBytes": 6179125
 }

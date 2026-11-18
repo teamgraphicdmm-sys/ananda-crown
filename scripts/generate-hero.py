@@ -41,7 +41,7 @@ previous_path=root/'scripts/hero-sequence.json'
 if previous_path.is_file():
  previous=json.loads(previous_path.read_text())
  video=previous.get('desktopVideo','')
- if video.startswith('videos/hero-desktop-'+version.split('-fast-')[0]) and (root/'public'/video).is_file():
+ if video.startswith('videos/hero-desktop-'+hashlib.sha256(source.read_bytes()).hexdigest()[:12]) and (root/'public'/video).is_file():
   manifest['desktopVideo']=video
   manifest['desktopVideoBytes']=(root/'public'/video).stat().st_size
 (root/'scripts/hero-sequence.json').write_text(json.dumps(manifest,indent=2)+'\n',encoding='utf-8')
