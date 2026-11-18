@@ -12,6 +12,7 @@
   background: rgb(48 22 14 / 10%);
   opacity:1;
   clip-path:var(--nav-hero-clip,inset(0));
+  width: calc(100% - 2px);
 }
 @media (max-width:1024px), (max-width:1400px) and (any-pointer:coarse) {
   .nav[data-nav-section]::before {
