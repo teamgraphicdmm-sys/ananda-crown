@@ -54,3 +54,4 @@ references/
 
 # Large local video master; generated hero frames are committed instead.
 /public/videos/Website_Video.mp4
+/videos/
