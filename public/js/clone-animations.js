@@ -57,7 +57,7 @@
       }
       if (location) gsap.set(location, { y: 25, opacity: 0 });
       if (divider) gsap.set(divider, { scaleX: 0, transformOrigin: "left", opacity: 0 });
-      if (cta) gsap.set(cta, { y: 25, scale: 0.92, opacity: 0 });
+      if (cta) gsap.set(cta, { y: 12, scale: 0.98, opacity: 0 });
       if (bottom) gsap.set(bottom, { y: 20, opacity: 0 });
 
       // Orchestrated Entrance
@@ -89,7 +89,7 @@
         tlHero.to(divider, { scaleX: 1, opacity: 1, duration: 0.9, ease: "power3.out" }, "-=0.6");
       }
       if (cta) {
-        tlHero.to(cta, { y: 0, scale: 1, opacity: 1, duration: 0.8, ease: "back.out(1.7)" }, "-=0.6");
+        tlHero.to(cta, { y: 0, scale: 1, opacity: 1, duration: 0.45, ease: "power3.out" }, 0.6);
       }
       if (bottom) {
         tlHero.to(bottom, { y: 0, opacity: 1, duration: 0.9, ease: "power2.out" }, "-=0.6");
