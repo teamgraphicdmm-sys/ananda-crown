@@ -31,4 +31,31 @@ GSAP and the existing main fonts are local, with their existing versions and lic
 
 Reference folders, including `refe/`, are excluded from cleanup. Root/public duplicates needed by the two preview modes are retained. `scripts/image-optimization.json` and `scripts/asset-cleanup.json` record the optimization and cleanup results.
 
-The existing inquiry/contact forms currently prevent submission and have no configured delivery backend. Performance optimization does not add a form service.
+## Direct Contact & Inquiry Form Delivery (Zero Third Parties)
+
+Contact and inquiry submissions (from both the dedicated contact page and the homepage inquiry modal) are handled directly by your server via **Nodemailer and SMTP**, with **zero third-party services** involved. Form data is never logged on any external dashboard or third-party server.
+
+### Configuration via `.env.local`
+
+Create a `.env.local` file in the project root (see [.env.example](file:///C:/xampp/htdocs/jsProjects/ananda-crown/.env.example)):
+
+```env
+# For Gmail (or your domain's SMTP server):
+SMTP_HOST=smtp.gmail.com
+SMTP_PORT=465
+SMTP_SECURE=true
+
+# Your sending email address:
+SMTP_USER=your-email@gmail.com
+
+# For Gmail: 16-character App Password (Google Account > Security > 2-Step Verification > App Passwords)
+SMTP_PASS=your-16-char-app-password
+
+# Recipient email address where contact inquiries should be delivered
+CONTACT_TO_EMAIL=your-recipient-email@gmail.com
+```
+
+### Running the Server
+
+- **Local Preview Server**: `npm run dev` (port 3000) or `npm run preview` (port 8080) automatically loads `.env.local` and handles `/api/contact` using Nodemailer.
+- **Next.js Server**: `npm run start` or `npm run dev:react` uses the Next.js Route Handler at `src/app/api/contact/route.ts`.

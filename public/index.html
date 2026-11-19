@@ -11335,11 +11335,25 @@ a,
                 </div>
               </div>
               <div class="inquire-open-right">
-                <div class="c-form_block w-form">
-                  <form id="email-form" name="email-form" data-name="Email Form" action="#" method="post"
-                    onsubmit="event.preventDefault()" data-wt-fv-form="1" class="form"
-                    data-wf-page-id="6401e4efa043695c1e1b5ee1"
-                    data-wf-element-id="fb5d3d5f-2dec-4a45-f3cd-6af4e0a6052d">
+                <style>
+                  .c-error-message.is-visible {
+                    display: block !important;
+                    opacity: 1 !important;
+                    margin-top: 4px !important;
+                  }
+                  .c-error-message.is-visible .c-error-text {
+                    color: #ff5555 !important;
+                    font-size: 11px !important;
+                    letter-spacing: 0.05em !important;
+                    text-transform: uppercase !important;
+                  }
+                  .c-text-field.has-error {
+                    border-bottom-color: #ff5555 !important;
+                  }
+                </style>
+                <div class="c-form_block">
+                  <form id="email-form" name="email-form" action="#" method="post"
+                    onsubmit="return false;" class="form">
                     <div class="form-top">
                       <div class="form-heading">
                         <div class="form-heading-top">
@@ -11347,9 +11361,6 @@ a,
                             <div class="ball-interest"></div>
                             <div class="untitled-400-13" id="inquire-modal-interest-label">
                               REGISTER INTEREST
-                            </div>
-                            <div class="toggle-pill active" id="inquire-modal-toggle" role="button" tabindex="0">
-                              <div class="toggle-handle"></div>
                             </div>
                           </div>
                           <!-- <div class="form-required">
@@ -11363,10 +11374,10 @@ a,
                       <div class="c-form_field left-50">
                         <input class="c-text-field w-input" maxlength="256" name="Fisrt-Name" data-name="Fisrt Name"
                           placeholder="FIRST NAME*" type="text" id="Fisrt-Name" required="" />
-                        <div class="c-error-message">
+                        <div class="c-error-message" id="error-Fisrt-Name">
                           <div class="c-error-message-wrap">
                             <div class="c-error-text">
-                              Please fill this field.
+                              Please fill in your first name.
                             </div>
                           </div>
                         </div>
@@ -11374,10 +11385,10 @@ a,
                       <div class="c-form_field right-50">
                         <input class="c-text-field w-input" maxlength="256" name="Last-Name" data-name="Last Name"
                           placeholder="LAST NAME*" type="text" id="Last-Name" required="" />
-                        <div class="c-error-message">
+                        <div class="c-error-message" id="error-Last-Name">
                           <div class="c-error-message-wrap">
                             <div class="c-error-text">
-                              Please fill this field.
+                              Please fill in your last name.
                             </div>
                           </div>
                         </div>
@@ -11385,10 +11396,10 @@ a,
                       <div class="c-form_field left-50">
                         <input class="c-text-field w-input" maxlength="256" name="Email-Adress" data-name="Email Adress"
                           placeholder="EMAIL*" type="email" id="Email-Adress-2" required="" />
-                        <div class="c-error-message">
+                        <div class="c-error-message" id="error-Email-Adress-2">
                           <div class="c-error-message-wrap">
                             <div class="c-error-text">
-                              Please fill this field.
+                              Please enter a valid email address.
                             </div>
                           </div>
                         </div>
@@ -11396,7 +11407,7 @@ a,
                       <div class="c-form_field right-50">
                         <input class="c-text-field w-input" maxlength="256" name="Phone-Number" data-name="Phone Number"
                           placeholder="PHONE NUMBER" type="tel" id="Phone-Number-2" />
-                        <div class="c-error-message">
+                        <div class="c-error-message" id="error-Phone-Number-2">
                           <div class="c-error-message-wrap">
                             <div class="c-error-text">
                               Please fill this field.
@@ -11407,46 +11418,54 @@ a,
                       <div class="c-form_field tex-field">
                         <textarea id="Request-2" name="Request" maxlength="5000" data-name="Request"
                           placeholder="REQUEST*" required="" class="c-text-field is-text-area w-input"></textarea>
-                        <div class="c-error-message">
+                        <div class="c-error-message" id="error-Request-2">
                           <div class="c-error-message-wrap">
                             <div class="c-error-text">
-                              Please fill this field.
+                              Please enter your request.
                             </div>
                           </div>
                         </div>
                       </div>
-                      <div class="form-accept">
-                        <label class="w-checkbox form-check-box">
-                          <div class="w-checkbox-input w-checkbox-input--inputType-custom form-checkbox"></div>
+                      <div class="form-accept" id="privacy-row-index">
+                        <label class="w-checkbox form-check-box" style="cursor: pointer; display: flex; align-items: center; margin-bottom: 0;">
+                          <div class="w-checkbox-input w-checkbox-input--inputType-custom form-checkbox" id="custom-checkbox-index"></div>
                           <input id="Accept-the-Privacy-Policy" type="checkbox" name="Accept-the-Privacy-Policy"
-                            data-name="Accept the Privacy Policy" required=""
-                            style="opacity: 0; position: absolute; z-index: -1" /><span
+                            data-name="Accept the Privacy Policy"
+                            style="opacity: 0; position: absolute; pointer-events: none; width: 1px; height: 1px;" /><span
                             class="untitled-400-10 w-form-label" for="Accept-the-Privacy-Policy">I HAVE READ AND ACCEPT
-                            THE <a href="/privacy" privacy="link" target="_blank" class="form-politica-link">PRIVACY
+                            THE <a href="/privacy" privacy="link" target="_blank" class="form-politica-link">PRIVACY
                               POLICY</a>.</span>
                         </label>
+                        <div class="c-error-message" id="error-privacy-index" style="display: none; opacity: 0; margin-top: 6px;">
+                          <div class="c-error-message-wrap">
+                            <div class="c-error-text" style="color: #ff5555;">Please accept the Privacy Policy to proceed.</div>
+                          </div>
+                        </div>
                       </div>
                     </div>
                     <div class="form-button-wrapper">
-                      <input type="submit" data-wait="" class="form-botton w-button" value="SUBMIT" />
+                      <input type="submit" data-wait="" class="form-botton w-button" value="SUBMIT" id="inquire-submit-btn" />
                     </div>
                   </form>
-                  <div class="form-sucess-component w-form-done">
+                  <div class="form-sucess-component" style="display: none;">
                     <div class="form-error-flex">
                       <div class="form-heading">
                         <div class="form-heading-top">
                           <div class="form-interest">
-                            <div class="ball-interest"></div>
-                            <div class="untitled-400-13">
+                            <div class="ball-interest" style="background-color: #22c55e !important; box-shadow: 0 0 10px rgba(34, 197, 94, 0.6) !important;"></div>
+                            <div class="untitled-400-13" style="color: #22c55e !important;">
                               WE RECEIVED YOUR  MESSAGE
                             </div>
                           </div>
                         </div>
                         <div class="horizontal-line-wrap">
-                          <div class="horizontal-line"></div>
+                          <div class="horizontal-line" style="background-color: rgba(34, 197, 94, 0.3) !important;"></div>
                         </div>
                       </div>
-                      <div class="tobias-300-98 mb-40">THANK YOU</div>
+                      <div class="tobias-300-98 mb-40" style="color: #a27b58 !important;">THANK YOU</div>
+                      <p style="color: #22c55e; font-size: 14px; letter-spacing: 0.08em; margin-top: -24px; margin-bottom: 24px;">
+                        Our private concierge will contact you shortly.
+                      </p>
                     </div>
                   </div>
                   <div class="error-message w-form-fail">
@@ -13870,6 +13889,7 @@ a,
   <script src="js/responsive-layout.js"></script>
   <script src="js/crown-construction.js?v=champagne-2"></script>
   <script src="js/amenities-crown-background.js?v=responsive-text-only-19"></script>
+  <script src="js/contact-form.js"></script>
 
   <script id="leadership-card-smooth-animation">
     (function () {

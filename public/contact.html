@@ -428,8 +428,46 @@
         font-size: clamp(48px, 5.5vw, 88px);
         line-height: 1;
         text-transform: uppercase;
-        color: var(--white);
+        color: #a27b58 !important;
         margin-top: 20px;
+      }
+
+      .contact-success-box .interest-dot {
+        background-color: #22c55e !important;
+        box-shadow: 0 0 12px rgba(34, 197, 94, 0.7) !important;
+      }
+
+      .contact-success-box .interest-title {
+        color: #22c55e !important;
+      }
+
+      .contact-success-box p {
+        color: #86efac !important;
+      }
+
+      /* Field-Level Error Messaging */
+      .field-error-msg {
+        display: none;
+        color: #ff5555;
+        font-size: 11px;
+        letter-spacing: 0.05em;
+        text-transform: uppercase;
+        margin-top: 6px;
+        font-weight: 500;
+      }
+
+      .field-error-msg.is-visible {
+        display: block;
+      }
+
+      .form-underline-input.has-error {
+        border-bottom-color: #ff5555 !important;
+      }
+
+      .privacy-agreement.has-error {
+        outline: 1px solid #ff5555;
+        border-radius: 4px;
+        padding: 4px 6px;
       }
 
       /* Responsive Breakpoints */
@@ -514,14 +552,11 @@
         <div class="contact-right-col">
           <div class="contact-form-wrapper">
             <form id="contact-inquiry-form" class="contact-form">
-              <!-- Top Register Interest & Toggle Switch -->
+              <!-- Top Register Interest -->
               <div class="interest-bar">
                 <div class="interest-left">
                   <span class="interest-dot"></span>
                   <span class="interest-title" id="interest-label">REGISTER INTEREST</span>
-                  <div class="toggle-pill active" id="toggle-switch" role="button" tabindex="0" aria-label="Toggle Interest">
-                    <div class="toggle-handle"></div>
-                  </div>
                 </div>
                 <!-- <div class="required-notice">*REQUIRED FIELDS</div> -->
               </div>
@@ -537,6 +572,7 @@
                     placeholder="FIRST NAME*"
                     required
                   />
+                  <div class="field-error-msg" id="error-firstName">Please fill in your first name.</div>
                 </div>
 
                 <div class="form-field-item">
@@ -548,6 +584,7 @@
                     placeholder="LAST NAME*"
                     required
                   />
+                  <div class="field-error-msg" id="error-lastName">Please fill in your last name.</div>
                 </div>
 
                 <div class="form-field-item">
@@ -559,6 +596,7 @@
                     placeholder="EMAIL*"
                     required
                   />
+                  <div class="field-error-msg" id="error-email">Please enter a valid email address.</div>
                 </div>
 
                 <div class="form-field-item">
@@ -569,6 +607,7 @@
                     class="form-underline-input"
                     placeholder="PHONE NUMBER"
                   />
+                  <div class="field-error-msg" id="error-phone"></div>
                 </div>
 
                 <div class="form-field-item form-field-full">
@@ -580,32 +619,35 @@
                     placeholder="REQUEST*"
                     required
                   ></textarea>
+                  <div class="field-error-msg" id="error-request">Please enter your request.</div>
                 </div>
               </div>
 
               <!-- Privacy Policy Radio/Checkbox -->
-              <div class="privacy-agreement" id="privacy-row" tabindex="0">
+              <div class="privacy-agreement" id="privacy-row" tabindex="0" role="checkbox" aria-checked="false" aria-label="Accept Privacy Policy">
                 <div class="custom-radio-circle" id="privacy-circle">
                   <div class="custom-radio-dot"></div>
                 </div>
-                <input type="checkbox" id="privacy-input" name="privacy" required style="display: none;" />
+                <input type="checkbox" id="privacy-input" name="privacy" style="opacity: 0; position: absolute; pointer-events: none; width: 1px; height: 1px;" />
                 <span class="privacy-label-text">
                   I HAVE READ AND ACCEPT THE <a href="/privacy" target="_blank">PRIVACY POLICY</a>.
                 </span>
               </div>
+              <div class="field-error-msg" id="error-privacy" style="margin-top: 8px;">Please accept the Privacy Policy to proceed.</div>
+              <div id="contact-form-error" class="contact-form-error" style="display: none; color: #ff6b6b; font-size: 13px; margin-top: 16px; letter-spacing: 0.05em; text-align: left;"></div>
             </form>
 
             <!-- Success Box -->
             <div id="contact-success-state" class="contact-success-box">
               <div class="interest-bar" style="width: 100%;">
                 <div class="interest-left">
-                  <span class="interest-dot"></span>
-                  <span class="interest-title">WE RECEIVED YOUR MESSAGE</span>
+                  <span class="interest-dot" style="background-color: #22c55e !important; box-shadow: 0 0 10px rgba(34, 197, 94, 0.6) !important;"></span>
+                  <span class="interest-title" style="color: #22c55e !important;">WE RECEIVED YOUR MESSAGE</span>
                 </div>
               </div>
-              <h2 class="success-title">THANK YOU</h2>
-              <p style="margin-top: 18px; color: var(--muted); font-size: 13px; letter-spacing: 0.08em; text-transform: none;">
-                Our private concierge will contact you shortly.
+              <h2 class="success-title" style="color: #a27b58 !important;">THANK YOU</h2>
+              <p style="margin-top: 18px; color: #86efac !important; font-size: 13px; letter-spacing: 0.08em; text-transform: none;">
+                 will contact you shortly.
               </p>
             </div>
           </div>
@@ -641,12 +683,33 @@
         const privacyRow = document.getElementById('privacy-row');
         const privacyCircle = document.getElementById('privacy-circle');
         const privacyInput = document.getElementById('privacy-input');
+        const privacyError = document.getElementById('error-privacy');
+
+        function togglePrivacy() {
+          privacyInput.checked = !privacyInput.checked;
+          if (privacyCircle) privacyCircle.classList.toggle('checked', privacyInput.checked);
+          privacyRow.setAttribute('aria-checked', privacyInput.checked ? 'true' : 'false');
+          if (privacyInput.checked) {
+            privacyRow.classList.remove('has-error');
+            if (privacyError) {
+              privacyError.classList.remove('is-visible');
+              privacyError.style.display = 'none';
+              privacyError.style.opacity = '0';
+            }
+          }
+          privacyInput.dispatchEvent(new Event('change', { bubbles: true }));
+        }
 
         if (privacyRow && privacyCircle && privacyInput) {
           privacyRow.addEventListener('click', function(e) {
-            if (e.target.tagName.toLowerCase() === 'a') return;
-            privacyInput.checked = !privacyInput.checked;
-            privacyCircle.classList.toggle('checked', privacyInput.checked);
+            if (e.target.tagName && e.target.tagName.toLowerCase() === 'a') return;
+            togglePrivacy();
+          });
+          privacyRow.addEventListener('keydown', function(e) {
+            if (e.key === ' ' || e.key === 'Enter') {
+              e.preventDefault();
+              togglePrivacy();
+            }
           });
         }
 
@@ -669,26 +732,8 @@
             if (closeBtn) closeBtn.click();
           }
         });
-
-        // Form submission
-        const form = document.getElementById('contact-inquiry-form');
-        const successBox = document.getElementById('contact-success-state');
-        const submitWrap = document.getElementById('submit-btn-wrap');
-
-        if (form) {
-          form.addEventListener('submit', function(e) {
-            e.preventDefault();
-            if (privacyInput && !privacyInput.checked) {
-              alert('Please accept the privacy policy to proceed.');
-              return;
-            }
-
-            form.style.display = 'none';
-            if (submitWrap) submitWrap.style.display = 'none';
-            if (successBox) successBox.classList.add('is-active');
-          });
-        }
       })();
     </script>
+    <script src="/js/contact-form.js" onerror="this.onerror=null;var alt=(window.location.pathname.includes('/contact')?'../js/':'js/')+'contact-form.js';this.src=alt;"></script>
   </body>
 </html>
